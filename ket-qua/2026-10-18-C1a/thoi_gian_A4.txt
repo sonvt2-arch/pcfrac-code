@@ -1,0 +1,5 @@
+THOI GIAN T_cg1_sp_n4 nhan=4 hspace=cg1 split=spectral toi_buoc40_s=144.4 chay_tron_s=845.4 so_buoc=202
+THOI GIAN T_cg1_am_n4 nhan=4 hspace=cg1 split=amor toi_buoc40_s=138.4 chay_tron_s=839.3 so_buoc=199
+THOI GIAN T_dg0_sp_n4 nhan=4 hspace=dg0 split=spectral toi_buoc40_s=148.4 chay_tron_s=536.9 so_buoc=170
+THOI GIAN T_cg1_sp_n2 nhan=2 hspace=cg1 split=spectral toi_buoc40_s=266.5 chay_tron_s=1904.1 so_buoc=197
+THOI GIAN T_cg1_sp_n1 nhan=1 hspace=cg1 split=spectral toi_buoc40_s=354.6 chay_tron_s=2442.7 so_buoc=196

@@ -1,0 +1,449 @@
+name: Chay noi nhieu chang
+
+# Chay cac ca dai hon tran 6 gio/job cua GitHub bang diem kiem (--ckpt/--resume
+# cua benchmark_A.py).  Danh sach ca o .github/chay-noi.json; sua tep do va day
+# len nhanh nay la khoi dong mot lan chay moi.  Moi chang chay toi da 320 phut,
+# day diem kiem sang chang sau qua artifact, va commit log ve nhanh sau moi chang.
+# Chang 1 thu chay tiep tu ket-qua/diem-kiem/ck_<tag> (diem kiem cua may may);
+# neu benchmark_A.py bao "PHAN HOACH KHAC" thi chay lai tu dau.
+
+on:
+  push:
+    paths: [".github/chay-noi.json"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  PHUT: "320"
+
+jobs:
+  doc-ca:
+    runs-on: ubuntu-latest
+    outputs:
+      ca: ${{ steps.c.outputs.ca }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: c
+        run: echo "ca=$(python3 -c 'import json;print(json.dumps(json.load(open(".github/chay-noi.json"))))')" >> "$GITHUB_OUTPUT"
+
+  c1:
+    needs: doc-ca
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 345
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.doc-ca.outputs.ca) }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      CHANG: "1"
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+      - name: Lay diem kiem chang truoc
+        if: env.CHANG != '1'
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: ck-${{ matrix.tag }}
+          path: truoc
+      - name: Chay
+        working-directory: code
+        run: |
+          set +e   # mpirun/timeout tra ma khac 0 la chuyen binh thuong o day
+          tag=${{ matrix.tag }}; ck=ck_$tag; f=A_$tag.log
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          if [ "$CHANG" = 1 ]; then
+            [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
+          elif [ -d ../truoc/$ck ]; then
+            cp -r ../truoc/$ck .; cp ../truoc/$f .
+          fi
+          touch $f
+          chay(){
+            rs=""; ls $ck/r0of${{ matrix.nhan }}_s*.npz >/dev/null 2>&1 && rs="--resume"
+            echo "=== CHANG $CHANG $(date -u +%FT%TZ) ${rs:-tu dau} (GitHub Actions)" > $f.cur
+            echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" >> $f.cur
+            timeout ${PHUT}m mpirun -n ${{ matrix.nhan }} python3 -u benchmark_A.py \
+              ${{ matrix.args }} --ckpt $ck $rs --out $tag >> $f.cur 2>&1
+            echo "=== EXIT=$? $(date -u +%FT%TZ)" >> $f.cur
+            cat $f.cur >> $f
+          }
+          if ! grep -q "PEAK LOAD" $f; then
+            chay
+            if grep -q "PHAN HOACH KHAC\|KHONG CO DIEM KIEM CHUNG" $f.cur; then
+              rm -rf $ck; echo "=== diem kiem khong dung duoc -> chay lai tu dau" >> $f
+              chay
+            fi
+          fi
+          tail -5 $f
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ]; then
+            python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
+            cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
+            sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
+            python3 measure_kink.py $tag.xdmf --ell 0.05 --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
+          fi
+          D=../ket-qua/2026-10-26-actions; mkdir -p $D/truong
+          cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
+          [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf $D/truong/ || true
+          ls loaddisp_*$tag*.txt >/dev/null 2>&1 && cp -f loaddisp_*$tag*.txt $D/ || true
+          mkdir -p ../ckout && [ -d $ck ] && cp -r $ck $f ../ckout/ || true
+          [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf goc_$tag.txt ../ckout/ 2>/dev/null || true
+      - name: Day diem kiem sang chang sau
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ck-${{ matrix.tag }}
+          path: ckout/
+          overwrite: true
+          retention-days: 7
+      - name: Commit log ve nhanh
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-10-26-actions || exit 0
+          git commit -qm "Actions: ${{ matrix.tag }} sau chang $CHANG (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
+
+  c2:
+    needs: [doc-ca, c1]
+    if: "!cancelled() && needs.doc-ca.result == 'success'"
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 345
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.doc-ca.outputs.ca) }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      CHANG: "2"
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+      - name: Lay diem kiem chang truoc
+        if: env.CHANG != '1'
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: ck-${{ matrix.tag }}
+          path: truoc
+      - name: Chay
+        working-directory: code
+        run: |
+          set +e   # mpirun/timeout tra ma khac 0 la chuyen binh thuong o day
+          tag=${{ matrix.tag }}; ck=ck_$tag; f=A_$tag.log
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          if [ "$CHANG" = 1 ]; then
+            [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
+          elif [ -d ../truoc/$ck ]; then
+            cp -r ../truoc/$ck .; cp ../truoc/$f .
+          fi
+          touch $f
+          chay(){
+            rs=""; ls $ck/r0of${{ matrix.nhan }}_s*.npz >/dev/null 2>&1 && rs="--resume"
+            echo "=== CHANG $CHANG $(date -u +%FT%TZ) ${rs:-tu dau} (GitHub Actions)" > $f.cur
+            echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" >> $f.cur
+            timeout ${PHUT}m mpirun -n ${{ matrix.nhan }} python3 -u benchmark_A.py \
+              ${{ matrix.args }} --ckpt $ck $rs --out $tag >> $f.cur 2>&1
+            echo "=== EXIT=$? $(date -u +%FT%TZ)" >> $f.cur
+            cat $f.cur >> $f
+          }
+          if ! grep -q "PEAK LOAD" $f; then
+            chay
+            if grep -q "PHAN HOACH KHAC\|KHONG CO DIEM KIEM CHUNG" $f.cur; then
+              rm -rf $ck; echo "=== diem kiem khong dung duoc -> chay lai tu dau" >> $f
+              chay
+            fi
+          fi
+          tail -5 $f
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ]; then
+            python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
+            cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
+            sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
+            python3 measure_kink.py $tag.xdmf --ell 0.05 --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
+          fi
+          D=../ket-qua/2026-10-26-actions; mkdir -p $D/truong
+          cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
+          [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf $D/truong/ || true
+          ls loaddisp_*$tag*.txt >/dev/null 2>&1 && cp -f loaddisp_*$tag*.txt $D/ || true
+          mkdir -p ../ckout && [ -d $ck ] && cp -r $ck $f ../ckout/ || true
+          [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf goc_$tag.txt ../ckout/ 2>/dev/null || true
+      - name: Day diem kiem sang chang sau
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ck-${{ matrix.tag }}
+          path: ckout/
+          overwrite: true
+          retention-days: 7
+      - name: Commit log ve nhanh
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-10-26-actions || exit 0
+          git commit -qm "Actions: ${{ matrix.tag }} sau chang $CHANG (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
+
+  c3:
+    needs: [doc-ca, c2]
+    if: "!cancelled() && needs.doc-ca.result == 'success'"
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 345
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.doc-ca.outputs.ca) }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      CHANG: "3"
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+      - name: Lay diem kiem chang truoc
+        if: env.CHANG != '1'
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: ck-${{ matrix.tag }}
+          path: truoc
+      - name: Chay
+        working-directory: code
+        run: |
+          set +e   # mpirun/timeout tra ma khac 0 la chuyen binh thuong o day
+          tag=${{ matrix.tag }}; ck=ck_$tag; f=A_$tag.log
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          if [ "$CHANG" = 1 ]; then
+            [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
+          elif [ -d ../truoc/$ck ]; then
+            cp -r ../truoc/$ck .; cp ../truoc/$f .
+          fi
+          touch $f
+          chay(){
+            rs=""; ls $ck/r0of${{ matrix.nhan }}_s*.npz >/dev/null 2>&1 && rs="--resume"
+            echo "=== CHANG $CHANG $(date -u +%FT%TZ) ${rs:-tu dau} (GitHub Actions)" > $f.cur
+            echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" >> $f.cur
+            timeout ${PHUT}m mpirun -n ${{ matrix.nhan }} python3 -u benchmark_A.py \
+              ${{ matrix.args }} --ckpt $ck $rs --out $tag >> $f.cur 2>&1
+            echo "=== EXIT=$? $(date -u +%FT%TZ)" >> $f.cur
+            cat $f.cur >> $f
+          }
+          if ! grep -q "PEAK LOAD" $f; then
+            chay
+            if grep -q "PHAN HOACH KHAC\|KHONG CO DIEM KIEM CHUNG" $f.cur; then
+              rm -rf $ck; echo "=== diem kiem khong dung duoc -> chay lai tu dau" >> $f
+              chay
+            fi
+          fi
+          tail -5 $f
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ]; then
+            python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
+            cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
+            sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
+            python3 measure_kink.py $tag.xdmf --ell 0.05 --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
+          fi
+          D=../ket-qua/2026-10-26-actions; mkdir -p $D/truong
+          cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
+          [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf $D/truong/ || true
+          ls loaddisp_*$tag*.txt >/dev/null 2>&1 && cp -f loaddisp_*$tag*.txt $D/ || true
+          mkdir -p ../ckout && [ -d $ck ] && cp -r $ck $f ../ckout/ || true
+          [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf goc_$tag.txt ../ckout/ 2>/dev/null || true
+      - name: Day diem kiem sang chang sau
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ck-${{ matrix.tag }}
+          path: ckout/
+          overwrite: true
+          retention-days: 7
+      - name: Commit log ve nhanh
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-10-26-actions || exit 0
+          git commit -qm "Actions: ${{ matrix.tag }} sau chang $CHANG (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
+
+  c4:
+    needs: [doc-ca, c3]
+    if: "!cancelled() && needs.doc-ca.result == 'success'"
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 345
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.doc-ca.outputs.ca) }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      CHANG: "4"
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+      - name: Lay diem kiem chang truoc
+        if: env.CHANG != '1'
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: ck-${{ matrix.tag }}
+          path: truoc
+      - name: Chay
+        working-directory: code
+        run: |
+          set +e   # mpirun/timeout tra ma khac 0 la chuyen binh thuong o day
+          tag=${{ matrix.tag }}; ck=ck_$tag; f=A_$tag.log
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          if [ "$CHANG" = 1 ]; then
+            [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
+          elif [ -d ../truoc/$ck ]; then
+            cp -r ../truoc/$ck .; cp ../truoc/$f .
+          fi
+          touch $f
+          chay(){
+            rs=""; ls $ck/r0of${{ matrix.nhan }}_s*.npz >/dev/null 2>&1 && rs="--resume"
+            echo "=== CHANG $CHANG $(date -u +%FT%TZ) ${rs:-tu dau} (GitHub Actions)" > $f.cur
+            echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" >> $f.cur
+            timeout ${PHUT}m mpirun -n ${{ matrix.nhan }} python3 -u benchmark_A.py \
+              ${{ matrix.args }} --ckpt $ck $rs --out $tag >> $f.cur 2>&1
+            echo "=== EXIT=$? $(date -u +%FT%TZ)" >> $f.cur
+            cat $f.cur >> $f
+          }
+          if ! grep -q "PEAK LOAD" $f; then
+            chay
+            if grep -q "PHAN HOACH KHAC\|KHONG CO DIEM KIEM CHUNG" $f.cur; then
+              rm -rf $ck; echo "=== diem kiem khong dung duoc -> chay lai tu dau" >> $f
+              chay
+            fi
+          fi
+          tail -5 $f
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ]; then
+            python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
+            cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
+            sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
+            python3 measure_kink.py $tag.xdmf --ell 0.05 --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
+          fi
+          D=../ket-qua/2026-10-26-actions; mkdir -p $D/truong
+          cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
+          [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf $D/truong/ || true
+          ls loaddisp_*$tag*.txt >/dev/null 2>&1 && cp -f loaddisp_*$tag*.txt $D/ || true
+          mkdir -p ../ckout && [ -d $ck ] && cp -r $ck $f ../ckout/ || true
+          [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf goc_$tag.txt ../ckout/ 2>/dev/null || true
+      - name: Day diem kiem sang chang sau
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ck-${{ matrix.tag }}
+          path: ckout/
+          overwrite: true
+          retention-days: 7
+      - name: Commit log ve nhanh
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-10-26-actions || exit 0
+          git commit -qm "Actions: ${{ matrix.tag }} sau chang $CHANG (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
+
+  c5:
+    needs: [doc-ca, c4]
+    if: "!cancelled() && needs.doc-ca.result == 'success'"
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 345
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.doc-ca.outputs.ca) }}
+    defaults:
+      run:
+        shell: bash
+    env:
+      CHANG: "5"
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+      - name: Lay diem kiem chang truoc
+        if: env.CHANG != '1'
+        uses: actions/download-artifact@v4
+        continue-on-error: true
+        with:
+          name: ck-${{ matrix.tag }}
+          path: truoc
+      - name: Chay
+        working-directory: code
+        run: |
+          set +e   # mpirun/timeout tra ma khac 0 la chuyen binh thuong o day
+          tag=${{ matrix.tag }}; ck=ck_$tag; f=A_$tag.log
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          if [ "$CHANG" = 1 ]; then
+            [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
+          elif [ -d ../truoc/$ck ]; then
+            cp -r ../truoc/$ck .; cp ../truoc/$f .
+          fi
+          touch $f
+          chay(){
+            rs=""; ls $ck/r0of${{ matrix.nhan }}_s*.npz >/dev/null 2>&1 && rs="--resume"
+            echo "=== CHANG $CHANG $(date -u +%FT%TZ) ${rs:-tu dau} (GitHub Actions)" > $f.cur
+            echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" >> $f.cur
+            timeout ${PHUT}m mpirun -n ${{ matrix.nhan }} python3 -u benchmark_A.py \
+              ${{ matrix.args }} --ckpt $ck $rs --out $tag >> $f.cur 2>&1
+            echo "=== EXIT=$? $(date -u +%FT%TZ)" >> $f.cur
+            cat $f.cur >> $f
+          }
+          if ! grep -q "PEAK LOAD" $f; then
+            chay
+            if grep -q "PHAN HOACH KHAC\|KHONG CO DIEM KIEM CHUNG" $f.cur; then
+              rm -rf $ck; echo "=== diem kiem khong dung duoc -> chay lai tu dau" >> $f
+              chay
+            fi
+          fi
+          tail -5 $f
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ]; then
+            python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
+            cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
+            sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
+            python3 measure_kink.py $tag.xdmf --ell 0.05 --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
+          fi
+          D=../ket-qua/2026-10-26-actions; mkdir -p $D/truong
+          cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
+          [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf $D/truong/ || true
+          ls loaddisp_*$tag*.txt >/dev/null 2>&1 && cp -f loaddisp_*$tag*.txt $D/ || true
+          mkdir -p ../ckout && [ -d $ck ] && cp -r $ck $f ../ckout/ || true
+          [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf goc_$tag.txt ../ckout/ 2>/dev/null || true
+      - name: Day diem kiem sang chang sau
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ck-${{ matrix.tag }}
+          path: ckout/
+          overwrite: true
+          retention-days: 7
+      - name: Commit log ve nhanh
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-10-26-actions || exit 0
+          git commit -qm "Actions: ${{ matrix.tag }} sau chang $CHANG (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
+

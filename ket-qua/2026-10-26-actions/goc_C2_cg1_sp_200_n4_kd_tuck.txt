@@ -1,0 +1,18 @@
+  DIEM KIEM cg1/ck_C2_cg1_sp_200_n4_kd: buoc 241, 4 nhan, 40401 nut (sau khi bo ghost)
+  ell = 0.05 mm ; h chia cot = 0.01000 mm ; san trong so d >= 0.2
+  so diem duong tam: 31 ; x tu 0.605 den 0.905 mm
+
+  ====================================================================
+  DO PHAN GIAI GOC  (goc that = 0.0 do)
+  ====================================================================
+     Lambda  /ell  cua so  roi nhau    goc TB    sai so    nguon       delta
+     0.1000     2       5         3   -29.86o     2.66o  do lech   0.046 ell
+     0.2000     4       2         1   -29.97o     2.27o  do lech   0.079 ell
+     0.3000     6       1         1   -30.01o    30.01o 1 cua so   1.571 ell
+     0.5000    10       0         0        --        -- khong du          --
+     1.0000    20       0         0        --        -- khong du          --
+     2.0000    40       0         0        --        -- khong du          --
+  ====================================================================
+  Cot cuoi la sai so dinh vi duong tam suy nguoc tu  sigma ~ 2 delta / Lambda.
+  Neu cot do gan nhu khong doi theo Lambda thi mo hinh sai so la dung,
+  va doan do toi thieu cho mot nguong goc  T  la  Lambda >= 2 delta / tan(T).

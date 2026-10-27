@@ -1,0 +1,196 @@
+name: Kiem bat bien theo phan hoach
+
+# Phep thu trung tam cua bai: cung mot ca mo phong, chay o 1, 2 va 4 nhan MPI.
+# Neu hien thuc dung thi ba lan chay phai cho KET QUA TRUNG NHAU. Neu truong
+# lich su bi noi suy vao khong gian lien tuc (tat da sua bang patch_a_dg0.py)
+# thi chung se KHAC NHAU, va job cuoi bao do.
+#
+# Chay bang tay: tab Actions -> workflow nay -> Run workflow.
+
+on:
+  workflow_dispatch:
+    inputs:
+      ell:
+        description: "Chieu dai chinh quy hoa ell (nx tu suy ra = L/(ell/5))"
+        default: "0.05"
+      steps:
+        description: "So buoc tai"
+        default: "240"
+      n1:
+        description: "So buoc o chang min"
+        default: "40"
+  push:
+    paths:
+      - "code/benchmark_A.py"
+      - ".github/workflows/kiem-bat-bien-phan-hoach.yml"
+
+# 22/10/2026: cac buoc chay trong container dolfinx/dolfinx:stable mac dinh dung sh, khong hieu
+# `set -o pipefail` (6 lan chay truoc deu hong vi vay). Dat bash lam shell mac dinh.
+# Container dung MPICH: bo --allow-run-as-root, --oversubscribe (co cua OpenMPI; lan chay 7 hong vi vay).
+defaults:
+  run:
+    shell: bash
+
+jobs:
+
+  moi-truong:
+    name: Ghi phien ban moi truong
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    steps:
+      - uses: actions/checkout@v4
+      - name: Phien ban thu vien
+        run: |
+          python3 - <<'PY'
+          import importlib
+          for m in ("dolfinx", "ufl", "basix", "petsc4py", "mpi4py", "numpy"):
+              try:
+                  mod = importlib.import_module(m)
+                  print(f"{m:10s} {getattr(mod, '__version__', '?')}")
+              except Exception as e:
+                  print(f"{m:10s} LOI: {e}")
+          from petsc4py import PETSc
+          print("PETSc ScalarType :", PETSc.ScalarType)
+          PY
+          echo "--- mpirun ---"; mpirun --version | head -2
+          echo "--- so nhan ---"; nproc
+          echo "--- bo nho ---";  free -h | sed -n 2p
+      - name: Luu lai
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: moi-truong
+          path: /dev/null
+          if-no-files-found: ignore
+
+  chay:
+    name: "Chay o ${{ matrix.nhan }} nhan"
+    needs: moi-truong
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 350          # tran cung cua GitHub la 6 gio moi job
+    strategy:
+      fail-fast: false
+      matrix:
+        nhan: [1, 2, 4]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Kiem mã da va day du
+        working-directory: code
+        run: |
+          test -f benchmark_A.py || { echo "THIEU code/benchmark_A.py -- xem CAN-THEM-TU-MAY.md"; exit 1; }
+          for k in '"spectral"' '"--sharpnotch"' '"--grip"' '"--split"' 'NOTCH DOFS' 'H-INVARIANT'; do
+            grep -q -- "$k" benchmark_A.py || { echo "THIEU dau hieu: $k -- chua va du bo patch"; exit 1; }
+          done
+          grep -q 'V_H = functionspace(domain, ("DG", 0))' benchmark_A.py \
+            || { echo "CANH BAO: khong thay truong lich su o DG0. Neu co y chay ban TRUOC khi sua thi bo qua."; }
+          echo "ma day du"
+
+      - name: Chay
+        working-directory: code
+        env:
+          ELL:   ${{ github.event.inputs.ell   || '0.05' }}
+          STEPS: ${{ github.event.inputs.steps || '240'  }}
+          N1:    ${{ github.event.inputs.n1    || '40'   }}
+        run: |
+          set -o pipefail
+          mkdir -p ../ket-qua
+          mpirun -n ${{ matrix.nhan }} \
+            python3 -u benchmark_A.py \
+              --model WU --ell "$ELL" --grip clamp \
+              --split spectral --sharpnotch --hspace dg0 \
+              --umax 0.011 --steps "$STEPS" --n1 "$N1" \
+              --out CI_r${{ matrix.nhan }} \
+            2>&1 | tee ../ket-qua/CI_r${{ matrix.nhan }}.log
+
+      - name: Luu ket qua
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ket-qua-r${{ matrix.nhan }}
+          path: |
+            ket-qua/CI_r${{ matrix.nhan }}.log
+            code/*.xdmf
+            code/*.h5
+            code/loaddisp_*.txt
+          if-no-files-found: warn
+          retention-days: 90
+
+  doi-chieu:
+    name: Doi chieu ba lan chay
+    needs: chay
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: ket-qua-r*
+          path: tai-ve
+          merge-multiple: true
+
+      - name: So sanh
+        run: |
+          python3 - <<'PY'
+          import glob, re, sys, pathlib
+
+          logs = sorted(glob.glob("tai-ve/**/CI_r*.log", recursive=True))
+          if len(logs) < 2:
+              print("Chi co", len(logs), "log -- khong du de doi chieu.")
+              sys.exit(1)
+
+          def doc(p):
+              t = pathlib.Path(p).read_text(errors="replace")
+              h = re.search(r"H-INVARIANT step1: sum=([-\d.eE+]+)", t)
+              peak = re.search(r"PEAK LOAD\s*=\s*([-\d.eE+]+)", t)
+              buoc = re.findall(
+                  r"^\s*step\s+(\d+)\s+u = ([-\d.eE+]+)\s+F =\s*([-\d.eE+]+)", t, re.M)
+              return {
+                  "ten": pathlib.Path(p).stem,
+                  "H": float(h.group(1)) if h else None,
+                  "dinh": float(peak.group(1)) if peak else None,
+                  "so_buoc": len(buoc),
+                  "F_cuoi": float(buoc[-1][2]) if buoc else None,
+              }
+
+          R = [doc(p) for p in logs]
+          print(f"{'ca':12s} {'H step1':>22s} {'dinh luc':>12s} {'so buoc':>8s} {'F cuoi':>12s}")
+          for r in R:
+              print(f"{r['ten']:12s} {str(r['H']):>22s} {str(r['dinh']):>12s} "
+                    f"{r['so_buoc']:>8d} {str(r['F_cuoi']):>12s}")
+
+          hong = []
+
+          # 1. Tong truong lich su o buoc 1: tan man tuong doi phai duoi 1e-6.
+          #    Nguong dat 18/10/2026 tu so do: ma da sua lech 1.05e-9 giua 1 va 2-4 nhan
+          #    (nhieu bo giai Krylov); ma truoc khi sua lech 19.5% (nx = 100).  1e-6 cach
+          #    nhieu ba bac va cach tat nam bac.  Nguong cu 1e-9 bao do nham tren ma dung.
+          Hs = [r["H"] for r in R if r["H"] is not None]
+          if len(Hs) < 2:
+              hong.append("khong doc duoc H-INVARIANT step1 o du hai ca")
+          else:
+              spread = (max(Hs) - min(Hs)) / max(abs(h) for h in Hs)
+              print(f"\ntan man tuong doi cua H step1 = {spread:.3e}")
+              if spread > 1e-6:
+                  hong.append(f"H step1 lech {spread:.3e} > 1e-6 "
+                              "-> truong dan dong PHU THUOC PHAN HOACH")
+
+          # 2. So buoc phai bang nhau
+          if len({r["so_buoc"] for r in R}) != 1:
+              hong.append("so buoc khac nhau giua cac ca")
+
+          # 3. Dinh luc phai trung toi 4 chu so
+          ds = [r["dinh"] for r in R if r["dinh"] is not None]
+          if len(ds) >= 2:
+              sp = (max(ds) - min(ds)) / max(abs(d) for d in ds)
+              print(f"tan man tuong doi cua dinh luc = {sp:.3e}")
+              if sp > 1e-4:
+                  hong.append(f"dinh luc lech {sp:.3e} > 1e-4")
+
+          if hong:
+              print("\n=== CONG HONG ===")
+              for h in hong:
+                  print(" -", h)
+              sys.exit(1)
+          print("\n=== DAT: ket qua khong phu thuoc so nhan MPI ===")
+          PY
