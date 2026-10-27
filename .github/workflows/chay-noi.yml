@@ -63,6 +63,7 @@ jobs:
             [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
           elif [ -d ../truoc/$ck ]; then
             cp -r ../truoc/$ck .; cp ../truoc/$f .
+            cp ../truoc/goc_$tag.txt ../truoc/$tag.h5 ../truoc/$tag.xdmf . 2>/dev/null || true
           fi
           touch $f
           chay(){
@@ -82,7 +83,7 @@ jobs:
             fi
           fi
           tail -5 $f
-          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ]; then
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_WU_ell0.05.h5 ]; then
             python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
             cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
             sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
@@ -147,6 +148,7 @@ jobs:
             [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
           elif [ -d ../truoc/$ck ]; then
             cp -r ../truoc/$ck .; cp ../truoc/$f .
+            cp ../truoc/goc_$tag.txt ../truoc/$tag.h5 ../truoc/$tag.xdmf . 2>/dev/null || true
           fi
           touch $f
           chay(){
@@ -166,7 +168,7 @@ jobs:
             fi
           fi
           tail -5 $f
-          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ]; then
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_WU_ell0.05.h5 ]; then
             python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
             cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
             sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
@@ -231,6 +233,7 @@ jobs:
             [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
           elif [ -d ../truoc/$ck ]; then
             cp -r ../truoc/$ck .; cp ../truoc/$f .
+            cp ../truoc/goc_$tag.txt ../truoc/$tag.h5 ../truoc/$tag.xdmf . 2>/dev/null || true
           fi
           touch $f
           chay(){
@@ -250,7 +253,7 @@ jobs:
             fi
           fi
           tail -5 $f
-          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ]; then
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_WU_ell0.05.h5 ]; then
             python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
             cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
             sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
@@ -315,6 +318,7 @@ jobs:
             [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
           elif [ -d ../truoc/$ck ]; then
             cp -r ../truoc/$ck .; cp ../truoc/$f .
+            cp ../truoc/goc_$tag.txt ../truoc/$tag.h5 ../truoc/$tag.xdmf . 2>/dev/null || true
           fi
           touch $f
           chay(){
@@ -334,7 +338,7 @@ jobs:
             fi
           fi
           tail -5 $f
-          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ]; then
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_WU_ell0.05.h5 ]; then
             python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
             cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
             sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
@@ -399,6 +403,7 @@ jobs:
             [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
           elif [ -d ../truoc/$ck ]; then
             cp -r ../truoc/$ck .; cp ../truoc/$f .
+            cp ../truoc/goc_$tag.txt ../truoc/$tag.h5 ../truoc/$tag.xdmf . 2>/dev/null || true
           fi
           touch $f
           chay(){
@@ -418,7 +423,7 @@ jobs:
             fi
           fi
           tail -5 $f
-          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ]; then
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_WU_ell0.05.h5 ]; then
             python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
             cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
             sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
