@@ -1,0 +1,111 @@
+=== CHANG 1 2026-10-27T13:39:13Z tu dau (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 0.00914 mm ; elastic limit = 1.400e-04 mm (65x smaller)
+  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 200 steps to 1.100e-02 (step 5.22e-05)
+model=WU  ell=0.05 mm  nx=400  h=0.0025 mm  h/ell=0.05
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split spectral   *** BIEN THE CHAN DOAN -- DINH LUC KHONG DUNG DUOC
+  Wu cohesive: a1 = 831.50
+  TAI: --load shear (SENS)
+  NOTCH DOFS (nhan 0, cuc bo) = 1   sharp=True
+  damage threshold H_crit = 2.4500e-04 ; ft^2/(2E) = 2.4500e-04
+  H-INVARIANT step1: sum=2.071096673177e+00 max=5.691781442334e-03 L2=1.004632574806e-01
+  step   1  u = 1.400e-05  F =   0.0623  d_tip = 0.000  a = 0.0000  H/Hc =     0.00  stagg = 4
+  step   2  u = 2.800e-05  F =   0.1246  d_tip = 0.000  a = 0.0000  H/Hc =     0.02  stagg = 4
+  step   3  u = 4.200e-05  F =   0.1868  d_tip = 0.000  a = 0.0000  H/Hc =     0.04  stagg = 5
+  step   4  u = 5.600e-05  F =   0.2490  d_tip = 0.000  a = 0.0000  H/Hc =     0.07  stagg = 5
+  step   5  u = 7.000e-05  F =   0.3111  d_tip = 0.000  a = 0.0000  H/Hc =     0.11  stagg = 6
+  step   6  u = 8.400e-05  F =   0.3730  d_tip = 0.000  a = 0.0000  H/Hc =     0.16  stagg = 11
+  step   7  u = 9.800e-05  F =   0.4345  d_tip = 0.000  a = 0.0000  H/Hc =     0.21  stagg = 21
+  step   8  u = 1.120e-04  F =   0.4952  d_tip = 0.000  a = 0.0000  H/Hc =     0.28  stagg = 28
+  step   9  u = 1.260e-04  F =   0.5549  d_tip = 0.000  a = 0.0000  H/Hc =     0.36  stagg = 32
+  step  10  u = 1.400e-04  F =   0.6133  d_tip = 0.000  a = 0.0000  H/Hc =     0.44  stagg = 36
+  step  11  u = 1.540e-04  F =   0.6701  d_tip = 0.000  a = 0.0000  H/Hc =     0.53  stagg = 39
+  step  12  u = 1.680e-04  F =   0.7252  d_tip = 0.000  a = 0.0001  H/Hc =     0.62  stagg = 41
+  step  13  u = 1.820e-04  F =   0.7785  d_tip = 0.000  a = 0.0001  H/Hc =     0.72  stagg = 42
+  step  14  u = 1.960e-04  F =   0.8299  d_tip = 0.000  a = 0.0002  H/Hc =     0.82  stagg = 43
+  step  15  u = 2.100e-04  F =   0.8793  d_tip = 0.000  a = 0.0002  H/Hc =     0.91  stagg = 44
+  step  16  u = 2.240e-04  F =   0.9266  d_tip = 0.000  a = 0.0003  H/Hc =     0.99  stagg = 46
+  step  17  u = 2.380e-04  F =   0.9716  d_tip = 0.000  a = 0.0004  H/Hc =     1.08  stagg = 47
+  step  18  u = 2.520e-04  F =   1.0138  d_tip = 0.000  a = 0.0005  H/Hc =     1.28  stagg = 49
+  step  19  u = 2.660e-04  F =   1.0529  d_tip = 0.000  a = 0.0006  H/Hc =     1.61  stagg = 71
+  step  20  u = 2.800e-04  F =   1.0890  d_tip = 0.001  a = 0.0007  H/Hc =     2.15  stagg = 70
+  step  21  u = 2.940e-04  F =   1.1224  d_tip = 0.001  a = 0.0009  H/Hc =     2.92  stagg = 73
+  step  22  u = 3.080e-04  F =   1.1532  d_tip = 0.001  a = 0.0011  H/Hc =     3.89  stagg = 75
+  step  23  u = 3.220e-04  F =   1.1816  d_tip = 0.001  a = 0.0012  H/Hc =     5.07  stagg = 75
+  step  24  u = 3.360e-04  F =   1.2078  d_tip = 0.002  a = 0.0014  H/Hc =     6.48  stagg = 75
+  step  25  u = 3.500e-04  F =   1.2321  d_tip = 0.002  a = 0.0016  H/Hc =     8.14  stagg = 73
+  step  26  u = 3.640e-04  F =   1.2544  d_tip = 0.003  a = 0.0019  H/Hc =    10.08  stagg = 79
+  step  27  u = 3.780e-04  F =   1.2750  d_tip = 0.003  a = 0.0021  H/Hc =    12.34  stagg = 82
+  step  28  u = 3.920e-04  F =   1.2940  d_tip = 0.003  a = 0.0023  H/Hc =    14.95  stagg = 85
+  step  29  u = 4.060e-04  F =   1.3116  d_tip = 0.004  a = 0.0026  H/Hc =    17.92  stagg = 88
+  step  30  u = 4.200e-04  F =   1.3277  d_tip = 0.004  a = 0.0029  H/Hc =    21.29  stagg = 90
+  step  31  u = 4.340e-04  F =   1.3425  d_tip = 0.005  a = 0.0032  H/Hc =    25.08  stagg = 92
+  step  32  u = 4.480e-04  F =   1.3562  d_tip = 0.005  a = 0.0035  H/Hc =    29.29  stagg = 94
+  step  33  u = 4.620e-04  F =   1.3687  d_tip = 0.006  a = 0.0038  H/Hc =    33.96  stagg = 96
+  step  34  u = 4.760e-04  F =   1.3803  d_tip = 0.006  a = 0.0041  H/Hc =    39.11  stagg = 97
+  step  35  u = 4.900e-04  F =   1.3909  d_tip = 0.007  a = 0.0044  H/Hc =    44.77  stagg = 98
+  step  36  u = 5.040e-04  F =   1.4006  d_tip = 0.007  a = 0.0047  H/Hc =    50.95  stagg = 99
+  step  37  u = 5.180e-04  F =   1.4094  d_tip = 0.008  a = 0.0050  H/Hc =    57.70  stagg = 100
+  step  38  u = 5.320e-04  F =   1.4176  d_tip = 0.008  a = 0.0054  H/Hc =    65.04  stagg = 101
+  step  39  u = 5.460e-04  F =   1.4250  d_tip = 0.009  a = 0.0057  H/Hc =    73.01  stagg = 102
+  H-INVARIANT step40: sum=5.253870965069e+03 max=1.352146000922e+01 L2=2.481263842534e+02
+  step  40  u = 5.600e-04  F =   1.4317  d_tip = 0.010  a = 0.0061  H/Hc =    81.62  stagg = 103
+  step  41  u = 6.122e-04  F =   1.4492  d_tip = 0.012  a = 0.0075  H/Hc =   114.82  stagg = 118
+  step  42  u = 6.644e-04  F =   1.4615  d_tip = 0.014  a = 0.0090  H/Hc =   156.98  stagg = 105
+  step  43  u = 7.166e-04  F =   1.4699  d_tip = 0.016  a = 0.0105  H/Hc =   209.13  stagg = 98
+  step  44  u = 7.688e-04  F =   1.4743  d_tip = 0.019  a = 0.0120  H/Hc =   272.73  stagg = 105
+  step  45  u = 8.210e-04  F =   1.4755  d_tip = 0.021  a = 0.0136  H/Hc =   349.77  stagg = 101
+  step  46  u = 8.732e-04  F =   1.4743  d_tip = 0.024  a = 0.0153  H/Hc =   441.59  stagg = 100
+  step  47  u = 9.254e-04  F =   1.4716  d_tip = 0.027  a = 0.0169  H/Hc =   549.36  stagg = 101
+  step  48  u = 9.776e-04  F =   1.4651  d_tip = 0.030  a = 0.0186  H/Hc =   673.21  stagg = 141
+  step  49  u = 1.030e-03  F =   1.4620  d_tip = 0.033  a = 0.0202  H/Hc =   809.38  stagg = 115
+  step  50  u = 1.082e-03  F =   1.4599  d_tip = 0.036  a = 0.0218  H/Hc =   960.93  stagg = 109
+  step  51  u = 1.134e-03  F =   1.4581  d_tip = 0.039  a = 0.0234  H/Hc =  1127.63  stagg = 105
+  step  52  u = 1.186e-03  F =   1.4562  d_tip = 0.042  a = 0.0249  H/Hc =  1312.65  stagg = 102
+  step  53  u = 1.239e-03  F =   1.4541  d_tip = 0.045  a = 0.0265  H/Hc =  1513.77  stagg = 99
+  step  54  u = 1.291e-03  F =   1.4517  d_tip = 0.048  a = 0.0281  H/Hc =  1734.84  stagg = 96
+  step  55  u = 1.343e-03  F =   1.4489  d_tip = 0.051  a = 0.0297  H/Hc =  1972.91  stagg = 95
+  step  56  u = 1.395e-03  F =   1.4458  d_tip = 0.055  a = 0.0313  H/Hc =  2233.66  stagg = 92
+  step  57  u = 1.447e-03  F =   1.4424  d_tip = 0.058  a = 0.0329  H/Hc =  2512.72  stagg = 92
+  step  58  u = 1.500e-03  F =   1.4387  d_tip = 0.061  a = 0.0346  H/Hc =  2813.92  stagg = 91
+  step  59  u = 1.552e-03  F =   1.4347  d_tip = 0.065  a = 0.0362  H/Hc =  3137.55  stagg = 90
+  step  60  u = 1.604e-03  F =   1.4306  d_tip = 0.068  a = 0.0378  H/Hc =  3481.04  stagg = 87
+  step  61  u = 1.656e-03  F =   1.4263  d_tip = 0.072  a = 0.0394  H/Hc =  3846.35  stagg = 84
+  step  62  u = 1.708e-03  F =   1.4219  d_tip = 0.075  a = 0.0411  H/Hc =  4237.31  stagg = 84
+  step  63  u = 1.761e-03  F =   1.4175  d_tip = 0.079  a = 0.0427  H/Hc =  4648.73  stagg = 85
+  step  64  u = 1.813e-03  F =   1.4130  d_tip = 0.082  a = 0.0444  H/Hc =  5080.66  stagg = 80
+  step  65  u = 1.865e-03  F =   1.4084  d_tip = 0.086  a = 0.0460  H/Hc =  5533.36  stagg = 81
+  step  66  u = 1.917e-03  F =   1.4038  d_tip = 0.089  a = 0.0477  H/Hc =  6015.46  stagg = 80
+  step  67  u = 1.969e-03  F =   1.3991  d_tip = 0.093  a = 0.0493  H/Hc =  6518.85  stagg = 78
+  step  68  u = 2.022e-03  F =   1.3945  d_tip = 0.096  a = 0.0510  H/Hc =  7043.49  stagg = 78
+  step  69  u = 2.074e-03  F =   1.3897  d_tip = 0.100  a = 0.0526  H/Hc =  7589.54  stagg = 78
+  step  70  u = 2.126e-03  F =   1.3850  d_tip = 0.103  a = 0.0543  H/Hc =  8157.61  stagg = 80
+  step  71  u = 2.178e-03  F =   1.3802  d_tip = 0.107  a = 0.0559  H/Hc =  8756.91  stagg = 79
+  step  72  u = 2.230e-03  F =   1.3754  d_tip = 0.110  a = 0.0576  H/Hc =  9384.46  stagg = 80
+  step  73  u = 2.283e-03  F =   1.3705  d_tip = 0.114  a = 0.0593  H/Hc = 10037.00  stagg = 81
+  step  74  u = 2.335e-03  F =   1.3657  d_tip = 0.117  a = 0.0609  H/Hc = 10715.37  stagg = 81
+  step  75  u = 2.387e-03  F =   1.3608  d_tip = 0.121  a = 0.0626  H/Hc = 11420.23  stagg = 82
+  step  76  u = 2.439e-03  F =   1.3559  d_tip = 0.125  a = 0.0643  H/Hc = 12152.08  stagg = 83
+  step  77  u = 2.491e-03  F =   1.3510  d_tip = 0.128  a = 0.0660  H/Hc = 12911.39  stagg = 82
+  step  78  u = 2.544e-03  F =   1.3461  d_tip = 0.132  a = 0.0677  H/Hc = 13713.32  stagg = 80
+  step  79  u = 2.596e-03  F =   1.3411  d_tip = 0.136  a = 0.0694  H/Hc = 14547.67  stagg = 83
+  step  80  u = 2.648e-03  F =   1.3362  d_tip = 0.139  a = 0.0711  H/Hc = 15413.32  stagg = 82
+  step  81  u = 2.700e-03  F =   1.3312  d_tip = 0.143  a = 0.0728  H/Hc = 16310.84  stagg = 84
+  step  82  u = 2.752e-03  F =   1.3262  d_tip = 0.147  a = 0.0745  H/Hc = 17241.08  stagg = 83
+  step  83  u = 2.805e-03  F =   1.3212  d_tip = 0.151  a = 0.0762  H/Hc = 18204.60  stagg = 84
+  step  84  u = 2.857e-03  F =   1.3161  d_tip = 0.154  a = 0.0779  H/Hc = 19202.12  stagg = 85
+  step  85  u = 2.909e-03  F =   1.3110  d_tip = 0.158  a = 0.0797  H/Hc = 20234.23  stagg = 85
+  step  86  u = 2.961e-03  F =   1.3059  d_tip = 0.162  a = 0.0814  H/Hc = 21301.45  stagg = 86
+  step  87  u = 3.013e-03  F =   1.3008  d_tip = 0.166  a = 0.0832  H/Hc = 22413.82  stagg = 85
+  step  88  u = 3.066e-03  F =   1.2956  d_tip = 0.170  a = 0.0849  H/Hc = 23574.56  stagg = 86
+  step  89  u = 3.118e-03  F =   1.2904  d_tip = 0.173  a = 0.0867  H/Hc = 24773.53  stagg = 85
+  step  90  u = 3.170e-03  F =   1.2851  d_tip = 0.177  a = 0.0884  H/Hc = 26011.00  stagg = 86
+  step  91  u = 3.222e-03  F =   1.2799  d_tip = 0.181  a = 0.0902  H/Hc = 27287.28  stagg = 84
+  step  92  u = 3.274e-03  F =   1.2746  d_tip = 0.185  a = 0.0920  H/Hc = 28602.77  stagg = 85
+  step  93  u = 3.327e-03  F =   1.2693  d_tip = 0.189  a = 0.0937  H/Hc = 29957.53  stagg = 86
+  step  94  u = 3.379e-03  F =   1.2639  d_tip = 0.193  a = 0.0955  H/Hc = 31351.86  stagg = 85
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: === EXIT=124 2026-10-27T18:59:13Z
