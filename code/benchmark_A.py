@@ -559,6 +559,23 @@ def _ck_save(step):
              hist=np.array(hist, dtype=float).reshape(-1, 5), xyz=_ck_xyz(),
              **{k: fn.x.array for k, fn in _ck_funcs})
     _os.replace(tmp, f)
+def _ck_remap(z):
+    """Hoan vi cuc bo old -> new theo toa do, hoac None neu tap toa do khac."""
+    nu, nd, nH = len(u.x.array) // 2, len(d.x.array), len(H.x.array)
+    if (len(z["u"]) != 2 * nu or len(z["d"]) != nd or len(z["H"]) != nH
+            or z["xyz"].size != 3 * (nu + nd + nH)):
+        return None
+    xo = z["xyz"].reshape(-1, 3); xn = _ck_xyz().reshape(-1, 3)
+    out = {}
+    for ten, a, b in (("u", 0, nu), ("d", nu, nu + nd), ("H", nu + nd, nu + nd + nH)):
+        ko = np.round(xo[a:b], 10); kn = np.round(xn[a:b], 10)
+        io = np.lexsort(ko.T[::-1]); i_n = np.lexsort(kn.T[::-1])
+        if not np.array_equal(ko[io], kn[i_n]) or (len(io) > 1 and
+                np.any(np.all(ko[io][1:] == ko[io][:-1], axis=1))):
+            return None
+        pm = np.empty(len(i_n), dtype=np.int64); pm[i_n] = io
+        out[ten] = pm
+    return out
 if args.resume:
     if not _ck_dir:
         raise SystemExit("--resume can --ckpt")
@@ -575,10 +592,24 @@ if args.resume:
         raise SystemExit("KHONG CO DIEM KIEM CHUNG cho moi nhan -- chay lai tu dau")
     _s = max(_common)
     with np.load(_ck_path(_have[_s])) as z:
+        _perm = None
         if z["xyz"].shape != _ck_xyz().shape or not np.array_equal(z["xyz"], _ck_xyz()):
+            # Cung phan hoach nhung THU TU bac tu do cuc bo (nhat la ghost) co the
+            # khac giua hai may.  Neu tap toa do trung khop thi anh xa lai theo toa
+            # do; neu khac tap thi la phan hoach khac that -- dung.
+            _perm = _ck_remap(z)
+        _ok = comm.allreduce(0 if (_perm is None and not np.array_equal(z["xyz"], _ck_xyz()))
+                             else 1, op=MPI.MIN)
+        if not _ok:
             raise SystemExit("PHAN HOACH KHAC diem kiem -- khong chay tiep")
+        if comm.rank == 0 and comm.allreduce(_perm is not None, op=MPI.LOR):
+            print("  RESUME: thu tu bac tu do khac, anh xa lai theo toa do", flush=True)
         for k, fn in _ck_funcs:
-            fn.x.array[:] = z[k]
+            a = z[k]
+            if _perm is not None:
+                a = (a.reshape(-1, 2)[_perm["u"]].ravel() if k == "u"
+                     else a[_perm["H" if k == "H" else "d"]])
+            fn.x.array[:] = a
             fn.x.scatter_forward()
         n_bad = int(z["n_bad"])
         Gamma0 = None if np.isnan(float(z["gamma0"])) else float(z["gamma0"])

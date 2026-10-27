@@ -1,67 +1,33 @@
 [
  {
-  "tag": "C2B_cg1_sp_n4_kd_l1",
+  "tag": "C2_cg1_sp_400_n4_kd",
   "nhan": 4,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load shear --split spectral --nx 100 --hspace cg1 --umax 0.020396 --steps 420"
+  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load shear --split spectral --nx 400 --hspace cg1 --umax 0.020396 --steps 420"
  },
  {
-  "tag": "C2B_cg1_sp_n4_kd_l2",
+  "tag": "C2_dg0_sp_400_n4",
   "nhan": 4,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load shear --split spectral --nx 100 --hspace cg1 --umax 0.020396 --steps 420"
+  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load shear --split spectral --nx 400 --hspace dg0 --umax 0.011 --steps 240"
  },
  {
-  "tag": "C2B_cg1_sp_n4_kd_l3",
-  "nhan": 4,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load shear --split spectral --nx 100 --hspace cg1 --umax 0.020396 --steps 420"
- },
- {
-  "tag": "C2B_cg1_sp_200_n4_kd_l1",
-  "nhan": 4,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load shear --split spectral --nx 200 --hspace cg1 --umax 0.020396 --steps 420"
- },
- {
-  "tag": "C2B_cg1_sp_200_n4_kd_l2",
-  "nhan": 4,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load shear --split spectral --nx 200 --hspace cg1 --umax 0.020396 --steps 420"
- },
- {
-  "tag": "C2B_cg1_sp_200_n4_kd_l3",
-  "nhan": 4,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load shear --split spectral --nx 200 --hspace cg1 --umax 0.020396 --steps 420"
- },
- {
-  "tag": "A3_cg1_am_200_n4",
-  "nhan": 4,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split amor --nx 200 --hspace cg1 --umax 0.011 --steps 240"
- },
- {
-  "tag": "C2d_dg0_sp_200_n1_b40",
+  "tag": "A3B_cg1_sp_200_n1",
   "nhan": 1,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load shear --split spectral --nx 200 --hspace dg0 --umax 0.011 --steps 40"
+  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --nx 200 --hspace cg1 --umax 0.011 --steps 240"
  },
  {
-  "tag": "C2d_dg0_sp_200_n2_b40",
+  "tag": "A3B_cg1_sp_200_n2",
   "nhan": 2,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load shear --split spectral --nx 200 --hspace dg0 --umax 0.011 --steps 40"
+  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --nx 200 --hspace cg1 --umax 0.011 --steps 240"
  },
  {
-  "tag": "C2d_dg0_sp_200_n4_b40",
+  "tag": "A3B_cg1_sp_200_n4",
   "nhan": 4,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load shear --split spectral --nx 200 --hspace dg0 --umax 0.011 --steps 40"
+  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --nx 200 --hspace cg1 --umax 0.011 --steps 240"
  },
  {
-  "tag": "T40_cg1_sp_n1",
-  "nhan": 1,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --hspace cg1 --umax 0.011 --steps 40"
- },
- {
-  "tag": "T40_cg1_sp_n2",
-  "nhan": 2,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --hspace cg1 --umax 0.011 --steps 40"
- },
- {
-  "tag": "T40_cg1_sp_n4",
+  "tag": "V_dg0_sp_n4_ck",
   "nhan": 4,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --hspace cg1 --umax 0.011 --steps 40"
+  "phut": 12,
+  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load shear --split spectral --nx 100 --hspace dg0 --umax 0.011 --steps 240"
  }
 ]
