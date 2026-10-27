@@ -10,21 +10,6 @@
   "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load shear --split spectral --nx 400 --hspace dg0 --umax 0.011 --steps 240"
  },
  {
-  "tag": "A3B_cg1_sp_200_n1",
-  "nhan": 1,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --nx 200 --hspace cg1 --umax 0.011 --steps 240"
- },
- {
-  "tag": "A3B_cg1_sp_200_n2",
-  "nhan": 2,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --nx 200 --hspace cg1 --umax 0.011 --steps 240"
- },
- {
-  "tag": "A3B_cg1_sp_200_n4",
-  "nhan": 4,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --nx 200 --hspace cg1 --umax 0.011 --steps 240"
- },
- {
   "tag": "V_dg0_sp_n4_ck",
   "nhan": 4,
   "phut": 12,

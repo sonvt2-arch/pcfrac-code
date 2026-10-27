@@ -598,11 +598,13 @@ if args.resume:
             # khac giua hai may.  Neu tap toa do trung khop thi anh xa lai theo toa
             # do; neu khac tap thi la phan hoach khac that -- dung.
             _perm = _ck_remap(z)
+        # Cac phep allreduce phai goi tren MOI nhan (goi rieng nhan 0 la treo).
         _ok = comm.allreduce(0 if (_perm is None and not np.array_equal(z["xyz"], _ck_xyz()))
                              else 1, op=MPI.MIN)
         if not _ok:
             raise SystemExit("PHAN HOACH KHAC diem kiem -- khong chay tiep")
-        if comm.rank == 0 and comm.allreduce(_perm is not None, op=MPI.LOR):
+        _co_anh_xa = comm.allreduce(1 if _perm is not None else 0, op=MPI.MAX)
+        if comm.rank == 0 and _co_anh_xa:
             print("  RESUME: thu tu bac tu do khac, anh xa lai theo toa do", flush=True)
         for k, fn in _ck_funcs:
             a = z[k]
