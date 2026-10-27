@@ -15,3 +15,7 @@ Code, workflows and numerical logs accompanying a manuscript in preparation.
 - `ket-qua/` — logs, load–displacement curves and angle measurements.
 
 Comments and log messages are in Vietnamese. Container: `dolfinx/dolfinx:stable`.
+
+## License
+
+MIT — see `LICENSE`.
