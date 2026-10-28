@@ -254,3 +254,49 @@ model=WU  ell=0.05 mm  nx=400  h=0.0025 mm  h/ell=0.05
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-10-28T00:59:18Z
+=== CHANG 2 2026-10-28T01:00:19Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V45 96-Core Processor
+  w_c = 2Gc/ft = 0.00914 mm ; elastic limit = 1.400e-04 mm (65x smaller)
+  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 200 steps to 1.100e-02 (step 5.22e-05)
+model=WU  ell=0.05 mm  nx=400  h=0.0025 mm  h/ell=0.05
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split spectral   *** BIEN THE CHAN DOAN -- DINH LUC KHONG DUNG DUOC
+  Wu cohesive: a1 = 831.50
+  TAI: --load shear (SENS)
+  NOTCH DOFS (nhan 0, cuc bo) = 1   sharp=True
+  damage threshold H_crit = 2.4500e-04 ; ft^2/(2E) = 2.4500e-04
+  RESUME: chay tiep tu buoc 219 (diem kiem buoc 218)
+  step 219  u = 9.904e-03  F =   0.6070  d_tip = 0.679  a = 0.3266  H/Hc = 1208768.47  stagg = 29
+  step 220  u = 9.956e-03  F =   0.6014  d_tip = 0.683  a = 0.3286  H/Hc = 1243246.39  stagg = 34  SNES=-5
+  step 221  u = 1.001e-02  F =   0.5958  d_tip = 0.687  a = 0.3306  H/Hc = 1278946.09  stagg = 32
+  step 222  u = 1.006e-02  F =   0.5902  d_tip = 0.691  a = 0.3326  H/Hc = 1315928.17  stagg = 33
+  step 223  u = 1.011e-02  F =   0.5846  d_tip = 0.695  a = 0.3346  H/Hc = 1354254.87  stagg = 36
+  step 224  u = 1.016e-02  F =   0.5789  d_tip = 0.699  a = 0.3367  H/Hc = 1393996.16  stagg = 36  SNES=-5
+  step 225  u = 1.022e-02  F =   0.5733  d_tip = 0.703  a = 0.3387  H/Hc = 1435227.11  stagg = 38
+  step 226  u = 1.027e-02  F =   0.5676  d_tip = 0.707  a = 0.3407  H/Hc = 1478024.46  stagg = 43  SNES=-5
+  step 227  u = 1.032e-02  F =   0.5620  d_tip = 0.711  a = 0.3427  H/Hc = 1522472.89  stagg = 40
+  step 228  u = 1.037e-02  F =   0.5564  d_tip = 0.715  a = 0.3448  H/Hc = 1568662.61  stagg = 43
+  step 229  u = 1.043e-02  F =   0.5507  d_tip = 0.719  a = 0.3468  H/Hc = 1616690.02  stagg = 41
+  step 230  u = 1.048e-02  F =   0.5451  d_tip = 0.723  a = 0.3488  H/Hc = 1666658.59  stagg = 41
+  step 231  u = 1.053e-02  F =   0.5395  d_tip = 0.727  a = 0.3508  H/Hc = 1718681.27  stagg = 44
+  step 232  u = 1.058e-02  F =   0.5339  d_tip = 0.731  a = 0.3529  H/Hc = 1772879.59  stagg = 42
+  step 233  u = 1.063e-02  F =   0.5283  d_tip = 0.735  a = 0.3549  H/Hc = 1829379.78  stagg = 38
+  step 234  u = 1.069e-02  F =   0.5227  d_tip = 0.739  a = 0.3569  H/Hc = 1888325.35  stagg = 42  SNES=-5
+  step 235  u = 1.074e-02  F =   0.5171  d_tip = 0.743  a = 0.3589  H/Hc = 1949868.95  stagg = 42
+  step 236  u = 1.079e-02  F =   0.5115  d_tip = 0.747  a = 0.3609  H/Hc = 2014172.44  stagg = 37
+  step 237  u = 1.084e-02  F =   0.5060  d_tip = 0.751  a = 0.3630  H/Hc = 2081412.33  stagg = 42
+  step 238  u = 1.090e-02  F =   0.5004  d_tip = 0.755  a = 0.3650  H/Hc = 2151785.14  stagg = 40  SNES=-5
+  step 239  u = 1.095e-02  F =   0.4949  d_tip = 0.759  a = 0.3670  H/Hc = 2225500.91  stagg = 41
+  step 240  u = 1.100e-02  F =   0.4893  d_tip = 0.763  a = 0.3690  H/Hc = 2302787.19  stagg = 41
+
+============================================================
+  model WU   ell = 0.05 mm
+  PEAK LOAD = 1.4755 N/mm   at step 45 of 240
+  nominal peak stress = 1.4755 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 33.2 % of peak ; final d ahead of the tip = 0.763 ; crack extension = 0.3690 mm (7.4 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  *** 8 of 240 steps had a failed damage solve
+  wrote loaddisp_C2_dg0_sp_400_n4.txt
+============================================================
+=== EXIT=0 2026-10-28T01:56:44Z
