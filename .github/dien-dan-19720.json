@@ -1,0 +1,9 @@
+[
+ {"tag": "O_n1",  "script": "port.py",     "nhan": 1},
+ {"tag": "O_n2",  "script": "port.py",     "nhan": 2},
+ {"tag": "F_n1",  "script": "fixed.py",    "nhan": 1},
+ {"tag": "F_n2",  "script": "fixed.py",    "nhan": 2},
+ {"tag": "OL_n1", "script": "port_lu.py",  "nhan": 1},
+ {"tag": "OL_n2", "script": "port_lu.py",  "nhan": 2},
+ {"tag": "FL_n1", "script": "fixed_lu.py", "nhan": 1}
+]

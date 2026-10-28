@@ -1,0 +1,83 @@
+name: Ma dien dan 19720
+
+# Chay ma nguoi dung dang tren FEniCS Discourse #19720 (forum-code/19720/):
+# ban port (H tren P1, nhu ma goc), ban sua (H tren DG0), va hai ban phu giai u
+# bang LU (MUMPS).  Danh sach ca o .github/dien-dan-19720.json.  Mot chang
+# (khong co diem kiem): ma ghi truong va tep tai-chuyen vi moi 50 buoc, nen ca
+# bi cat o gioi han thoi gian van giu trang thai gan nhat.  Cach doc ghi truoc o
+# doc/MA-DIEN-DAN-2026-10-28.md (repo du an).
+
+on:
+  workflow_dispatch:
+    inputs:
+      ds:
+        description: "Tep danh sach ca"
+        required: false
+        default: ".github/dien-dan-19720.json"
+
+permissions:
+  contents: write
+
+jobs:
+  doc-ca:
+    runs-on: ubuntu-latest
+    outputs:
+      ca: ${{ steps.c.outputs.ca }}
+    steps:
+      - uses: actions/checkout@v4
+      - id: c
+        run: echo "ca=$(python3 -c 'import json;print(json.dumps(json.load(open("${{ inputs.ds || '.github/dien-dan-19720.json' }}"))))')" >> "$GITHUB_OUTPUT"
+
+  chay:
+    needs: doc-ca
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 350
+    strategy:
+      fail-fast: false
+      matrix:
+        include: ${{ fromJSON(needs.doc-ca.outputs.ca) }}
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+      - name: Chay
+        working-directory: forum-code/19720
+        run: |
+          set +e
+          tag=${{ matrix.tag }}; f=A_$tag.log
+          echo "=== BAT DAU $(date -u +%FT%TZ) ${{ matrix.script }} ${{ matrix.nhan }} nhan (GitHub Actions)" > $f
+          echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" >> $f
+          python3 -c "import dolfinx, petsc4py; print('=== DOLFINx', dolfinx.__version__, 'PETSc', petsc4py.PETSc.Sys.getVersion())" >> $f 2>&1
+          OUT_TAG=$tag timeout 330m mpirun -n ${{ matrix.nhan }} python3 -u ${{ matrix.script }} >> $f 2>&1
+          echo "=== EXIT=$? $(date -u +%FT%TZ)" >> $f
+          tail -5 $f
+          python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
+          if [ -s damage_$tag.h5 ]; then
+            python3 ../../code/measure_kink.py damage_$tag.xdmf --ell 0.015 --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1
+            python3 duong_nut.py damage_$tag.xdmf --ell 0.015 --dmin 0.2 --x0 0.50 > duong_$tag.txt 2>&1
+          fi
+          D=../../ket-qua/2026-10-28-dien-dan; mkdir -p $D/truong
+          cp -f $f $D/
+          for g in goc_$tag.txt duong_$tag.txt loaddisp_$tag.txt; do [ -s $g ] && cp -f $g $D/; done
+          [ -s damage_$tag.h5 ] && cp -f damage_$tag.h5 damage_$tag.xdmf $D/truong/
+          mkdir -p ../../out && cp -f history_$tag.* damage_$tag.* ../../out/ 2>/dev/null || true
+      - name: Luu truong H (artifact)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: truong-${{ matrix.tag }}
+          path: out/
+          retention-days: 30
+      - name: Commit
+        if: always()
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-10-28-dien-dan || exit 0
+          git commit -qm "Actions: dien dan 19720 ${{ matrix.tag }} (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
