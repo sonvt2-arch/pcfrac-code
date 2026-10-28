@@ -1,42 +1,32 @@
 [
  {
-  "tag": "N_dg0_sp_j05_s1_n1",
-  "nhan": 1,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --umax 0.011 --hspace dg0 --steps 240 --jitter 0.05 --seed 1"
+  "tag": "S4_wu_e005_nx300_n4",
+  "nhan": 4,
+  "args": "--model WU --ell 0.05 --nx 300 --grip clamp --load tension --split spectral --sharpnotch --hspace dg0 --umax 0.011 --steps 240 --n1 40"
  },
  {
-  "tag": "N_dg0_sp_j05_s2_n1",
-  "nhan": 1,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --umax 0.011 --hspace dg0 --steps 240 --jitter 0.05 --seed 2"
+  "tag": "S4_wu_e005_pin_n4",
+  "nhan": 4,
+  "args": "--model WU --ell 0.05 --nx 100 --grip pin --load tension --split spectral --sharpnotch --hspace dg0 --umax 0.011 --steps 240 --n1 40"
  },
  {
-  "tag": "N_dg0_sp_j05_s3_n1",
-  "nhan": 1,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --umax 0.011 --hspace dg0 --steps 240 --jitter 0.05 --seed 3"
+  "tag": "S4_at2_e01_n4",
+  "nhan": 4,
+  "args": "--model AT2 --ell 0.1 --nx 50 --grip clamp --load tension --split spectral --sharpnotch --hspace dg0 --umax 0.011 --steps 240 --n1 40"
  },
  {
-  "tag": "N_cg1_sp_j05_s1_n1",
-  "nhan": 1,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --umax 0.011 --hspace cg1 --steps 240 --jitter 0.05 --seed 1"
+  "tag": "S4_at2_e005_n4",
+  "nhan": 4,
+  "args": "--model AT2 --ell 0.05 --nx 100 --grip clamp --load tension --split spectral --sharpnotch --hspace dg0 --umax 0.011 --steps 240 --n1 40"
  },
  {
-  "tag": "N_cg1_sp_j05_s2_n1",
-  "nhan": 1,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --umax 0.011 --hspace cg1 --steps 240 --jitter 0.05 --seed 2"
+  "tag": "S4_at2_e0025_n4",
+  "nhan": 4,
+  "args": "--model AT2 --ell 0.025 --nx 200 --grip clamp --load tension --split spectral --sharpnotch --hspace dg0 --umax 0.011 --steps 240 --n1 40"
  },
  {
-  "tag": "N_cg1_sp_j05_s3_n1",
-  "nhan": 1,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --umax 0.011 --hspace cg1 --steps 240 --jitter 0.05 --seed 3"
- },
- {
-  "tag": "R0_cg1_sp_n1_b40",
-  "nhan": 1,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --umax 0.011 --hspace cg1 --steps 40"
- },
- {
-  "tag": "PJ_dg0_sp_j05_s1_n2_b40",
-  "nhan": 2,
-  "args": "--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --umax 0.011 --hspace dg0 --steps 40 --jitter 0.05 --seed 1"
+  "tag": "S4_wu_e01_n4",
+  "nhan": 4,
+  "args": "--model WU --ell 0.1 --nx 50 --grip clamp --load tension --split spectral --sharpnotch --hspace dg0 --umax 0.011 --steps 240 --n1 40"
  }
 ]
