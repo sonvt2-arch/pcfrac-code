@@ -99,6 +99,11 @@ p.add_argument("--ckpt", default=None,
                help="thu muc diem kiem; ghi trang thai sau moi buoc tai")
 p.add_argument("--resume", action="store_true",
                help="chay tiep tu diem kiem chung moi nhat (phai cung so nhan)")
+p.add_argument("--jitter", type=float, default=0.0,
+               help="nhieu luoi: dich nut trong toi da FRAC*h theo x va y; 0 = tat "
+                    "(giu nguyen ket qua cu tung bit)")
+p.add_argument("--seed", type=int, default=0,
+               help="hat giong cua nhieu luoi (chi dung khi --jitter > 0)")
 p.add_argument("--out", default=None)
 args = p.parse_args()
 
@@ -160,6 +165,70 @@ if comm.rank == 0:
           f"h/ell={L/nx/ell:.2f}")
 
 domain = mesh.create_unit_square(comm, nx, nx, mesh.CellType.quadrilateral)
+
+
+# ------------------------------------------------------------- nhieu luoi
+# --jitter FRAC --seed S: dich moi nut TRONG mot khoang gia ngau nhien toi da
+# FRAC*h theo x va theo y.  Do dich tinh tu CHI SO LUOI (i, j) = round(x/h,
+# y/h) cua toa do GOC va hat giong, qua ham bam splitmix64, nen nut nao cung
+# nhan dung mot do dich du no nam o nhan nao, la nut so huu hay ghost: nhieu
+# khong phu thuoc phan hoach.  Khong dich: nut bien (bon canh) va nut tren
+# vet khia (khia sac: hang nut y = 0.5, x <= 0.5; khia day: ca dai notchw ke ca
+# hai mat), dung tieu chi cua notch() ben duoi.  FRAC = 0 thi khong cham vao
+# luoi, ket qua giu nguyen tung bit.
+def _splitmix64(z):
+    z = z + np.uint64(0x9E3779B97F4A7C15)
+    z = (z ^ (z >> np.uint64(30))) * np.uint64(0xBF58476D1CE4E5B9)
+    z = (z ^ (z >> np.uint64(27))) * np.uint64(0x94D049BB133111EB)
+    return z ^ (z >> np.uint64(31))
+
+
+def _jitter_mesh(frac, seed):
+    if args.pores:
+        raise SystemExit("--jitter chua ho tro --pores")
+    h = L / nx
+    X = domain.geometry.x
+    ii = np.rint(X[:, 0] / h).astype(np.int64)
+    jj = np.rint(X[:, 1] / h).astype(np.int64)
+    xg, yg = ii * h, jj * h                    # toa do goc, dung tren luoi deu
+    fixed = (ii <= 0) | (ii >= nx) | (jj <= 0) | (jj >= nx)
+    if args.sharpnotch:
+        fixed |= (np.abs(yg - 0.5) < 0.4 * h) & (xg < 0.5 + 0.4 * h)
+    else:
+        fixed |= ((np.abs(yg - 0.5) <= args.notchw + 0.4 * h)
+                  & (xg < 0.5 + 0.4 * h))
+    key = ((np.uint64(seed) << np.uint64(32))
+           | (jj * (nx + 1) + ii).astype(np.uint64)) * np.uint64(2)
+    _u = lambda z: (_splitmix64(z) >> np.uint64(11)).astype(np.float64) * 2.0 ** -53
+    dx = (2.0 * _u(key) - 1.0) * frac * h
+    dy = (2.0 * _u(key + np.uint64(1)) - 1.0) * frac * h
+    dx[fixed] = 0.0
+    dy[fixed] = 0.0
+    X[:, 0] += dx                              # nut giu nguyen: dx = dy = 0, toa do khong doi
+    X[:, 1] += dy
+    # Tong kiem tren nut SO HUU: phai trung nhau o moi so nhan.
+    try:
+        nown = domain.geometry.index_map().size_local
+    except Exception:                                      # pragma: no cover
+        nown = len(X)
+    s = comm.allreduce(np.array([float((~fixed[:nown]).sum()),
+                                 float(dx[:nown].sum()), float(dy[:nown].sum()),
+                                 float(np.abs(dx[:nown]).sum() + np.abs(dy[:nown]).sum())]),
+                       op=MPI.SUM)
+    mx = comm.allreduce(float(max(np.abs(dx).max(), np.abs(dy).max())) / h if len(X) else 0.0,
+                        op=MPI.MAX)
+    if comm.rank == 0:
+        print(f"  NHIEU LUOI: so nut dich = {int(s[0])}  max|dich|/h = {mx:.4f}  "
+              f"tong dx = {s[1]:.12e}  tong dy = {s[2]:.12e}  tong |dich| = {s[3]:.12e}",
+              flush=True)
+
+
+if comm.rank == 0:
+    print(f"  NHIEU LUOI: --jitter {args.jitter:g} --seed {args.seed}"
+          + ("   (tat)" if args.jitter <= 0.0 else
+             "   *** LUOI BI DICH -- CA NGHIEN CUU NHIEU"), flush=True)
+if args.jitter > 0.0:
+    _jitter_mesh(args.jitter, args.seed)
 
 V_u = functionspace(domain, ("Lagrange", 1, (2,)))
 V_d = functionspace(domain, ("Lagrange", 1))
