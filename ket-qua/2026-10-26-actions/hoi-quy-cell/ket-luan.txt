@@ -1,0 +1,29 @@
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+<stdin>:7: DeprecationWarning: dofmap is deprecated. Use dofmaps[0] instead.
+LUOI crossed nx=100: so tam giac 40000  so nut 20201  bat bien qua y->1-y: True
+cu1 vs moi: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)
+cu1 vs cu2: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)
+  H-INVARIANT step1: sum=4.315526016143e-01 max=4.996117862202e-03 L2=4.038398833251e-02
+  H-INVARIANT step40: sum=7.993470020391e+02 max=7.815406220233e+00 L2=7.238442537102e+01
+  H-INVARIANT step1: sum=4.315526016143e-01 max=4.996117862202e-03 L2=4.038398833251e-02
+  H-INVARIANT step40: sum=7.993470020391e+02 max=7.815406220233e+00 L2=7.238442537102e+01
+  H-INVARIANT step1: sum=4.315526016143e-01 max=4.996117862202e-03 L2=4.038398833251e-02
+  H-INVARIANT step40: sum=7.993470020391e+02 max=7.815406220233e+00 L2=7.238442537102e+01
+A_TT_cg1.log:  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 1 steps to 1.100e-02 (step 1.04e-02)
+A_TT_cg1.log:  LUOI: --cell tri  (tam giac P1, crossed)  so phan tu = 40000  so dinh = 20201
+A_TT_cg1.log:  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+A_TT_cg1.log:  KHONG GIAN H: --hspace cg1   *** BAN TRUOC KHI SUA -- CHI DE DO TAT
+A_TT_cg1.log:  NOTCH DOFS (nhan 0, cuc bo) = 51   sharp=True
+A_TT_cg1.log:  step   1  u = 1.400e-05  F =   0.1944  d_tip = 0.000  a = 0.0000  H/Hc =     0.01  stagg = 4
+A_TT_cg1.log:  step   2  u = 2.800e-05  F =   0.3887  d_tip = 0.000  a = 0.0000  H/Hc =     0.06  stagg = 4
+A_TT_cg1.log:  step   3  u = 4.200e-05  F =   0.5828  d_tip = 0.000  a = 0.0000  H/Hc =     0.13  stagg = 7
+A_TT_cg1.log:  PEAK LOAD = 0.5828 N/mm   at step 3 of 3
+A_TT_dg0.log:  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 1 steps to 1.100e-02 (step 1.04e-02)
+A_TT_dg0.log:  LUOI: --cell tri  (tam giac P1, crossed)  so phan tu = 40000  so dinh = 20201
+A_TT_dg0.log:  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+A_TT_dg0.log:  KHONG GIAN H: --hspace dg0
+A_TT_dg0.log:  NOTCH DOFS (nhan 0, cuc bo) = 51   sharp=True
+A_TT_dg0.log:  step   1  u = 1.400e-05  F =   0.1944  d_tip = 0.000  a = 0.0000  H/Hc =     0.02  stagg = 4
+A_TT_dg0.log:  step   2  u = 2.800e-05  F =   0.3887  d_tip = 0.000  a = 0.0000  H/Hc =     0.06  stagg = 4
+A_TT_dg0.log:  step   3  u = 4.200e-05  F =   0.5826  d_tip = 0.000  a = 0.0000  H/Hc =     0.14  stagg = 9
+A_TT_dg0.log:  PEAK LOAD = 0.5826 N/mm   at step 3 of 3
