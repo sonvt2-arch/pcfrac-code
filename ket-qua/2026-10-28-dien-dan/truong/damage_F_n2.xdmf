@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE Xdmf SYSTEM "Xdmf.dtd" []>
+<Xdmf Version="3.0" xmlns:xi="https://www.w3.org/2001/XInclude">
+  <Domain>
+    <Grid Name="mesh" GridType="Uniform">
+      <Topology TopologyType="Triangle" NumberOfElements="92908" NodesPerElement="3">
+        <DataItem Dimensions="92908 3" NumberType="Int" Format="HDF">damage_F_n2.h5:/Mesh/mesh/topology</DataItem>
+      </Topology>
+      <Geometry GeometryType="XY">
+        <DataItem Dimensions="46855 2" Format="HDF">damage_F_n2.h5:/Mesh/mesh/geometry</DataItem>
+      </Geometry>
+    </Grid>
+    <Grid Name="PhaseField" GridType="Collection" CollectionType="Temporal">
+      <Grid Name="PhaseField" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="0.0070000000000000001" />
+        <Attribute Name="PhaseField" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="46855 1" Format="HDF">damage_F_n2.h5:/Function/PhaseField/0_0070000000000000001</DataItem>
+        </Attribute>
+      </Grid>
+    </Grid>
+  </Domain>
+</Xdmf>
