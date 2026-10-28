@@ -257,3 +257,38 @@ model=WU  ell=0.05 mm  nx=400  h=0.0025 mm  h/ell=0.05
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-10-28T00:59:04Z
+=== CHANG 2 2026-10-28T01:00:35Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+  w_c = 2Gc/ft = 0.00914 mm ; elastic limit = 1.400e-04 mm (65x smaller)
+  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 380 steps to 2.040e-02 (step 5.22e-05)
+model=WU  ell=0.05 mm  nx=400  h=0.0025 mm  h/ell=0.05
+  KHONG GIAN H: --hspace cg1   *** BAN TRUOC KHI SUA -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split spectral   *** BIEN THE CHAN DOAN -- DINH LUC KHONG DUNG DUOC
+  Wu cohesive: a1 = 831.50
+  TAI: --load shear (SENS)
+  NOTCH DOFS (nhan 0, cuc bo) = 1   sharp=True
+  damage threshold H_crit = 2.4500e-04 ; ft^2/(2E) = 2.4500e-04
+  RESUME: chay tiep tu buoc 219 (diem kiem buoc 218)
+  step 219  u = 9.904e-03  F =   0.6150  d_tip = 0.765  a = 0.4265  H/Hc = 2233496.65  stagg = 91
+  step 220  u = 9.956e-03  F =   0.6066  d_tip = 0.771  a = 0.4298  H/Hc = 2340711.83  stagg = 92
+  step 221  u = 1.001e-02  F =   0.5979  d_tip = 0.776  a = 0.4332  H/Hc = 2455492.49  stagg = 185
+  step 222  u = 1.006e-02  F =   0.5897  d_tip = 0.782  a = 0.4364  H/Hc = 2578063.09  stagg = 71
+  step 223  u = 1.011e-02  F =   0.5814  d_tip = 0.787  a = 0.4396  H/Hc = 2709488.45  stagg = 78
+  step 224  u = 1.016e-02  F =   0.5731  d_tip = 0.793  a = 0.4429  H/Hc = 2850731.81  stagg = 111
+  step 225  u = 1.022e-02  F =   0.5646  d_tip = 0.799  a = 0.4462  H/Hc = 3002867.92  stagg = 121
+  step 226  u = 1.027e-02  F =   0.5563  d_tip = 0.804  a = 0.4495  H/Hc = 3166632.14  stagg = 87
+  step 227  u = 1.032e-02  F =   0.5465  d_tip = 0.810  a = 0.4537  H/Hc = 3345593.28  stagg = 200
+  step 228  u = 1.037e-02  F =   0.5387  d_tip = 0.816  a = 0.4568  H/Hc = 3536331.17  stagg = 103  SNES=-5
+  step 229  u = 1.043e-02  F =   0.5308  d_tip = 0.822  a = 0.4599  H/Hc = 3743688.60  stagg = 115
+  step 230  u = 1.048e-02  F =   0.5229  d_tip = 0.828  a = 0.4631  H/Hc = 3969108.85  stagg = 131
+  step 231  u = 1.053e-02  F =   0.5149  d_tip = 0.834  a = 0.4662  H/Hc = 4214675.86  stagg = 135
+  step 232  u = 1.058e-02  F =   0.5070  d_tip = 0.840  a = 0.4694  H/Hc = 4482664.05  stagg = 157
+  step 233  u = 1.063e-02  F =   0.4991  d_tip = 0.846  a = 0.4726  H/Hc = 4775641.93  stagg = 167
+  step 234  u = 1.069e-02  F =   0.4912  d_tip = 0.853  a = 0.4757  H/Hc = 5096133.07  stagg = 166
+  step 235  u = 1.074e-02  F =   0.4835  d_tip = 0.859  a = 0.4788  H/Hc = 5470667.80  stagg = 157
+  step 236  u = 1.079e-02  F =   0.4759  d_tip = 0.865  a = 0.4819  H/Hc = 5921810.06  stagg = 152
+  step 237  u = 1.084e-02  F =   0.4684  d_tip = 0.871  a = 0.4850  H/Hc = 6433937.60  stagg = 139
+  step 238  u = 1.090e-02  F =   0.4609  d_tip = 0.877  a = 0.4880  H/Hc = 7018978.83  stagg = 134
+  step 239  u = 1.095e-02  F =   0.4535  d_tip = 0.884  a = 0.4910  H/Hc = 7693117.87  stagg = 155
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: === EXIT=124 2026-10-28T06:20:35Z
