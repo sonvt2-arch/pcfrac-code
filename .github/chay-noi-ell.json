@@ -1,0 +1,26 @@
+[
+ {
+  "tag": "L_cg1_sp_e0025_200_n1",
+  "nhan": 1,
+  "ell": "0.025",
+  "args": "--model WU --ell 0.025 --nx 200 --grip clamp --load tension --split spectral --sharpnotch --hspace cg1 --umax 0.011 --steps 240 --n1 40"
+ },
+ {
+  "tag": "L_dg0_sp_e0025_200_n1",
+  "nhan": 1,
+  "ell": "0.025",
+  "args": "--model WU --ell 0.025 --nx 200 --grip clamp --load tension --split spectral --sharpnotch --hspace dg0 --umax 0.011 --steps 240 --n1 40"
+ },
+ {
+  "tag": "L_cg1_sp_e01_50_n1",
+  "nhan": 1,
+  "ell": "0.1",
+  "args": "--model WU --ell 0.1 --nx 50 --grip clamp --load tension --split spectral --sharpnotch --hspace cg1 --umax 0.011 --steps 240 --n1 40"
+ },
+ {
+  "tag": "L_dg0_sp_e01_50_n1",
+  "nhan": 1,
+  "ell": "0.1",
+  "args": "--model WU --ell 0.1 --nx 50 --grip clamp --load tension --split spectral --sharpnotch --hspace dg0 --umax 0.011 --steps 240 --n1 40"
+ }
+]

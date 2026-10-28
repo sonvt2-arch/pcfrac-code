@@ -11,6 +11,11 @@ on:
   push:
     paths: [".github/chay-noi.json"]
   workflow_dispatch:
+    inputs:
+      ds:
+        description: "Tep danh sach ca (mac dinh .github/chay-noi.json)"
+        required: false
+        default: ".github/chay-noi.json"
 
 permissions:
   contents: write
@@ -26,7 +31,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: c
-        run: echo "ca=$(python3 -c 'import json;print(json.dumps(json.load(open(".github/chay-noi.json"))))')" >> "$GITHUB_OUTPUT"
+        run: echo "ca=$(python3 -c 'import json;print(json.dumps(json.load(open("${{ inputs.ds || '.github/chay-noi.json' }}"))))')" >> "$GITHUB_OUTPUT"
 
   c1:
     needs: doc-ca
@@ -83,11 +88,12 @@ jobs:
             fi
           fi
           tail -5 $f
-          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_WU_ell0.05.h5 ]; then
+          E=${{ matrix.ell || '0.05' }}; M=${{ matrix.model || 'WU' }}   # ell/model cua ca (mac dinh 0.05/WU nhu cu)
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_${M}_ell$E.h5 ]; then
             python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
-            cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
-            sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
-            python3 measure_kink.py $tag.xdmf --ell 0.05 --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
+            cp -f damage_${M}_ell$E.h5 $tag.h5; cp -f damage_${M}_ell$E.xdmf $tag.xdmf
+            sed -i "s/damage_${M}_ell${E//./\\.}\.h5/$tag.h5/g" $tag.xdmf
+            python3 measure_kink.py $tag.xdmf --ell $E --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
           fi
           D=../ket-qua/2026-10-26-actions; mkdir -p $D/truong
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
@@ -168,11 +174,12 @@ jobs:
             fi
           fi
           tail -5 $f
-          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_WU_ell0.05.h5 ]; then
+          E=${{ matrix.ell || '0.05' }}; M=${{ matrix.model || 'WU' }}   # ell/model cua ca (mac dinh 0.05/WU nhu cu)
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_${M}_ell$E.h5 ]; then
             python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
-            cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
-            sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
-            python3 measure_kink.py $tag.xdmf --ell 0.05 --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
+            cp -f damage_${M}_ell$E.h5 $tag.h5; cp -f damage_${M}_ell$E.xdmf $tag.xdmf
+            sed -i "s/damage_${M}_ell${E//./\\.}\.h5/$tag.h5/g" $tag.xdmf
+            python3 measure_kink.py $tag.xdmf --ell $E --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
           fi
           D=../ket-qua/2026-10-26-actions; mkdir -p $D/truong
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
@@ -253,11 +260,12 @@ jobs:
             fi
           fi
           tail -5 $f
-          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_WU_ell0.05.h5 ]; then
+          E=${{ matrix.ell || '0.05' }}; M=${{ matrix.model || 'WU' }}   # ell/model cua ca (mac dinh 0.05/WU nhu cu)
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_${M}_ell$E.h5 ]; then
             python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
-            cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
-            sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
-            python3 measure_kink.py $tag.xdmf --ell 0.05 --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
+            cp -f damage_${M}_ell$E.h5 $tag.h5; cp -f damage_${M}_ell$E.xdmf $tag.xdmf
+            sed -i "s/damage_${M}_ell${E//./\\.}\.h5/$tag.h5/g" $tag.xdmf
+            python3 measure_kink.py $tag.xdmf --ell $E --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
           fi
           D=../ket-qua/2026-10-26-actions; mkdir -p $D/truong
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
@@ -338,11 +346,12 @@ jobs:
             fi
           fi
           tail -5 $f
-          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_WU_ell0.05.h5 ]; then
+          E=${{ matrix.ell || '0.05' }}; M=${{ matrix.model || 'WU' }}   # ell/model cua ca (mac dinh 0.05/WU nhu cu)
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_${M}_ell$E.h5 ]; then
             python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
-            cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
-            sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
-            python3 measure_kink.py $tag.xdmf --ell 0.05 --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
+            cp -f damage_${M}_ell$E.h5 $tag.h5; cp -f damage_${M}_ell$E.xdmf $tag.xdmf
+            sed -i "s/damage_${M}_ell${E//./\\.}\.h5/$tag.h5/g" $tag.xdmf
+            python3 measure_kink.py $tag.xdmf --ell $E --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
           fi
           D=../ket-qua/2026-10-26-actions; mkdir -p $D/truong
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
@@ -423,11 +432,12 @@ jobs:
             fi
           fi
           tail -5 $f
-          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_WU_ell0.05.h5 ]; then
+          E=${{ matrix.ell || '0.05' }}; M=${{ matrix.model || 'WU' }}   # ell/model cua ca (mac dinh 0.05/WU nhu cu)
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_${M}_ell$E.h5 ]; then
             python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
-            cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
-            sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
-            python3 measure_kink.py $tag.xdmf --ell 0.05 --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
+            cp -f damage_${M}_ell$E.h5 $tag.h5; cp -f damage_${M}_ell$E.xdmf $tag.xdmf
+            sed -i "s/damage_${M}_ell${E//./\\.}\.h5/$tag.h5/g" $tag.xdmf
+            python3 measure_kink.py $tag.xdmf --ell $E --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
           fi
           D=../ket-qua/2026-10-26-actions; mkdir -p $D/truong
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
@@ -507,11 +517,12 @@ jobs:
             fi
           fi
           tail -5 $f
-          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_WU_ell0.05.h5 ]; then
+          E=${{ matrix.ell || '0.05' }}; M=${{ matrix.model || 'WU' }}   # ell/model cua ca (mac dinh 0.05/WU nhu cu)
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_${M}_ell$E.h5 ]; then
             python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
-            cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
-            sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
-            python3 measure_kink.py $tag.xdmf --ell 0.05 --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
+            cp -f damage_${M}_ell$E.h5 $tag.h5; cp -f damage_${M}_ell$E.xdmf $tag.xdmf
+            sed -i "s/damage_${M}_ell${E//./\\.}\.h5/$tag.h5/g" $tag.xdmf
+            python3 measure_kink.py $tag.xdmf --ell $E --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
           fi
           D=../ket-qua/2026-10-26-actions; mkdir -p $D/truong
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
@@ -591,11 +602,12 @@ jobs:
             fi
           fi
           tail -5 $f
-          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_WU_ell0.05.h5 ]; then
+          E=${{ matrix.ell || '0.05' }}; M=${{ matrix.model || 'WU' }}   # ell/model cua ca (mac dinh 0.05/WU nhu cu)
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_${M}_ell$E.h5 ]; then
             python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
-            cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
-            sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
-            python3 measure_kink.py $tag.xdmf --ell 0.05 --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
+            cp -f damage_${M}_ell$E.h5 $tag.h5; cp -f damage_${M}_ell$E.xdmf $tag.xdmf
+            sed -i "s/damage_${M}_ell${E//./\\.}\.h5/$tag.h5/g" $tag.xdmf
+            python3 measure_kink.py $tag.xdmf --ell $E --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
           fi
           D=../ket-qua/2026-10-26-actions; mkdir -p $D/truong
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
@@ -675,11 +687,12 @@ jobs:
             fi
           fi
           tail -5 $f
-          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_WU_ell0.05.h5 ]; then
+          E=${{ matrix.ell || '0.05' }}; M=${{ matrix.model || 'WU' }}   # ell/model cua ca (mac dinh 0.05/WU nhu cu)
+          if grep -q "PEAK LOAD" $f && [ ! -s goc_$tag.txt ] && [ -s damage_${M}_ell$E.h5 ]; then
             python3 -c "import h5py" 2>/dev/null || pip install -q h5py || true
-            cp -f damage_WU_ell0.05.h5 $tag.h5; cp -f damage_WU_ell0.05.xdmf $tag.xdmf
-            sed -i "s/damage_WU_ell0\.05\.h5/$tag.h5/g" $tag.xdmf
-            python3 measure_kink.py $tag.xdmf --ell 0.05 --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
+            cp -f damage_${M}_ell$E.h5 $tag.h5; cp -f damage_${M}_ell$E.xdmf $tag.xdmf
+            sed -i "s/damage_${M}_ell${E//./\\.}\.h5/$tag.h5/g" $tag.xdmf
+            python3 measure_kink.py $tag.xdmf --ell $E --dmin 0.2 --x0 0.60 --ve > goc_$tag.txt 2>&1 || true
           fi
           D=../ket-qua/2026-10-26-actions; mkdir -p $D/truong
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
