@@ -4,7 +4,8 @@ Code, workflows and numerical logs accompanying a manuscript in preparation.
 
 - `code/benchmark_A.py` — phase-field (PF-CZM, Wu) single-edge-notched specimens in
   DOLFINx 0.11; `--hspace cg1|dg0` selects where the history field H is stored,
-  `--load tension|shear` selects SENT or SENS, `--ckpt/--resume` checkpoints.
+  `--load tension|shear` selects SENT or SENS, `--cell quad|tri` selects Q1 quadrilaterals
+  (default) or linear triangles (crossed diagonals), `--ckpt/--resume` checkpoints.
 - `code/measure_kink.py`, `code/goc_tu_diem_kiem.py` — crack-path angle measurement
   (from an `.xdmf` field or from a checkpoint).
 - `code/phep_thu_R.py` — the partition test R = Δ(partition) / Δ(physics).

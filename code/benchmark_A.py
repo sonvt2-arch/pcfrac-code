@@ -104,6 +104,9 @@ p.add_argument("--jitter", type=float, default=0.0,
                     "(giu nguyen ket qua cu tung bit)")
 p.add_argument("--seed", type=int, default=0,
                help="hat giong cua nhieu luoi (chi dung khi --jitter > 0)")
+p.add_argument("--cell", choices=["quad", "tri"], default="quad",
+               help="quad: tu giac Q1 (mac dinh, giu nguyen ket qua cu tung bit); "
+                    "tri: tam giac P1, moi o vuong nx x nx chia cheo chu thap (crossed)")
 p.add_argument("--out", default=None)
 args = p.parse_args()
 
@@ -164,7 +167,27 @@ if comm.rank == 0:
     print(f"model={args.model}  ell={ell} mm  nx={nx}  h={L/nx:.4f} mm  "
           f"h/ell={L/nx/ell:.2f}")
 
-domain = mesh.create_unit_square(comm, nx, nx, mesh.CellType.quadrilateral)
+# --cell tri: cung hinh vuong, cung nx, nhung moi o vuong chia thanh BON tam
+# giac boi hai duong cheo ("crossed"; DOLFINx them mot nut o tam moi o).  Chon
+# crossed vi do la kieu duy nhat ma luoi bat bien qua phep doi xung guong
+# y -> 1 - y cua SENT (va ca x -> 1 - x): "right" va "left" anh xa vao nhau
+# qua phep doi xung do, nen moi duong cheo co huong san la mot do lech co san
+# cua LUOI, chinh no co the be cong vet nut DG0 ma ta can lam doi chung thang.
+# Luoi crossed van giu cac canh ngang tren y = 0.5, nen vet khia sac (hang nut
+# y = 0.5) va duong nut thang giu nguyen nhu luoi tu giac.  h van la canh O
+# VUONG, L/nx: nut tam o (i + 1/2, j + 1/2) h nen tieu chi |y - 0.5| < 0.4 h
+# cua vet khia khong bat nut tam nao (51 nut o nx = 100, nhu Q1).
+if args.cell == "tri":
+    domain = mesh.create_unit_square(comm, nx, nx, mesh.CellType.triangle,
+                                     diagonal=mesh.DiagonalType.crossed)
+else:
+    domain = mesh.create_unit_square(comm, nx, nx, mesh.CellType.quadrilateral)
+if comm.rank == 0:
+    _nc = domain.topology.index_map(domain.topology.dim).size_global
+    _nv = domain.topology.index_map(0).size_global
+    print(f"  LUOI: --cell {args.cell}"
+          + ("  (tam giac P1, crossed)" if args.cell == "tri" else "  (tu giac Q1)")
+          + f"  so phan tu = {_nc}  so dinh = {_nv}", flush=True)
 
 
 # ------------------------------------------------------------- nhieu luoi
@@ -186,6 +209,10 @@ def _splitmix64(z):
 def _jitter_mesh(frac, seed):
     if args.pores:
         raise SystemExit("--jitter chua ho tro --pores")
+    if args.cell != "quad":
+        # Chi so (i, j) = round(x/h, y/h) gan nut tam o crossed vao nut goc o
+        # ben canh: hai nut cung mot khoa bam.  Chua ho tro, dung han.
+        raise SystemExit("--jitter chua ho tro --cell tri")
     h = L / nx
     X = domain.geometry.x
     ii = np.rint(X[:, 0] / h).astype(np.int64)
@@ -689,6 +716,13 @@ if args.resume:
     if comm.rank == 0:
         print(f"  RESUME: chay tiep tu buoc {start_step} (diem kiem buoc {_s})", flush=True)
 V0 = functionspace(domain, ("DG", 0))
+# Diem lay psi+ la diem noi suy cua V_H tren phan tu tham chieu, nen tu dung
+# cho ca hai loai o: DG0 -> TAM phan tu (tu giac (1/2, 1/2), tam giac (1/3,
+# 1/3)); P1/Q1 -> cac DINH (4 hay 3).  Tren tam giac P1, grad u hang trong
+# phan tu nen psi+ hang tung phan tu: DG0 lay dung gia tri do, con P1 dua gia
+# tri cua MOT phan tu vao moi dinh dung chung (phan tu ghi sau thang) -- cung
+# lop tat noi suy nut nhu Q1.  Cap nhat H = max(H, psi+) la theo mang bac tu
+# do, khong phu thuoc loai o.
 _ip = V_H.element.interpolation_points
 if callable(_ip):
     _ip = _ip()

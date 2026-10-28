@@ -1,0 +1,28 @@
+[
+ {
+  "tag": "M_at2_cg1_sp_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.05 --nx 100 --grip clamp --load tension --split spectral --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace cg1"
+ },
+ {
+  "tag": "M_at2_dg0_sp_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.05 --nx 100 --grip clamp --load tension --split spectral --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace dg0"
+ },
+ {
+  "tag": "K_tri_cg1_sp_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --nx 100 --grip clamp --load tension --split spectral --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace cg1 --cell tri"
+ },
+ {
+  "tag": "K_tri_dg0_sp_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --nx 100 --grip clamp --load tension --split spectral --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace dg0 --cell tri"
+ }
+]

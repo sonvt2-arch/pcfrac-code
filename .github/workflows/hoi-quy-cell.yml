@@ -1,0 +1,84 @@
+name: Hoi quy cell quad
+
+# Kiem tuy chon --cell (mac dinh quad) khong doi ket qua tu giac: tren CUNG mot
+# may, chay ma CU (truoc khi them --cell, commit fba6f4d) va ma MOI voi cung co
+# T40 (SENT, Q1, 1 nhan, 40 buoc); so tung byte tep loaddisp va dong
+# H-INVARIANT.  Ma cu chay hai lan de biet chay lap tren mot may co tat dinh
+# khong (nhu hoi-quy-jitter.yml).  Kem theo: kiem luoi tam giac crossed bat bien
+# qua y -> 1 - y, va chay thu --cell tri 3 buoc (P1 va DG0) de doc so nut vet
+# khia, so phan tu, so dinh.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  hoi-quy:
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Chay cu / moi / cu, roi thu tam giac
+        working-directory: code
+        run: |
+          set +e
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git show fba6f4d:code/benchmark_A.py > benchmark_A_cu.py
+          A="--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --hspace cg1 --umax 0.011 --steps 40"
+          D=../ket-qua/2026-10-26-actions/hoi-quy-cell; mkdir -p $D
+          echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" | tee $D/ket-luan.txt
+          for t in cu1:benchmark_A_cu.py moi:benchmark_A.py cu2:benchmark_A_cu.py; do
+            n=${t%%:*}; s=${t#*:}
+            mpirun -n 1 python3 -u $s $A --out HC_$n > $D/A_HC_$n.log 2>&1
+            cp -f loaddisp_HC_$n.txt $D/
+          done
+          for hs in cg1 dg0; do
+            mpirun -n 1 python3 -u benchmark_A.py --model WU --ell 0.05 --grip clamp --sharpnotch \
+              --n1 40 --load tension --split spectral --hspace $hs --umax 0.011 --steps 3 \
+              --cell tri --out TT_$hs > $D/A_TT_$hs.log 2>&1
+          done
+          python3 - <<'EOF' >> $D/ket-luan.txt 2>&1
+          # Luoi crossed nx = 100: tap tam giac (theo toa do dinh) co bat bien qua y -> 1 - y?
+          import numpy as np
+          from mpi4py import MPI
+          from dolfinx import mesh
+          m = mesh.create_unit_square(MPI.COMM_SELF, 100, 100, mesh.CellType.triangle,
+                                      diagonal=mesh.DiagonalType.crossed)
+          X = m.geometry.x[:, :2]; c = m.geometry.dofmap
+          def tap(Y):
+              k = np.rint(Y[c] * 200).astype(np.int64)      # luoi nua o: so nguyen chinh xac
+              k = k[:, :, 0] * 1000 + k[:, :, 1]
+              return set(map(tuple, np.sort(k, axis=1)))
+          Ym = X.copy(); Ym[:, 1] = 1.0 - Ym[:, 1]
+          print("LUOI crossed nx=100: so tam giac", len(c), " so nut", len(X),
+                " bat bien qua y->1-y:", tap(X) == tap(Ym))
+          EOF
+          cd $D
+          for n in moi cu2; do
+            if cmp -s loaddisp_HC_cu1.txt loaddisp_HC_$n.txt && \
+               diff <(grep H-INVARIANT A_HC_cu1.log) <(grep H-INVARIANT A_HC_$n.log) >/dev/null; then
+              echo "cu1 vs $n: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)" | tee -a ket-luan.txt
+            else
+              echo "cu1 vs $n: KHAC" | tee -a ket-luan.txt
+            fi
+          done
+          grep -h "H-INVARIANT" A_HC_*.log | tee -a ket-luan.txt
+          grep -H "LUOI\|NOTCH DOFS\|KHONG GIAN H\|step \|Error\|error" A_TT_*.log | tee -a ket-luan.txt
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-10-26-actions/hoi-quy-cell || exit 0
+          git commit -qm "Actions: hoi quy cell quad (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
