@@ -1,0 +1,60 @@
+name: Hoi quy jitter 0
+
+# Kiem --jitter 0 khong doi ket qua: tren CUNG mot may, chay ma CU (truoc khi
+# them --jitter, commit aad74b5) va ma MOI voi cung co, 1 nhan, 40 buoc; so
+# tung byte tep loaddisp va dong H-INVARIANT.  Chay ma cu hai lan de biet chay
+# lap tren mot may co tat dinh khong.  So sanh giua hai may khac nhau khong
+# dung duoc cho viec nay: lech ~1e-9 tuong doi do may (xem TRANG-THAI muc 12).
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  hoi-quy:
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Chay cu / moi / cu
+        working-directory: code
+        run: |
+          set +e
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git show aad74b5:code/benchmark_A.py > benchmark_A_cu.py
+          A="--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --hspace cg1 --umax 0.011 --steps 40"
+          D=../ket-qua/2026-10-26-actions/hoi-quy-jitter0; mkdir -p $D
+          echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" | tee $D/ket-luan.txt
+          for t in cu1:benchmark_A_cu.py moi:benchmark_A.py cu2:benchmark_A_cu.py; do
+            n=${t%%:*}; s=${t#*:}
+            mpirun -n 1 python3 -u $s $A --out HQ_$n > $D/A_HQ_$n.log 2>&1
+            cp -f loaddisp_HQ_$n.txt $D/
+          done
+          cd $D
+          for n in moi cu2; do
+            if cmp -s loaddisp_HQ_cu1.txt loaddisp_HQ_$n.txt && \
+               diff <(grep H-INVARIANT A_HQ_cu1.log) <(grep H-INVARIANT A_HQ_$n.log) >/dev/null; then
+              echo "cu1 vs $n: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)" | tee -a ket-luan.txt
+            else
+              echo "cu1 vs $n: KHAC" | tee -a ket-luan.txt
+            fi
+          done
+          grep -h "H-INVARIANT\|NHIEU" A_HQ_*.log | tee -a ket-luan.txt
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-10-26-actions/hoi-quy-jitter0 || exit 0
+          git commit -qm "Actions: hoi quy jitter 0 (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
