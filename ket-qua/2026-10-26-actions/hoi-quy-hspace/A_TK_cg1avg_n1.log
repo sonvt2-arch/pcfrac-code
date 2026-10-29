@@ -1,0 +1,31 @@
+  w_c = 2Gc/ft = 0.00914 mm ; elastic limit = 1.400e-04 mm (65x smaller)
+  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 1 steps to 1.100e-02 (step 1.04e-02)
+model=WU  ell=0.05 mm  nx=100  h=0.0100 mm  h/ell=0.20
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 10000  so dinh = 10201
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1avg   (psi+ tam phan tu, trung binh ve nut theo dien tich)
+  PHEP TACH NANG LUONG: --split spectral   *** BIEN THE CHAN DOAN -- DINH LUC KHONG DUNG DUOC
+  Wu cohesive: a1 = 831.50
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 51   sharp=True
+  damage threshold H_crit = 2.4500e-04 ; ft^2/(2E) = 2.4500e-04
+  H-INVARIANT step1: sum=4.309967292256e-01 max=4.967184172018e-03 L2=3.514619174783e-02
+  step   1  u = 1.400e-05  F =   0.1944  d_tip = 0.000  a = 0.0000  H/Hc =     0.01  stagg = 4
+  step   2  u = 2.800e-05  F =   0.3886  d_tip = 0.000  a = 0.0000  H/Hc =     0.06  stagg = 5
+  step   3  u = 4.200e-05  F =   0.5827  d_tip = 0.000  a = 0.0000  H/Hc =     0.13  stagg = 5
+
+============================================================
+  model WU   ell = 0.05 mm
+  PEAK LOAD = 0.5827 N/mm   at step 3 of 3
+  nominal peak stress = 0.5827 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 100.0 % of peak ; final d ahead of the tip = 0.000 ; crack extension = 0.0000 mm (0.0 ell)
+  *** NOT A FRACTURE PEAK: the load never fell below 60 % of
+      its maximum, or no crack ran (d stayed under 0.5 and the
+      crack grew less than 2 ell).  The maximum above is a
+      plateau value, which is noise.
+      NOTE: the run stopped at u = 4.200e-05 mm of 0.0110 mm,
+      so it ended early -- look at the failed damage solves below,
+      not at umax.
+  wrote loaddisp_TK_cg1avg_n1.txt
+============================================================
