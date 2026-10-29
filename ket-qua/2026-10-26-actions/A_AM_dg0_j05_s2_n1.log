@@ -1,0 +1,208 @@
+=== CHANG 1 2026-10-29T02:03:48Z tu dau (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 0.00914 mm ; elastic limit = 1.400e-04 mm (65x smaller)
+  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 200 steps to 1.100e-02 (step 5.22e-05)
+model=WU  ell=0.05 mm  nx=100  h=0.0100 mm  h/ell=0.20
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 10000  so dinh = 10201
+  NHIEU LUOI: --jitter 0.05 --seed 2   *** LUOI BI DICH -- CA NGHIEN CUU NHIEU
+  NHIEU LUOI: so nut dich = 9751  max|dich|/h = 0.0500  tong dx = -2.474955189644e-02  tong dy = 2.309495635072e-02  tong |dich| = 4.884419224057e+00
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  Wu cohesive: a1 = 831.50
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 51   sharp=True
+  damage threshold H_crit = 2.4500e-04 ; ft^2/(2E) = 2.4500e-04
+  H-INVARIANT step1: sum=4.265439104167e-01 max=5.556019868834e-03 L2=4.016740460798e-02
+  step   1  u = 1.400e-05  F =   0.1943  d_tip = 0.000  a = 0.0000  H/Hc =     0.02  stagg = 5
+  step   2  u = 2.800e-05  F =   0.3885  d_tip = 0.000  a = 0.0000  H/Hc =     0.06  stagg = 5
+  step   3  u = 4.200e-05  F =   0.5825  d_tip = 0.000  a = 0.0000  H/Hc =     0.14  stagg = 6
+  step   4  u = 5.600e-05  F =   0.7741  d_tip = 0.000  a = 0.0000  H/Hc =     0.25  stagg = 18
+  step   5  u = 7.000e-05  F =   0.9588  d_tip = 0.000  a = 0.0000  H/Hc =     0.40  stagg = 28
+  step   6  u = 8.400e-05  F =   1.1336  d_tip = 0.000  a = 0.0001  H/Hc =     0.61  stagg = 35
+  step   7  u = 9.800e-05  F =   1.2940  d_tip = 0.000  a = 0.0001  H/Hc =     1.15  stagg = 38
+  step   8  u = 1.120e-04  F =   1.4321  d_tip = 0.001  a = 0.0003  H/Hc =     2.89  stagg = 48
+  step   9  u = 1.260e-04  F =   1.5339  d_tip = 0.002  a = 0.0006  H/Hc =     5.86  stagg = 53
+  step  10  u = 1.400e-04  F =   1.5898  d_tip = 0.003  a = 0.0010  H/Hc =     9.88  stagg = 56
+  step  11  u = 1.540e-04  F =   1.6190  d_tip = 0.004  a = 0.0016  H/Hc =    14.72  stagg = 50
+  step  12  u = 1.680e-04  F =   1.6320  d_tip = 0.004  a = 0.0023  H/Hc =    20.22  stagg = 53
+  step  13  u = 1.820e-04  F =   1.6379  d_tip = 0.005  a = 0.0029  H/Hc =    26.29  stagg = 61
+  step  14  u = 1.960e-04  F =   1.6409  d_tip = 0.006  a = 0.0037  H/Hc =    32.79  stagg = 63
+  step  15  u = 2.100e-04  F =   1.6430  d_tip = 0.007  a = 0.0044  H/Hc =    39.65  stagg = 59
+  step  16  u = 2.240e-04  F =   1.6446  d_tip = 0.007  a = 0.0051  H/Hc =    46.82  stagg = 55
+  step  17  u = 2.380e-04  F =   1.6459  d_tip = 0.008  a = 0.0058  H/Hc =    54.31  stagg = 51
+  step  18  u = 2.520e-04  F =   1.6470  d_tip = 0.009  a = 0.0065  H/Hc =    62.11  stagg = 48
+  step  19  u = 2.660e-04  F =   1.6479  d_tip = 0.009  a = 0.0073  H/Hc =    70.19  stagg = 45
+  step  20  u = 2.800e-04  F =   1.6486  d_tip = 0.010  a = 0.0080  H/Hc =    78.57  stagg = 43
+  step  21  u = 2.940e-04  F =   1.6492  d_tip = 0.010  a = 0.0087  H/Hc =    87.28  stagg = 41
+  step  22  u = 3.080e-04  F =   1.6496  d_tip = 0.011  a = 0.0094  H/Hc =    96.36  stagg = 39
+  step  23  u = 3.220e-04  F =   1.6500  d_tip = 0.012  a = 0.0101  H/Hc =   105.85  stagg = 37
+  step  24  u = 3.360e-04  F =   1.6502  d_tip = 0.012  a = 0.0109  H/Hc =   115.82  stagg = 35
+  step  25  u = 3.500e-04  F =   1.6504  d_tip = 0.013  a = 0.0116  H/Hc =   126.26  stagg = 34
+  step  26  u = 3.640e-04  F =   1.6505  d_tip = 0.014  a = 0.0123  H/Hc =   137.21  stagg = 33
+  step  27  u = 3.780e-04  F =   1.6505  d_tip = 0.014  a = 0.0130  H/Hc =   148.71  stagg = 32
+  step  28  u = 3.920e-04  F =   1.6505  d_tip = 0.015  a = 0.0138  H/Hc =   160.80  stagg = 30
+  step  29  u = 4.060e-04  F =   1.6504  d_tip = 0.015  a = 0.0145  H/Hc =   173.56  stagg = 29
+  step  30  u = 4.200e-04  F =   1.6502  d_tip = 0.016  a = 0.0152  H/Hc =   187.02  stagg = 28
+  step  31  u = 4.340e-04  F =   1.6500  d_tip = 0.017  a = 0.0159  H/Hc =   201.22  stagg = 27
+  step  32  u = 4.480e-04  F =   1.6497  d_tip = 0.017  a = 0.0167  H/Hc =   216.19  stagg = 27
+  step  33  u = 4.620e-04  F =   1.6494  d_tip = 0.018  a = 0.0174  H/Hc =   231.99  stagg = 26
+  step  34  u = 4.760e-04  F =   1.6490  d_tip = 0.019  a = 0.0181  H/Hc =   248.64  stagg = 25
+  step  35  u = 4.900e-04  F =   1.6486  d_tip = 0.020  a = 0.0189  H/Hc =   266.20  stagg = 25
+  step  36  u = 5.040e-04  F =   1.6482  d_tip = 0.020  a = 0.0196  H/Hc =   284.70  stagg = 24
+  step  37  u = 5.180e-04  F =   1.6477  d_tip = 0.021  a = 0.0203  H/Hc =   304.25  stagg = 24
+  step  38  u = 5.320e-04  F =   1.6472  d_tip = 0.022  a = 0.0210  H/Hc =   324.86  stagg = 23
+  step  39  u = 5.460e-04  F =   1.6467  d_tip = 0.023  a = 0.0218  H/Hc =   346.56  stagg = 23
+  H-INVARIANT step40: sum=8.085538213660e+02 max=8.521901164155e+00 L2=7.232467929862e+01
+  step  40  u = 5.600e-04  F =   1.6461  d_tip = 0.023  a = 0.0225  H/Hc =   369.41  stagg = 23
+  step  41  u = 6.122e-04  F =   1.6437  d_tip = 0.026  a = 0.0253  H/Hc =   457.41  stagg = 27
+  step  42  u = 6.644e-04  F =   1.6412  d_tip = 0.029  a = 0.0280  H/Hc =   559.72  stagg = 25
+  step  43  u = 7.166e-04  F =   1.6384  d_tip = 0.032  a = 0.0308  H/Hc =   677.02  stagg = 24
+  step  44  u = 7.688e-04  F =   1.6355  d_tip = 0.035  a = 0.0335  H/Hc =   810.47  stagg = 22
+  step  45  u = 8.210e-04  F =   1.6324  d_tip = 0.038  a = 0.0363  H/Hc =   961.22  stagg = 22
+  step  46  u = 8.732e-04  F =   1.6290  d_tip = 0.042  a = 0.0390  H/Hc =  1130.57  stagg = 23
+  step  47  u = 9.254e-04  F =   1.6255  d_tip = 0.045  a = 0.0418  H/Hc =  1319.98  stagg = 21
+  step  48  u = 9.776e-04  F =   1.6219  d_tip = 0.049  a = 0.0446  H/Hc =  1530.99  stagg = 20
+  step  49  u = 1.030e-03  F =   1.6182  d_tip = 0.052  a = 0.0473  H/Hc =  1765.30  stagg = 22
+  step  50  u = 1.082e-03  F =   1.6143  d_tip = 0.056  a = 0.0501  H/Hc =  2024.62  stagg = 21
+  step  51  u = 1.134e-03  F =   1.6103  d_tip = 0.060  a = 0.0529  H/Hc =  2310.81  stagg = 20
+  step  52  u = 1.186e-03  F =   1.6062  d_tip = 0.064  a = 0.0557  H/Hc =  2625.70  stagg = 19
+  step  53  u = 1.239e-03  F =   1.6020  d_tip = 0.068  a = 0.0585  H/Hc =  2971.37  stagg = 18
+  step  54  u = 1.291e-03  F =   1.5976  d_tip = 0.072  a = 0.0613  H/Hc =  3350.00  stagg = 19
+  step  55  u = 1.343e-03  F =   1.5932  d_tip = 0.076  a = 0.0641  H/Hc =  3763.88  stagg = 19
+  step  56  u = 1.395e-03  F =   1.5887  d_tip = 0.080  a = 0.0669  H/Hc =  4215.38  stagg = 19
+  step  57  u = 1.447e-03  F =   1.5841  d_tip = 0.085  a = 0.0697  H/Hc =  4707.05  stagg = 19
+  step  58  u = 1.500e-03  F =   1.5795  d_tip = 0.089  a = 0.0725  H/Hc =  5241.62  stagg = 19
+  step  59  u = 1.552e-03  F =   1.5747  d_tip = 0.094  a = 0.0753  H/Hc =  5821.58  stagg = 19
+  step  60  u = 1.604e-03  F =   1.5699  d_tip = 0.099  a = 0.0781  H/Hc =  6449.83  stagg = 20
+  step  61  u = 1.656e-03  F =   1.5650  d_tip = 0.103  a = 0.0809  H/Hc =  7129.32  stagg = 20
+  step  62  u = 1.708e-03  F =   1.5600  d_tip = 0.108  a = 0.0837  H/Hc =  7862.99  stagg = 22
+  step  63  u = 1.761e-03  F =   1.5549  d_tip = 0.113  a = 0.0865  H/Hc =  8653.66  stagg = 23
+  step  64  u = 1.813e-03  F =   1.5498  d_tip = 0.118  a = 0.0894  H/Hc =  9504.36  stagg = 23
+  step  65  u = 1.865e-03  F =   1.5446  d_tip = 0.124  a = 0.0922  H/Hc = 10418.13  stagg = 24
+  step  66  u = 1.917e-03  F =   1.5394  d_tip = 0.129  a = 0.0950  H/Hc = 11397.95  stagg = 25
+  step  67  u = 1.969e-03  F =   1.5341  d_tip = 0.134  a = 0.0979  H/Hc = 12446.54  stagg = 28
+  step  68  u = 2.022e-03  F =   1.5287  d_tip = 0.140  a = 0.1007  H/Hc = 13566.80  stagg = 31
+  step  69  u = 2.074e-03  F =   1.5232  d_tip = 0.145  a = 0.1036  H/Hc = 14761.58  stagg = 32
+  step  70  u = 2.126e-03  F =   1.5177  d_tip = 0.151  a = 0.1064  H/Hc = 16033.69  stagg = 34
+  step  71  u = 2.178e-03  F =   1.5121  d_tip = 0.156  a = 0.1093  H/Hc = 17385.75  stagg = 35
+  step  72  u = 2.230e-03  F =   1.5065  d_tip = 0.162  a = 0.1121  H/Hc = 18820.50  stagg = 36
+  step  73  u = 2.283e-03  F =   1.5008  d_tip = 0.167  a = 0.1150  H/Hc = 20340.64  stagg = 42
+  step  74  u = 2.335e-03  F =   1.4950  d_tip = 0.173  a = 0.1179  H/Hc = 21948.80  stagg = 45
+  step  75  u = 2.387e-03  F =   1.4892  d_tip = 0.179  a = 0.1208  H/Hc = 23647.54  stagg = 46
+  step  76  u = 2.439e-03  F =   1.4834  d_tip = 0.185  a = 0.1236  H/Hc = 25439.32  stagg = 49
+  step  77  u = 2.491e-03  F =   1.4774  d_tip = 0.191  a = 0.1265  H/Hc = 27326.92  stagg = 50
+  step  78  u = 2.544e-03  F =   1.4715  d_tip = 0.196  a = 0.1294  H/Hc = 29312.84  stagg = 50
+  step  79  u = 2.596e-03  F =   1.4655  d_tip = 0.202  a = 0.1323  H/Hc = 31399.61  stagg = 53
+  step  80  u = 2.648e-03  F =   1.4594  d_tip = 0.208  a = 0.1352  H/Hc = 33589.82  stagg = 53
+  step  81  u = 2.700e-03  F =   1.4533  d_tip = 0.214  a = 0.1381  H/Hc = 35886.47  stagg = 61
+  step  82  u = 2.752e-03  F =   1.4472  d_tip = 0.220  a = 0.1410  H/Hc = 38292.28  stagg = 61
+  step  83  u = 2.805e-03  F =   1.4410  d_tip = 0.226  a = 0.1439  H/Hc = 40810.03  stagg = 64
+  step  84  u = 2.857e-03  F =   1.4347  d_tip = 0.232  a = 0.1468  H/Hc = 43442.64  stagg = 65
+  step  85  u = 2.909e-03  F =   1.4284  d_tip = 0.238  a = 0.1497  H/Hc = 46193.08  stagg = 65
+  step  86  u = 2.961e-03  F =   1.4221  d_tip = 0.244  a = 0.1526  H/Hc = 49064.62  stagg = 65
+  step  87  u = 3.013e-03  F =   1.4157  d_tip = 0.250  a = 0.1556  H/Hc = 52060.31  stagg = 67
+  step  88  u = 3.066e-03  F =   1.4093  d_tip = 0.256  a = 0.1585  H/Hc = 55183.64  stagg = 67
+  step  89  u = 3.118e-03  F =   1.4028  d_tip = 0.262  a = 0.1614  H/Hc = 58438.64  stagg = 67
+  step  90  u = 3.170e-03  F =   1.3962  d_tip = 0.268  a = 0.1644  H/Hc = 61829.28  stagg = 68
+  step  91  u = 3.222e-03  F =   1.3896  d_tip = 0.274  a = 0.1673  H/Hc = 65360.34  stagg = 68
+  step  92  u = 3.274e-03  F =   1.3829  d_tip = 0.280  a = 0.1702  H/Hc = 69036.82  stagg = 69
+  step  93  u = 3.327e-03  F =   1.3762  d_tip = 0.286  a = 0.1732  H/Hc = 72863.95  stagg = 70
+  step  94  u = 3.379e-03  F =   1.3693  d_tip = 0.292  a = 0.1762  H/Hc = 76847.65  stagg = 69
+  step  95  u = 3.431e-03  F =   1.3623  d_tip = 0.298  a = 0.1792  H/Hc = 80994.59  stagg = 69
+  step  96  u = 3.483e-03  F =   1.3551  d_tip = 0.304  a = 0.1822  H/Hc = 85311.33  stagg = 77
+  step  97  u = 3.535e-03  F =   1.3478  d_tip = 0.311  a = 0.1852  H/Hc = 89804.62  stagg = 76
+  step  98  u = 3.588e-03  F =   1.3403  d_tip = 0.317  a = 0.1882  H/Hc = 94481.15  stagg = 74
+  step  99  u = 3.640e-03  F =   1.3325  d_tip = 0.323  a = 0.1913  H/Hc = 99344.47  stagg = 74
+  step 100  u = 3.692e-03  F =   1.3246  d_tip = 0.329  a = 0.1944  H/Hc = 104396.33  stagg = 72
+  step 101  u = 3.744e-03  F =   1.3165  d_tip = 0.336  a = 0.1975  H/Hc = 109639.99  stagg = 70
+  step 102  u = 3.796e-03  F =   1.3082  d_tip = 0.342  a = 0.2006  H/Hc = 115078.18  stagg = 69
+  step 103  u = 3.849e-03  F =   1.2998  d_tip = 0.348  a = 0.2038  H/Hc = 120713.56  stagg = 67
+  step 104  u = 3.901e-03  F =   1.2913  d_tip = 0.355  a = 0.2069  H/Hc = 126553.31  stagg = 66
+  step 105  u = 3.953e-03  F =   1.2827  d_tip = 0.361  a = 0.2101  H/Hc = 132603.04  stagg = 65
+  step 106  u = 4.005e-03  F =   1.2740  d_tip = 0.368  a = 0.2133  H/Hc = 138868.21  stagg = 63
+  step 107  u = 4.057e-03  F =   1.2651  d_tip = 0.374  a = 0.2165  H/Hc = 145356.70  stagg = 61
+  step 108  u = 4.110e-03  F =   1.2562  d_tip = 0.380  a = 0.2197  H/Hc = 152072.95  stagg = 64
+  step 109  u = 4.162e-03  F =   1.2471  d_tip = 0.387  a = 0.2229  H/Hc = 159023.19  stagg = 63
+  step 110  u = 4.214e-03  F =   1.2379  d_tip = 0.393  a = 0.2262  H/Hc = 166218.20  stagg = 61
+  step 111  u = 4.266e-03  F =   1.2287  d_tip = 0.400  a = 0.2294  H/Hc = 173667.82  stagg = 59
+  step 112  u = 4.318e-03  F =   1.2193  d_tip = 0.406  a = 0.2327  H/Hc = 181381.42  stagg = 58
+  step 113  u = 4.371e-03  F =   1.2099  d_tip = 0.413  a = 0.2360  H/Hc = 189367.75  stagg = 57
+  step 114  u = 4.423e-03  F =   1.2003  d_tip = 0.419  a = 0.2393  H/Hc = 197634.95  stagg = 55
+  step 115  u = 4.475e-03  F =   1.1907  d_tip = 0.425  a = 0.2426  H/Hc = 206194.52  stagg = 54
+  step 116  u = 4.527e-03  F =   1.1810  d_tip = 0.432  a = 0.2459  H/Hc = 215057.58  stagg = 53
+  step 117  u = 4.579e-03  F =   1.1711  d_tip = 0.438  a = 0.2492  H/Hc = 224234.67  stagg = 52
+  step 118  u = 4.632e-03  F =   1.1612  d_tip = 0.445  a = 0.2526  H/Hc = 233737.78  stagg = 50
+  step 119  u = 4.684e-03  F =   1.1512  d_tip = 0.451  a = 0.2559  H/Hc = 243579.22  stagg = 51
+  step 120  u = 4.736e-03  F =   1.1412  d_tip = 0.458  a = 0.2593  H/Hc = 253771.73  stagg = 50
+  step 121  u = 4.788e-03  F =   1.1310  d_tip = 0.464  a = 0.2627  H/Hc = 264326.74  stagg = 48
+  step 122  u = 4.840e-03  F =   1.1208  d_tip = 0.471  a = 0.2661  H/Hc = 275259.62  stagg = 48
+  step 123  u = 4.893e-03  F =   1.1104  d_tip = 0.477  a = 0.2695  H/Hc = 286587.24  stagg = 47
+  step 124  u = 4.945e-03  F =   1.1000  d_tip = 0.483  a = 0.2729  H/Hc = 298327.02  stagg = 46
+  step 125  u = 4.997e-03  F =   1.0895  d_tip = 0.490  a = 0.2763  H/Hc = 310497.22  stagg = 45
+  step 126  u = 5.049e-03  F =   1.0789  d_tip = 0.496  a = 0.2798  H/Hc = 323116.92  stagg = 44
+  step 127  u = 5.101e-03  F =   1.0683  d_tip = 0.503  a = 0.2833  H/Hc = 336206.44  stagg = 43
+  step 128  u = 5.154e-03  F =   1.0575  d_tip = 0.509  a = 0.2867  H/Hc = 349785.58  stagg = 42
+  step 129  u = 5.206e-03  F =   1.0467  d_tip = 0.516  a = 0.2902  H/Hc = 363876.15  stagg = 41
+  step 130  u = 5.258e-03  F =   1.0358  d_tip = 0.522  a = 0.2937  H/Hc = 378502.34  stagg = 42
+  step 131  u = 5.310e-03  F =   1.0248  d_tip = 0.529  a = 0.2973  H/Hc = 393688.73  stagg = 42
+  step 132  u = 5.362e-03  F =   1.0138  d_tip = 0.535  a = 0.3008  H/Hc = 409460.99  stagg = 41
+  step 133  u = 5.415e-03  F =   1.0027  d_tip = 0.542  a = 0.3043  H/Hc = 425845.50  stagg = 43
+  step 134  u = 5.467e-03  F =   0.9915  d_tip = 0.548  a = 0.3079  H/Hc = 442869.23  stagg = 42
+  step 135  u = 5.519e-03  F =   0.9802  d_tip = 0.554  a = 0.3115  H/Hc = 460560.20  stagg = 41
+  step 136  u = 5.571e-03  F =   0.9688  d_tip = 0.561  a = 0.3150  H/Hc = 478948.21  stagg = 39
+  step 137  u = 5.623e-03  F =   0.9574  d_tip = 0.567  a = 0.3186  H/Hc = 498064.65  stagg = 42
+  step 138  u = 5.676e-03  F =   0.9459  d_tip = 0.574  a = 0.3223  H/Hc = 517947.21  stagg = 41
+  step 139  u = 5.728e-03  F =   0.9344  d_tip = 0.580  a = 0.3259  H/Hc = 538633.25  stagg = 40
+  step 140  u = 5.780e-03  F =   0.9227  d_tip = 0.587  a = 0.3295  H/Hc = 560164.22  stagg = 39
+  step 141  u = 5.832e-03  F =   0.9110  d_tip = 0.593  a = 0.3332  H/Hc = 582584.98  stagg = 38
+  step 142  u = 5.884e-03  F =   0.8992  d_tip = 0.600  a = 0.3369  H/Hc = 605940.63  stagg = 40
+  step 143  u = 5.937e-03  F =   0.8874  d_tip = 0.606  a = 0.3405  H/Hc = 630278.91  stagg = 39
+  step 144  u = 5.989e-03  F =   0.8755  d_tip = 0.613  a = 0.3442  H/Hc = 655652.99  stagg = 38
+  step 145  u = 6.041e-03  F =   0.8635  d_tip = 0.619  a = 0.3480  H/Hc = 682115.83  stagg = 37
+  step 146  u = 6.093e-03  F =   0.8514  d_tip = 0.626  a = 0.3517  H/Hc = 709726.96  stagg = 36
+  step 147  u = 6.145e-03  F =   0.8393  d_tip = 0.632  a = 0.3554  H/Hc = 738551.47  stagg = 35
+  step 148  u = 6.198e-03  F =   0.8271  d_tip = 0.638  a = 0.3592  H/Hc = 768657.34  stagg = 34
+  step 149  u = 6.250e-03  F =   0.8148  d_tip = 0.645  a = 0.3630  H/Hc = 800113.49  stagg = 33
+  step 150  u = 6.302e-03  F =   0.8025  d_tip = 0.651  a = 0.3668  H/Hc = 832998.68  stagg = 32
+  step 151  u = 6.354e-03  F =   0.7900  d_tip = 0.658  a = 0.3706  H/Hc = 867398.97  stagg = 31
+  step 152  u = 6.406e-03  F =   0.7776  d_tip = 0.664  a = 0.3744  H/Hc = 903402.22  stagg = 30
+  step 153  u = 6.459e-03  F =   0.7650  d_tip = 0.671  a = 0.3783  H/Hc = 941100.64  stagg = 29
+  step 154  u = 6.511e-03  F =   0.7524  d_tip = 0.677  a = 0.3821  H/Hc = 980598.28  stagg = 28
+  step 155  u = 6.563e-03  F =   0.7397  d_tip = 0.684  a = 0.3860  H/Hc = 1021998.76  stagg = 27
+  step 156  u = 6.615e-03  F =   0.7269  d_tip = 0.690  a = 0.3899  H/Hc = 1065424.96  stagg = 27
+  step 157  u = 6.667e-03  F =   0.7141  d_tip = 0.697  a = 0.3938  H/Hc = 1111006.96  stagg = 26
+  step 158  u = 6.720e-03  F =   0.7012  d_tip = 0.703  a = 0.3977  H/Hc = 1158886.17  stagg = 21
+  step 159  u = 6.772e-03  F =   0.6882  d_tip = 0.710  a = 0.4017  H/Hc = 1209228.27  stagg = 19
+  step 160  u = 6.824e-03  F =   0.6752  d_tip = 0.716  a = 0.4056  H/Hc = 1262199.11  stagg = 19
+  step 161  u = 6.876e-03  F =   0.6621  d_tip = 0.723  a = 0.4096  H/Hc = 1317980.32  stagg = 19
+  step 162  u = 6.928e-03  F =   0.6489  d_tip = 0.729  a = 0.4136  H/Hc = 1376766.89  stagg = 19
+  step 163  u = 6.981e-03  F =   0.6356  d_tip = 0.736  a = 0.4177  H/Hc = 1438778.09  stagg = 20
+  step 164  u = 7.033e-03  F =   0.6223  d_tip = 0.742  a = 0.4217  H/Hc = 1504228.04  stagg = 20
+  step 165  u = 7.085e-03  F =   0.6089  d_tip = 0.749  a = 0.4258  H/Hc = 1573370.38  stagg = 20
+  step 166  u = 7.137e-03  F =   0.5954  d_tip = 0.755  a = 0.4299  H/Hc = 1646487.46  stagg = 20
+  step 167  u = 7.189e-03  F =   0.5819  d_tip = 0.762  a = 0.4340  H/Hc = 1723859.65  stagg = 21
+  step 168  u = 7.242e-03  F =   0.5683  d_tip = 0.768  a = 0.4381  H/Hc = 1805786.49  stagg = 21
+  step 169  u = 7.294e-03  F =   0.5547  d_tip = 0.774  a = 0.4422  H/Hc = 1892596.73  stagg = 22
+  step 170  u = 7.346e-03  F =   0.5410  d_tip = 0.781  a = 0.4464  H/Hc = 1984671.44  stagg = 22
+  step 171  u = 7.398e-03  F =   0.5273  d_tip = 0.787  a = 0.4506  H/Hc = 2082427.94  stagg = 23
+  step 172  u = 7.450e-03  F =   0.5136  d_tip = 0.794  a = 0.4548  H/Hc = 2186224.89  stagg = 23
+  step 173  u = 7.503e-03  F =   0.4998  d_tip = 0.800  a = 0.4590  H/Hc = 2296569.59  stagg = 24
+  step 174  u = 7.555e-03  F =   0.4860  d_tip = 0.806  a = 0.4632  H/Hc = 2414018.31  stagg = 25
+  step 175  u = 7.607e-03  F =   0.4722  d_tip = 0.813  a = 0.4674  H/Hc = 2539093.17  stagg = 25
+  step 176  u = 7.659e-03  F =   0.4583  d_tip = 0.819  a = 0.4717  H/Hc = 2672337.69  stagg = 26
+  step 177  u = 7.711e-03  F =   0.4445  d_tip = 0.825  a = 0.4759  H/Hc = 2814597.76  stagg = 26
+  step 178  u = 7.764e-03  F =   0.4307  d_tip = 0.832  a = 0.4802  H/Hc = 2966525.28  stagg = 27
+  step 179  u = 7.816e-03  F =   0.4169  d_tip = 0.838  a = 0.4844  H/Hc = 3128986.05  stagg = 28
+  step 180  u = 7.868e-03  F =   0.4031  d_tip = 0.844  a = 0.4887  H/Hc = 3303150.69  stagg = 29
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model WU   ell = 0.05 mm
+  PEAK LOAD = 1.6505 N/mm   at step 27 of 180
+  nominal peak stress = 1.6505 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 24.4 % of peak ; final d ahead of the tip = 0.844 ; crack extension = 0.4887 mm (9.8 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  wrote loaddisp_AM_dg0_j05_s2_n1.txt
+============================================================
+=== EXIT=0 2026-10-29T02:35:18Z
