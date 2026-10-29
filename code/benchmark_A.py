@@ -89,9 +89,11 @@ p.add_argument("--sharpnotch", action="store_true",
                help="vet khia sac: mot hang nut thay cho dai notchw")
 p.add_argument("--plane", choices=["strain", "stress"],
                default="strain")
-p.add_argument("--hspace", choices=["dg0", "cg1"], default="dg0",
+p.add_argument("--hspace", choices=["dg0", "cg1", "cg1l2", "cg1avg", "quad"], default="dg0",
                help="khong gian cua H va psi+: dg0 la ban da sua; cg1 tai lap "
-                    "dung ban TRUOC khi sua (chi de do tat, khong dung cho ket qua)")
+                    "dung ban TRUOC khi sua (chi de do tat, khong dung cho ket qua); "
+                    "cg1l2: psi+ chieu L2 len Q1/P1; cg1avg: psi+ tren DG0 roi trung "
+                    "binh ve nut theo dien tich; quad: H tai diem cau phuong Gauss 2x2")
 p.add_argument("--load", choices=["tension", "shear"], default="tension",
                help="tension: SENT (keo u_y canh tren); shear: SENS (u_x canh tren, "
                     "u_y = 0 canh tren, canh duoi ngam hai phuong); --grip bo qua khi shear")
@@ -266,11 +268,59 @@ V_d = functionspace(domain, ("Lagrange", 1))
 # tu do dung chung nen khong con cho cho su tuy tien do.
 # --hspace cg1 dung lai V_d lam khong gian cua H, dung nhu ma truoc ban va DG0,
 # de do tat ma moi thu khac giu nguyen.
-V_H = functionspace(domain, ("DG", 0)) if args.hspace == "dg0" else V_d
+#
+# Ba cach luu nua (29/10/2026, nghien cuu C "khong gian cua H"), de tach hai
+# yeu to ma cg1 -> dg0 doi CUNG LUC: diem danh gia psi+ (nut -> tam phan tu) va
+# viec ghi de (phan tu ghi sau thang).  Ca ba khong co nguoi ghi sau:
+#   cg1l2  : moi vong so le, chieu L2 psi+ len V_d (ma tran khoi luong day du,
+#            ve phai tich phan Gauss 2x2 = cung cac diem cua --hspace quad), roi
+#            H = max(H, hinh chieu) tung nut.  H lien tuc, khong ghi de.
+#   cg1avg : psi+ lay tai TAM phan tu (dung nhu dg0), roi trung binh ve moi nut
+#            tren cac phan tu chua nut, trong so = DIEN TICH phan tu (tren luoi
+#            deu bang trong so bang nhau), H = max(H, trung binh) tung nut.  Cung
+#            diem danh gia voi dg0; chi khac la luu lien tuc.
+#   quad   : H va psi+ tren phan tu cau phuong (basix quadrature_element) bac
+#            _QDEG = 2: Gauss 2x2 tren tu giac, 3 diem tren tam giac.  So hang
+#            g(d) H cua phuong trinh hu hong tich phan DUNG bang quy tac do, nen H
+#            song tai diem cau phuong cua dang hu hong -- cach luu cua sach giao
+#            khoa (Miehe va cs. 2010).  Khac dg0 o diem danh gia, khong ghi de.
+# cg1 va dg0 giu nguyen tung lenh, nen ket qua cu khong doi tung bit.
+_QDEG = 2
+if args.hspace == "dg0":
+    V_H = functionspace(domain, ("DG", 0))
+elif args.hspace == "quad":
+    import basix, basix.ufl
+    V_H = functionspace(domain, basix.ufl.quadrature_element(
+        domain.topology.cell_name(), value_shape=(), degree=_QDEG))
+    # Diem cau phuong cua phan tu tham chieu: cung quy tac mac dinh ma
+    # quadrature_element va ufl.dx(quadrature_degree=_QDEG) dung.
+    _QPTS = basix.make_quadrature(basix.CellType[domain.topology.cell_name()], _QDEG)[0]
+else:
+    V_H = V_d
+_HSPACE_NOTE = {"dg0": "", "cg1": "   *** BAN TRUOC KHI SUA -- CHI DE DO TAT",
+                "cg1l2": "   (chieu L2 psi+ len V_d, Gauss 2x2, H = max tung nut)",
+                "cg1avg": "   (psi+ tam phan tu, trung binh ve nut theo dien tich)",
+                "quad": f"   (H tai diem cau phuong, bac {_QDEG})"}
 if comm.rank == 0:
-    print(f"  KHONG GIAN H: --hspace {args.hspace}"
-          + ("   *** BAN TRUOC KHI SUA -- CHI DE DO TAT" if args.hspace == "cg1" else ""),
+    print(f"  KHONG GIAN H: --hspace {args.hspace}" + _HSPACE_NOTE[args.hspace],
           flush=True)
+
+
+def _H_xyz():
+    """Toa do bac tu do cua V_H.  Phan tu cau phuong khong co toa do bac tu do
+    trong DOLFINx, nen voi quad tinh toa do vat ly cua tung diem cau phuong qua
+    phep anh xa hinh hoc, xep theo dofmap (cuc bo, ca ghost)."""
+    if args.hspace != "quad":
+        return V_H.tabulate_dof_coordinates()
+    _pts = _QPTS
+    _tm = domain.topology.index_map(domain.topology.dim)
+    _nc = _tm.size_local + _tm.num_ghosts
+    _ex = fem.Expression(ufl.SpatialCoordinate(domain), _pts)
+    _v = np.asarray(_ex.eval(domain, np.arange(_nc, dtype=np.int32))).reshape(_nc, -1, 2)
+    _dl = np.asarray(V_H.dofmap.list)[:_nc]
+    _out = np.zeros((len(H.x.array), 3))
+    _out[_dl.ravel(), :2] = _v.reshape(-1, 2)
+    return _out
 
 u = Function(V_u, name="u")
 d = Function(V_d, name="damage")
@@ -488,7 +538,7 @@ free_mask[notch_dofs] = False
 ahead = ahead & free_mask
 # Mat na tuong ung tren DG0, theo TAM PHAN TU.  Cua so da doi hoi
 # x > 0.5 + 3 ell nen khong chong len vet khia (x < 0.5); khong can free_mask.
-_xH = V_H.tabulate_dof_coordinates()
+_xH = _H_xyz()
 ahead_H = ((_xH[:, 0] > x_tip + 3.0 * ell)
            & (np.abs(_xH[:, 1] - 0.5) < 6.0 * ell))
 _xs_ahead = _xc[:, 0]
@@ -518,9 +568,17 @@ ell_c = Constant(domain, PETSc.ScalarType(ell))
 # equation lost its driving term and d never moved.  Symptom: d frozen at its
 # notch boundary-layer value for every load step, with the staggered loop
 # exiting after 2 iterations because nothing changed.
-E_damage = (g(d) * H
-            + Gc_c / c_w * (w(d) / ell_c
-                            + ell_c * ufl.inner(ufl.grad(d), ufl.grad(d)))) * ufl.dx
+if args.hspace == "quad":
+    # H tren phan tu cau phuong: so hang g(d) H PHAI tich phan bang dung quy tac
+    # bac _QDEG (UFL doi bac cau phuong khop voi phan tu cau phuong).  So hang
+    # Gc la da thuc, giu ufl.dx nhu cu.
+    E_damage = (g(d) * H * ufl.dx(metadata={"quadrature_degree": _QDEG})
+                + Gc_c / c_w * (w(d) / ell_c
+                                + ell_c * ufl.inner(ufl.grad(d), ufl.grad(d))) * ufl.dx)
+else:
+    E_damage = (g(d) * H
+                + Gc_c / c_w * (w(d) / ell_c
+                                + ell_c * ufl.inner(ufl.grad(d), ufl.grad(d)))) * ufl.dx
 F_d = ufl.derivative(E_damage, d, q)
 J_d = ufl.derivative(F_d, d, ufl.TrialFunction(V_d))
 
@@ -639,7 +697,7 @@ _ck_funcs = (("u", u), ("d", d), ("d_old", d_old), ("H", H))
 def _ck_xyz():
     return np.concatenate([V_u.tabulate_dof_coordinates().ravel(),
                            V_d.tabulate_dof_coordinates().ravel(),
-                           V_H.tabulate_dof_coordinates().ravel()])
+                           _H_xyz().ravel()])
 def _ck_path(slot):
     return _os.path.join(_ck_dir, f"r{comm.rank}of{comm.size}_s{slot}.npz")
 def _ck_save(step):
@@ -723,11 +781,65 @@ V0 = functionspace(domain, ("DG", 0))
 # tri cua MOT phan tu vao moi dinh dung chung (phan tu ghi sau thang) -- cung
 # lop tat noi suy nut nhu Q1.  Cap nhat H = max(H, psi+) la theo mang bac tu
 # do, khong phu thuoc loai o.
-_ip = V_H.element.interpolation_points
-if callable(_ip):
-    _ip = _ip()
+if args.hspace == "quad":
+    _ip = _QPTS
+else:
+    _ip = V_H.element.interpolation_points
+    if callable(_ip):
+        _ip = _ip()
 psi_expr = fem.Expression(psi_pos(u), _ip)
 psi_fn = Function(V_H)
+
+# --hspace cg1l2: hinh chieu L2 cua psi+ len V_d.  M p = int psi+ q dx, ma tran
+# khoi luong day du (khong don cheo), ve phai Gauss 2x2.  CG + Jacobi, rtol
+# 1e-12: ma tran khoi luong dieu kien tot, sai so giai nho hon nhieu bac so voi
+# moi chenh lech dang do.  Hinh chieu co the am hay vot (Gibbs) quanh mui khia;
+# H = max(H, p) voi H khoi dau 0 nen gia tri am khong vao H.
+if args.hspace == "cg1l2":
+    _pq = ufl.TestFunction(V_d)
+    prob_P = LinearProblem(
+        ufl.inner(ufl.TrialFunction(V_d), _pq) * ufl.dx,
+        ufl.inner(psi_pos(u), _pq) * ufl.dx(metadata={"quadrature_degree": _QDEG}),
+        bcs=[], u=psi_fn, petsc_options_prefix="P_",
+        petsc_options={"ksp_type": "cg", "pc_type": "jacobi", "ksp_rtol": 1e-12})
+
+# --hspace cg1avg: psi+ tai TAM phan tu (DG0, dung diem cua dg0), roi
+#     p_i = sum_{c chua i} |c| psi_c / sum_{c chua i} |c|.
+# Moi nhan cong tren phan tu SO HUU, roi scatter_reverse (cong) gom phan cua cac
+# nhan ve nut so huu: khong co "phan tu ghi sau", chi khac thu tu cong.
+if args.hspace == "cg1avg":
+    from dolfinx import la as _la
+    _ip0 = V0.element.interpolation_points
+    if callable(_ip0):
+        _ip0 = _ip0()
+    psi0_expr = fem.Expression(psi_pos(u), _ip0)
+    psi0 = Function(V0)
+    _nco = domain.topology.index_map(domain.topology.dim).size_local
+    _dlv = np.asarray(V_d.dofmap.list)[:_nco]
+    _c0 = np.asarray(V0.dofmap.list)[:_nco, 0]
+    _area = fem.assemble_vector(fem.form(ufl.TestFunction(V0) * ufl.dx)).array[_c0].copy()
+    _num = Function(V_d)
+    _den = Function(V_d)
+    _den.x.array[:] = 0.0
+    np.add.at(_den.x.array, _dlv.ravel(), np.repeat(_area, _dlv.shape[1]))
+    _den.x.scatter_reverse(_la.InsertMode.add)
+    _den.x.scatter_forward()
+
+
+def _psi_update():
+    """psi+ cua vong so le hien tai vao psi_fn (tren V_H)."""
+    if args.hspace == "cg1l2":
+        prob_P.solve()
+    elif args.hspace == "cg1avg":
+        psi0.interpolate(psi0_expr)
+        _num.x.array[:] = 0.0
+        np.add.at(_num.x.array, _dlv.ravel(),
+                  np.repeat(_area * psi0.x.array[_c0], _dlv.shape[1]))
+        _num.x.scatter_reverse(_la.InsertMode.add)
+        _num.x.scatter_forward()
+        psi_fn.x.array[:] = _num.x.array / _den.x.array
+    else:
+        psi_fn.interpolate(psi_expr)
 
 for step in range(start_step, args.steps + 1):
     ubar = float(_ramp[step - 1])
@@ -735,7 +847,7 @@ for step in range(start_step, args.steps + 1):
 
     for k in range(200):                                   # staggered loop
         prob_u.solve()
-        psi_fn.interpolate(psi_expr)
+        _psi_update()
         psi_fn.x.scatter_forward()
         H.x.array[:] = np.maximum(H.x.array, psi_fn.x.array)
         H.x.scatter_forward()

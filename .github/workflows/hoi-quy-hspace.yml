@@ -1,0 +1,142 @@
+name: Hoi quy hspace va chan doan ghi sau
+
+# Nghien cuu C/E (29/10/2026).  Ba job, chay tay:
+#  thu-khoi : chay thu 3 buoc ba khong gian H moi (cg1l2, cg1avg, quad) o 1 va 2
+#             nhan, de biet ma chay duoc tren anh dolfinx/dolfinx:stable truoc khi
+#             khoi dong cac ca dai; in H-INVARIANT buoc 1 de so 1 voi 2 nhan.
+#  hoi-quy  : tren CUNG mot may, chay ma CU (commit 20abdc2, truoc khi them ba
+#             khong gian) / ma MOI / ma CU voi co T40 (SENT, 1 nhan, 40 buoc), ca
+#             --hspace cg1 lan mac dinh (khong co --hspace = dg0); so tung byte
+#             tep loaddisp va dong H-INVARIANT (nhu hoi-quy-cell.yml).
+#  chan-doan: chan_doan_ghi_sau.py, nghien cuu E (phan tu nao ghi sau o moi nut).
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  thu-khoi:
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+      - name: Chay thu 3 buoc
+        working-directory: code
+        run: |
+          set +e
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          D=../ket-qua/2026-10-26-actions/hoi-quy-hspace; mkdir -p $D
+          echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" | tee $D/thu-khoi.txt
+          python3 -c "import dolfinx; print('dolfinx', dolfinx.__version__)" | tee -a $D/thu-khoi.txt
+          for hs in cg1l2 cg1avg quad; do
+            for n in 1 2; do
+              mpirun -n $n python3 -u benchmark_A.py --model WU --ell 0.05 --nx 100 --grip clamp \
+                --load tension --split spectral --sharpnotch --umax 0.011 --steps 3 --n1 40 \
+                --hspace $hs --ckpt ck_TK_${hs}_n$n --out TK_${hs}_n$n > $D/A_TK_${hs}_n$n.log 2>&1
+              echo "--- $hs n$n EXIT=$?" | tee -a $D/thu-khoi.txt
+              grep -h "KHONG GIAN H\|H-INVARIANT\|step \|Error\|error" $D/A_TK_${hs}_n$n.log | tail -8 | tee -a $D/thu-khoi.txt
+            done
+            # chay tiep tu diem kiem (1 nhan): them 1 buoc
+            mpirun -n 1 python3 -u benchmark_A.py --model WU --ell 0.05 --nx 100 --grip clamp \
+              --load tension --split spectral --sharpnotch --umax 0.011 --steps 4 --n1 40 \
+              --hspace $hs --ckpt ck_TK_${hs}_n1 --resume --out TK_${hs}_n1r > $D/A_TK_${hs}_n1r.log 2>&1
+            echo "--- $hs n1 resume EXIT=$?" | tee -a $D/thu-khoi.txt
+            grep -h "RESUME\|step \|Error\|error" $D/A_TK_${hs}_n1r.log | tail -4 | tee -a $D/thu-khoi.txt
+          done
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-10-26-actions/hoi-quy-hspace || exit 0
+          git commit -qm "Actions: thu khoi hspace (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
+
+  hoi-quy:
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 120
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Chay cu / moi / cu, hai khong gian cu
+        working-directory: code
+        run: |
+          set +e
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git show 20abdc2:code/benchmark_A.py > benchmark_A_cu.py
+          A="--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --umax 0.011 --steps 40"
+          D=../ket-qua/2026-10-26-actions/hoi-quy-hspace; mkdir -p $D
+          echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" | tee $D/ket-luan.txt
+          for hs in cg1 mac-dinh; do
+            H=""; [ $hs = cg1 ] && H="--hspace cg1"
+            for t in cu1:benchmark_A_cu.py moi:benchmark_A.py cu2:benchmark_A_cu.py; do
+              n=${t%%:*}; s=${t#*:}
+              mpirun -n 1 python3 -u $s $A $H --out HH_${hs}_$n > $D/A_HH_${hs}_$n.log 2>&1
+              cp -f loaddisp_HH_${hs}_$n.txt $D/
+            done
+          done
+          cd $D
+          for hs in cg1 mac-dinh; do
+            for n in moi cu2; do
+              if cmp -s loaddisp_HH_${hs}_cu1.txt loaddisp_HH_${hs}_$n.txt && \
+                 diff <(grep H-INVARIANT A_HH_${hs}_cu1.log) <(grep H-INVARIANT A_HH_${hs}_$n.log) >/dev/null; then
+                echo "$hs: cu1 vs $n: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)" | tee -a ket-luan.txt
+              else
+                echo "$hs: cu1 vs $n: KHAC" | tee -a ket-luan.txt
+              fi
+            done
+          done
+          grep -H "H-INVARIANT\|KHONG GIAN H" A_HH_*.log | tee -a ket-luan.txt
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-10-26-actions/hoi-quy-hspace || exit 0
+          git commit -qm "Actions: hoi quy hspace (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
+
+  chan-doan:
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+      - name: Chan doan nguoi ghi sau
+        working-directory: code
+        run: |
+          set +e
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          D=../ket-qua/2026-10-26-actions/chan-doan-ghi-sau; mkdir -p $D
+          echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" > $D/chan_doan_ghi_sau.txt
+          mpirun -n 1 python3 -u chan_doan_ghi_sau.py --nx 100 >> $D/chan_doan_ghi_sau.txt 2>&1
+          echo "=== EXIT=$?" >> $D/chan_doan_ghi_sau.txt
+          cat $D/chan_doan_ghi_sau.txt
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-10-26-actions/chan-doan-ghi-sau || exit 0
+          git commit -qm "Actions: chan doan nguoi ghi sau (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done

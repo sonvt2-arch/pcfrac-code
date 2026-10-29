@@ -1,0 +1,56 @@
+[
+ {
+  "tag": "AM_dg0_100_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --grip clamp --load tension --split amor --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace dg0 --nx 100"
+ },
+ {
+  "tag": "AM_dg0_200_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --grip clamp --load tension --split amor --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace dg0 --nx 200"
+ },
+ {
+  "tag": "AM_dg0_400_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --grip clamp --load tension --split amor --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace dg0 --nx 400"
+ },
+ {
+  "tag": "AM_dg0_j05_s1_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --grip clamp --load tension --split amor --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace dg0 --nx 100 --jitter 0.05 --seed 1"
+ },
+ {
+  "tag": "AM_dg0_j05_s2_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --grip clamp --load tension --split amor --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace dg0 --nx 100 --jitter 0.05 --seed 2"
+ },
+ {
+  "tag": "AM_dg0_j05_s3_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --grip clamp --load tension --split amor --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace dg0 --nx 100 --jitter 0.05 --seed 3"
+ },
+ {
+  "tag": "AM_dg0_tri_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --grip clamp --load tension --split amor --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace dg0 --nx 100 --cell tri"
+ },
+ {
+  "tag": "AM_dg0_pin_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --grip pin --load tension --split amor --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace dg0 --nx 100"
+ },
+ {
+  "tag": "AM_dg0_100_n2",
+  "nhan": 2,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --grip clamp --load tension --split amor --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace dg0 --nx 100"
+ }
+]

@@ -1,0 +1,62 @@
+[
+ {
+  "tag": "KH_cg1_sp_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --nx 100 --grip clamp --load tension --split spectral --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace cg1"
+ },
+ {
+  "tag": "KH_dg0_sp_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --nx 100 --grip clamp --load tension --split spectral --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace dg0"
+ },
+ {
+  "tag": "KH_l2_sp_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --nx 100 --grip clamp --load tension --split spectral --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace cg1l2"
+ },
+ {
+  "tag": "KH_avg_sp_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --nx 100 --grip clamp --load tension --split spectral --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace cg1avg"
+ },
+ {
+  "tag": "KH_quad_sp_n1",
+  "nhan": 1,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --nx 100 --grip clamp --load tension --split spectral --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace quad"
+ },
+ {
+  "tag": "KH_cg1_sp_n2",
+  "nhan": 2,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --nx 100 --grip clamp --load tension --split spectral --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace cg1"
+ },
+ {
+  "tag": "KH_dg0_sp_n2",
+  "nhan": 2,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --nx 100 --grip clamp --load tension --split spectral --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace dg0"
+ },
+ {
+  "tag": "KH_l2_sp_n2",
+  "nhan": 2,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --nx 100 --grip clamp --load tension --split spectral --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace cg1l2"
+ },
+ {
+  "tag": "KH_avg_sp_n2",
+  "nhan": 2,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --nx 100 --grip clamp --load tension --split spectral --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace cg1avg"
+ },
+ {
+  "tag": "KH_quad_sp_n2",
+  "nhan": 2,
+  "ell": "0.05",
+  "args": "--model WU --ell 0.05 --nx 100 --grip clamp --load tension --split spectral --sharpnotch --umax 0.011 --steps 240 --n1 40 --hspace quad"
+ }
+]
