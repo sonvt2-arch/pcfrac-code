@@ -1,0 +1,58 @@
+  h5py: luoi 'Mesh/mesh/geometry' (40401 nut), truong 'Function/damage/0'
+
+  BAN DO TRUONG HU HONG  (khoang trang = d nho, @ = d ~ 1, o = diem duong tam)
+  truc x tu 0.00 den 1.00 mm ; truc y tu 0.00 den 1.00 mm ; y TANG len tren
+  +--------------------------------------------------------------------------------------------------------+
+  |                                                                                                        |
+  |                                                                                                      . |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |........................................................                                                |
+  |@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#+-:...                                            |
+  |------------------------------------------------=+@@@@@%+=::...                                         |
+  |                                                 .:-*@@@@@*=-:....                                      |
+  |                                                    .:=@@@@@%+=-:....                                   |
+  |                                                       .-%@@@oo#+-::....                                |
+  |                                                         .:+@@ooo%*=--:....                             |
+  |                                                            .-+@@oooo#+-::.....                         |
+  |                                                              .:=%@@oooo*+--:.....                      |
+  |                                                                 .:=+@@oooo#+=-::......                 |
+  |                                                                     .-+@@oooo%*+=-::........           |
+  |                                                                        .-+@@@ooooo#*+==--:::......     |
+  |                                                                           .:=%@@@oooooooo%#**+==--::.. |
+  |                                                                               ..:=*@@@@@oooooooooo@#*+ |
+  |                                                                                    ....:--+*%@@@@oooo@ |
+  |                                                                                           .....::-=*oo |
+  |                                                                                                ....::- |
+  |                                                                                                 ...::- |
+  +--------------------------------------------------------------------------------------------------------+
+  thong ke d: min 0.0019  trung binh 0.0627  max 1.0000  ; so nut d>0.9: 798 / 40401
+  ell = 0.01 mm ; h chia cot = 0.00200 mm ; san trong so d >= 0.2
+  so diem duong tam: 81 ; x tu 0.601 den 0.999 mm
+
+  ====================================================================
+  DO PHAN GIAI GOC  (goc that = 0.0 do)
+  ====================================================================
+     Lambda  /ell  cua so  roi nhau    goc TB    sai so    nguon       delta
+     0.0200     2       0        19        --        -- khong du          --
+     0.0400     4      19         9   -34.11o    11.83o  do lech   0.413 ell
+     0.0600     6      12         6   -33.48o    11.61o  do lech   0.608 ell
+     0.1000    10       7         3   -33.24o    11.01o  do lech   0.961 ell
+     0.2000    20       3         1   -32.81o    10.31o  do lech   1.800 ell
+     0.4000    40       1         0   -33.32o    33.32o 1 cua so  11.632 ell
+  ====================================================================
+  Cot cuoi la sai so dinh vi duong tam suy nguoc tu  sigma ~ 2 delta / Lambda.
+  Neu cot do gan nhu khong doi theo Lambda thi mo hinh sai so la dung,
+  va doan do toi thieu cho mot nguong goc  T  la  Lambda >= 2 delta / tan(T).
