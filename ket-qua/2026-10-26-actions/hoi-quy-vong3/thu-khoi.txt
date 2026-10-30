@@ -1,0 +1,92 @@
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+dolfinx 0.11.0.post0
+--- cg1nmax n1 EXIT=0
+  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 1 steps to 1.100e-02 (step 1.04e-02)
+  KHONG GIAN H: --hspace cg1nmax   (psi+ tai nut cua TUNG phan tu ke, max qua phan tu, H = max tung nut)
+  H-INVARIANT step1: sum=6.301601630752e-01 max=4.996071665933e-03 L2=4.948855808459e-02
+  step   1  u = 1.400e-05  F =   0.1944  d_tip = 0.000  a = 0.0000  H/Hc =     0.01  stagg = 4
+  step   2  u = 2.800e-05  F =   0.3886  d_tip = 0.000  a = 0.0000  H/Hc =     0.06  stagg = 6
+  step   3  u = 4.200e-05  F =   0.5825  d_tip = 0.000  a = 0.0000  H/Hc =     0.13  stagg = 8
+  PEAK LOAD = 0.5825 N/mm   at step 3 of 3
+--- cg1nmax n2 EXIT=0
+  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 1 steps to 1.100e-02 (step 1.04e-02)
+  KHONG GIAN H: --hspace cg1nmax   (psi+ tai nut cua TUNG phan tu ke, max qua phan tu, H = max tung nut)
+  H-INVARIANT step1: sum=6.301601629135e-01 max=4.996071664005e-03 L2=4.948855806640e-02
+  step   1  u = 1.400e-05  F =   0.1944  d_tip = 0.000  a = 0.0000  H/Hc =     0.01  stagg = 4
+  step   2  u = 2.800e-05  F =   0.3886  d_tip = 0.000  a = 0.0000  H/Hc =     0.06  stagg = 6
+  step   3  u = 4.200e-05  F =   0.5825  d_tip = 0.000  a = 0.0000  H/Hc =     0.13  stagg = 8
+  PEAK LOAD = 0.5825 N/mm   at step 3 of 3
+--- cg1nmax n3 EXIT=0
+  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 1 steps to 1.100e-02 (step 1.04e-02)
+  KHONG GIAN H: --hspace cg1nmax   (psi+ tai nut cua TUNG phan tu ke, max qua phan tu, H = max tung nut)
+  H-INVARIANT step1: sum=6.301601629383e-01 max=4.996071664832e-03 L2=4.948855806650e-02
+  step   1  u = 1.400e-05  F =   0.1944  d_tip = 0.000  a = 0.0000  H/Hc =     0.01  stagg = 4
+  step   2  u = 2.800e-05  F =   0.3886  d_tip = 0.000  a = 0.0000  H/Hc =     0.06  stagg = 6
+  step   3  u = 4.200e-05  F =   0.5825  d_tip = 0.000  a = 0.0000  H/Hc =     0.13  stagg = 8
+  PEAK LOAD = 0.5825 N/mm   at step 3 of 3
+--- cg1nmax n1 resume EXIT=0
+  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 1 steps to 1.100e-02 (step 1.04e-02)
+  RESUME: chay tiep tu buoc 4 (diem kiem buoc 3)
+  step   4  u = 5.600e-05  F =   0.7728  d_tip = 0.000  a = 0.0000  H/Hc =     0.24  stagg = 13
+  PEAK LOAD = 0.7728 N/mm   at step 4 of 4
+--- cg1nmean n1 EXIT=0
+  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 1 steps to 1.100e-02 (step 1.04e-02)
+  KHONG GIAN H: --hspace cg1nmean   (psi+ tai nut cua TUNG phan tu ke, trung binh qua phan tu, H = max tung nut)
+  H-INVARIANT step1: sum=4.311221620889e-01 max=4.958725207121e-03 L2=3.512762953666e-02
+  step   1  u = 1.400e-05  F =   0.1944  d_tip = 0.000  a = 0.0000  H/Hc =     0.01  stagg = 4
+  step   2  u = 2.800e-05  F =   0.3886  d_tip = 0.000  a = 0.0000  H/Hc =     0.06  stagg = 5
+  step   3  u = 4.200e-05  F =   0.5827  d_tip = 0.000  a = 0.0000  H/Hc =     0.13  stagg = 6
+  PEAK LOAD = 0.5827 N/mm   at step 3 of 3
+--- cg1nmean n2 EXIT=0
+  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 1 steps to 1.100e-02 (step 1.04e-02)
+  KHONG GIAN H: --hspace cg1nmean   (psi+ tai nut cua TUNG phan tu ke, trung binh qua phan tu, H = max tung nut)
+  H-INVARIANT step1: sum=4.311221621358e-01 max=4.958725205337e-03 L2=3.512762953882e-02
+  step   1  u = 1.400e-05  F =   0.1944  d_tip = 0.000  a = 0.0000  H/Hc =     0.01  stagg = 4
+  step   2  u = 2.800e-05  F =   0.3886  d_tip = 0.000  a = 0.0000  H/Hc =     0.06  stagg = 5
+  step   3  u = 4.200e-05  F =   0.5827  d_tip = 0.000  a = 0.0000  H/Hc =     0.13  stagg = 6
+  PEAK LOAD = 0.5827 N/mm   at step 3 of 3
+--- cg1nmean n3 EXIT=0
+  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 1 steps to 1.100e-02 (step 1.04e-02)
+  KHONG GIAN H: --hspace cg1nmean   (psi+ tai nut cua TUNG phan tu ke, trung binh qua phan tu, H = max tung nut)
+  H-INVARIANT step1: sum=4.311221620643e-01 max=4.958725206152e-03 L2=3.512762953452e-02
+  step   1  u = 1.400e-05  F =   0.1944  d_tip = 0.000  a = 0.0000  H/Hc =     0.01  stagg = 4
+  step   2  u = 2.800e-05  F =   0.3886  d_tip = 0.000  a = 0.0000  H/Hc =     0.06  stagg = 5
+  step   3  u = 4.200e-05  F =   0.5827  d_tip = 0.000  a = 0.0000  H/Hc =     0.13  stagg = 6
+  PEAK LOAD = 0.5827 N/mm   at step 3 of 3
+--- cg1nmean n1 resume EXIT=0
+  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 1 steps to 1.100e-02 (step 1.04e-02)
+  RESUME: chay tiep tu buoc 4 (diem kiem buoc 3)
+  step   4  u = 5.600e-05  F =   0.7743  d_tip = 0.000  a = 0.0000  H/Hc =     0.24  stagg = 17
+  PEAK LOAD = 0.7743 N/mm   at step 4 of 4
+--- Miehe tension cg1 EXIT=0
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 1 steps to 8.000e-03 (step 7.00e-03)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  H-INVARIANT step1: sum=8.273906728601e-01 max=2.750296657819e-03 L2=2.960645524821e-02
+  step   1  u = 1.000e-05  F =   2.2296  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 3
+  step   2  u = 2.000e-05  F =   4.4591  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   3  u = 3.000e-05  F =   6.6887  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  PEAK LOAD = 6.6887 N/mm   at step 3 of 3
+--- Miehe tension dg0 EXIT=0
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 1 steps to 8.000e-03 (step 7.00e-03)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  H-INVARIANT step1: sum=9.491025310992e-01 max=2.750100056440e-03 L2=3.468612364380e-02
+  step   1  u = 1.000e-05  F =   2.2296  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   2  u = 2.000e-05  F =   4.4591  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   3  u = 3.000e-05  F =   6.6887  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  PEAK LOAD = 6.6887 N/mm   at step 3 of 3
+--- Miehe shear cg1 EXIT=0
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 1 steps to 8.000e-03 (step 7.00e-03)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  H-INVARIANT step1: sum=8.349518552627e-02 max=2.466321222061e-04 L2=2.228714248212e-03
+  step   1  u = 1.000e-05  F =   0.5166  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   2  u = 2.000e-05  F =   1.0332  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   3  u = 3.000e-05  F =   1.5497  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  PEAK LOAD = 1.5497 N/mm   at step 3 of 3
+--- Miehe shear dg0 EXIT=0
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 1 steps to 8.000e-03 (step 7.00e-03)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  H-INVARIANT step1: sum=9.102037019691e-02 max=2.461668003700e-04 L2=2.572213331650e-03
+  step   1  u = 1.000e-05  F =   0.5166  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   2  u = 2.000e-05  F =   1.0332  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 1
+  step   3  u = 3.000e-05  F =   1.5497  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  PEAK LOAD = 1.5497 N/mm   at step 3 of 3
