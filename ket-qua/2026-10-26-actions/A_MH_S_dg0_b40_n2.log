@@ -1,0 +1,71 @@
+=== CHANG 1 2026-10-30T01:34:03Z tu dau (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 1 steps to 2.000e-02 (step 1.90e-02)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split spectral   *** BIEN THE CHAN DOAN -- DINH LUC KHONG DUNG DUOC
+  TAI: --load shear (SENS)
+  NOTCH DOFS (nhan 0, cuc bo) = 101   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  H-INVARIANT step1: sum=9.102037019691e-02 max=2.461668003700e-04 L2=2.572213331650e-03
+  step   1  u = 1.000e-05  F =   0.5166  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   2  u = 2.000e-05  F =   1.0332  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 1
+  step   3  u = 3.000e-05  F =   1.5497  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   4  u = 4.000e-05  F =   2.0663  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   5  u = 5.000e-05  F =   2.5829  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   6  u = 6.000e-05  F =   3.0995  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   7  u = 7.000e-05  F =   3.6161  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   8  u = 8.000e-05  F =   4.1326  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   9  u = 9.000e-05  F =   4.6492  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  10  u = 1.000e-04  F =   5.1658  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  11  u = 1.100e-04  F =   5.6824  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  12  u = 1.200e-04  F =   6.1989  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  13  u = 1.300e-04  F =   6.7155  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  14  u = 1.400e-04  F =   7.2321  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  15  u = 1.500e-04  F =   7.7487  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  16  u = 1.600e-04  F =   8.2652  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  17  u = 1.700e-04  F =   8.7818  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  18  u = 1.800e-04  F =   9.2984  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  19  u = 1.900e-04  F =   9.8149  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  20  u = 2.000e-04  F =  10.3315  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  21  u = 2.100e-04  F =  10.8480  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  22  u = 2.200e-04  F =  11.3646  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  23  u = 2.300e-04  F =  11.8812  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  24  u = 2.400e-04  F =  12.3977  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  25  u = 2.500e-04  F =  12.9143  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  26  u = 2.600e-04  F =  13.4308  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  27  u = 2.700e-04  F =  13.9474  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  28  u = 2.800e-04  F =  14.4639  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  29  u = 2.900e-04  F =  14.9804  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  30  u = 3.000e-04  F =  15.4970  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  31  u = 3.100e-04  F =  16.0135  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  32  u = 3.200e-04  F =  16.5301  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  33  u = 3.300e-04  F =  17.0466  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  34  u = 3.400e-04  F =  17.5631  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  35  u = 3.500e-04  F =  18.0796  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  36  u = 3.600e-04  F =  18.5962  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  37  u = 3.700e-04  F =  19.1127  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  38  u = 3.800e-04  F =  19.6292  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step  39  u = 3.900e-04  F =  20.1457  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  H-INVARIANT step40: sum=1.355051271969e+02 max=3.940187643279e-01 L2=4.108823303628e+00
+  step  40  u = 4.000e-04  F =  20.6622  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 20.6622 N/mm   at step 40 of 40
+  nominal peak stress = 20.6622 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 100.0 % of peak ; final d ahead of the tip = 0.009 ; crack extension = 0.0000 mm (0.0 ell)
+  *** NOT A FRACTURE PEAK: the load never fell below 60 % of
+      its maximum, or no crack ran (d stayed under 0.5 and the
+      crack grew less than 2 ell).  The maximum above is a
+      plateau value, which is noise.
+      NOTE: the run stopped at u = 4.000e-04 mm of 0.0200 mm,
+      so it ended early -- look at the failed damage solves below,
+      not at umax.
+  wrote loaddisp_MH_S_dg0_b40_n2.txt
+============================================================
+=== EXIT=0 2026-10-30T01:34:31Z
