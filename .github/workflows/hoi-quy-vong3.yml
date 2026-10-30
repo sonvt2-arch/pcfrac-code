@@ -1,0 +1,118 @@
+name: Hoi quy vong 3 (cg1nmax, cg1nmean, --E/--nu/--Gc)
+
+# Vong 3 (30/10/2026), doc/CA-VONG3-2026-10-30.md (repo du an).  Chay tay:
+#  thu-khoi : cg1nmax, cg1nmean 3 buoc o 1, 2, 3 nhan (H-INVARIANT buoc 1 de so
+#             phan hoach), chay tiep tu diem kiem; co Miehe (AT2, --E/--nu/--Gc,
+#             nx 200) 3 buoc SENT va SENS, cg1 va dg0, 2 nhan.
+#  hoi-quy  : CUNG mot may, ma CU (dd024d6) / MOI / CU, co T40 (SENT, 1 nhan, 40
+#             buoc), ca --hspace cg1 lan mac dinh; so tung byte loaddisp va H-INVARIANT.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  thu-khoi:
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+      - name: Chay thu 3 buoc
+        working-directory: code
+        run: |
+          set +e
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          D=../ket-qua/2026-10-26-actions/hoi-quy-vong3; mkdir -p $D
+          echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" | tee $D/thu-khoi.txt
+          python3 -c "import dolfinx; print('dolfinx', dolfinx.__version__)" | tee -a $D/thu-khoi.txt
+          for hs in cg1nmax cg1nmean; do
+            for n in 1 2 3; do
+              mpirun -n $n python3 -u benchmark_A.py --model WU --ell 0.05 --nx 100 --grip clamp \
+                --load tension --split spectral --sharpnotch --umax 0.011 --steps 3 --n1 40 \
+                --hspace $hs --ckpt ck_TK_${hs}_n$n --out TK_${hs}_n$n > $D/A_TK_${hs}_n$n.log 2>&1
+              echo "--- $hs n$n EXIT=$?" | tee -a $D/thu-khoi.txt
+              grep -h "KHONG GIAN H\|H-INVARIANT\|step \|Error\|error" $D/A_TK_${hs}_n$n.log | tail -8 | tee -a $D/thu-khoi.txt
+            done
+            mpirun -n 1 python3 -u benchmark_A.py --model WU --ell 0.05 --nx 100 --grip clamp \
+              --load tension --split spectral --sharpnotch --umax 0.011 --steps 4 --n1 40 \
+              --hspace $hs --ckpt ck_TK_${hs}_n1 --resume --out TK_${hs}_n1r > $D/A_TK_${hs}_n1r.log 2>&1
+            echo "--- $hs n1 resume EXIT=$?" | tee -a $D/thu-khoi.txt
+            grep -h "RESUME\|step \|Error\|error" $D/A_TK_${hs}_n1r.log | tail -4 | tee -a $D/thu-khoi.txt
+          done
+          M="--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001"
+          for ld in tension shear; do
+            for hs in cg1 dg0; do
+              mpirun -n 2 python3 -u benchmark_A.py $M --load $ld --steps 3 --umax 0.008 --hspace $hs \
+                --out TM_${ld}_$hs > $D/A_TM_${ld}_$hs.log 2>&1
+              echo "--- Miehe $ld $hs EXIT=$?" | tee -a $D/thu-khoi.txt
+              grep -h "model=\|ramp\|H-INVARIANT\|step \|Error\|error" $D/A_TM_${ld}_$hs.log | tail -8 | tee -a $D/thu-khoi.txt
+            done
+          done
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-10-26-actions/hoi-quy-vong3 || exit 0
+          git commit -qm "Actions: thu khoi vong 3 (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
+
+  hoi-quy:
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 120
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Chay cu / moi / cu, hai khong gian cu
+        working-directory: code
+        run: |
+          set +e
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git show dd024d6:code/benchmark_A.py > benchmark_A_cu.py
+          A="--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --umax 0.011 --steps 40"
+          D=../ket-qua/2026-10-26-actions/hoi-quy-vong3; mkdir -p $D
+          echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" | tee $D/ket-luan.txt
+          for hs in cg1 mac-dinh; do
+            H=""; [ $hs = cg1 ] && H="--hspace cg1"
+            for t in cu1:benchmark_A_cu.py moi:benchmark_A.py cu2:benchmark_A_cu.py; do
+              n=${t%%:*}; s=${t#*:}
+              mpirun -n 1 python3 -u $s $A $H --out HH_${hs}_$n > $D/A_HH_${hs}_$n.log 2>&1
+              cp -f loaddisp_HH_${hs}_$n.txt $D/
+            done
+          done
+          cd $D
+          for hs in cg1 mac-dinh; do
+            for n in moi cu2; do
+              if cmp -s loaddisp_HH_${hs}_cu1.txt loaddisp_HH_${hs}_$n.txt && \
+                 diff <(grep H-INVARIANT A_HH_${hs}_cu1.log) <(grep H-INVARIANT A_HH_${hs}_$n.log) >/dev/null; then
+                echo "$hs: cu1 vs $n: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)" | tee -a ket-luan.txt
+              else
+                echo "$hs: cu1 vs $n: KHAC" | tee -a ket-luan.txt
+              fi
+            done
+          done
+          grep -H "H-INVARIANT\|KHONG GIAN H" A_HH_*.log | tee -a ket-luan.txt
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-10-26-actions/hoi-quy-vong3 || exit 0
+          git commit -qm "Actions: hoi quy vong 3 (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
+

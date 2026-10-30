@@ -89,7 +89,8 @@ p.add_argument("--sharpnotch", action="store_true",
                help="vet khia sac: mot hang nut thay cho dai notchw")
 p.add_argument("--plane", choices=["strain", "stress"],
                default="strain")
-p.add_argument("--hspace", choices=["dg0", "cg1", "cg1l2", "cg1avg", "quad"], default="dg0",
+p.add_argument("--hspace", choices=["dg0", "cg1", "cg1l2", "cg1avg", "quad", "cg1nmax", "cg1nmean"],
+               default="dg0",
                help="khong gian cua H va psi+: dg0 la ban da sua; cg1 tai lap "
                     "dung ban TRUOC khi sua (chi de do tat, khong dung cho ket qua); "
                     "cg1l2: psi+ chieu L2 len Q1/P1; cg1avg: psi+ tren DG0 roi trung "
@@ -109,6 +110,10 @@ p.add_argument("--seed", type=int, default=0,
 p.add_argument("--cell", choices=["quad", "tri"], default="quad",
                help="quad: tu giac Q1 (mac dinh, giu nguyen ket qua cu tung bit); "
                     "tri: tam giac P1, moi o vuong nx x nx chia cheo chu thap (crossed)")
+p.add_argument("--E", type=float, default=None,
+               help="mo dun Young (MPa); mac dinh 25000 nhu cu (vong 3, nghien cuu H)")
+p.add_argument("--nu", type=float, default=None, help="he so Poisson; mac dinh 0.20")
+p.add_argument("--Gc", type=float, default=None, help="N/mm; mac dinh 0.016")
 p.add_argument("--out", default=None)
 args = p.parse_args()
 
@@ -116,6 +121,14 @@ L = 1.0                 # plate side, mm
 E0, nu = 25000.0, 0.20  # MPa
 ft = 3.5                # MPa
 Gc = 0.016              # N/mm  (= 16 J/m^2)
+# --E/--nu/--Gc (30/10/2026, nghien cuu H, benchmark Miehe 2010): chi doi khi
+# nguoi dung dat; khong dat thi gia tri cu, nen moi lan chay cu khong doi.
+if args.E is not None:
+    E0 = args.E
+if args.nu is not None:
+    nu = args.nu
+if args.Gc is not None:
+    Gc = args.Gc
 ell = args.ell
 
 # h <= ell/5 is the community rule of thumb; ell/2 is documented as too coarse
@@ -300,7 +313,9 @@ else:
 _HSPACE_NOTE = {"dg0": "", "cg1": "   *** BAN TRUOC KHI SUA -- CHI DE DO TAT",
                 "cg1l2": "   (chieu L2 psi+ len V_d, Gauss 2x2, H = max tung nut)",
                 "cg1avg": "   (psi+ tam phan tu, trung binh ve nut theo dien tich)",
-                "quad": f"   (H tai diem cau phuong, bac {_QDEG})"}
+                "quad": f"   (H tai diem cau phuong, bac {_QDEG})",
+                "cg1nmax": "   (psi+ tai nut cua TUNG phan tu ke, max qua phan tu, H = max tung nut)",
+                "cg1nmean": "   (psi+ tai nut cua TUNG phan tu ke, trung binh qua phan tu, H = max tung nut)"}
 if comm.rank == 0:
     print(f"  KHONG GIAN H: --hspace {args.hspace}" + _HSPACE_NOTE[args.hspace],
           flush=True)
@@ -826,9 +841,66 @@ if args.hspace == "cg1avg":
     _den.x.scatter_forward()
 
 
+# --hspace cg1nmax / cg1nmean (30/10/2026, nghien cuu F vong 3): tach "danh gia
+# psi+ tai nut" khoi "ghi de".  Moi phan tu SO HUU danh gia psi+ tai cac nut cua
+# no -- DUNG bieu thuc va diem cua --hspace cg1 (psi_expr, diem noi suy cua V_d) --
+# roi o moi nut lay MAX (cg1nmax) hoac TRUNG BINH SO HOC (cg1nmean) qua moi phan
+# tu chua nut.  Khong co "phan tu ghi sau": ket qua khong phu thuoc thu tu duyet.
+# Song song: moi nhan chi duyet phan tu so huu (moi phan tu dem dung mot lan tren
+# toan cuc), gop phan cua nut ghost ve nhan so huu (max: trao doi tuong minh
+# qua MPI vi la.InsertMode chi co add/insert; mean: scatter_reverse cong), roi
+# scatter_forward.  max khong phu thuoc phan hoach toi tung bit; mean chi khac
+# thu tu cong (sai so lam tron).
+if args.hspace in ("cg1nmax", "cg1nmean"):
+    from dolfinx import la as _la
+    _ncn = domain.topology.index_map(domain.topology.dim).size_local
+    _celln = np.arange(_ncn, dtype=np.int32)
+    _dln = np.asarray(V_d.dofmap.list)[:_ncn]
+    _imn = V_d.dofmap.index_map
+    _nown = _imn.size_local
+    _l0n = _imn.local_range[0]
+    _ghn = np.asarray(_imn.ghosts, dtype=np.int64)
+    _own_rk = np.asarray(_imn.owners, dtype=np.int64)
+    if args.hspace == "cg1nmean":
+        _cntn = Function(V_d)
+        _cntn.x.array[:] = 0.0
+        np.add.at(_cntn.x.array, _dln.ravel(), 1.0)
+        _cntn.x.scatter_reverse(_la.InsertMode.add)
+        _cntn.x.scatter_forward()
+    else:
+        _gsel = [np.nonzero(_own_rk == r)[0] for r in range(comm.size)]
+
+
+def _psi_nodal_cells():
+    v = np.asarray(psi_expr.eval(domain, _celln)).reshape(_ncn, -1)
+    if v.shape != _dln.shape:
+        raise SystemExit(f"cg1n*: so diem {v.shape} khac dofmap {_dln.shape}")
+    return v
+
+
 def _psi_update():
     """psi+ cua vong so le hien tai vao psi_fn (tren V_H)."""
-    if args.hspace == "cg1l2":
+    if args.hspace == "cg1nmax":
+        v = _psi_nodal_cells()
+        a = np.full(len(psi_fn.x.array), -np.inf)
+        np.maximum.at(a, _dln.ravel(), v.ravel())
+        gv = a[_nown:]
+        gui = [(_ghn[_gsel[r]], gv[_gsel[r]]) for r in range(comm.size)]
+        nhan = comm.alltoall(gui)
+        loc = a[:_nown]
+        for gi, gval in nhan:
+            if len(gi):
+                np.maximum.at(loc, (gi - _l0n).astype(np.int64), gval)
+        psi_fn.x.array[:_nown] = np.where(np.isfinite(loc), loc, 0.0)
+        psi_fn.x.scatter_forward()
+    elif args.hspace == "cg1nmean":
+        v = _psi_nodal_cells()
+        psi_fn.x.array[:] = 0.0
+        np.add.at(psi_fn.x.array, _dln.ravel(), v.ravel())
+        psi_fn.x.scatter_reverse(_la.InsertMode.add)
+        psi_fn.x.array[:_nown] /= _cntn.x.array[:_nown]
+        psi_fn.x.scatter_forward()
+    elif args.hspace == "cg1l2":
         prob_P.solve()
     elif args.hspace == "cg1avg":
         psi0.interpolate(psi0_expr)

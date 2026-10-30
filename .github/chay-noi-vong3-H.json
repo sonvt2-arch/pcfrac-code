@@ -1,0 +1,114 @@
+[
+ {
+  "tag": "MH_T_cg1_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --hspace cg1"
+ },
+ {
+  "tag": "MH_T_dg0_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --hspace dg0"
+ },
+ {
+  "tag": "MH_S_cg1_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load shear --steps 2000 --umax 0.02 --hspace cg1"
+ },
+ {
+  "tag": "MH_S_dg0_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load shear --steps 2000 --umax 0.02 --hspace dg0"
+ },
+ {
+  "tag": "MH_T_cg1_b40_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 40 --umax 0.008 --hspace cg1"
+ },
+ {
+  "tag": "MH_T_cg1_b40_n2",
+  "nhan": 2,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 40 --umax 0.008 --hspace cg1"
+ },
+ {
+  "tag": "MH_T_cg1_b40_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 40 --umax 0.008 --hspace cg1"
+ },
+ {
+  "tag": "MH_T_dg0_b40_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 40 --umax 0.008 --hspace dg0"
+ },
+ {
+  "tag": "MH_T_dg0_b40_n2",
+  "nhan": 2,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 40 --umax 0.008 --hspace dg0"
+ },
+ {
+  "tag": "MH_T_dg0_b40_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 40 --umax 0.008 --hspace dg0"
+ },
+ {
+  "tag": "MH_S_cg1_b40_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load shear --steps 40 --umax 0.02 --hspace cg1"
+ },
+ {
+  "tag": "MH_S_cg1_b40_n2",
+  "nhan": 2,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load shear --steps 40 --umax 0.02 --hspace cg1"
+ },
+ {
+  "tag": "MH_S_cg1_b40_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load shear --steps 40 --umax 0.02 --hspace cg1"
+ },
+ {
+  "tag": "MH_S_dg0_b40_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load shear --steps 40 --umax 0.02 --hspace dg0"
+ },
+ {
+  "tag": "MH_S_dg0_b40_n2",
+  "nhan": 2,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load shear --steps 40 --umax 0.02 --hspace dg0"
+ },
+ {
+  "tag": "MH_S_dg0_b40_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split spectral --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load shear --steps 40 --umax 0.02 --hspace dg0"
+ }
+]
