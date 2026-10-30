@@ -267,3 +267,34 @@ model=WU  ell=0.05 mm  nx=400  h=0.0025 mm  h/ell=0.05
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-10-29T23:27:20Z
+=== CHANG 5 2026-10-29T23:28:25Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 0.00914 mm ; elastic limit = 1.400e-04 mm (65x smaller)
+  ramp: 40 fine steps to 5.600e-04 (step 1.40e-05), then 200 steps to 1.100e-02 (step 5.22e-05)
+model=WU  ell=0.05 mm  nx=400  h=0.0025 mm  h/ell=0.05
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 160000  so dinh = 160801
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  Wu cohesive: a1 = 831.50
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 201   sharp=True
+  damage threshold H_crit = 2.4500e-04 ; ft^2/(2E) = 2.4500e-04
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 180 (diem kiem buoc 179)
+  step 180  u = 7.868e-03  F =   0.4277  d_tip = 0.882  a = 0.4815  H/Hc = 7341060.96  stagg = 48
+  step 181  u = 7.920e-03  F =   0.4116  d_tip = 0.890  a = 0.4865  H/Hc = 8266928.68  stagg = 50
+  step 182  u = 7.972e-03  F =   0.3953  d_tip = 0.898  a = 0.4915  H/Hc = 9390633.24  stagg = 52
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model WU   ell = 0.05 mm
+  PEAK LOAD = 1.6455 N/mm   at step 23 of 182
+  nominal peak stress = 1.6455 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 24.0 % of peak ; final d ahead of the tip = 0.898 ; crack extension = 0.4915 mm (9.8 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  *** 3 of 182 steps had a failed damage solve
+  wrote loaddisp_AM_dg0_400_n1.txt
+============================================================
+=== EXIT=0 2026-10-30T00:13:44Z
