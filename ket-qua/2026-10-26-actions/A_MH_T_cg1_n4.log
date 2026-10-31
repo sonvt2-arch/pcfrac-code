@@ -613,3 +613,90 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-10-30T22:02:29Z
+=== CHANG 2 2026-10-30T22:03:46Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1   *** BAN TRUOC KHI SUA -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split spectral   *** BIEN THE CHAN DOAN -- DINH LUC KHONG DUNG DUOC
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 3   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 594 (diem kiem buoc 593)
+  step 594  u = 5.940e-03  F = 645.8569  d_tip = 1.000  a = 0.4534  H/Hc =   229.62  stagg = 117
+  step 595  u = 5.950e-03  F = 646.1671  d_tip = 1.000  a = 0.4546  H/Hc =   234.79  stagg = 133
+  step 596  u = 5.960e-03  F = 643.1349  d_tip = 1.000  a = 0.4641  H/Hc =   256.00  stagg = 200
+  step 597  u = 5.970e-03  F = 622.9436  d_tip = 1.000  a = 0.5017  H/Hc =   369.66  stagg = 188
+  step 598  u = 5.980e-03  F = 623.3925  d_tip = 1.000  a = 0.5026  H/Hc =   374.57  stagg = 128
+  step 599  u = 5.990e-03  F = 619.7315  d_tip = 1.000  a = 0.5106  H/Hc =   399.34  stagg = 200
+  step 600  u = 6.000e-03  F = 620.1122  d_tip = 1.000  a = 0.5116  H/Hc =   404.62  stagg = 86
+  step 601  u = 6.010e-03  F = 620.6068  d_tip = 1.000  a = 0.5124  H/Hc =   409.29  stagg = 89
+  step 602  u = 6.020e-03  F = 621.0447  d_tip = 1.000  a = 0.5133  H/Hc =   414.23  stagg = 106
+  step 603  u = 6.030e-03  F = 621.2846  d_tip = 1.000  a = 0.5146  H/Hc =   420.11  stagg = 200
+  step 604  u = 6.040e-03  F = 617.2112  d_tip = 1.000  a = 0.5231  H/Hc =   446.33  stagg = 200
+  step 605  u = 6.050e-03  F = 617.6162  d_tip = 1.000  a = 0.5241  H/Hc =   451.42  stagg = 107
+  step 606  u = 6.060e-03  F = 617.9290  d_tip = 1.000  a = 0.5252  H/Hc =   456.93  stagg = 142
+  step 607  u = 6.070e-03  F = 613.6887  d_tip = 1.000  a = 0.5340  H/Hc =   483.24  stagg = 200
+  step 608  u = 6.080e-03  F = 613.8458  d_tip = 1.000  a = 0.5353  H/Hc =   489.47  stagg = 114
+  step 609  u = 6.090e-03  F = 614.1415  d_tip = 1.000  a = 0.5364  H/Hc =   495.02  stagg = 134
+  step 610  u = 6.100e-03  F = 612.2225  d_tip = 1.000  a = 0.5413  H/Hc =   510.27  stagg = 200
+  step 611  u = 6.110e-03  F = 609.9289  d_tip = 1.000  a = 0.5467  H/Hc =   527.33  stagg = 137
+  step 612  u = 6.120e-03  F = 610.2462  d_tip = 1.000  a = 0.5478  H/Hc =   532.76  stagg = 118
+  step 613  u = 6.130e-03  F = 610.0477  d_tip = 1.000  a = 0.5498  H/Hc =   540.39  stagg = 200
+  step 614  u = 6.140e-03  F = 586.6297  d_tip = 1.000  a = 0.5970  H/Hc =   646.22  stagg = 200
+  step 615  u = 6.150e-03  F = 587.1105  d_tip = 1.000  a = 0.5978  H/Hc =   651.05  stagg = 66
+  step 616  u = 6.160e-03  F = 587.6390  d_tip = 1.000  a = 0.5984  H/Hc =   655.61  stagg = 82
+  step 617  u = 6.170e-03  F = 588.1010  d_tip = 1.000  a = 0.5992  H/Hc =   660.41  stagg = 111
+  step 618  u = 6.180e-03  F = 583.9124  d_tip = 1.000  a = 0.6084  H/Hc =   682.91  stagg = 200
+  step 619  u = 6.190e-03  F = 584.3748  d_tip = 1.000  a = 0.6092  H/Hc =   687.74  stagg = 70
+  step 620  u = 6.200e-03  F = 584.8427  d_tip = 1.000  a = 0.6099  H/Hc =   692.50  stagg = 90
+  step 621  u = 6.210e-03  F = 585.1561  d_tip = 1.000  a = 0.6110  H/Hc =   697.84  stagg = 184
+  step 622  u = 6.220e-03  F = 579.8945  d_tip = 1.000  a = 0.6230  H/Hc =   724.65  stagg = 191
+  step 623  u = 6.230e-03  F = 580.3033  d_tip = 1.000  a = 0.6239  H/Hc =   729.78  stagg = 110
+  step 624  u = 6.240e-03  F = 580.0640  d_tip = 1.000  a = 0.6259  H/Hc =   737.28  stagg = 200
+  step 625  u = 6.250e-03  F = 575.8268  d_tip = 1.000  a = 0.6348  H/Hc =   759.38  stagg = 155
+  step 626  u = 6.260e-03  F = 576.1079  d_tip = 1.000  a = 0.6359  H/Hc =   764.93  stagg = 171
+  step 627  u = 6.270e-03  F = 571.2356  d_tip = 1.000  a = 0.6459  H/Hc =   788.67  stagg = 200
+  step 628  u = 6.280e-03  F = 571.5969  d_tip = 1.000  a = 0.6468  H/Hc =   793.90  stagg = 112
+  step 629  u = 6.290e-03  F = 571.3632  d_tip = 1.000  a = 0.6487  H/Hc =   801.14  stagg = 200
+  step 630  u = 6.300e-03  F = 566.7321  d_tip = 1.000  a = 0.6583  H/Hc =   823.35  stagg = 171
+  step 631  u = 6.310e-03  F = 566.8721  d_tip = 1.000  a = 0.6596  H/Hc =   829.27  stagg = 200
+  step 632  u = 6.320e-03  F = 547.5838  d_tip = 1.000  a = 0.7009  H/Hc =   898.52  stagg = 200
+  step 633  u = 6.330e-03  F = 547.9103  d_tip = 1.000  a = 0.7018  H/Hc =   903.78  stagg = 170
+  step 634  u = 6.340e-03  F = 543.5209  d_tip = 1.000  a = 0.7118  H/Hc =   923.02  stagg = 141
+  step 635  u = 6.350e-03  F = 544.0171  d_tip = 1.000  a = 0.7124  H/Hc =   927.70  stagg = 53
+  step 636  u = 6.360e-03  F = 544.4627  d_tip = 1.000  a = 0.7131  H/Hc =   932.49  stagg = 64
+  step 637  u = 6.370e-03  F = 544.8514  d_tip = 1.000  a = 0.7138  H/Hc =   937.43  stagg = 90
+  step 638  u = 6.380e-03  F = 545.0314  d_tip = 1.000  a = 0.7150  H/Hc =   942.97  stagg = 200
+  step 639  u = 6.390e-03  F = 540.0361  d_tip = 1.000  a = 0.7260  H/Hc =   963.38  stagg = 150
+  step 640  u = 6.400e-03  F = 540.3681  d_tip = 1.000  a = 0.7269  H/Hc =   968.47  stagg = 137
+  step 641  u = 6.410e-03  F = 534.7186  d_tip = 1.000  a = 0.7390  H/Hc =   988.92  stagg = 169
+  step 642  u = 6.420e-03  F = 535.1090  d_tip = 1.000  a = 0.7398  H/Hc =   993.91  stagg = 103
+  step 643  u = 6.430e-03  F = 529.7382  d_tip = 1.000  a = 0.7511  H/Hc =  1014.33  stagg = 200
+  step 644  u = 6.440e-03  F = 530.1365  d_tip = 1.000  a = 0.7518  H/Hc =  1019.29  stagg = 89
+  step 645  u = 6.450e-03  F = 530.2478  d_tip = 1.000  a = 0.7530  H/Hc =  1025.09  stagg = 200
+  step 646  u = 6.460e-03  F = 524.6078  d_tip = 1.000  a = 0.7647  H/Hc =  1046.00  stagg = 200
+  step 647  u = 6.470e-03  F = 518.9366  d_tip = 1.000  a = 0.7763  H/Hc =  1066.50  stagg = 177
+  step 648  u = 6.480e-03  F = 519.0663  d_tip = 1.000  a = 0.7775  H/Hc =  1072.20  stagg = 200
+  step 649  u = 6.490e-03  F = 513.1303  d_tip = 1.000  a = 0.7895  H/Hc =  1092.80  stagg = 200
+  step 650  u = 6.500e-03  F = 507.0871  d_tip = 1.000  a = 0.8017  H/Hc =  1113.15  stagg = 196
+  step 651  u = 6.510e-03  F = 500.8925  d_tip = 1.000  a = 0.8142  H/Hc =  1133.35  stagg = 200
+  step 652  u = 6.520e-03  F = 501.0333  d_tip = 1.000  a = 0.8152  H/Hc =  1138.92  stagg = 200
+  step 653  u = 6.530e-03  F = 488.6031  d_tip = 1.000  a = 0.8391  H/Hc =  1172.01  stagg = 200
+  step 654  u = 6.540e-03  F = 454.8583  d_tip = 1.000  a = 0.9117  H/Hc =  1245.12  stagg = 200
+  step 655  u = 6.550e-03  F =   2.5731  d_tip = 1.000  a = 1.4670  H/Hc =  1681.62  stagg = 146
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 699.3792 N/mm   at step 547 of 655
+  nominal peak stress = 699.3792 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 0.4 % of peak ; final d ahead of the tip = 1.000 ; crack extension = 1.4670 mm (146.7 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  wrote loaddisp_MH_T_cg1_n4.txt
+============================================================
+=== EXIT=0 2026-10-31T00:27:18Z
