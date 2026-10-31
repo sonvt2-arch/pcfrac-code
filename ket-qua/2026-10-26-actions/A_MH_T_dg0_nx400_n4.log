@@ -428,3 +428,106 @@ model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-10-30T22:02:31Z
+=== CHANG 2 2026-10-30T22:03:46Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V45 96-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 160000  so dinh = 160801
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split spectral   *** BIEN THE CHAN DOAN -- DINH LUC KHONG DUNG DUOC
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 1   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 409 (diem kiem buoc 408)
+  step 409  u = 4.090e-03  F = 551.4214  d_tip = 0.099  a = 0.0721  H/Hc =     0.08  stagg = 16
+  step 410  u = 4.100e-03  F = 552.6140  d_tip = 0.100  a = 0.0722  H/Hc =     0.08  stagg = 16
+  step 411  u = 4.110e-03  F = 553.8056  d_tip = 0.100  a = 0.0723  H/Hc =     0.08  stagg = 16
+  step 412  u = 4.120e-03  F = 554.9963  d_tip = 0.101  a = 0.0725  H/Hc =     0.08  stagg = 16
+  step 413  u = 4.130e-03  F = 556.1861  d_tip = 0.102  a = 0.0726  H/Hc =     0.08  stagg = 16
+  step 414  u = 4.140e-03  F = 557.3748  d_tip = 0.102  a = 0.0727  H/Hc =     0.08  stagg = 16
+  step 415  u = 4.150e-03  F = 558.5626  d_tip = 0.103  a = 0.0728  H/Hc =     0.08  stagg = 16
+  step 416  u = 4.160e-03  F = 559.7493  d_tip = 0.103  a = 0.0729  H/Hc =     0.08  stagg = 16
+  step 417  u = 4.170e-03  F = 560.9349  d_tip = 0.104  a = 0.0730  H/Hc =     0.08  stagg = 17
+  step 418  u = 4.180e-03  F = 562.1195  d_tip = 0.105  a = 0.0732  H/Hc =     0.08  stagg = 17
+  step 419  u = 4.190e-03  F = 563.3030  d_tip = 0.105  a = 0.0733  H/Hc =     0.09  stagg = 17
+  step 420  u = 4.200e-03  F = 564.4855  d_tip = 0.106  a = 0.0734  H/Hc =     0.09  stagg = 17
+  step 421  u = 4.210e-03  F = 565.6668  d_tip = 0.107  a = 0.0735  H/Hc =     0.09  stagg = 17
+  step 422  u = 4.220e-03  F = 566.8469  d_tip = 0.108  a = 0.0736  H/Hc =     0.09  stagg = 17
+  step 423  u = 4.230e-03  F = 568.0259  d_tip = 0.108  a = 0.0738  H/Hc =     0.09  stagg = 17
+  step 424  u = 4.240e-03  F = 569.2037  d_tip = 0.109  a = 0.0739  H/Hc =     0.09  stagg = 17
+  step 425  u = 4.250e-03  F = 570.3802  d_tip = 0.110  a = 0.0740  H/Hc =     0.09  stagg = 18
+  step 426  u = 4.260e-03  F = 571.5556  d_tip = 0.110  a = 0.0741  H/Hc =     0.09  stagg = 18
+  step 427  u = 4.270e-03  F = 572.7296  d_tip = 0.111  a = 0.0743  H/Hc =     0.09  stagg = 18
+  step 428  u = 4.280e-03  F = 573.9024  d_tip = 0.112  a = 0.0744  H/Hc =     0.09  stagg = 18
+  step 429  u = 4.290e-03  F = 575.0738  d_tip = 0.113  a = 0.0745  H/Hc =     0.09  stagg = 18
+  step 430  u = 4.300e-03  F = 576.2440  d_tip = 0.113  a = 0.0747  H/Hc =     0.09  stagg = 18
+  step 431  u = 4.310e-03  F = 577.4127  d_tip = 0.114  a = 0.0748  H/Hc =     0.09  stagg = 19
+  step 432  u = 4.320e-03  F = 578.5800  d_tip = 0.115  a = 0.0749  H/Hc =     0.10  stagg = 19
+  step 433  u = 4.330e-03  F = 579.7458  d_tip = 0.116  a = 0.0750  H/Hc =     0.10  stagg = 19
+  step 434  u = 4.340e-03  F = 580.9102  d_tip = 0.116  a = 0.0752  H/Hc =     0.10  stagg = 19
+  step 435  u = 4.350e-03  F = 582.0731  d_tip = 0.117  a = 0.0753  H/Hc =     0.10  stagg = 19
+  step 436  u = 4.360e-03  F = 583.2344  d_tip = 0.118  a = 0.0755  H/Hc =     0.10  stagg = 20
+  step 437  u = 4.370e-03  F = 584.3941  d_tip = 0.119  a = 0.0756  H/Hc =     0.10  stagg = 20
+  step 438  u = 4.380e-03  F = 585.5522  d_tip = 0.120  a = 0.0757  H/Hc =     0.10  stagg = 20
+  step 439  u = 4.390e-03  F = 586.7086  d_tip = 0.121  a = 0.0759  H/Hc =     0.10  stagg = 20
+  step 440  u = 4.400e-03  F = 587.8632  d_tip = 0.121  a = 0.0760  H/Hc =     0.10  stagg = 21
+  step 441  u = 4.410e-03  F = 589.0161  d_tip = 0.122  a = 0.0762  H/Hc =     0.10  stagg = 21
+  step 442  u = 4.420e-03  F = 590.1671  d_tip = 0.123  a = 0.0763  H/Hc =     0.10  stagg = 21
+  step 443  u = 4.430e-03  F = 591.3161  d_tip = 0.124  a = 0.0764  H/Hc =     0.11  stagg = 22
+  step 444  u = 4.440e-03  F = 592.4632  d_tip = 0.125  a = 0.0766  H/Hc =     0.11  stagg = 22
+  step 445  u = 4.450e-03  F = 593.6081  d_tip = 0.126  a = 0.0767  H/Hc =     0.11  stagg = 22
+  step 446  u = 4.460e-03  F = 594.7510  d_tip = 0.127  a = 0.0769  H/Hc =     0.11  stagg = 23
+  step 447  u = 4.470e-03  F = 595.8916  d_tip = 0.128  a = 0.0771  H/Hc =     0.11  stagg = 23
+  step 448  u = 4.480e-03  F = 597.0300  d_tip = 0.129  a = 0.0772  H/Hc =     0.11  stagg = 24
+  step 449  u = 4.490e-03  F = 598.1659  d_tip = 0.130  a = 0.0774  H/Hc =     0.11  stagg = 24
+  step 450  u = 4.500e-03  F = 599.2993  d_tip = 0.131  a = 0.0775  H/Hc =     0.11  stagg = 25
+  step 451  u = 4.510e-03  F = 600.4302  d_tip = 0.132  a = 0.0777  H/Hc =     0.11  stagg = 25
+  step 452  u = 4.520e-03  F = 601.5583  d_tip = 0.133  a = 0.0778  H/Hc =     0.12  stagg = 26
+  step 453  u = 4.530e-03  F = 602.6835  d_tip = 0.134  a = 0.0780  H/Hc =     0.12  stagg = 26
+  step 454  u = 4.540e-03  F = 603.8057  d_tip = 0.135  a = 0.0782  H/Hc =     0.12  stagg = 27
+  step 455  u = 4.550e-03  F = 604.9247  d_tip = 0.136  a = 0.0784  H/Hc =     0.12  stagg = 28
+  step 456  u = 4.560e-03  F = 606.0402  d_tip = 0.137  a = 0.0785  H/Hc =     0.12  stagg = 29
+  step 457  u = 4.570e-03  F = 607.1522  d_tip = 0.138  a = 0.0787  H/Hc =     0.12  stagg = 29
+  step 458  u = 4.580e-03  F = 608.2602  d_tip = 0.139  a = 0.0789  H/Hc =     0.12  stagg = 30
+  step 459  u = 4.590e-03  F = 609.3641  d_tip = 0.141  a = 0.0791  H/Hc =     0.12  stagg = 31
+  step 460  u = 4.600e-03  F = 610.4636  d_tip = 0.142  a = 0.0793  H/Hc =     0.13  stagg = 32
+  step 461  u = 4.610e-03  F = 611.5583  d_tip = 0.143  a = 0.0795  H/Hc =     0.13  stagg = 33
+  step 462  u = 4.620e-03  F = 612.6478  d_tip = 0.144  a = 0.0796  H/Hc =     0.13  stagg = 35
+  step 463  u = 4.630e-03  F = 613.7318  d_tip = 0.146  a = 0.0798  H/Hc =     0.13  stagg = 36
+  step 464  u = 4.640e-03  F = 614.8096  d_tip = 0.147  a = 0.0801  H/Hc =     0.13  stagg = 38
+  step 465  u = 4.650e-03  F = 615.8809  d_tip = 0.148  a = 0.0803  H/Hc =     0.13  stagg = 39
+  step 466  u = 4.660e-03  F = 616.9446  d_tip = 0.150  a = 0.0805  H/Hc =     0.14  stagg = 41
+  step 467  u = 4.670e-03  F = 618.0001  d_tip = 0.152  a = 0.0807  H/Hc =     0.14  stagg = 43
+  step 468  u = 4.680e-03  F = 619.0461  d_tip = 0.153  a = 0.0809  H/Hc =     0.14  stagg = 46
+  step 469  u = 4.690e-03  F = 620.0817  d_tip = 0.155  a = 0.0812  H/Hc =     0.14  stagg = 48
+  step 470  u = 4.700e-03  F = 621.1054  d_tip = 0.157  a = 0.0814  H/Hc =     0.14  stagg = 51
+  step 471  u = 4.710e-03  F = 622.1148  d_tip = 0.159  a = 0.0817  H/Hc =     0.15  stagg = 55
+  step 472  u = 4.720e-03  F = 623.1079  d_tip = 0.161  a = 0.0820  H/Hc =     0.15  stagg = 60
+  step 473  u = 4.730e-03  F = 624.0821  d_tip = 0.163  a = 0.0823  H/Hc =     0.15  stagg = 66
+  step 474  u = 4.740e-03  F = 625.0330  d_tip = 0.165  a = 0.0826  H/Hc =     0.15  stagg = 73
+  step 475  u = 4.750e-03  F = 625.9528  d_tip = 0.168  a = 0.0830  H/Hc =     0.16  stagg = 82
+  step 476  u = 4.760e-03  F = 626.8336  d_tip = 0.171  a = 0.0833  H/Hc =     0.16  stagg = 93
+  step 477  u = 4.770e-03  F = 627.6637  d_tip = 0.174  a = 0.0838  H/Hc =     0.17  stagg = 107
+  step 478  u = 4.780e-03  F = 628.4252  d_tip = 0.178  a = 0.0843  H/Hc =     0.17  stagg = 127
+  step 479  u = 4.790e-03  F = 629.0819  d_tip = 0.183  a = 0.0849  H/Hc =     0.18  stagg = 162
+  step 480  u = 4.800e-03  F = 629.4585  d_tip = 0.190  a = 0.0857  H/Hc =     0.19  stagg = 200
+  step 481  u = 4.810e-03  F = 628.9733  d_tip = 0.205  a = 0.0874  H/Hc =     0.21  stagg = 200
+  step 482  u = 4.820e-03  F = 627.2819  d_tip = 0.233  a = 0.0901  H/Hc =     0.25  stagg = 200
+  step 483  u = 4.830e-03  F = 624.9164  d_tip = 0.275  a = 0.0935  H/Hc =     0.32  stagg = 200
+  step 484  u = 4.840e-03  F = 622.6859  d_tip = 0.323  a = 0.0969  H/Hc =     0.44  stagg = 200
+  step 485  u = 4.850e-03  F = 620.3775  d_tip = 0.384  a = 0.1002  H/Hc =     0.62  stagg = 200
+  step 486  u = 4.860e-03  F = 617.8462  d_tip = 0.462  a = 0.1038  H/Hc =     0.96  stagg = 200
+  step 487  u = 4.870e-03  F = 615.0287  d_tip = 0.565  a = 0.1077  H/Hc =     1.74  stagg = 200
+  step 488  u = 4.880e-03  F = 611.6101  d_tip = 0.706  a = 0.1122  H/Hc =     4.31  stagg = 200
+  step 489  u = 4.890e-03  F = 607.5908  d_tip = 0.879  a = 0.1172  H/Hc =    20.40  stagg = 200
+  step 490  u = 4.900e-03  F = 602.8218  d_tip = 0.977  a = 0.1230  H/Hc =   203.30  stagg = 200
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-10-31T03:23:46Z
