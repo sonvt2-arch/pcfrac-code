@@ -607,3 +607,33 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-10-31T08:44:53Z
+=== CHANG 4 2026-10-31T08:46:07Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  LUOI: --cell tri  (tam giac P1, crossed)  so phan tu = 160000  so dinh = 80401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split spectral   *** BIEN THE CHAN DOAN -- DINH LUC KHONG DUNG DUOC
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 101   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 545 (diem kiem buoc 544)
+  step 545  u = 5.450e-03  F = 285.5272  d_tip = 1.000  a = 0.5698  H/Hc =  3558.98  stagg = 200
+  step 546  u = 5.460e-03  F = 267.2809  d_tip = 1.000  a = 0.5893  H/Hc =  3630.19  stagg = 200
+  step 547  u = 5.470e-03  F = 245.4812  d_tip = 1.000  a = 0.6125  H/Hc =  3706.04  stagg = 200
+  step 548  u = 5.480e-03  F = 214.9497  d_tip = 1.000  a = 0.6447  H/Hc =  3795.63  stagg = 200
+  step 549  u = 5.490e-03  F = 118.9107  d_tip = 1.000  a = 0.7403  H/Hc =  3970.91  stagg = 200
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 670.3520 N/mm   at step 511 of 549
+  nominal peak stress = 670.3520 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 17.7 % of peak ; final d ahead of the tip = 1.000 ; crack extension = 0.7403 mm (74.0 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  wrote loaddisp_MH_T_dg0_tri_n1.txt
+============================================================
+=== EXIT=0 2026-10-31T10:06:48Z
