@@ -1,0 +1,66 @@
+name: Hoi quy --maxstagg (mac dinh 200 = ma cu)
+
+# Vong 5-B (02/11/2026), doc/CA-VONG5-B-2026-11-02.md (repo du an).  Chay tay.
+# Cung mot may: ma CU (97f1ec9, chua co --maxstagg) / MOI (khong co) / MOI (--maxstagg 200) / CU;
+# so tung byte loaddisp va H-INVARIANT.  Ca: Miehe SENT --split amor 40 buoc (cg1, dg0) va WU T40.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  hoi-quy:
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 150
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Chay cu / moi / moi200 / cu
+        working-directory: code
+        run: |
+          set +e
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git show 97f1ec9:code/benchmark_A.py > benchmark_A_cu.py
+          D=../ket-qua/2026-10-26-actions/hoi-quy-maxstagg; mkdir -p $D
+          echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" | tee $D/ket-luan.txt
+          M="--model AT2 --ell 0.01 --nx 200 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 40 --umax 0.008"
+          W="--model WU --ell 0.05 --grip clamp --sharpnotch --n1 40 --load tension --split spectral --umax 0.011 --steps 40"
+          for c in MA_cg1 MA_dg0 WU; do
+            case $c in MA_cg1) A="$M --hspace cg1";; MA_dg0) A="$M --hspace dg0";; WU) A="$W";; esac
+            for t in cu1:benchmark_A_cu.py: moi:benchmark_A.py: moi200:benchmark_A.py:--maxstagg_200 cu2:benchmark_A_cu.py:; do
+              n=${t%%:*}; r=${t#*:}; s=${r%%:*}; x=${r#*:}; x=${x//_/ }
+              mpirun -n 1 python3 -u $s $A $x --out HS_${c}_$n > $D/A_HS_${c}_$n.log 2>&1
+              echo "--- $c $n EXIT=$?" | tee -a $D/ket-luan.txt
+              cp -f loaddisp_HS_${c}_$n.txt $D/
+            done
+          done
+          cd $D
+          for c in MA_cg1 MA_dg0 WU; do
+            for n in moi moi200 cu2; do
+              if cmp -s loaddisp_HS_${c}_cu1.txt loaddisp_HS_${c}_$n.txt && \
+                 diff <(grep H-INVARIANT A_HS_${c}_cu1.log) <(grep H-INVARIANT A_HS_${c}_$n.log) >/dev/null && \
+                 [ -n "$(grep H-INVARIANT A_HS_${c}_cu1.log)" ]; then
+                echo "$c: cu1 vs $n: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)" | tee -a ket-luan.txt
+              else
+                echo "$c: cu1 vs $n: KHAC" | tee -a ket-luan.txt
+              fi
+            done
+          done
+          grep -H "H-INVARIANT" A_HS_*.log | tee -a ket-luan.txt
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-10-26-actions/hoi-quy-maxstagg || exit 0
+          git commit -qm "Actions: hoi quy --maxstagg (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done

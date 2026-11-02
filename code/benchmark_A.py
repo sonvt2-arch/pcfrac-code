@@ -70,6 +70,8 @@ p.add_argument("--model", choices=["AT2", "WU"], default="WU")
 p.add_argument("--ell", type=float, default=0.02, help="mm")
 p.add_argument("--nx", type=int, default=0, help="0 = choose from ell")
 p.add_argument("--steps", type=int, default=60)
+p.add_argument("--maxstagg", type=int, default=200,
+               help="tran so vong so le moi buoc (mac dinh 200 = hanh vi cu)")
 p.add_argument("--umax", type=float, default=0.0,
                help="mm; 0 = 3 x the cohesive opening 2Gc/ft")
 p.add_argument("--u1", type=float, default=0.0,
@@ -917,7 +919,7 @@ for step in range(start_step, args.steps + 1):
     ubar = float(_ramp[step - 1])
     u_top.x.array[:] = ubar
 
-    for k in range(200):                                   # staggered loop
+    for k in range(args.maxstagg):                         # staggered loop
         prob_u.solve()
         _psi_update()
         psi_fn.x.scatter_forward()

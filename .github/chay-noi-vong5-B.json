@@ -1,0 +1,30 @@
+[
+ {
+  "tag": "MH_T_amor_cg1_n1_ms1000",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --umax 0.008 --nx 200 --maxstagg 1000 --steps 800 --hspace cg1"
+ },
+ {
+  "tag": "MH_T_amor_cg1_n1_ms1000_s1600",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 200 --u1 0.001 --load tension --umax 0.008 --nx 200 --maxstagg 1000 --steps 1600 --hspace cg1"
+ },
+ {
+  "tag": "MH_T_amor_dg0_n1_ms1000",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --umax 0.008 --nx 200 --maxstagg 1000 --steps 800 --hspace dg0"
+ },
+ {
+  "tag": "MH_T_amor_dg0_n1_ms1000_s1600",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 200 --u1 0.001 --load tension --umax 0.008 --nx 200 --maxstagg 1000 --steps 1600 --hspace dg0"
+ }
+]
