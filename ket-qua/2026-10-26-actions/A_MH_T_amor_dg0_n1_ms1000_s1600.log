@@ -1114,3 +1114,37 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-03T09:07:23Z
+=== CHANG 4 2026-11-03T09:08:34Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 200 fine steps to 1.000e-03 (step 5.00e-06), then 1400 steps to 8.000e-03 (step 5.00e-06)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 101   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 1051 (diem kiem buoc 1050)
+  step 1051  u = 5.255e-03  F = 467.4962  d_tip = 0.994  a = 0.3842  H/Hc =   719.47  stagg = 1000
+  step 1052  u = 5.260e-03  F = 458.4037  d_tip = 0.995  a = 0.3942  H/Hc =   743.31  stagg = 1000
+  step 1053  u = 5.265e-03  F = 451.0424  d_tip = 0.995  a = 0.4024  H/Hc =   762.42  stagg = 1000
+  step 1054  u = 5.270e-03  F = 444.5768  d_tip = 0.995  a = 0.4096  H/Hc =   779.02  stagg = 1000
+  step 1055  u = 5.275e-03  F = 437.9365  d_tip = 0.995  a = 0.4170  H/Hc =   795.55  stagg = 1000
+  step 1056  u = 5.280e-03  F = 430.2778  d_tip = 0.995  a = 0.4255  H/Hc =   813.72  stagg = 1000
+  step 1057  u = 5.285e-03  F = 421.6645  d_tip = 0.995  a = 0.4350  H/Hc =   833.18  stagg = 1000
+  step 1058  u = 5.290e-03  F = 414.9342  d_tip = 0.995  a = 0.4425  H/Hc =   848.43  stagg = 1000
+  step 1059  u = 5.295e-03  F = 408.5861  d_tip = 0.995  a = 0.4496  H/Hc =   862.56  stagg = 1000
+  step 1060  u = 5.300e-03  F = 402.1485  d_tip = 0.995  a = 0.4568  H/Hc =   876.50  stagg = 1000
+  step 1061  u = 5.305e-03  F = 395.3778  d_tip = 0.995  a = 0.4644  H/Hc =   890.65  stagg = 1000
+  step 1062  u = 5.310e-03  F = 387.2679  d_tip = 0.996  a = 0.4734  H/Hc =   906.65  stagg = 1000
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-03T14:28:34Z
