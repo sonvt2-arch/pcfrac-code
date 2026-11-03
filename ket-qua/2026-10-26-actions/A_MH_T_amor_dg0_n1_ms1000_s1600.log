@@ -1181,3 +1181,35 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-03T19:49:45Z
+=== CHANG 6 2026-11-03T19:51:37Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V45 96-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 200 fine steps to 1.000e-03 (step 5.00e-06), then 1400 steps to 8.000e-03 (step 5.00e-06)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 101   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 1075 (diem kiem buoc 1074)
+  step 1075  u = 5.375e-03  F = 288.7880  d_tip = 0.996  a = 0.5828  H/Hc =  1066.11  stagg = 1000
+  step 1076  u = 5.380e-03  F = 278.6625  d_tip = 0.996  a = 0.5940  H/Hc =  1078.52  stagg = 1000
+  step 1077  u = 5.385e-03  F = 266.2593  d_tip = 0.996  a = 0.6076  H/Hc =  1092.54  stagg = 1000
+  step 1078  u = 5.390e-03  F = 249.5984  d_tip = 0.996  a = 0.6257  H/Hc =  1109.49  stagg = 1000
+  step 1079  u = 5.395e-03  F = 211.1347  d_tip = 0.996  a = 0.6673  H/Hc =  1141.23  stagg = 1000
+  step 1080  u = 5.400e-03  F =   3.4852  d_tip = 0.999  a = 0.8275  H/Hc =  1212.69  stagg = 352
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 750.0681 N/mm   at step 720 of 1080
+  nominal peak stress = 750.0681 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 0.5 % of peak ; final d ahead of the tip = 0.999 ; crack extension = 0.8275 mm (82.7 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  wrote loaddisp_MH_T_amor_dg0_n1_ms1000_s1600.txt
+============================================================
+=== EXIT=0 2026-11-03T21:15:31Z
