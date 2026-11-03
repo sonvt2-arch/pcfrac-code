@@ -1333,3 +1333,57 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-03T09:07:18Z
+=== CHANG 4 2026-11-03T09:08:32Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 200 fine steps to 1.000e-03 (step 5.00e-06), then 1400 steps to 8.000e-03 (step 5.00e-06)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1   *** BAN TRUOC KHI SUA -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 101   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 1271 (diem kiem buoc 1270)
+  step 1271  u = 6.355e-03  F = 552.7172  d_tip = 0.987  a = 0.7500  H/Hc =    31.07  stagg = 193
+  step 1272  u = 6.360e-03  F = 553.0050  d_tip = 0.987  a = 0.7502  H/Hc =    31.07  stagg = 56
+  step 1273  u = 6.365e-03  F = 553.2805  d_tip = 0.987  a = 0.7505  H/Hc =    31.07  stagg = 63
+  step 1274  u = 6.370e-03  F = 553.5392  d_tip = 0.987  a = 0.7509  H/Hc =    31.07  stagg = 74
+  step 1275  u = 6.375e-03  F = 553.7697  d_tip = 0.987  a = 0.7513  H/Hc =    31.07  stagg = 95
+  step 1276  u = 6.380e-03  F = 553.9319  d_tip = 0.987  a = 0.7518  H/Hc =    31.07  stagg = 160
+  step 1277  u = 6.385e-03  F = 548.6828  d_tip = 0.987  a = 0.7635  H/Hc =    31.07  stagg = 232
+  step 1278  u = 6.390e-03  F = 548.8934  d_tip = 0.987  a = 0.7639  H/Hc =    31.07  stagg = 111
+  step 1279  u = 6.395e-03  F = 548.9364  d_tip = 0.987  a = 0.7647  H/Hc =    31.07  stagg = 420
+  step 1280  u = 6.400e-03  F = 543.7279  d_tip = 0.987  a = 0.7754  H/Hc =    31.07  stagg = 196
+  step 1281  u = 6.405e-03  F = 543.8959  d_tip = 0.987  a = 0.7759  H/Hc =    31.07  stagg = 147
+  step 1282  u = 6.410e-03  F = 538.5037  d_tip = 0.987  a = 0.7890  H/Hc =    31.07  stagg = 259
+  step 1283  u = 6.415e-03  F = 538.7217  d_tip = 0.987  a = 0.7894  H/Hc =    31.07  stagg = 96
+  step 1284  u = 6.420e-03  F = 538.8735  d_tip = 0.987  a = 0.7899  H/Hc =    31.07  stagg = 155
+  step 1285  u = 6.425e-03  F = 533.3656  d_tip = 0.987  a = 0.8010  H/Hc =    31.07  stagg = 265
+  step 1286  u = 6.430e-03  F = 533.5438  d_tip = 0.987  a = 0.8014  H/Hc =    31.07  stagg = 123
+  step 1287  u = 6.435e-03  F = 527.9622  d_tip = 0.987  a = 0.8126  H/Hc =    31.07  stagg = 481
+  step 1288  u = 6.440e-03  F = 528.1593  d_tip = 0.987  a = 0.8130  H/Hc =    31.07  stagg = 101
+  step 1289  u = 6.445e-03  F = 528.2695  d_tip = 0.987  a = 0.8136  H/Hc =    31.07  stagg = 179
+  step 1290  u = 6.450e-03  F = 522.5417  d_tip = 0.987  a = 0.8251  H/Hc =    31.07  stagg = 280
+  step 1291  u = 6.455e-03  F = 522.5893  d_tip = 0.987  a = 0.8257  H/Hc =    31.07  stagg = 266
+  step 1292  u = 6.460e-03  F = 516.8852  d_tip = 0.987  a = 0.8383  H/Hc =    31.07  stagg = 274
+  step 1293  u = 6.465e-03  F = 477.0177  d_tip = 0.987  a = 0.9315  H/Hc =    31.07  stagg = 1000
+  step 1294  u = 6.470e-03  F = 477.1696  d_tip = 0.987  a = 0.9319  H/Hc =    31.07  stagg = 93
+  step 1295  u = 6.475e-03  F = 477.2494  d_tip = 0.987  a = 0.9325  H/Hc =    31.07  stagg = 143
+  step 1296  u = 6.480e-03  F = 470.9027  d_tip = 0.987  a = 0.9457  H/Hc =    31.07  stagg = 397
+  step 1297  u = 6.485e-03  F = 415.9750  d_tip = 0.988  a = 1.0560  H/Hc =    31.07  stagg = 1000
+  step 1298  u = 6.490e-03  F =   0.4904  d_tip = 0.988  a = 1.6362  H/Hc =    31.07  stagg = 159
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 683.2356 N/mm   at step 1112 of 1298
+  nominal peak stress = 683.2356 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 0.1 % of peak ; final d ahead of the tip = 0.988 ; crack extension = 1.6362 mm (163.6 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  wrote loaddisp_MH_T_amor_cg1_n1_ms1000_s1600.txt
+============================================================
+=== EXIT=0 2026-11-03T11:59:15Z
