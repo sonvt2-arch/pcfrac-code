@@ -501,3 +501,50 @@ model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-04T12:18:38Z
+=== CHANG 3 2026-11-04T12:20:09Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 160000  so dinh = 160801
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 1   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 461 (diem kiem buoc 460)
+  step 461  u = 4.610e-03  F = 608.9921  d_tip = 0.127  a = 0.0816  H/Hc =     0.13  stagg = 34
+  step 462  u = 4.620e-03  F = 610.0640  d_tip = 0.128  a = 0.0818  H/Hc =     0.13  stagg = 35
+  step 463  u = 4.630e-03  F = 611.1302  d_tip = 0.129  a = 0.0820  H/Hc =     0.13  stagg = 37
+  step 464  u = 4.640e-03  F = 612.1900  d_tip = 0.130  a = 0.0822  H/Hc =     0.13  stagg = 38
+  step 465  u = 4.650e-03  F = 613.2430  d_tip = 0.131  a = 0.0825  H/Hc =     0.13  stagg = 40
+  step 466  u = 4.660e-03  F = 614.2883  d_tip = 0.133  a = 0.0827  H/Hc =     0.13  stagg = 42
+  step 467  u = 4.670e-03  F = 615.3251  d_tip = 0.134  a = 0.0830  H/Hc =     0.14  stagg = 44
+  step 468  u = 4.680e-03  F = 616.3521  d_tip = 0.136  a = 0.0832  H/Hc =     0.14  stagg = 47
+  step 469  u = 4.690e-03  F = 617.3681  d_tip = 0.137  a = 0.0835  H/Hc =     0.14  stagg = 49
+  step 470  u = 4.700e-03  F = 618.3718  d_tip = 0.139  a = 0.0838  H/Hc =     0.14  stagg = 53
+  step 471  u = 4.710e-03  F = 619.3604  d_tip = 0.140  a = 0.0840  H/Hc =     0.15  stagg = 57
+  step 472  u = 4.720e-03  F = 620.3321  d_tip = 0.142  a = 0.0844  H/Hc =     0.15  stagg = 62
+  step 473  u = 4.730e-03  F = 621.2841  d_tip = 0.144  a = 0.0847  H/Hc =     0.15  stagg = 68
+  step 474  u = 4.740e-03  F = 622.2106  d_tip = 0.146  a = 0.0850  H/Hc =     0.15  stagg = 75
+  step 475  u = 4.750e-03  F = 623.1043  d_tip = 0.148  a = 0.0854  H/Hc =     0.16  stagg = 85
+  step 476  u = 4.760e-03  F = 623.9565  d_tip = 0.151  a = 0.0858  H/Hc =     0.16  stagg = 96
+  step 477  u = 4.770e-03  F = 624.7545  d_tip = 0.154  a = 0.0863  H/Hc =     0.16  stagg = 112
+  step 478  u = 4.780e-03  F = 625.4791  d_tip = 0.157  a = 0.0868  H/Hc =     0.17  stagg = 133
+  step 479  u = 4.790e-03  F = 626.0849  d_tip = 0.162  a = 0.0875  H/Hc =     0.18  stagg = 175
+  step 480  u = 4.800e-03  F = 626.3367  d_tip = 0.169  a = 0.0884  H/Hc =     0.19  stagg = 200
+  step 481  u = 4.810e-03  F = 625.6786  d_tip = 0.183  a = 0.0902  H/Hc =     0.21  stagg = 200
+  step 482  u = 4.820e-03  F = 623.8678  d_tip = 0.208  a = 0.0932  H/Hc =     0.26  stagg = 200
+  step 483  u = 4.830e-03  F = 621.7375  d_tip = 0.241  a = 0.0964  H/Hc =     0.33  stagg = 200
+  step 484  u = 4.840e-03  F = 619.6897  d_tip = 0.280  a = 0.0996  H/Hc =     0.43  stagg = 200
+  step 485  u = 4.850e-03  F = 617.5185  d_tip = 0.329  a = 0.1028  H/Hc =     0.61  stagg = 200
+  step 486  u = 4.860e-03  F = 615.0916  d_tip = 0.392  a = 0.1064  H/Hc =     0.93  stagg = 200
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-04T17:40:09Z
