@@ -616,3 +616,34 @@ model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
 [0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
 [0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
 [0]PETSC ERROR: === EXIT=124 2026-11-05T04:22:29Z
+=== CHANG 6 2026-11-05T04:23:32Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 160000  so dinh = 160801
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 1   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 517 (diem kiem buoc 516)
+  step 517  u = 5.170e-03  F = 249.3476  d_tip = 0.998  a = 0.4981  H/Hc =  4070.48  stagg = 200
+  step 518  u = 5.180e-03  F = 228.7672  d_tip = 0.998  a = 0.5195  H/Hc =  4153.70  stagg = 200
+  step 519  u = 5.190e-03  F = 201.5361  d_tip = 0.999  a = 0.5475  H/Hc =  4247.75  stagg = 200
+  step 520  u = 5.200e-03  F = 146.2841  d_tip = 0.999  a = 0.6029  H/Hc =  4387.07  stagg = 200
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 626.3367 N/mm   at step 480 of 520
+  nominal peak stress = 626.3367 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 23.4 % of peak ; final d ahead of the tip = 0.999 ; crack extension = 0.6029 mm (60.3 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  *** 2 of 520 steps had a failed damage solve
+  wrote loaddisp_MA_T_dg0_nx400_n4.txt
+============================================================
+=== EXIT=0 2026-11-05T05:58:15Z
