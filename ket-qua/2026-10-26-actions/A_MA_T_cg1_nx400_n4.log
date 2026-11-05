@@ -614,3 +614,42 @@ YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Terminated (signal 15)
 This typically refers to a problem with your application.
 Please see the FAQ page for debugging suggestions
 === EXIT=124 2026-11-04T23:01:24Z
+=== CHANG 5 2026-11-04T23:02:24Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  Intel(R) Xeon(R) 6975P-C
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 160000  so dinh = 160801
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1   *** BAN TRUOC KHI SUA -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 1   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 528 (diem kiem buoc 527)
+  step 528  u = 5.280e-03  F = 622.3767  d_tip = 1.000  a = 0.2251  H/Hc =   833.30  stagg = 189
+  step 529  u = 5.290e-03  F = 619.7505  d_tip = 1.000  a = 0.2308  H/Hc =   891.83  stagg = 200
+  step 530  u = 5.300e-03  F = 617.1101  d_tip = 1.000  a = 0.2367  H/Hc =   950.81  stagg = 200
+  step 531  u = 5.310e-03  F = 617.7762  d_tip = 1.000  a = 0.2374  H/Hc =   965.29  stagg = 200
+  step 532  u = 5.320e-03  F = 611.8741  d_tip = 1.000  a = 0.2480  H/Hc =  1197.27  stagg = 200
+  step 533  u = 5.330e-03  F = 612.6760  d_tip = 1.000  a = 0.2484  H/Hc =  1225.73  stagg = 77
+  step 534  u = 5.340e-03  F = 613.4141  d_tip = 1.000  a = 0.2490  H/Hc =  1254.61  stagg = 124
+  step 535  u = 5.350e-03  F = 607.3186  d_tip = 1.000  a = 0.2601  H/Hc =  1546.90  stagg = 200
+  step 536  u = 5.360e-03  F = 603.5053  d_tip = 1.000  a = 0.2676  H/Hc =  1693.52  stagg = 200
+  step 537  u = 5.370e-03  F = 597.0401  d_tip = 1.000  a = 0.2793  H/Hc =  1894.30  stagg = 200
+  step 538  u = 5.380e-03  F = 594.4760  d_tip = 1.000  a = 0.2846  H/Hc =  1988.00  stagg = 150
+  step 539  u = 5.390e-03  F = 595.1010  d_tip = 1.000  a = 0.2853  H/Hc =  2004.93  stagg = 200
+  step 540  u = 5.400e-03  F = 587.1257  d_tip = 1.000  a = 0.2997  H/Hc =  2215.50  stagg = 200
+  step 541  u = 5.410e-03  F = 577.6562  d_tip = 1.000  a = 0.3155  H/Hc =  2444.41  stagg = 200
+  step 542  u = 5.420e-03  F = 574.4118  d_tip = 1.000  a = 0.3223  H/Hc =  2539.48  stagg = 200
+  step 543  u = 5.430e-03  F = 567.2974  d_tip = 1.000  a = 0.3353  H/Hc =  2708.29  stagg = 200
+  step 544  u = 5.440e-03  F = 562.1399  d_tip = 1.000  a = 0.3451  H/Hc =  2835.02  stagg = 200
+  step 545  u = 5.450e-03  F = 552.9736  d_tip = 1.000  a = 0.3608  H/Hc =  3027.65  stagg = 200
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-05T04:22:24Z
