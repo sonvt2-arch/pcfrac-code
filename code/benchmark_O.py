@@ -198,14 +198,23 @@ prob_u = LinearProblem(ufl.inner(g(d) * sigma0(du), eps(v)) * ufl.dx,
 q = ufl.TestFunction(V_d)
 Gc_c = Constant(domain, PETSc.ScalarType(Gc))
 ell_c = Constant(domain, PETSc.ScalarType(ell))
+# snes_atol theo THANG cua bai toan (09/11, sau thu khoi): 1e-10 tuyet doi cua
+# benchmark_A (mien 1 mm^2) khong dat duoc o day -> SNES=-5 moi buoc tu buoc 1.
+# Thang phan du: (Gc/ell) * sqrt(dien tich mien); atol = 1e-9 lan thang do.
+_area = comm.allreduce(fem.assemble_scalar(fem.form(Constant(domain, PETSc.ScalarType(1.0)) * ufl.dx)),
+                       op=MPI.SUM)
+_snes_atol = 1e-9 * Gc / ell * np.sqrt(_area)
+if comm.rank == 0:
+    print(f"  dien tich = {_area:.1f} mm^2 ; snes_atol = {_snes_atol:.3e}", flush=True)
 E_damage = (g(d) * H + Gc_c / c_w * (w(d) / ell_c + ell_c * ufl.inner(ufl.grad(d), ufl.grad(d)))) * ufl.dx
 F_d = ufl.derivative(E_damage, d, q)
 J_d = ufl.derivative(F_d, d, ufl.TrialFunction(V_d))
 if _SNES_STYLE:
     prob_d = NonlinearProblem(F_d, d, bcs=[], J=J_d, petsc_options_prefix="d_",
                               petsc_options={"snes_type": "vinewtonrsls", "snes_rtol": 1e-8,
-                                             "snes_atol": 1e-10, "snes_max_it": 40,
+                                             "snes_atol": _snes_atol, "snes_max_it": 40,
                                              "ksp_type": "cg", "pc_type": "hypre", "ksp_rtol": 1e-10})
+    _diag = [0, 0.0]
     _lb_d = Function(V_d)
     _ub_d = Function(V_d); _ub_d.x.array[:] = 1.0
 
@@ -214,7 +223,9 @@ if _SNES_STYLE:
         prob_d.solver.setVariableBounds(_lb_d.x.petsc_vec, _ub_d.x.petsc_vec)
         prob_d.solve()
         try:
-            return prob_d.solver.getConvergedReason()
+            r = prob_d.solver.getConvergedReason()
+            _diag[:] = [prob_d.solver.getIterationNumber(), prob_d.solver.getFunctionNorm()]
+            return r
         except Exception:
             return None
 else:
@@ -364,7 +375,9 @@ for step in range(start_step, args.steps + 1):
     if comm.rank == 0:
         print(f"  step {step:3d}  u = {ubar:.4e}  F = {F:9.4f}  d_goc = {dmax:.3f}  "
               f"Gamma = {Gamma:.3f}  stagg = {k+1}"
-              + ("" if reason is None or reason > 0 else f"  SNES={reason}"), flush=True)
+              + ("" if reason is None or reason > 0 else f"  SNES={reason}")
+              + (f"  [snes its={_diag[0]} |F|={_diag[1]:.2e}]" if _SNES_STYLE and
+                 (step <= 3 or (reason is not None and reason <= 0)) else ""), flush=True)
     _ck_save(step)
     Fs = np.abs(np.array([r[1] for r in hist]))
     if len(Fs) > 6 and Fs.max() > 0 and Fs[-1] < 0.25 * Fs.max():

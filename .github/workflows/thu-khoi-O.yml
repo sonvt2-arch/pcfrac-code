@@ -31,11 +31,11 @@ jobs:
           python3 -c "import dolfinx; print('dolfinx', dolfinx.__version__)" | tee -a $D/thu-khoi.txt
           A="--model AT2 --ell 10 --nx 250 --split amor --n1 100 --u1 0.5 --umax 1.5"
           for hs in dg0 cg1; do
-            /usr/bin/time -v mpirun -n 1 python3 -u benchmark_O.py $A --steps 3 --hspace $hs \
+            mpirun -n 1 python3 -u benchmark_O.py $A --steps 5 --hspace $hs \
               --ckpt ck_TK_$hs --out TK_$hs > $D/O_TK_$hs.log 2>&1
             echo "--- $hs EXIT=$?" | tee -a $D/thu-khoi.txt
-            grep -h "LUOI\|TAI:\|KHONG GIAN\|step \|PEAK\|Error\|error\|Maximum resident\|Elapsed" $D/O_TK_$hs.log | tail -12 | tee -a $D/thu-khoi.txt
-            mpirun -n 1 python3 -u benchmark_O.py $A --steps 4 --hspace $hs \
+            grep -h "LUOI\|TAI:\|KHONG GIAN\|step \|PEAK\|Error\|error" $D/O_TK_$hs.log | tail -12 | tee -a $D/thu-khoi.txt
+            mpirun -n 1 python3 -u benchmark_O.py $A --steps 6 --hspace $hs \
               --ckpt ck_TK_$hs --resume --out TK_${hs}r > $D/O_TK_${hs}r.log 2>&1
             echo "--- $hs resume EXIT=$?" | tee -a $D/thu-khoi.txt
             grep -h "RESUME\|step \|PEAK\|Error\|error" $D/O_TK_${hs}r.log | tail -4 | tee -a $D/thu-khoi.txt
