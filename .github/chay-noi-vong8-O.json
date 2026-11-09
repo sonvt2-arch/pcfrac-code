@@ -1,0 +1,10 @@
+[
+ {"tag": "O_cg1_n1", "nhan": 1, "ell": "10", "model": "AT2",
+  "args": "--model AT2 --ell 10 --nx 250 --split amor --plane stress --n1 100 --u1 0.5 --umax 1.5 --steps 300 --hspace cg1"},
+ {"tag": "O_dg0_n1", "nhan": 1, "ell": "10", "model": "AT2",
+  "args": "--model AT2 --ell 10 --nx 250 --split amor --plane stress --n1 100 --u1 0.5 --umax 1.5 --steps 300 --hspace dg0"},
+ {"tag": "O_cg1_n4", "nhan": 4, "ell": "10", "model": "AT2",
+  "args": "--model AT2 --ell 10 --nx 250 --split amor --plane stress --n1 100 --u1 0.5 --umax 1.5 --steps 300 --hspace cg1"},
+ {"tag": "O_dg0_n4", "nhan": 4, "ell": "10", "model": "AT2",
+  "args": "--model AT2 --ell 10 --nx 250 --split amor --plane stress --n1 100 --u1 0.5 --umax 1.5 --steps 300 --hspace dg0"}
+]

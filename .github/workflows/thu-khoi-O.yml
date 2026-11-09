@@ -1,0 +1,56 @@
+name: Thu khoi benchmark O (tam chu L)
+
+# Vong 8 O (09/11/2026): chay thu vai buoc code/benchmark_O.py, 1 nhan, --hspace
+# dg0 va cg1, kem chay tiep tu diem kiem (--resume) va code/do_O.py.  Chay tay.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  thu-khoi:
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 60
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+      - name: Chay thu
+        working-directory: code
+        run: |
+          set +e
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          D=../ket-qua/2026-11-09-vong8-O/thu-khoi; mkdir -p $D
+          echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" | tee $D/thu-khoi.txt
+          python3 -c "import dolfinx; print('dolfinx', dolfinx.__version__)" | tee -a $D/thu-khoi.txt
+          A="--model AT2 --ell 10 --nx 250 --split amor --n1 100 --u1 0.5 --umax 1.5"
+          for hs in dg0 cg1; do
+            /usr/bin/time -v mpirun -n 1 python3 -u benchmark_O.py $A --steps 3 --hspace $hs \
+              --ckpt ck_TK_$hs --out TK_$hs > $D/O_TK_$hs.log 2>&1
+            echo "--- $hs EXIT=$?" | tee -a $D/thu-khoi.txt
+            grep -h "LUOI\|TAI:\|KHONG GIAN\|step \|PEAK\|Error\|error\|Maximum resident\|Elapsed" $D/O_TK_$hs.log | tail -12 | tee -a $D/thu-khoi.txt
+            mpirun -n 1 python3 -u benchmark_O.py $A --steps 4 --hspace $hs \
+              --ckpt ck_TK_$hs --resume --out TK_${hs}r > $D/O_TK_${hs}r.log 2>&1
+            echo "--- $hs resume EXIT=$?" | tee -a $D/thu-khoi.txt
+            grep -h "RESUME\|step \|PEAK\|Error\|error" $D/O_TK_${hs}r.log | tail -4 | tee -a $D/thu-khoi.txt
+            ls -la damage_AT2_ell10.* dfield_TK_$hs.npz 2>&1 | tee -a $D/thu-khoi.txt
+          done
+          mpirun -n 2 python3 -u benchmark_O.py $A --steps 2 --hspace cg1 --out TK_cg1_n2 > $D/O_TK_cg1_n2.log 2>&1
+          echo "--- cg1 n2 EXIT=$?" | tee -a $D/thu-khoi.txt
+          grep -h "step \|PEAK\|Error\|error" $D/O_TK_cg1_n2.log | tail -4 | tee -a $D/thu-khoi.txt
+          python3 do_O.py dfield_TK_cg1.npz --so dfield_TK_dg0.npz > $D/do_O_TK.txt 2>&1
+          echo "--- do_O EXIT=$?" | tee -a $D/thu-khoi.txt; head -5 $D/do_O_TK.txt | tee -a $D/thu-khoi.txt
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-11-09-vong8-O/thu-khoi || exit 0
+          git commit -qm "Actions: thu khoi benchmark O (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
