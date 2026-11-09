@@ -1,0 +1,27 @@
+=== CHANG 1 2026-11-09T18:00:29Z tu dau (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  BENCHMARK P3D (tam mong 3D, hex Q1)  dolfinx 0.11.0.post0
+model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zbc faces
+  ramp: 100 fine steps to 1.000e-03, then 1 steps to 8.000e-03
+  LUOI: hex Q1  so phan tu = 20000  so dinh = 30603
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor (Amor 3D, K = lambda + 2mu/3)
+  DIEU KIEN NGAM: --grip clamp;  z: --zbc faces  (u_z = 0 tren hai mat z = 0, z = t: bien dang phang)
+  NOTCH DOFS (toan cuc) = 153   (mong doi 153)
+  damage threshold H_crit = 1.3500e+02
+  step   1  u = 1.000e-05  F =   2.2911  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 6s
+  step   2  u = 2.000e-05  F =   4.5821  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 12s
+  step   3  u = 3.000e-05  F =   6.8732  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 18s
+  step   4  u = 4.000e-05  F =   9.1642  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 24s
+  step   5  u = 5.000e-05  F =  11.4552  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 30s
+
+============================================================
+  model AT2   ell = 0.01 mm   3D hex nx=100 nz=2 t=0.02
+  PEAK LOAD = 11.4552 N/mm   at step 5 of 5
+  final load = 100.0 % of peak ; final d ahead = 0.014 ; crack extension = 0.0000 mm
+  wrote loaddisp_KP3_dg0_n4.txt
+============================================================
+  LAT z = 0.0100 (giua): 10201 nut -> damage_AT2_ell0.01.xdmf ; so nut d>0.9: 51
+  LAT z = 0.0000 (_z0): 10201 nut -> damage_AT2_ell0.01_z0.xdmf ; so nut d>0.9: 51
+  LAT z = 0.0200 (_zt): 10201 nut -> damage_AT2_ell0.01_zt.xdmf ; so nut d>0.9: 51
+=== EXIT=0 2026-11-09T18:01:04Z
