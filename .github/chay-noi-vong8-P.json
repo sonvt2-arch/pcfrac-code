@@ -1,0 +1,29 @@
+[
+ {
+  "tag": "KP3_dg0_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "phut": 60,
+  "script": "benchmark_P3d.py",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 5 --umax 0.008 --nx 100 --nz 2 --zbc faces --hspace dg0"
+ },
+ {
+  "tag": "KP3_cg1_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "phut": 60,
+  "script": "benchmark_P3d.py",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 5 --umax 0.008 --nx 100 --nz 2 --zbc faces --hspace cg1"
+ },
+ {
+  "tag": "KA2_dg0_nx100_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "phut": 60,
+  "script": "benchmark_A.py",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 5 --umax 0.008 --nx 100 --hspace dg0"
+ }
+]
