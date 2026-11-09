@@ -1,0 +1,82 @@
+=== CHANG 1 2026-11-09T21:08:28Z tu dau (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+BENCHMARK O (tam chu L)  model=AT2  ell=10.0 mm  nx=250  h=2.000 mm  ell/h=5.00  plane=stress
+  ramp: 100 buoc toi 0.5 mm, roi 200 buoc toi 1.5 mm
+  LUOI chu L: so phan tu = 46875  so dinh = 47376
+  KHONG GIAN H: --hspace cg1   *** NUT Q1 GHI DE (ban truoc khi sua)
+  PHEP TACH NANG LUONG: --split amor
+  TAI: u_y tren 10 canh, y = 250.0, |x - 470.0| <= 10.0 mm; ngam mep y = 0
+  dien tich = 187500.0 mm^2 ; snes_atol = 3.897e-09
+  step   1  u = 5.0000e-03  F =    3.1920  d_goc = 0.000  Gamma = 0.000  stagg = 2  [snes its=4 |F|=3.38e-09]
+  step   2  u = 1.0000e-02  F =    6.3830  d_goc = 0.000  Gamma = 0.000  stagg = 2  [snes its=21 |F|=3.85e-09]
+  step   3  u = 1.5000e-02  F =    9.5718  d_goc = 0.001  Gamma = 0.000  stagg = 3  [snes its=1 |F|=3.68e-09]
+  step   4  u = 2.0000e-02  F =   12.7574  d_goc = 0.001  Gamma = 0.001  stagg = 3
+  step   5  u = 2.5000e-02  F =   15.9388  d_goc = 0.002  Gamma = 0.001  stagg = 3
+  step   6  u = 3.0000e-02  F =   19.1149  d_goc = 0.003  Gamma = 0.003  stagg = 3
+  step   7  u = 3.5000e-02  F =   22.2845  d_goc = 0.004  Gamma = 0.005  stagg = 3
+  step   8  u = 4.0000e-02  F =   25.4468  d_goc = 0.006  Gamma = 0.009  stagg = 3
+  step   9  u = 4.5000e-02  F =   28.6005  d_goc = 0.007  Gamma = 0.015  stagg = 4
+  step  10  u = 5.0000e-02  F =   31.7447  d_goc = 0.009  Gamma = 0.022  stagg = 4
+  step  11  u = 5.5000e-02  F =   34.8782  d_goc = 0.010  Gamma = 0.033  stagg = 4
+  step  12  u = 6.0000e-02  F =   38.0001  d_goc = 0.012  Gamma = 0.047  stagg = 4
+  step  13  u = 6.5000e-02  F =   41.1092  d_goc = 0.015  Gamma = 0.064  stagg = 4
+  step  14  u = 7.0000e-02  F =   44.2046  d_goc = 0.017  Gamma = 0.086  stagg = 4
+  step  15  u = 7.5000e-02  F =   47.2851  d_goc = 0.019  Gamma = 0.114  stagg = 5
+  step  16  u = 8.0000e-02  F =   50.3497  d_goc = 0.022  Gamma = 0.147  stagg = 5
+  step  17  u = 8.5000e-02  F =   53.3973  d_goc = 0.025  Gamma = 0.187  stagg = 5
+  step  18  u = 9.0000e-02  F =   56.4269  d_goc = 0.028  Gamma = 0.235  stagg = 5
+  step  19  u = 9.5000e-02  F =   59.4375  d_goc = 0.031  Gamma = 0.292  stagg = 5
+  step  20  u = 1.0000e-01  F =   62.4279  d_goc = 0.035  Gamma = 0.359  stagg = 5
+  step  21  u = 1.0500e-01  F =   65.3970  d_goc = 0.038  Gamma = 0.436  stagg = 6
+  step  22  u = 1.1000e-01  F =   68.3439  d_goc = 0.042  Gamma = 0.525  stagg = 6
+  step  23  u = 1.1500e-01  F =   71.2675  d_goc = 0.046  Gamma = 0.628  stagg = 6
+  step  24  u = 1.2000e-01  F =   74.1666  d_goc = 0.050  Gamma = 0.744  stagg = 6
+  step  25  u = 1.2500e-01  F =   77.0401  d_goc = 0.054  Gamma = 0.877  stagg = 7
+  step  26  u = 1.3000e-01  F =   79.8870  d_goc = 0.059  Gamma = 1.026  stagg = 7
+  step  27  u = 1.3500e-01  F =   82.7061  d_goc = 0.063  Gamma = 1.193  stagg = 7
+  step  28  u = 1.4000e-01  F =   85.4963  d_goc = 0.068  Gamma = 1.381  stagg = 7
+  step  29  u = 1.4500e-01  F =   88.2563  d_goc = 0.073  Gamma = 1.590  stagg = 8
+  step  30  u = 1.5000e-01  F =   90.9849  d_goc = 0.078  Gamma = 1.822  stagg = 8
+  step  31  u = 1.5500e-01  F =   93.6810  d_goc = 0.084  Gamma = 2.080  stagg = 8
+  step  32  u = 1.6000e-01  F =   96.3430  d_goc = 0.089  Gamma = 2.364  stagg = 9
+  step  33  u = 1.6500e-01  F =   98.9698  d_goc = 0.095  Gamma = 2.678  stagg = 9
+  step  34  u = 1.7000e-01  F =  101.5596  d_goc = 0.101  Gamma = 3.023  stagg = 10
+  step  35  u = 1.7500e-01  F =  104.1111  d_goc = 0.107  Gamma = 3.401  stagg = 10
+  step  36  u = 1.8000e-01  F =  106.6222  d_goc = 0.114  Gamma = 3.816  stagg = 11
+  step  37  u = 1.8500e-01  F =  109.0913  d_goc = 0.120  Gamma = 4.270  stagg = 11
+  step  38  u = 1.9000e-01  F =  111.5158  d_goc = 0.127  Gamma = 4.767  stagg = 12
+  step  39  u = 1.9500e-01  F =  113.8935  d_goc = 0.134  Gamma = 5.311  stagg = 13
+  step  40  u = 2.0000e-01  F =  116.2210  d_goc = 0.142  Gamma = 5.905  stagg = 14
+  step  41  u = 2.0500e-01  F =  118.4949  d_goc = 0.150  Gamma = 6.557  stagg = 15  SNES=-5  [snes its=40 |F|=8.34e-09]
+  step  42  u = 2.1000e-01  F =  120.7103  d_goc = 0.159  Gamma = 7.271  stagg = 16
+  step  43  u = 2.1500e-01  F =  122.8613  d_goc = 0.168  Gamma = 8.058  stagg = 17
+  step  44  u = 2.2000e-01  F =  124.9399  d_goc = 0.177  Gamma = 8.928  stagg = 19
+  step  45  u = 2.2500e-01  F =  126.9346  d_goc = 0.187  Gamma = 9.898  stagg = 21  SNES=-5  [snes its=40 |F|=4.32e-09]
+  step  46  u = 2.3000e-01  F =  128.8285  d_goc = 0.198  Gamma = 10.990  stagg = 24
+  step  47  u = 2.3500e-01  F =  130.5945  d_goc = 0.211  Gamma = 12.242  stagg = 27
+  step  48  u = 2.4000e-01  F =  132.1839  d_goc = 0.228  Gamma = 13.720  stagg = 33
+  step  49  u = 2.4500e-01  F =  133.4369  d_goc = 0.249  Gamma = 15.643  stagg = 53
+  step  50  u = 2.5000e-01  F =   66.7348  d_goc = 1.000  Gamma = 122.553  stagg = 200  SNES=-5  [snes its=40 |F|=5.26e-09]
+  step  51  u = 2.5500e-01  F =   61.2565  d_goc = 1.000  Gamma = 136.316  stagg = 163
+  step  52  u = 2.6000e-01  F =   57.4818  d_goc = 1.000  Gamma = 146.621  stagg = 200
+  step  53  u = 2.6500e-01  F =   52.7865  d_goc = 1.000  Gamma = 159.587  stagg = 198
+  step  54  u = 2.7000e-01  F =   49.8173  d_goc = 1.000  Gamma = 168.589  stagg = 137
+  step  55  u = 2.7500e-01  F =   46.8084  d_goc = 1.000  Gamma = 177.879  stagg = 166
+  step  56  u = 2.8000e-01  F =   44.8634  d_goc = 1.000  Gamma = 184.582  stagg = 200  SNES=-5  [snes its=40 |F|=5.96e-09]
+  step  57  u = 2.8500e-01  F =   42.7535  d_goc = 1.000  Gamma = 191.346  stagg = 148
+  step  58  u = 2.9000e-01  F =   40.3610  d_goc = 1.000  Gamma = 199.154  stagg = 135
+  step  59  u = 2.9500e-01  F =   39.0257  d_goc = 1.000  Gamma = 204.506  stagg = 200
+  step  60  u = 3.0000e-01  F =   37.3970  d_goc = 1.000  Gamma = 210.507  stagg = 200
+  step  61  u = 3.0500e-01  F =   35.5542  d_goc = 1.000  Gamma = 216.744  stagg = 134
+  step  62  u = 3.1000e-01  F =   34.3537  d_goc = 1.000  Gamma = 223.172  stagg = 105
+  step  63  u = 3.1500e-01  F =   33.1936  d_goc = 1.000  Gamma = 228.213  stagg = 105
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  BENCHMARK O  model AT2  ell = 10.0 mm  hspace = cg1  nhan = 4
+  PEAK LOAD = 133.4369 N/mm   at step 49 of 63   u = 2.4500e-01 mm   (x 100 mm day = 13.344 kN)
+  final load = 24.9 % of peak ; Gamma - Gamma0 = 228.21 mm
+  *** 4 of 63 steps had a failed damage solve
+  wrote loaddisp_O_cg1_n4.txt dfield_O_cg1_n4.npz
+============================================================
+=== EXIT=0 2026-11-09T23:08:23Z
