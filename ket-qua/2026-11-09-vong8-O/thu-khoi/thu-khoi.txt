@@ -1,20 +1,46 @@
-=== MAY: 4 nhan;  AMD EPYC 9V45 96-Core Processor
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
 dolfinx 0.11.0.post0
---- dg0 EXIT=127
---- dg0 resume EXIT=1
-ls: cannot access 'damage_AT2_ell10.*': No such file or directory
-ls: cannot access 'dfield_TK_dg0.npz': No such file or directory
---- cg1 EXIT=127
---- cg1 resume EXIT=1
-ls: cannot access 'damage_AT2_ell10.*': No such file or directory
-ls: cannot access 'dfield_TK_cg1.npz': No such file or directory
+--- dg0 EXIT=0
+  LUOI chu L: so phan tu = 46875  so dinh = 47376
+  KHONG GIAN H: --hspace dg0
+  TAI: u_y tren 10 canh, y = 250.0, |x - 470.0| <= 10.0 mm; ngam mep y = 0
+  step   1  u = 5.0000e-03  F =    3.1920  d_goc = 0.000  Gamma = 0.000  stagg = 2  [snes its=3 |F|=3.08e-09]
+  step   2  u = 1.0000e-02  F =    6.3830  d_goc = 0.000  Gamma = 0.000  stagg = 2  [snes its=22 |F|=3.64e-09]
+  step   3  u = 1.5000e-02  F =    9.5720  d_goc = 0.001  Gamma = 0.000  stagg = 3  [snes its=1 |F|=3.67e-09]
+  step   4  u = 2.0000e-02  F =   12.7578  d_goc = 0.001  Gamma = 0.001  stagg = 3
+  step   5  u = 2.5000e-02  F =   15.9396  d_goc = 0.002  Gamma = 0.001  stagg = 3
+  PEAK LOAD = 15.9396 N/mm   at step 5 of 5   u = 2.5000e-02 mm   (x 100 mm day = 1.594 kN)
+--- dg0 resume EXIT=0
+  RESUME: chay tiep tu buoc 6 (diem kiem buoc 5)
+  step   6  u = 3.0000e-02  F =   19.1162  d_goc = 0.003  Gamma = 0.003  stagg = 3
+  PEAK LOAD = 19.1162 N/mm   at step 6 of 6   u = 3.0000e-02 mm   (x 100 mm day = 1.912 kN)
+-rw-r--r-- 1 root root 2639072 Nov  9 20:16 damage_AT2_ell10.h5
+-rw-r--r-- 1 root root    1084 Nov  9 20:16 damage_AT2_ell10.xdmf
+-rw-r--r-- 1 root root 1139006 Nov  9 20:15 dfield_TK_dg0.npz
+--- cg1 EXIT=0
+  LUOI chu L: so phan tu = 46875  so dinh = 47376
+  KHONG GIAN H: --hspace cg1   *** NUT Q1 GHI DE (ban truoc khi sua)
+  TAI: u_y tren 10 canh, y = 250.0, |x - 470.0| <= 10.0 mm; ngam mep y = 0
+  step   1  u = 5.0000e-03  F =    3.1920  d_goc = 0.000  Gamma = 0.000  stagg = 2  [snes its=4 |F|=3.19e-09]
+  step   2  u = 1.0000e-02  F =    6.3830  d_goc = 0.000  Gamma = 0.000  stagg = 2  [snes its=22 |F|=3.86e-09]
+  step   3  u = 1.5000e-02  F =    9.5718  d_goc = 0.001  Gamma = 0.000  stagg = 3  [snes its=1 |F|=3.83e-09]
+  step   4  u = 2.0000e-02  F =   12.7574  d_goc = 0.001  Gamma = 0.001  stagg = 3
+  step   5  u = 2.5000e-02  F =   15.9388  d_goc = 0.002  Gamma = 0.001  stagg = 3
+  PEAK LOAD = 15.9388 N/mm   at step 5 of 5   u = 2.5000e-02 mm   (x 100 mm day = 1.594 kN)
+--- cg1 resume EXIT=0
+  RESUME: chay tiep tu buoc 6 (diem kiem buoc 5)
+  step   6  u = 3.0000e-02  F =   19.1148  d_goc = 0.003  Gamma = 0.003  stagg = 3
+  PEAK LOAD = 19.1148 N/mm   at step 6 of 6   u = 3.0000e-02 mm   (x 100 mm day = 1.911 kN)
+-rw-r--r-- 1 root root 2639072 Nov  9 20:16 damage_AT2_ell10.h5
+-rw-r--r-- 1 root root    1084 Nov  9 20:16 damage_AT2_ell10.xdmf
+-rw-r--r-- 1 root root 1139006 Nov  9 20:16 dfield_TK_cg1.npz
 --- cg1 n2 EXIT=0
-  step   1  u = 5.0000e-03  F =    3.1920  d_goc = 0.000  Gamma = 0.000  stagg = 2  SNES=-5
-  step   2  u = 1.0000e-02  F =    6.3830  d_goc = 0.000  Gamma = 0.000  stagg = 2  SNES=-5
+  step   1  u = 5.0000e-03  F =    3.1920  d_goc = 0.000  Gamma = 0.000  stagg = 2  [snes its=3 |F|=3.47e-09]
+  step   2  u = 1.0000e-02  F =    6.3830  d_goc = 0.000  Gamma = 0.000  stagg = 2  [snes its=21 |F|=3.82e-09]
   PEAK LOAD = 6.3830 N/mm   at step 2 of 2   u = 1.0000e-02 mm   (x 100 mm day = 0.638 kN)
---- do_O EXIT=1
-Traceback (most recent call last):
-  File "/__w/pcfrac-code/pcfrac-code/code/do_O.py", line 142, in <module>
-    main()
-  File "/__w/pcfrac-code/pcfrac-code/code/do_O.py", line 119, in main
-    G, h, ell, z = load(a.f)
+--- do_O EXIT=0
+# dfield_TK_cg1.npz: hspace=cg1 nhan=1 F_pk=15.9388 N/mm u_pk=2.5000e-02 mm  ell=10.0 h=2.0
+  (khong co duong tam)
+# r_mm x_mm y_mm
+# so voi dfield_TK_dg0.npz: hspace=dg0 nhan=1 F_pk=15.9396
+  (khong co duong tam)

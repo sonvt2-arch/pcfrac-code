@@ -4,4 +4,13 @@ BENCHMARK O (tam chu L)  model=AT2  ell=10.0 mm  nx=250  h=2.000 mm  ell/h=5.00 
   KHONG GIAN H: --hspace cg1   *** NUT Q1 GHI DE (ban truoc khi sua)
   PHEP TACH NANG LUONG: --split amor
   TAI: u_y tren 10 canh, y = 250.0, |x - 470.0| <= 10.0 mm; ngam mep y = 0
-KHONG CO DIEM KIEM CHUNG cho moi nhan -- chay lai tu dau
+  dien tich = 187500.0 mm^2 ; snes_atol = 3.897e-09
+  RESUME: chay tiep tu buoc 6 (diem kiem buoc 5)
+  step   6  u = 3.0000e-02  F =   19.1148  d_goc = 0.003  Gamma = 0.003  stagg = 3
+
+============================================================
+  BENCHMARK O  model AT2  ell = 10.0 mm  hspace = cg1  nhan = 1
+  PEAK LOAD = 19.1148 N/mm   at step 6 of 6   u = 3.0000e-02 mm   (x 100 mm day = 1.911 kN)
+  final load = 100.0 % of peak ; Gamma - Gamma0 = 0.00 mm
+  wrote loaddisp_TK_cg1r.txt dfield_TK_cg1r.npz
+============================================================
