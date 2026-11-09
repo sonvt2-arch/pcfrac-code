@@ -1,0 +1,35 @@
+=== CHANG 1 2026-11-09T17:57:43Z tu dau (GitHub Actions)
+=== MAY: 4 nhan;  Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 1 steps to 8.000e-03 (step 7.00e-03)
+model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 10000  so dinh = 10201
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 2   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  H-INVARIANT step1: sum=1.622513112996e-01 max=4.481892500579e-04 L2=4.198174810283e-03
+  step   1  u = 1.000e-05  F =   2.2911  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   2  u = 2.000e-05  F =   4.5821  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   3  u = 3.000e-05  F =   6.8732  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   4  u = 4.000e-05  F =   9.1642  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   5  u = 5.000e-05  F =  11.4552  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 11.4552 N/mm   at step 5 of 5
+  nominal peak stress = 11.4552 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 100.0 % of peak ; final d ahead of the tip = 0.014 ; crack extension = 0.0000 mm (0.0 ell)
+  *** NOT A FRACTURE PEAK: the load never fell below 60 % of
+      its maximum, or no crack ran (d stayed under 0.5 and the
+      crack grew less than 2 ell).  The maximum above is a
+      plateau value, which is noise.
+      NOTE: the run stopped at u = 5.000e-05 mm of 0.0080 mm,
+      so it ended early -- look at the failed damage solves below,
+      not at umax.
+  wrote loaddisp_KA2_dg0_nx100_n4.txt
+============================================================
+=== EXIT=0 2026-11-09T17:57:47Z
