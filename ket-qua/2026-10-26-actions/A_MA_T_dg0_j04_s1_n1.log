@@ -604,3 +604,35 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-10T04:37:09Z
+=== CHANG 3 2026-11-10T04:38:55Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0.4 --seed 1   *** LUOI BI DICH -- CA NGHIEN CUU NHIEU
+  NHIEU LUOI: so nut dich = 39501  max|dich|/h = 0.4000  tong dx = 2.148620861777e-01  tong dy = -1.519573654254e-01  tong |dich| = 7.911253530968e+01
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 101   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 561 (diem kiem buoc 560)
+  step 561  u = 5.610e-03  F = 297.9327  d_tip = 1.000  a = 0.6078  H/Hc =  2376.07  stagg = 200
+  step 562  u = 5.620e-03  F = 251.7226  d_tip = 1.000  a = 0.6572  H/Hc =  2752.32  stagg = 200
+  step 563  u = 5.630e-03  F = 207.0907  d_tip = 1.000  a = 0.7051  H/Hc =  3065.26  stagg = 200
+  step 564  u = 5.640e-03  F =   4.2189  d_tip = 1.000  a = 0.8595  H/Hc =  3972.85  stagg = 146
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 689.9026 N/mm   at step 328 of 564
+  nominal peak stress = 689.9026 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 0.6 % of peak ; final d ahead of the tip = 1.000 ; crack extension = 0.8595 mm (86.0 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  *** 1 of 564 steps had a failed damage solve
+  wrote loaddisp_MA_T_dg0_j04_s1_n1.txt
+============================================================
+=== EXIT=0 2026-11-10T05:14:04Z
