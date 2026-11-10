@@ -538,3 +538,69 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-09T23:15:05Z
+=== CHANG 2 2026-11-09T23:17:08Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0.4 --seed 1   *** LUOI BI DICH -- CA NGHIEN CUU NHIEU
+  NHIEU LUOI: so nut dich = 39501  max|dich|/h = 0.4000  tong dx = 2.148620861777e-01  tong dy = -1.519573654254e-01  tong |dich| = 7.911253530968e+01
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 101   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 518 (diem kiem buoc 517)
+  step 518  u = 5.180e-03  F = 671.9267  d_tip = 0.215  a = 0.1666  H/Hc =     0.25  stagg = 92
+  step 519  u = 5.190e-03  F = 672.5195  d_tip = 0.220  a = 0.1674  H/Hc =     0.26  stagg = 105
+  step 520  u = 5.200e-03  F = 673.0109  d_tip = 0.226  a = 0.1682  H/Hc =     0.28  stagg = 124
+  step 521  u = 5.210e-03  F = 673.3619  d_tip = 0.234  a = 0.1691  H/Hc =     0.29  stagg = 150
+  step 522  u = 5.220e-03  F = 673.5244  d_tip = 0.243  a = 0.1703  H/Hc =     0.31  stagg = 183
+  step 523  u = 5.230e-03  F = 673.4546  d_tip = 0.255  a = 0.1717  H/Hc =     0.34  stagg = 200
+  step 524  u = 5.240e-03  F = 673.2292  d_tip = 0.269  a = 0.1732  H/Hc =     0.37  stagg = 200
+  step 525  u = 5.250e-03  F = 672.9676  d_tip = 0.284  a = 0.1748  H/Hc =     0.41  stagg = 200
+  step 526  u = 5.260e-03  F = 672.7286  d_tip = 0.299  a = 0.1764  H/Hc =     0.46  stagg = 200
+  step 527  u = 5.270e-03  F = 672.5248  d_tip = 0.315  a = 0.1779  H/Hc =     0.51  stagg = 200
+  step 528  u = 5.280e-03  F = 672.3126  d_tip = 0.331  a = 0.1794  H/Hc =     0.57  stagg = 200
+  step 529  u = 5.290e-03  F = 671.9161  d_tip = 0.351  a = 0.1812  H/Hc =     0.65  stagg = 200
+  step 530  u = 5.300e-03  F = 671.2416  d_tip = 0.375  a = 0.1832  H/Hc =     0.77  stagg = 200
+  step 531  u = 5.310e-03  F = 670.4091  d_tip = 0.403  a = 0.1854  H/Hc =     0.93  stagg = 200
+  step 532  u = 5.320e-03  F = 669.6865  d_tip = 0.429  a = 0.1875  H/Hc =     1.12  stagg = 200
+  step 533  u = 5.330e-03  F = 669.0083  d_tip = 0.456  a = 0.1895  H/Hc =     1.36  stagg = 200
+  step 534  u = 5.340e-03  F = 667.4885  d_tip = 0.496  a = 0.1924  H/Hc =     1.86  stagg = 200
+  step 535  u = 5.350e-03  F = 653.3621  d_tip = 0.811  a = 0.2083  H/Hc =    17.75  stagg = 200
+  step 536  u = 5.360e-03  F = 637.1932  d_tip = 0.981  a = 0.2266  H/Hc =   105.35  stagg = 200
+  step 537  u = 5.370e-03  F = 601.1846  d_tip = 0.995  a = 0.2651  H/Hc =   331.96  stagg = 200
+  step 538  u = 5.380e-03  F = 598.4025  d_tip = 0.996  a = 0.2692  H/Hc =   363.21  stagg = 200
+  step 539  u = 5.390e-03  F = 595.7428  d_tip = 0.996  a = 0.2731  H/Hc =   392.55  stagg = 200
+  step 540  u = 5.400e-03  F = 594.6839  d_tip = 0.996  a = 0.2754  H/Hc =   409.53  stagg = 200
+  step 541  u = 5.410e-03  F = 594.3439  d_tip = 0.996  a = 0.2769  H/Hc =   421.10  stagg = 200
+  step 542  u = 5.420e-03  F = 594.1795  d_tip = 0.996  a = 0.2783  H/Hc =   431.35  stagg = 196
+  step 543  u = 5.430e-03  F = 594.0753  d_tip = 0.997  a = 0.2796  H/Hc =   441.12  stagg = 188
+  step 544  u = 5.440e-03  F = 593.9327  d_tip = 0.997  a = 0.2809  H/Hc =   451.14  stagg = 200
+  step 545  u = 5.450e-03  F = 593.5315  d_tip = 0.997  a = 0.2825  H/Hc =   462.98  stagg = 200
+  step 546  u = 5.460e-03  F = 592.5040  d_tip = 0.997  a = 0.2847  H/Hc =   479.22  stagg = 200
+  step 547  u = 5.470e-03  F = 589.4159  d_tip = 0.997  a = 0.2892  H/Hc =   509.72  stagg = 200
+  step 548  u = 5.480e-03  F = 566.8639  d_tip = 1.000  a = 0.3145  H/Hc =   665.96  stagg = 200
+  step 549  u = 5.490e-03  F = 549.6642  d_tip = 1.000  a = 0.3338  H/Hc =   777.13  stagg = 200
+  step 550  u = 5.500e-03  F = 495.7891  d_tip = 1.000  a = 0.3913  H/Hc =  1062.00  stagg = 200
+  step 551  u = 5.510e-03  F = 426.3325  d_tip = 1.000  a = 0.4636  H/Hc =  1343.82  stagg = 200
+  step 552  u = 5.520e-03  F = 426.1073  d_tip = 1.000  a = 0.4647  H/Hc =  1352.07  stagg = 200
+  step 553  u = 5.530e-03  F = 415.1253  d_tip = 1.000  a = 0.4777  H/Hc =  1395.88  stagg = 200
+  step 554  u = 5.540e-03  F = 331.6364  d_tip = 1.000  a = 0.5669  H/Hc =  1979.71  stagg = 200
+  step 555  u = 5.550e-03  F = 322.4066  d_tip = 1.000  a = 0.5771  H/Hc =  2080.59  stagg = 166
+  step 556  u = 5.560e-03  F = 322.2811  d_tip = 1.000  a = 0.5779  H/Hc =  2094.48  stagg = 130
+  step 557  u = 5.570e-03  F = 322.0823  d_tip = 1.000  a = 0.5788  H/Hc =  2109.03  stagg = 148
+  step 558  u = 5.580e-03  F = 321.7601  d_tip = 1.000  a = 0.5798  H/Hc =  2124.72  stagg = 181
+  step 559  u = 5.590e-03  F = 321.0969  d_tip = 1.000  a = 0.5811  H/Hc =  2143.54  stagg = 200  SNES=-5
+  step 560  u = 5.600e-03  F = 318.1933  d_tip = 1.000  a = 0.5850  H/Hc =  2182.89  stagg = 200
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-10T04:37:09Z
