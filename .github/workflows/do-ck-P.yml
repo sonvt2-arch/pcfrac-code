@@ -1,0 +1,45 @@
+name: Do goc tu diem kiem P3d
+
+# Vong 8 P: dung lai truong d (lat giua va hai mat z) tu diem kiem moi nhat cua
+# mot ca benchmark_P3d.py (artifact ck-<tag> cua run chay-noi-P), roi do goc
+# bang measure_kink.py.  Dung khi ca chua xong (khong co tep XDMF cuoi).
+# Tham so trong .github/do-ck-P.json: {"run_id": "...", "tag": "...", "nhan": "..."}
+
+on:
+  push:
+    paths: [".github/do-ck-P.json"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  do:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - id: c
+        run: |
+          python3 -c 'import json;c=json.load(open(".github/do-ck-P.json"));print("run_id=%s\ntag=%s"%(c["run_id"],c["tag"]))' >> "$GITHUB_OUTPUT"
+      - uses: actions/download-artifact@v4
+        with:
+          name: ck-${{ steps.c.outputs.tag }}
+          path: ck
+          run-id: ${{ steps.c.outputs.run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Dung lat va do goc
+        run: |
+          pip install -q numpy h5py
+          tag=${{ steps.c.outputs.tag }}; o=${tag}_ck
+          D=ket-qua/2026-11-09-vong8-P-actions; mkdir -p $D/truong
+          python3 code/ck_lat_P3d.py ck/ck_$tag --nx 100 --nz 2 --out $o > $D/ck_$tag.txt 2>&1
+          for sf in "" _z0 _zt; do
+            python3 code/measure_kink.py $o$sf.xdmf --ell 0.01 --dmin 0.2 --x0 0.60 --ve > $D/goc_$o$sf.txt 2>&1 || true
+          done
+          cp -f $o*.h5 $o*.xdmf $D/truong/
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add $D
+          git commit -qm "Actions: do goc tu diem kiem $tag (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
