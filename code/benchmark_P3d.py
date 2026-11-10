@@ -248,6 +248,7 @@ if _SNES_STYLE:
                        "snes_atol": 1e-10, "snes_max_it": 40,
                        "ksp_type": "cg", "pc_type": "hypre", "ksp_rtol": 1e-10})
     _lb_d, _ub_d = Function(V_d), Function(V_d)
+    _LU = [False]
     _ub_d.x.array[:] = 1.0
 
     def solve_damage():
@@ -255,9 +256,29 @@ if _SNES_STYLE:
         prob_d.solver.setVariableBounds(_lb_d.x.petsc_vec, _ub_d.x.petsc_vec)
         prob_d.solve()
         try:
-            return prob_d.solver.getConvergedReason()
+            r = prob_d.solver.getConvergedReason()
         except Exception:
             return None
+        if r <= 0 and not _LU[0]:
+            # Du phong (10/11/2026): CG + hypre cho he Newton cua d co the vo
+            # (SNES -3, DIVERGED_LINEAR_SOLVE) khi d ~ 1 o 3D; P3_dg0 lan 1 dung
+            # o buoc 572 vi vay.  Lan dau gap: chuyen VINH VIEN sang LU (MUMPS),
+            # dat lai d ve diem xuat phat va giai lai buoc nay.  Truoc lan vo dau
+            # tien, ket qua trung tung bit voi ban khong co du phong.
+            _LU[0] = True
+            _ksp = prob_d.solver.getKSP()
+            _ksp.setType("preonly")
+            _pc = _ksp.getPC()
+            _pc.setType("lu")
+            _pc.setFactorSolverType("mumps")
+            if comm.rank == 0:
+                print(f"  *** SNES={r}: DOI BO GIAI d SANG LU (MUMPS) va giai lai", flush=True)
+            d.x.array[:] = _lb_d.x.array
+            d.x.scatter_forward()
+            prob_d.solver.setVariableBounds(_lb_d.x.petsc_vec, _ub_d.x.petsc_vec)
+            prob_d.solve()
+            r = prob_d.solver.getConvergedReason()
+        return r
 else:
     prob_d = NonlinearProblem(F_d, d, bcs=bc_d, J=J_d)
     solver_d = NewtonSolver(comm, prob_d)
@@ -304,7 +325,7 @@ def _ck_save(step):
         _os.makedirs(_ck_dir, exist_ok=True)
     comm.barrier()
     f = _ck_path(step % 2)
-    np.savez(f + ".tmp.npz", step=step, n_bad=n_bad,
+    np.savez(f + ".tmp.npz", step=step, n_bad=n_bad, lu=int(_SNES_STYLE and _LU[0]),
              gamma0=np.nan if Gamma0 is None else Gamma0,
              hist=np.array(hist, dtype=float).reshape(-1, 5), xyz=_ck_xyz(),
              **{k: fn.x.array for k, fn in _ck_funcs})
@@ -359,6 +380,14 @@ if args.resume:
             fn.x.array[:] = a
             fn.x.scatter_forward()
         n_bad = int(z["n_bad"])
+        if _SNES_STYLE and "lu" in z.files and int(z["lu"]):
+            _LU[0] = True
+            _ksp = prob_d.solver.getKSP()
+            _ksp.setType("preonly")
+            _ksp.getPC().setType("lu")
+            _ksp.getPC().setFactorSolverType("mumps")
+            if comm.rank == 0:
+                print("  RESUME: bo giai d dang o LU (MUMPS)", flush=True)
         Gamma0 = None if np.isnan(float(z["gamma0"])) else float(z["gamma0"])
         hist = [tuple(r) for r in z["hist"]]
     start_step = _s + 1
