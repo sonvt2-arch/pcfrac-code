@@ -687,3 +687,54 @@ YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Terminated (signal 15)
 This typically refers to a problem with your application.
 Please see the FAQ page for debugging suggestions
 === EXIT=124 2026-11-10T11:03:38Z
+=== CHANG 4 2026-11-10T11:04:42Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  BENCHMARK P3D (tam mong 3D, hex Q1)  dolfinx 0.11.0.post0
+model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zbc faces
+  ramp: 100 fine steps to 1.000e-03, then 700 steps to 8.000e-03
+  LUOI: hex Q1  so phan tu = 20000  so dinh = 30603
+  KHONG GIAN H: --hspace cg1   *** NOI SUY NUT GHI DE (8 phan tu ke) -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split amor (Amor 3D, K = lambda + 2mu/3)
+  DIEU KIEN NGAM: --grip clamp;  z: --zbc faces  (u_z = 0 tren hai mat z = 0, z = t: bien dang phang)
+  NOTCH DOFS (toan cuc) = 153   (mong doi 153)
+  damage threshold H_crit = 1.3500e+02
+  RESUME: chay tiep tu buoc 632 (diem kiem buoc 631)
+  step 632  u = 6.320e-03  F = 661.0621  d_tip = 1.000  a = 0.7453  H/Hc =   114.79  stagg = 200  t = 706s
+  step 633  u = 6.330e-03  F = 658.9038  d_tip = 1.000  a = 0.7516  H/Hc =   119.36  stagg = 200  t = 1416s
+  step 634  u = 6.340e-03  F = 656.6512  d_tip = 1.000  a = 0.7580  H/Hc =   124.01  stagg = 200  t = 2123s
+  step 635  u = 6.350e-03  F = 655.1130  d_tip = 1.000  a = 0.7630  H/Hc =   127.72  stagg = 200  t = 2818s
+  step 636  u = 6.360e-03  F = 653.7464  d_tip = 1.000  a = 0.7677  H/Hc =   131.18  stagg = 200  t = 3515s
+  step 637  u = 6.370e-03  F = 652.1532  d_tip = 1.000  a = 0.7729  H/Hc =   134.90  stagg = 200  t = 4221s
+  step 638  u = 6.380e-03  F = 649.8032  d_tip = 1.000  a = 0.7795  H/Hc =   139.53  stagg = 200  t = 4925s
+  step 639  u = 6.390e-03  F = 647.2809  d_tip = 1.000  a = 0.7864  H/Hc =   144.34  stagg = 200  t = 5632s
+  step 640  u = 6.400e-03  F = 645.4492  d_tip = 1.000  a = 0.7920  H/Hc =   148.27  stagg = 200  t = 6331s
+  step 641  u = 6.410e-03  F = 643.8949  d_tip = 1.000  a = 0.7971  H/Hc =   151.90  stagg = 200  t = 7027s
+  step 642  u = 6.420e-03  F = 642.1258  d_tip = 1.000  a = 0.8026  H/Hc =   155.76  stagg = 200  t = 7731s
+  step 643  u = 6.430e-03  F = 639.4513  d_tip = 1.000  a = 0.8098  H/Hc =   160.67  stagg = 200  t = 8437s
+  step 644  u = 6.440e-03  F = 636.7327  d_tip = 1.000  a = 0.8171  H/Hc =   165.58  stagg = 200  t = 9141s
+  step 645  u = 6.450e-03  F = 634.7602  d_tip = 1.000  a = 0.8230  H/Hc =   169.58  stagg = 200  t = 9844s
+  step 646  u = 6.460e-03  F = 633.0341  d_tip = 1.000  a = 0.8284  H/Hc =   173.27  stagg = 200  t = 10547s
+  step 647  u = 6.470e-03  F = 630.9007  d_tip = 1.000  a = 0.8346  H/Hc =   177.39  stagg = 200  t = 11257s
+  step 648  u = 6.480e-03  F = 627.6536  d_tip = 1.000  a = 0.8429  H/Hc =   182.72  stagg = 200  t = 11966s
+  step 649  u = 6.490e-03  F = 624.9107  d_tip = 1.000  a = 0.8503  H/Hc =   187.44  stagg = 200  t = 12671s
+  step 650  u = 6.500e-03  F = 622.9854  d_tip = 1.000  a = 0.8561  H/Hc =   191.22  stagg = 200  t = 13371s
+  step 651  u = 6.510e-03  F = 620.9947  d_tip = 1.000  a = 0.8620  H/Hc =   195.04  stagg = 200  t = 14076s
+  step 652  u = 6.520e-03  F = 617.9627  d_tip = 1.000  a = 0.8699  H/Hc =   199.93  stagg = 200  t = 14786s
+  step 653  u = 6.530e-03  F = 614.3997  d_tip = 1.000  a = 0.8789  H/Hc =   205.32  stagg = 200  t = 15497s
+  step 654  u = 6.540e-03  F = 612.1062  d_tip = 1.000  a = 0.8854  H/Hc =   209.35  stagg = 200  t = 16207s
+  step 655  u = 6.550e-03  F = 610.0343  d_tip = 1.000  a = 0.8915  H/Hc =   213.11  stagg = 200  t = 16916s
+  step 656  u = 6.560e-03  F = 607.0254  d_tip = 1.000  a = 0.8994  H/Hc =   217.78  stagg = 200  t = 17622s
+  step 657  u = 6.570e-03  F = 603.0343  d_tip = 1.000  a = 0.9093  H/Hc =   223.37  stagg = 200  t = 18331s
+  step 658  u = 6.580e-03  F = 600.4686  d_tip = 1.000  a = 0.9163  H/Hc =   227.50  stagg = 200  t = 19041s
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 193 RUNNING AT 6850bcbd3ad7
+=   EXIT CODE: 15
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Terminated (signal 15)
+This typically refers to a problem with your application.
+Please see the FAQ page for debugging suggestions
+=== EXIT=124 2026-11-10T16:24:42Z
