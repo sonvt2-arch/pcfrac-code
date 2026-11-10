@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<Xdmf Version="3.0"><Domain><Grid Name="mesh" GridType="Uniform">
+<Topology TopologyType="Quadrilateral" NumberOfElements="10000" NodesPerElement="4">
+<DataItem Dimensions="10000 4" NumberType="Int" Precision="8" Format="HDF">P3_dg0_n4_r2_ck_z0.h5:/Mesh/mesh/topology</DataItem></Topology>
+<Geometry GeometryType="XY"><DataItem Dimensions="10201 2" Format="HDF">P3_dg0_n4_r2_ck_z0.h5:/Mesh/mesh/geometry</DataItem></Geometry>
+<Attribute Name="damage" AttributeType="Scalar" Center="Node">
+<DataItem Dimensions="10201 1" Format="HDF">P3_dg0_n4_r2_ck_z0.h5:/Function/damage/0</DataItem></Attribute>
+</Grid></Domain></Xdmf>
