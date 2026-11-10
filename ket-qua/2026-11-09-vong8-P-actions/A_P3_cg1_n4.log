@@ -738,3 +738,74 @@ YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Terminated (signal 15)
 This typically refers to a problem with your application.
 Please see the FAQ page for debugging suggestions
 === EXIT=124 2026-11-10T16:24:42Z
+=== CHANG 5 2026-11-10T16:25:49Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V45 96-Core Processor
+  BENCHMARK P3D (tam mong 3D, hex Q1)  dolfinx 0.11.0.post0
+model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zbc faces
+  ramp: 100 fine steps to 1.000e-03, then 700 steps to 8.000e-03
+  LUOI: hex Q1  so phan tu = 20000  so dinh = 30603
+  KHONG GIAN H: --hspace cg1   *** NOI SUY NUT GHI DE (8 phan tu ke) -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split amor (Amor 3D, K = lambda + 2mu/3)
+  DIEU KIEN NGAM: --grip clamp;  z: --zbc faces  (u_z = 0 tren hai mat z = 0, z = t: bien dang phang)
+  NOTCH DOFS (toan cuc) = 153   (mong doi 153)
+  damage threshold H_crit = 1.3500e+02
+  RESUME: chay tiep tu buoc 659 (diem kiem buoc 658)
+  step 659  u = 6.590e-03  F = 598.2808  d_tip = 1.000  a = 0.9226  H/Hc =   231.23  stagg = 200  t = 372s
+  step 660  u = 6.600e-03  F = 595.1554  d_tip = 1.000  a = 0.9308  H/Hc =   235.82  stagg = 200  t = 742s
+  step 661  u = 6.610e-03  F = 590.8734  d_tip = 1.000  a = 0.9413  H/Hc =   241.41  stagg = 200  t = 1110s
+  step 662  u = 6.620e-03  F = 588.2434  d_tip = 1.000  a = 0.9484  H/Hc =   245.44  stagg = 200  t = 1475s
+  step 663  u = 6.630e-03  F = 585.9458  d_tip = 1.000  a = 0.9550  H/Hc =   249.12  stagg = 200  t = 1843s
+  step 664  u = 6.640e-03  F = 582.6087  d_tip = 1.000  a = 0.9636  H/Hc =   253.69  stagg = 200  t = 2208s
+  step 665  u = 6.650e-03  F = 578.0574  d_tip = 1.000  a = 0.9746  H/Hc =   259.25  stagg = 200  t = 2576s
+  step 666  u = 6.660e-03  F = 575.5829  d_tip = 1.000  a = 0.9815  H/Hc =   262.97  stagg = 200  t = 2944s
+  step 667  u = 6.670e-03  F = 573.1819  d_tip = 1.000  a = 0.9882  H/Hc =   266.60  stagg = 200  t = 3312s
+  step 668  u = 6.680e-03  F = 569.2453  d_tip = 1.000  a = 0.9981  H/Hc =   271.45  stagg = 200  t = 3679s
+  step 669  u = 6.690e-03  F = 564.8799  d_tip = 1.000  a = 1.0087  H/Hc =   276.58  stagg = 200  t = 4046s
+  step 670  u = 6.700e-03  F = 562.6639  d_tip = 1.000  a = 1.0151  H/Hc =   279.94  stagg = 200  t = 4413s
+  step 671  u = 6.710e-03  F = 560.1205  d_tip = 1.000  a = 1.0221  H/Hc =   283.53  stagg = 200  t = 4780s
+  step 672  u = 6.720e-03  F = 554.9000  d_tip = 1.000  a = 1.0346  H/Hc =   289.14  stagg = 200  t = 5148s
+  step 673  u = 6.730e-03  F = 551.6298  d_tip = 1.000  a = 1.0431  H/Hc =   293.30  stagg = 200  t = 5516s
+  step 674  u = 6.740e-03  F = 549.4627  d_tip = 1.000  a = 1.0493  H/Hc =   296.60  stagg = 200  t = 5882s
+  step 675  u = 6.750e-03  F = 546.0636  d_tip = 1.000  a = 1.0581  H/Hc =   300.81  stagg = 200  t = 6248s
+  step 676  u = 6.760e-03  F = 540.3779  d_tip = 1.000  a = 1.0715  H/Hc =   306.65  stagg = 200  t = 6615s
+  step 677  u = 6.770e-03  F = 538.1019  d_tip = 1.000  a = 1.0780  H/Hc =   309.92  stagg = 200  t = 6981s
+  step 678  u = 6.780e-03  F = 535.8350  d_tip = 1.000  a = 1.0844  H/Hc =   313.16  stagg = 200  t = 7345s
+  step 679  u = 6.790e-03  F = 529.9663  d_tip = 1.000  a = 1.0983  H/Hc =   318.88  stagg = 200  t = 7711s
+  step 680  u = 6.800e-03  F = 526.4483  d_tip = 1.000  a = 1.1072  H/Hc =   322.90  stagg = 200  t = 8076s
+  step 681  u = 6.810e-03  F = 524.4455  d_tip = 1.000  a = 1.1131  H/Hc =   325.84  stagg = 200  t = 8441s
+  step 682  u = 6.820e-03  F = 520.2071  d_tip = 1.000  a = 1.1236  H/Hc =   330.25  stagg = 200  t = 8806s
+  step 683  u = 6.830e-03  F = 514.2948  d_tip = 1.000  a = 1.1376  H/Hc =   335.66  stagg = 200  t = 9168s
+  step 684  u = 6.840e-03  F = 512.2831  d_tip = 1.000  a = 1.1435  H/Hc =   338.52  stagg = 200  t = 9529s
+  step 685  u = 6.850e-03  F = 509.0790  d_tip = 1.000  a = 1.1518  H/Hc =   342.10  stagg = 200  t = 9893s
+  step 686  u = 6.860e-03  F = 501.9633  d_tip = 1.000  a = 1.1683  H/Hc =   348.00  stagg = 200  t = 10258s
+  step 687  u = 6.870e-03  F = 499.7340  d_tip = 1.000  a = 1.1746  H/Hc =   350.90  stagg = 200  t = 10621s
+  step 688  u = 6.880e-03  F = 496.8844  d_tip = 1.000  a = 1.1822  H/Hc =   354.15  stagg = 200  t = 10984s
+  step 689  u = 6.890e-03  F = 489.1129  d_tip = 1.000  a = 1.2001  H/Hc =   360.18  stagg = 200  t = 11348s
+  step 690  u = 6.900e-03  F = 486.6013  d_tip = 1.000  a = 1.2070  H/Hc =   363.15  stagg = 200  t = 11711s
+  step 691  u = 6.910e-03  F = 483.4507  d_tip = 1.000  a = 1.2152  H/Hc =   366.45  stagg = 200  t = 12075s
+  step 692  u = 6.920e-03  F = 475.0889  d_tip = 1.000  a = 1.2343  H/Hc =   372.49  stagg = 200  t = 12439s
+  step 693  u = 6.930e-03  F = 472.6321  d_tip = 1.000  a = 1.2411  H/Hc =   375.33  stagg = 200  t = 12802s
+  step 694  u = 6.940e-03  F = 467.6991  d_tip = 1.000  a = 1.2531  H/Hc =   379.41  stagg = 200  t = 13166s
+  step 695  u = 6.950e-03  F = 460.1538  d_tip = 1.000  a = 1.2704  H/Hc =   384.71  stagg = 200  t = 13532s
+  step 696  u = 6.960e-03  F = 457.1341  d_tip = 1.000  a = 1.2783  H/Hc =   387.73  stagg = 200  t = 13896s
+  step 697  u = 6.970e-03  F = 447.2777  d_tip = 1.000  a = 1.3006  H/Hc =   393.91  stagg = 200  t = 14262s
+  step 698  u = 6.980e-03  F = 443.8899  d_tip = 1.000  a = 1.3093  H/Hc =   397.01  stagg = 200  t = 14624s
+  step 699  u = 6.990e-03  F = 433.2277  d_tip = 1.000  a = 1.3332  H/Hc =   403.26  stagg = 200  t = 14990s
+  step 700  u = 7.000e-03  F = 428.6070  d_tip = 1.000  a = 1.3444  H/Hc =   406.78  stagg = 200  t = 15355s
+  step 701  u = 7.010e-03  F = 416.2031  d_tip = 1.000  a = 1.3720  H/Hc =   413.43  stagg = 200  t = 15721s
+  step 702  u = 7.020e-03  F = 402.3566  d_tip = 1.000  a = 1.4026  H/Hc =   420.37  stagg = 200  t = 16087s
+  step 703  u = 7.030e-03  F = 383.8189  d_tip = 1.000  a = 1.4430  H/Hc =   428.70  stagg = 200  t = 16452s
+  step 704  u = 7.040e-03  F = 320.4625  d_tip = 1.000  a = 1.5756  H/Hc =   450.30  stagg = 200  t = 16818s
+  step 705  u = 7.050e-03  F =   1.6924  d_tip = 1.000  a = 2.0481  H/Hc =   510.11  stagg = 64  t = 16939s
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm   3D hex nx=100 nz=2 t=0.02
+  PEAK LOAD = 767.5279 N/mm   at step 349 of 705
+  final load = 0.2 % of peak ; final d ahead = 1.000 ; crack extension = 2.0481 mm
+  wrote loaddisp_P3_cg1_n4.txt
+============================================================
+  LAT z = 0.0100 (giua): 10201 nut -> damage_AT2_ell0.01.xdmf ; so nut d>0.9: 355
+  LAT z = 0.0000 (_z0): 10201 nut -> damage_AT2_ell0.01_z0.xdmf ; so nut d>0.9: 357
+  LAT z = 0.0200 (_zt): 10201 nut -> damage_AT2_ell0.01_zt.xdmf ; so nut d>0.9: 355
+=== EXIT=0 2026-11-10T21:08:11Z
