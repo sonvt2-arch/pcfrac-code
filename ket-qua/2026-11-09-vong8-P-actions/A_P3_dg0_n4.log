@@ -598,3 +598,39 @@ model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zb
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-10T00:19:52Z
+=== CHANG 2 2026-11-10T00:21:03Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+  BENCHMARK P3D (tam mong 3D, hex Q1)  dolfinx 0.11.0.post0
+model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zbc faces
+  ramp: 100 fine steps to 1.000e-03, then 700 steps to 8.000e-03
+  LUOI: hex Q1  so phan tu = 20000  so dinh = 30603
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor (Amor 3D, K = lambda + 2mu/3)
+  DIEU KIEN NGAM: --grip clamp;  z: --zbc faces  (u_z = 0 tren hai mat z = 0, z = t: bien dang phang)
+  NOTCH DOFS (toan cuc) = 153   (mong doi 153)
+  damage threshold H_crit = 1.3500e+02
+  RESUME: chay tiep tu buoc 582 (diem kiem buoc 581)
+  step 582  u = 5.820e-03  F = 636.6772  d_tip = 0.977  a = 0.4580  H/Hc =   107.11  stagg = 1  t = 3s  SNES=-3
+  step 583  u = 5.830e-03  F = 637.7712  d_tip = 0.977  a = 0.4580  H/Hc =   107.48  stagg = 1  t = 5s  SNES=-3
+  step 584  u = 5.840e-03  F = 638.8651  d_tip = 0.977  a = 0.4580  H/Hc =   107.85  stagg = 1  t = 8s  SNES=-3
+  step 585  u = 5.850e-03  F = 639.9591  d_tip = 0.977  a = 0.4580  H/Hc =   108.22  stagg = 1  t = 10s  SNES=-3
+  step 586  u = 5.860e-03  F = 641.0530  d_tip = 0.977  a = 0.4580  H/Hc =   108.59  stagg = 1  t = 13s  SNES=-3
+  step 587  u = 5.870e-03  F = 642.1470  d_tip = 0.977  a = 0.4580  H/Hc =   108.96  stagg = 1  t = 15s  SNES=-3
+  step 588  u = 5.880e-03  F = 643.2409  d_tip = 0.977  a = 0.4580  H/Hc =   109.33  stagg = 1  t = 17s  SNES=-3
+  step 589  u = 5.890e-03  F = 644.3349  d_tip = 0.977  a = 0.4580  H/Hc =   109.70  stagg = 1  t = 20s  SNES=-3
+  step 590  u = 5.900e-03  F = 645.4288  d_tip = 0.977  a = 0.4580  H/Hc =   110.08  stagg = 1  t = 22s  SNES=-3
+  step 591  u = 5.910e-03  F = 646.5228  d_tip = 0.977  a = 0.4580  H/Hc =   110.45  stagg = 1  t = 25s  SNES=-3
+  step 592  u = 5.920e-03  F = 647.6167  d_tip = 0.977  a = 0.4580  H/Hc =   110.82  stagg = 1  t = 27s  SNES=-3
+  21 failed damage solves -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm   3D hex nx=100 nz=2 t=0.02
+  PEAK LOAD = 1134.9647 N/mm   at step 540 of 592
+  final load = 57.1 % of peak ; final d ahead = 0.977 ; crack extension = 0.4580 mm
+  *** 21 of 592 steps had a failed damage solve
+  wrote loaddisp_P3_dg0_n4.txt
+============================================================
+  LAT z = 0.0100 (giua): 10201 nut -> damage_AT2_ell0.01.xdmf ; so nut d>0.9: 120
+  LAT z = 0.0000 (_z0): 10201 nut -> damage_AT2_ell0.01_z0.xdmf ; so nut d>0.9: 120
+  LAT z = 0.0200 (_zt): 10201 nut -> damage_AT2_ell0.01_zt.xdmf ; so nut d>0.9: 120
+=== EXIT=0 2026-11-10T00:21:34Z
