@@ -549,3 +549,53 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-09T23:15:11Z
+=== CHANG 2 2026-11-09T23:16:54Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0.2 --seed 1   *** LUOI BI DICH -- CA NGHIEN CUU NHIEU
+  NHIEU LUOI: so nut dich = 39501  max|dich|/h = 0.2000  tong dx = 1.074310430889e-01  tong dy = -7.597868271272e-02  tong |dich| = 3.955626765484e+01
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 101   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 529 (diem kiem buoc 528)
+  step 529  u = 5.290e-03  F = 581.1589  d_tip = 0.991  a = 0.2738  H/Hc =   340.05  stagg = 200
+  step 530  u = 5.300e-03  F = 580.5723  d_tip = 0.991  a = 0.2756  H/Hc =   350.55  stagg = 200
+  step 531  u = 5.310e-03  F = 579.5261  d_tip = 0.992  a = 0.2779  H/Hc =   363.57  stagg = 200
+  step 532  u = 5.320e-03  F = 577.6358  d_tip = 0.992  a = 0.2810  H/Hc =   381.16  stagg = 200
+  step 533  u = 5.330e-03  F = 572.2888  d_tip = 0.993  a = 0.2878  H/Hc =   417.20  stagg = 200
+  step 534  u = 5.340e-03  F = 550.4967  d_tip = 0.995  a = 0.3117  H/Hc =   534.56  stagg = 200
+  step 535  u = 5.350e-03  F = 540.6359  d_tip = 0.995  a = 0.3231  H/Hc =   587.63  stagg = 200
+  step 536  u = 5.360e-03  F = 538.8285  d_tip = 0.996  a = 0.3261  H/Hc =   602.51  stagg = 200
+  step 537  u = 5.370e-03  F = 518.7802  d_tip = 0.996  a = 0.3484  H/Hc =   696.39  stagg = 200
+  step 538  u = 5.380e-03  F = 450.6719  d_tip = 0.997  a = 0.4199  H/Hc =   948.68  stagg = 200
+  step 539  u = 5.390e-03  F = 418.9223  d_tip = 0.998  a = 0.4534  H/Hc =  1046.61  stagg = 200
+  step 540  u = 5.400e-03  F = 416.8041  d_tip = 0.998  a = 0.4565  H/Hc =  1058.23  stagg = 200
+  step 541  u = 5.410e-03  F = 389.3403  d_tip = 0.998  a = 0.4864  H/Hc =  1133.14  stagg = 200
+  step 542  u = 5.420e-03  F = 344.1907  d_tip = 0.998  a = 0.5348  H/Hc =  1235.24  stagg = 200
+  step 543  u = 5.430e-03  F = 319.2399  d_tip = 0.998  a = 0.5619  H/Hc =  1286.09  stagg = 200
+  step 544  u = 5.440e-03  F = 318.1824  d_tip = 0.998  a = 0.5637  H/Hc =  1293.67  stagg = 200
+  step 545  u = 5.450e-03  F = 317.4605  d_tip = 0.998  a = 0.5651  H/Hc =  1300.68  stagg = 200
+  step 546  u = 5.460e-03  F = 316.6187  d_tip = 0.998  a = 0.5666  H/Hc =  1307.90  stagg = 200
+  step 547  u = 5.470e-03  F = 314.6141  d_tip = 0.998  a = 0.5694  H/Hc =  1317.06  stagg = 200
+  step 548  u = 5.480e-03  F = 300.5069  d_tip = 0.998  a = 0.5854  H/Hc =  1345.58  stagg = 200
+  step 549  u = 5.490e-03  F = 254.4465  d_tip = 0.999  a = 0.6350  H/Hc =  1416.20  stagg = 200
+  step 550  u = 5.500e-03  F = 205.6501  d_tip = 0.999  a = 0.6873  H/Hc =  1516.07  stagg = 200
+  step 551  u = 5.510e-03  F =   3.9960  d_tip = 1.000  a = 0.8405  H/Hc =  1977.48  stagg = 181
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 716.0020 N/mm   at step 340 of 551
+  nominal peak stress = 716.0020 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 0.6 % of peak ; final d ahead of the tip = 1.000 ; crack extension = 0.8405 mm (84.1 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  wrote loaddisp_MA_T_dg0_j02_s1_n1.txt
+============================================================
+=== EXIT=0 2026-11-10T01:58:44Z
