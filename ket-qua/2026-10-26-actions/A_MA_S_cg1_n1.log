@@ -1892,3 +1892,95 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-10T20:42:28Z
+=== CHANG 6 2026-11-10T20:43:47Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 1900 steps to 2.000e-02 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1   *** BAN TRUOC KHI SUA -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split amor
+  TAI: --load shear (SENS)
+  NOTCH DOFS (nhan 0, cuc bo) = 101   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 1787 (diem kiem buoc 1786)
+  step 1787  u = 1.787e-02  F = 288.9465  d_tip = 0.316  a = 1.3912  H/Hc =     0.50  stagg = 96
+  step 1788  u = 1.788e-02  F = 288.7412  d_tip = 0.316  a = 1.3918  H/Hc =     0.50  stagg = 96
+  step 1789  u = 1.789e-02  F = 288.5327  d_tip = 0.316  a = 1.3924  H/Hc =     0.50  stagg = 96
+  step 1790  u = 1.790e-02  F = 288.3213  d_tip = 0.316  a = 1.3930  H/Hc =     0.50  stagg = 97
+  step 1791  u = 1.791e-02  F = 288.1075  d_tip = 0.316  a = 1.3936  H/Hc =     0.50  stagg = 97
+  step 1792  u = 1.792e-02  F = 287.8916  d_tip = 0.316  a = 1.3942  H/Hc =     0.50  stagg = 97
+  step 1793  u = 1.793e-02  F = 287.6729  d_tip = 0.316  a = 1.3949  H/Hc =     0.50  stagg = 97
+  step 1794  u = 1.794e-02  F = 287.4494  d_tip = 0.316  a = 1.3955  H/Hc =     0.50  stagg = 99
+  step 1795  u = 1.795e-02  F = 287.2254  d_tip = 0.316  a = 1.3961  H/Hc =     0.50  stagg = 100
+  step 1796  u = 1.796e-02  F = 287.0001  d_tip = 0.316  a = 1.3967  H/Hc =     0.50  stagg = 101
+  step 1797  u = 1.797e-02  F = 286.7693  d_tip = 0.316  a = 1.3974  H/Hc =     0.50  stagg = 102
+  step 1798  u = 1.798e-02  F = 286.5367  d_tip = 0.316  a = 1.3980  H/Hc =     0.50  stagg = 102
+  step 1799  u = 1.799e-02  F = 286.2995  d_tip = 0.316  a = 1.3987  H/Hc =     0.50  stagg = 103
+  step 1800  u = 1.800e-02  F = 286.0579  d_tip = 0.316  a = 1.3993  H/Hc =     0.50  stagg = 103
+  step 1801  u = 1.801e-02  F = 285.8128  d_tip = 0.316  a = 1.4018  H/Hc =     0.50  stagg = 166
+  step 1802  u = 1.802e-02  F = 285.5657  d_tip = 0.316  a = 1.4025  H/Hc =     0.50  stagg = 104
+  step 1803  u = 1.803e-02  F = 285.3141  d_tip = 0.316  a = 1.4031  H/Hc =     0.50  stagg = 104
+  step 1804  u = 1.804e-02  F = 285.0604  d_tip = 0.316  a = 1.4038  H/Hc =     0.50  stagg = 103
+  step 1805  u = 1.805e-02  F = 284.8042  d_tip = 0.316  a = 1.4044  H/Hc =     0.50  stagg = 103
+  step 1806  u = 1.806e-02  F = 284.5441  d_tip = 0.316  a = 1.4051  H/Hc =     0.50  stagg = 105
+  step 1807  u = 1.807e-02  F = 284.2816  d_tip = 0.316  a = 1.4058  H/Hc =     0.50  stagg = 106
+  step 1808  u = 1.808e-02  F = 284.0181  d_tip = 0.316  a = 1.4065  H/Hc =     0.50  stagg = 108
+  step 1809  u = 1.809e-02  F = 283.7517  d_tip = 0.316  a = 1.4071  H/Hc =     0.50  stagg = 109
+  step 1810  u = 1.810e-02  F = 283.4821  d_tip = 0.316  a = 1.4078  H/Hc =     0.50  stagg = 110
+  step 1811  u = 1.811e-02  F = 283.2059  d_tip = 0.316  a = 1.4085  H/Hc =     0.50  stagg = 111
+  step 1812  u = 1.812e-02  F = 282.9218  d_tip = 0.316  a = 1.4092  H/Hc =     0.50  stagg = 112
+  step 1813  u = 1.813e-02  F = 282.6310  d_tip = 0.316  a = 1.4099  H/Hc =     0.50  stagg = 113
+  step 1814  u = 1.814e-02  F = 282.3342  d_tip = 0.316  a = 1.4106  H/Hc =     0.50  stagg = 113
+  step 1815  u = 1.815e-02  F = 282.0328  d_tip = 0.316  a = 1.4114  H/Hc =     0.50  stagg = 113
+  step 1816  u = 1.816e-02  F = 281.7285  d_tip = 0.316  a = 1.4121  H/Hc =     0.50  stagg = 113
+  step 1817  u = 1.817e-02  F = 281.4208  d_tip = 0.316  a = 1.4128  H/Hc =     0.50  stagg = 114
+  step 1818  u = 1.818e-02  F = 281.1053  d_tip = 0.316  a = 1.4136  H/Hc =     0.50  stagg = 116
+  step 1819  u = 1.819e-02  F = 280.7869  d_tip = 0.316  a = 1.4143  H/Hc =     0.50  stagg = 118
+  step 1820  u = 1.820e-02  F = 280.4658  d_tip = 0.316  a = 1.4151  H/Hc =     0.50  stagg = 118
+  step 1821  u = 1.821e-02  F = 280.1429  d_tip = 0.316  a = 1.4159  H/Hc =     0.50  stagg = 119
+  step 1822  u = 1.822e-02  F = 279.8120  d_tip = 0.316  a = 1.4166  H/Hc =     0.50  stagg = 120
+  step 1823  u = 1.823e-02  F = 279.4711  d_tip = 0.316  a = 1.4174  H/Hc =     0.50  stagg = 122
+  step 1824  u = 1.824e-02  F = 279.1225  d_tip = 0.316  a = 1.4182  H/Hc =     0.50  stagg = 123
+  step 1825  u = 1.825e-02  F = 278.7684  d_tip = 0.316  a = 1.4190  H/Hc =     0.50  stagg = 123
+  step 1826  u = 1.826e-02  F = 278.4101  d_tip = 0.316  a = 1.4198  H/Hc =     0.50  stagg = 123
+  step 1827  u = 1.827e-02  F = 278.0447  d_tip = 0.316  a = 1.4206  H/Hc =     0.50  stagg = 125
+  step 1828  u = 1.828e-02  F = 277.6662  d_tip = 0.316  a = 1.4215  H/Hc =     0.50  stagg = 128
+  step 1829  u = 1.829e-02  F = 277.2816  d_tip = 0.316  a = 1.4223  H/Hc =     0.50  stagg = 131
+  step 1830  u = 1.830e-02  F = 276.8897  d_tip = 0.316  a = 1.4232  H/Hc =     0.50  stagg = 133
+  step 1831  u = 1.831e-02  F = 276.4850  d_tip = 0.316  a = 1.4241  H/Hc =     0.50  stagg = 135
+  step 1832  u = 1.832e-02  F = 276.0626  d_tip = 0.316  a = 1.4250  H/Hc =     0.50  stagg = 138
+  step 1833  u = 1.833e-02  F = 275.6257  d_tip = 0.316  a = 1.4259  H/Hc =     0.50  stagg = 140
+  step 1834  u = 1.834e-02  F = 275.1777  d_tip = 0.316  a = 1.4269  H/Hc =     0.50  stagg = 141
+  step 1835  u = 1.835e-02  F = 274.7196  d_tip = 0.316  a = 1.4278  H/Hc =     0.50  stagg = 141
+  step 1836  u = 1.836e-02  F = 274.2464  d_tip = 0.316  a = 1.4289  H/Hc =     0.50  stagg = 146
+  step 1837  u = 1.837e-02  F = 273.7280  d_tip = 0.316  a = 1.4327  H/Hc =     0.50  stagg = 156
+  step 1838  u = 1.838e-02  F = 273.2190  d_tip = 0.316  a = 1.4338  H/Hc =     0.50  stagg = 155
+  step 1839  u = 1.839e-02  F = 272.6904  d_tip = 0.316  a = 1.4348  H/Hc =     0.50  stagg = 159
+  step 1840  u = 1.840e-02  F = 272.1407  d_tip = 0.316  a = 1.4359  H/Hc =     0.50  stagg = 163
+  step 1841  u = 1.841e-02  F = 271.5609  d_tip = 0.316  a = 1.4370  H/Hc =     0.50  stagg = 168
+  step 1842  u = 1.842e-02  F = 270.9530  d_tip = 0.316  a = 1.4382  H/Hc =     0.50  stagg = 172
+  step 1843  u = 1.843e-02  F = 270.3043  d_tip = 0.316  a = 1.4395  H/Hc =     0.50  stagg = 182
+  step 1844  u = 1.844e-02  F = 269.6005  d_tip = 0.316  a = 1.4408  H/Hc =     0.50  stagg = 197
+  step 1845  u = 1.845e-02  F = 268.8306  d_tip = 0.316  a = 1.4422  H/Hc =     0.50  stagg = 200
+  step 1846  u = 1.846e-02  F = 267.9843  d_tip = 0.316  a = 1.4438  H/Hc =     0.50  stagg = 200
+  step 1847  u = 1.847e-02  F = 267.0420  d_tip = 0.316  a = 1.4455  H/Hc =     0.50  stagg = 200
+  step 1848  u = 1.848e-02  F = 265.9543  d_tip = 0.316  a = 1.4474  H/Hc =     0.50  stagg = 200
+  step 1849  u = 1.849e-02  F = 264.5555  d_tip = 0.316  a = 1.4517  H/Hc =     0.50  stagg = 200
+  step 1850  u = 1.850e-02  F = 262.5215  d_tip = 0.316  a = 1.4551  H/Hc =     0.50  stagg = 200
+  step 1851  u = 1.851e-02  F = 256.0591  d_tip = 0.316  a = 1.4659  H/Hc =     0.50  stagg = 200
+  step 1852  u = 1.852e-02  F =   1.2603  d_tip = 0.316  a = 1.7722  H/Hc =     0.50  stagg = 106
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 439.1935 N/mm   at step 1108 of 1852
+  nominal peak stress = 439.1935 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 0.3 % of peak ; final d ahead of the tip = 0.316 ; crack extension = 1.7722 mm (177.2 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  wrote loaddisp_MA_S_cg1_n1.txt
+============================================================
+=== EXIT=0 2026-11-10T23:54:34Z
