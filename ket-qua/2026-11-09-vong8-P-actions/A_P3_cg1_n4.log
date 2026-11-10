@@ -635,3 +635,55 @@ model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zb
 [0]PETSC ERROR: ------------------------------------------------------------------------
 [0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
 [0]PETSC ERROR: === EXIT=124 2026-11-10T05:42:36Z
+=== CHANG 3 2026-11-10T05:43:38Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  BENCHMARK P3D (tam mong 3D, hex Q1)  dolfinx 0.11.0.post0
+model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zbc faces
+  ramp: 100 fine steps to 1.000e-03, then 700 steps to 8.000e-03
+  LUOI: hex Q1  so phan tu = 20000  so dinh = 30603
+  KHONG GIAN H: --hspace cg1   *** NOI SUY NUT GHI DE (8 phan tu ke) -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split amor (Amor 3D, K = lambda + 2mu/3)
+  DIEU KIEN NGAM: --grip clamp;  z: --zbc faces  (u_z = 0 tren hai mat z = 0, z = t: bien dang phang)
+  NOTCH DOFS (toan cuc) = 153   (mong doi 153)
+  damage threshold H_crit = 1.3500e+02
+  RESUME: chay tiep tu buoc 604 (diem kiem buoc 603)
+  step 604  u = 6.040e-03  F = 684.9593  d_tip = 0.997  a = 0.6373  H/Hc =    34.20  stagg = 200  t = 703s
+  step 605  u = 6.050e-03  F = 684.0051  d_tip = 0.997  a = 0.6416  H/Hc =    34.20  stagg = 200  t = 1416s
+  step 606  u = 6.060e-03  F = 683.3651  d_tip = 0.997  a = 0.6452  H/Hc =    36.11  stagg = 200  t = 2118s
+  step 607  u = 6.070e-03  F = 683.1940  d_tip = 0.998  a = 0.6479  H/Hc =    38.35  stagg = 157  t = 2666s
+  step 608  u = 6.080e-03  F = 683.2057  d_tip = 1.000  a = 0.6502  H/Hc =    40.25  stagg = 136  t = 3141s
+  step 609  u = 6.090e-03  F = 683.2969  d_tip = 1.000  a = 0.6523  H/Hc =    41.94  stagg = 126  t = 3582s
+  step 610  u = 6.100e-03  F = 683.4087  d_tip = 1.000  a = 0.6543  H/Hc =    43.51  stagg = 135  t = 4052s
+  step 611  u = 6.110e-03  F = 683.4195  d_tip = 1.000  a = 0.6566  H/Hc =    45.25  stagg = 155  t = 4590s
+  step 612  u = 6.120e-03  F = 683.1839  d_tip = 1.000  a = 0.6593  H/Hc =    47.36  stagg = 200  t = 5287s
+  step 613  u = 6.130e-03  F = 682.4168  d_tip = 1.000  a = 0.6630  H/Hc =    50.30  stagg = 200  t = 5995s
+  step 614  u = 6.140e-03  F = 680.9648  d_tip = 1.000  a = 0.6681  H/Hc =    54.32  stagg = 200  t = 6711s
+  step 615  u = 6.150e-03  F = 679.8835  d_tip = 1.000  a = 0.6725  H/Hc =    57.80  stagg = 200  t = 7418s
+  step 616  u = 6.160e-03  F = 679.3167  d_tip = 1.000  a = 0.6758  H/Hc =    60.49  stagg = 190  t = 8083s
+  step 617  u = 6.170e-03  F = 678.9452  d_tip = 1.000  a = 0.6787  H/Hc =    62.84  stagg = 172  t = 8686s
+  step 618  u = 6.180e-03  F = 678.6467  d_tip = 1.000  a = 0.6815  H/Hc =    65.08  stagg = 165  t = 9264s
+  step 619  u = 6.190e-03  F = 678.2086  d_tip = 1.000  a = 0.6845  H/Hc =    67.52  stagg = 199  t = 9960s
+  step 620  u = 6.200e-03  F = 677.4055  d_tip = 1.000  a = 0.6883  H/Hc =    70.50  stagg = 200  t = 10671s
+  step 621  u = 6.210e-03  F = 675.7955  d_tip = 1.000  a = 0.6936  H/Hc =    74.71  stagg = 200  t = 11393s
+  step 622  u = 6.220e-03  F = 674.0607  d_tip = 1.000  a = 0.6991  H/Hc =    79.11  stagg = 200  t = 12113s
+  step 623  u = 6.230e-03  F = 672.9718  d_tip = 1.000  a = 0.7033  H/Hc =    82.48  stagg = 200  t = 12821s
+  step 624  u = 6.240e-03  F = 672.1778  d_tip = 1.000  a = 0.7070  H/Hc =    85.41  stagg = 200  t = 13527s
+  step 625  u = 6.250e-03  F = 671.3862  d_tip = 1.000  a = 0.7107  H/Hc =    88.32  stagg = 200  t = 14223s
+  step 626  u = 6.260e-03  F = 670.3600  d_tip = 1.000  a = 0.7148  H/Hc =    91.53  stagg = 200  t = 14929s
+  step 627  u = 6.270e-03  F = 668.7644  d_tip = 1.000  a = 0.7200  H/Hc =    95.53  stagg = 200  t = 15647s
+  step 628  u = 6.280e-03  F = 666.6029  d_tip = 1.000  a = 0.7263  H/Hc =   100.29  stagg = 200  t = 16366s
+  step 629  u = 6.290e-03  F = 665.0181  d_tip = 1.000  a = 0.7314  H/Hc =   104.23  stagg = 200  t = 17072s
+  step 630  u = 6.300e-03  F = 663.8150  d_tip = 1.000  a = 0.7358  H/Hc =   107.62  stagg = 200  t = 17778s
+  step 631  u = 6.310e-03  F = 662.6560  d_tip = 1.000  a = 0.7402  H/Hc =   110.93  stagg = 200  t = 18485s
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 191 RUNNING AT d3afdb123569
+=   EXIT CODE: 15
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Terminated (signal 15)
+This typically refers to a problem with your application.
+Please see the FAQ page for debugging suggestions
+=== EXIT=124 2026-11-10T11:03:38Z
