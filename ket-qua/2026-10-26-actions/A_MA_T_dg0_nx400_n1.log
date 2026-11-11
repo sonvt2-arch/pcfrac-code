@@ -645,3 +645,31 @@ model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-11T04:40:34Z
+=== CHANG 8 2026-11-11T04:41:41Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 160000  so dinh = 160801
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 201   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 497 (diem kiem buoc 496)
+  step 497  u = 4.970e-03  F = 543.0718  d_tip = 0.996  a = 0.1892  H/Hc =  1462.49  stagg = 200
+  step 498  u = 4.980e-03  F = 530.8217  d_tip = 0.996  a = 0.2023  H/Hc =  1652.15  stagg = 200
+  step 499  u = 4.990e-03  F = 517.8134  d_tip = 0.997  a = 0.2161  H/Hc =  1841.31  stagg = 200
+  step 500  u = 5.000e-03  F = 504.1215  d_tip = 0.997  a = 0.2305  H/Hc =  2028.13  stagg = 200
+  step 501  u = 5.010e-03  F = 489.9164  d_tip = 0.997  a = 0.2455  H/Hc =  2209.94  stagg = 200
+  step 502  u = 5.020e-03  F = 475.3400  d_tip = 0.997  a = 0.2608  H/Hc =  2384.87  stagg = 200
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-11T10:01:41Z
