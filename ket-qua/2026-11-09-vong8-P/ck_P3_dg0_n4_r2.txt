@@ -1,0 +1,4 @@
+  diem kiem buoc 595 (4 nhan); F cuoi = 281.6781  F max = 1135.3004 o buoc 540
+  lat k = 1 (giua): 10836 bac tu do, thieu 0 nut; d>0.9: 172 -> P3_dg0_n4_r2_ck.xdmf
+  lat k = 0 (_z0): 10833 bac tu do, thieu 0 nut; d>0.9: 172 -> P3_dg0_n4_r2_ck_z0.xdmf
+  lat k = 2 (_zt): 10832 bac tu do, thieu 0 nut; d>0.9: 172 -> P3_dg0_n4_r2_ck_zt.xdmf
