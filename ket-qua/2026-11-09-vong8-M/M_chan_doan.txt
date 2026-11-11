@@ -1,0 +1,19 @@
+Q1 buoc nhay > 2ell: [(np.float64(0.6), np.float64(0.03), np.float64(0.725), np.float64(0.025))]
+  6ell cac cua so: [81.8, 85.9, -88.0, -80.8, -79.2, -79.0, -79.9, -77.8, -75.9, -73.9, -72.8, -69.3, -66.6, -64.9, -54.8]
+  cat tai buoc nhay dau: 2ell = -64.77 (6)
+  cat tai buoc nhay dau: 4ell = -51.34 (20)
+  cat tai buoc nhay dau: 6ell = -52.89 (14)
+  diem cuoi sau cat: [0.60034844 0.03      ]
+DG0 buoc nhay > 2ell: []
+  6ell cac cua so: [-61.9, -67.0, -64.4, -63.4, -63.2, -61.5, -60.6, -58.5, -56.8, -55.1, -53.4, -50.3, -47.7, -44.0, -33.4, -33.9, -36.0]
+  cat tai buoc nhay dau: 2ell = -56.79 (19)
+  cat tai buoc nhay dau: 4ell = -54.15 (22)
+  cat tai buoc nhay dau: 6ell = -53.60 (17)
+  diem cuoi sau cat: [0.90193419 0.02      ]
+--- quy uoc huong di xuong (dy<0, goc trong (-180,0)) -- CHAN DOAN SAU KHI THAY SO, khong vao phan quyet
+  Q1 2ell: -64.77 (6 cua so; so cua so goc>0 theo quy uoc ghi truoc: 0)
+  Q1 4ell: -76.94 (21 cua so; so cua so goc>0 theo quy uoc ghi truoc: 3)
+  Q1 6ell: -77.01 (15 cua so; so cua so goc>0 theo quy uoc ghi truoc: 2)
+  DG0 2ell: -56.79 (19 cua so; so cua so goc>0 theo quy uoc ghi truoc: 0)
+  DG0 4ell: -54.15 (22 cua so; so cua so goc>0 theo quy uoc ghi truoc: 0)
+  DG0 6ell: -53.60 (17 cua so; so cua so goc>0 theo quy uoc ghi truoc: 0)

@@ -1,0 +1,69 @@
+{
+ "Q1": {
+  "tep": "MA_S_cg1_n1.xdmf",
+  "khoa_buoc": "0",
+  "h_luoi": 0.004999999999999893,
+  "so_diem_tam": 93,
+  "dau": [
+   0.49313861611768367,
+   0.48
+  ],
+  "cuoi": [
+   0.7356726710494516,
+   0.02
+  ],
+  "goc_2ell": -64.76541374126688,
+  "cuaso_2ell": 6,
+  "roinhau_2ell": 30,
+  "goc_4ell": -51.22642163146223,
+  "cuaso_4ell": 21,
+  "roinhau_4ell": 15,
+  "goc_6ell": -53.01466197781462,
+  "cuaso_6ell": 15,
+  "roinhau_6ell": 10,
+  "day": {
+   "nut_thanh_phan": 3151,
+   "nut_day": 77,
+   "x_cham_dau": 0.5650000000000001,
+   "khoang_x_day": [
+    0.5650000000000001,
+    0.9450000000000001
+   ]
+  }
+ },
+ "DG0": {
+  "tep": "MA_S_dg0_n1.xdmf",
+  "khoa_buoc": "0",
+  "h_luoi": 0.004999999999999893,
+  "so_diem_tam": 93,
+  "dau": [
+   0.5144393677641887,
+   0.48
+  ],
+  "cuoi": [
+   0.901934188439851,
+   0.02
+  ],
+  "goc_2ell": -56.787393408847095,
+  "cuaso_2ell": 19,
+  "roinhau_2ell": 30,
+  "goc_4ell": -54.146109941440564,
+  "cuaso_4ell": 22,
+  "roinhau_4ell": 15,
+  "goc_6ell": -53.60340226394788,
+  "cuaso_6ell": 17,
+  "roinhau_6ell": 10,
+  "day": {
+   "nut_thanh_phan": 2667,
+   "nut_day": 16,
+   "x_cham_dau": 0.87,
+   "khoang_x_day": [
+    0.87,
+    0.9450000000000001
+   ]
+  }
+ },
+ "hausdorff_mm": 0.16920154581960717,
+ "hausdorff_ell": 16.920154581960716,
+ "delta_6ell": 0.5887402861332589
+}
