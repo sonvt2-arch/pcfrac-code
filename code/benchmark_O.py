@@ -56,6 +56,8 @@ p.add_argument("--steps", type=int, default=300)
 p.add_argument("--n1", type=int, default=100)
 p.add_argument("--u1", type=float, default=0.5, help="mm, het chang min")
 p.add_argument("--umax", type=float, default=1.5, help="mm")
+p.add_argument("--stopfrac", type=float, default=0.25,
+               help="dung khi F < stopfrac * F_dinh (0 = khong dung, chay toi umax)")
 p.add_argument("--maxstagg", type=int, default=200)
 p.add_argument("--split", choices=["amor", "spectral", "full"], default="amor")
 p.add_argument("--hspace", choices=["dg0", "cg1"], default="dg0")
@@ -380,7 +382,7 @@ for step in range(start_step, args.steps + 1):
                  (step <= 3 or (reason is not None and reason <= 0)) else ""), flush=True)
     _ck_save(step)
     Fs = np.abs(np.array([r[1] for r in hist]))
-    if len(Fs) > 6 and Fs.max() > 0 and Fs[-1] < 0.25 * Fs.max():
+    if args.stopfrac > 0 and len(Fs) > 6 and Fs.max() > 0 and Fs[-1] < args.stopfrac * Fs.max():
         if comm.rank == 0:
             print("  load has fallen below 25 % of peak -- stopping")
         break
