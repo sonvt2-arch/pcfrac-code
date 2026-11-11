@@ -1678,3 +1678,43 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-11T02:03:37Z
+=== CHANG 7 2026-11-11T02:04:39Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 1900 steps to 2.000e-02 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  TAI: --load shear (SENS)
+  NOTCH DOFS (nhan 0, cuc bo) = 101   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 1553 (diem kiem buoc 1552)
+  step 1553  u = 1.553e-02  F = 245.5094  d_tip = 1.000  a = 0.9027  H/Hc =  5057.68  stagg = 200
+  step 1554  u = 1.554e-02  F = 244.8848  d_tip = 1.000  a = 0.9051  H/Hc =  5077.06  stagg = 200
+  step 1555  u = 1.555e-02  F = 243.8557  d_tip = 1.000  a = 0.9086  H/Hc =  5103.16  stagg = 200
+  step 1556  u = 1.556e-02  F = 243.6043  d_tip = 1.000  a = 0.9098  H/Hc =  5116.22  stagg = 200
+  step 1557  u = 1.557e-02  F = 243.4827  d_tip = 1.000  a = 0.9106  H/Hc =  5127.11  stagg = 200
+  step 1558  u = 1.558e-02  F = 243.3795  d_tip = 1.000  a = 0.9113  H/Hc =  5137.68  stagg = 195
+  step 1559  u = 1.559e-02  F = 243.2803  d_tip = 1.000  a = 0.9120  H/Hc =  5148.17  stagg = 191
+  step 1560  u = 1.560e-02  F = 243.1762  d_tip = 1.000  a = 0.9127  H/Hc =  5158.72  stagg = 197
+  step 1561  u = 1.561e-02  F = 243.0469  d_tip = 1.000  a = 0.9135  H/Hc =  5169.67  stagg = 200
+  step 1562  u = 1.562e-02  F = 242.8523  d_tip = 1.000  a = 0.9145  H/Hc =  5181.66  stagg = 200
+  step 1563  u = 1.563e-02  F = 242.4640  d_tip = 1.000  a = 0.9160  H/Hc =  5196.77  stagg = 200
+  step 1564  u = 1.564e-02  F = 241.1468  d_tip = 1.000  a = 0.9202  H/Hc =  5226.72  stagg = 200
+  step 1565  u = 1.565e-02  F = 239.3527  d_tip = 1.000  a = 0.9253  H/Hc =  5262.16  stagg = 200
+  step 1566  u = 1.566e-02  F = 235.7184  d_tip = 1.000  a = 0.9337  H/Hc =  5315.70  stagg = 200
+  step 1567  u = 1.567e-02  F =   0.6624  d_tip = 1.000  a = 1.2879  H/Hc = 10257.19  stagg = 173
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 477.7922 N/mm   at step 993 of 1567
+  nominal peak stress = 477.7922 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 0.1 % of peak ; final d ahead of the tip = 1.000 ; crack extension = 1.2879 mm (128.8 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  wrote loaddisp_MA_S_dg0_n1.txt
+============================================================
+=== EXIT=0 2026-11-11T03:18:16Z
