@@ -79,3 +79,53 @@ BENCHMARK O (tam chu L)  model=AT2  ell=10.0 mm  nx=250  h=2.000 mm  ell/h=5.00 
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-11T21:06:00Z
+=== CHANG 2 2026-11-11T21:07:15Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+BENCHMARK O (tam chu L)  model=AT2  ell=10.0 mm  nx=250  h=2.000 mm  ell/h=5.00  plane=stress
+  ramp: 100 buoc toi 0.5 mm, roi 200 buoc toi 1.5 mm
+  LUOI chu L: so phan tu = 46875  so dinh = 47376
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  TAI: u_y tren 10 canh, y = 250.0, |x - 470.0| <= 10.0 mm; ngam mep y = 0
+  dien tich = 187500.0 mm^2 ; snes_atol = 3.897e-09
+  RESUME: chay tiep tu buoc 65 (diem kiem buoc 64)
+  step  65  u = 3.2500e-01  F =   30.7579  d_goc = 1.000  Gamma = 188.497  stagg = 194
+  step  66  u = 3.3000e-01  F =   29.6054  d_goc = 1.000  Gamma = 191.657  stagg = 174
+  step  67  u = 3.3500e-01  F =   28.5242  d_goc = 1.000  Gamma = 194.677  stagg = 178
+  step  68  u = 3.4000e-01  F =   27.5027  d_goc = 1.000  Gamma = 197.576  stagg = 181
+  step  69  u = 3.4500e-01  F =   26.5415  d_goc = 1.000  Gamma = 200.352  stagg = 172
+  step  70  u = 3.5000e-01  F =   25.6419  d_goc = 1.000  Gamma = 203.002  stagg = 162
+  step  71  u = 3.5500e-01  F =   24.7977  d_goc = 1.000  Gamma = 205.535  stagg = 155
+  step  72  u = 3.6000e-01  F =   24.0020  d_goc = 1.000  Gamma = 207.966  stagg = 150
+  step  73  u = 3.6500e-01  F =   23.2492  d_goc = 1.000  Gamma = 210.304  stagg = 146
+  step  74  u = 3.7000e-01  F =   22.5351  d_goc = 1.000  Gamma = 212.557  stagg = 144
+  step  75  u = 3.7500e-01  F =   21.8570  d_goc = 1.000  Gamma = 214.730  stagg = 143
+  step  76  u = 3.8000e-01  F =   21.2148  d_goc = 1.000  Gamma = 216.822  stagg = 144
+  step  77  u = 3.8500e-01  F =   20.6103  d_goc = 1.000  Gamma = 218.829  stagg = 146
+  step  78  u = 3.9000e-01  F =   20.0440  d_goc = 1.000  Gamma = 220.746  stagg = 145
+  step  79  u = 3.9500e-01  F =   19.5070  d_goc = 1.000  Gamma = 222.594  stagg = 139
+  step  80  u = 4.0000e-01  F =   18.9810  d_goc = 1.000  Gamma = 224.415  stagg = 130
+  step  81  u = 4.0500e-01  F =   18.4637  d_goc = 1.000  Gamma = 226.217  stagg = 132
+  step  82  u = 4.1000e-01  F =   17.9896  d_goc = 1.000  Gamma = 227.913  stagg = 135
+  step  83  u = 4.1500e-01  F =   17.5504  d_goc = 1.000  Gamma = 229.523  stagg = 129
+  step  84  u = 4.2000e-01  F =   17.1068  d_goc = 1.000  Gamma = 231.143  stagg = 124
+  step  85  u = 4.2500e-01  F =   16.6829  d_goc = 1.000  Gamma = 232.714  stagg = 129
+  step  86  u = 4.3000e-01  F =   16.2991  d_goc = 1.000  Gamma = 234.182  stagg = 122
+  step  87  u = 4.3500e-01  F =   15.9062  d_goc = 1.000  Gamma = 235.673  stagg = 120
+  step  88  u = 4.4000e-01  F =   15.5405  d_goc = 1.000  Gamma = 237.093  stagg = 124
+  step  89  u = 4.4500e-01  F =   15.1958  d_goc = 1.000  Gamma = 238.456  stagg = 113
+  step  90  u = 4.5000e-01  F =   14.8440  d_goc = 1.000  Gamma = 239.838  stagg = 120
+  step  91  u = 4.5500e-01  F =   14.5314  d_goc = 1.000  Gamma = 241.115  stagg = 112
+  step  92  u = 4.6000e-01  F =   14.2053  d_goc = 1.000  Gamma = 242.427  stagg = 116
+  step  93  u = 4.6500e-01  F =   13.9143  d_goc = 1.000  Gamma = 243.642  stagg = 111
+  step  94  u = 4.7000e-01  F =   13.6128  d_goc = 1.000  Gamma = 244.885  stagg = 112
+  step  95  u = 4.7500e-01  F =   13.3406  d_goc = 1.000  Gamma = 246.046  stagg = 109
+  step  96  u = 4.8000e-01  F =   13.0591  d_goc = 1.000  Gamma = 247.232  stagg = 110
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-12T02:27:15Z
