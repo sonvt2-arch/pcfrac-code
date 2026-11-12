@@ -286,3 +286,105 @@ BENCHMARK O (tam chu L)  model=AT2  ell=10.0 mm  nx=250  h=2.000 mm  ell/h=5.00 
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-12T13:09:55Z
+=== CHANG 5 2026-11-12T13:11:11Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V45 96-Core Processor
+BENCHMARK O (tam chu L)  model=AT2  ell=10.0 mm  nx=250  h=2.000 mm  ell/h=5.00  plane=stress
+  ramp: 100 buoc toi 0.5 mm, roi 200 buoc toi 1.5 mm
+  LUOI chu L: so phan tu = 46875  so dinh = 47376
+  KHONG GIAN H: --hspace cg1   *** NUT Q1 GHI DE (ban truoc khi sua)
+  PHEP TACH NANG LUONG: --split amor
+  TAI: u_y tren 10 canh, y = 250.0, |x - 470.0| <= 10.0 mm; ngam mep y = 0
+  dien tich = 187500.0 mm^2 ; snes_atol = 3.897e-09
+  RESUME: chay tiep tu buoc 218 (diem kiem buoc 217)
+  step 218  u = 1.0900e+00  F =    1.8897  d_goc = 1.000  Gamma = 479.128  stagg = 55
+  step 219  u = 1.0950e+00  F =    1.8775  d_goc = 1.000  Gamma = 479.516  stagg = 59
+  step 220  u = 1.1000e+00  F =    1.8656  d_goc = 1.000  Gamma = 480.077  stagg = 58
+  step 221  u = 1.1050e+00  F =    1.8537  d_goc = 1.000  Gamma = 480.487  stagg = 130
+  step 222  u = 1.1100e+00  F =    1.8419  d_goc = 1.000  Gamma = 481.318  stagg = 86
+  step 223  u = 1.1150e+00  F =    1.8300  d_goc = 1.000  Gamma = 483.489  stagg = 200
+  step 224  u = 1.1200e+00  F =    1.8184  d_goc = 1.000  Gamma = 484.012  stagg = 38
+  step 225  u = 1.1250e+00  F =    1.8068  d_goc = 1.000  Gamma = 484.222  stagg = 34
+  step 226  u = 1.1300e+00  F =    1.7950  d_goc = 1.000  Gamma = 484.584  stagg = 30
+  step 227  u = 1.1350e+00  F =    1.7831  d_goc = 1.000  Gamma = 484.971  stagg = 55
+  step 228  u = 1.1400e+00  F =    1.7709  d_goc = 1.000  Gamma = 486.006  stagg = 65
+  step 229  u = 1.1450e+00  F =    1.7585  d_goc = 1.000  Gamma = 486.379  stagg = 40
+  step 230  u = 1.1500e+00  F =    1.7455  d_goc = 1.000  Gamma = 486.878  stagg = 44
+  step 231  u = 1.1550e+00  F =    1.7315  d_goc = 1.000  Gamma = 487.117  stagg = 55
+  step 232  u = 1.1600e+00  F =    1.7124  d_goc = 1.000  Gamma = 487.734  stagg = 100
+  step 233  u = 1.1650e+00  F =    1.5789  d_goc = 1.000  Gamma = 490.041  stagg = 117
+  step 234  u = 1.1700e+00  F =    1.5709  d_goc = 1.000  Gamma = 490.376  stagg = 27
+  step 235  u = 1.1750e+00  F =    1.5619  d_goc = 1.000  Gamma = 490.728  stagg = 42
+  step 236  u = 1.1800e+00  F =    1.5525  d_goc = 1.000  Gamma = 491.041  stagg = 28
+  step 237  u = 1.1850e+00  F =    1.5430  d_goc = 1.000  Gamma = 491.413  stagg = 55
+  step 238  u = 1.1900e+00  F =    1.5333  d_goc = 1.000  Gamma = 493.053  stagg = 117
+  step 239  u = 1.1950e+00  F =    1.5238  d_goc = 1.000  Gamma = 493.579  stagg = 45
+  step 240  u = 1.2000e+00  F =    1.5142  d_goc = 1.000  Gamma = 494.250  stagg = 111
+  step 241  u = 1.2050e+00  F =    1.5047  d_goc = 1.000  Gamma = 495.246  stagg = 56
+  step 242  u = 1.2100e+00  F =    1.4952  d_goc = 1.000  Gamma = 495.597  stagg = 63
+  step 243  u = 1.2150e+00  F =    1.4858  d_goc = 1.000  Gamma = 495.783  stagg = 39
+  step 244  u = 1.2200e+00  F =    1.4763  d_goc = 1.000  Gamma = 496.067  stagg = 30
+  step 245  u = 1.2250e+00  F =    1.4667  d_goc = 1.000  Gamma = 496.595  stagg = 54
+  step 246  u = 1.2300e+00  F =    1.4571  d_goc = 1.000  Gamma = 497.078  stagg = 39
+  step 247  u = 1.2350e+00  F =    1.4474  d_goc = 1.000  Gamma = 497.423  stagg = 47
+  step 248  u = 1.2400e+00  F =    1.4375  d_goc = 1.000  Gamma = 497.790  stagg = 138
+  step 249  u = 1.2450e+00  F =    1.4272  d_goc = 1.000  Gamma = 498.956  stagg = 160
+  step 250  u = 1.2500e+00  F =    1.4162  d_goc = 1.000  Gamma = 499.164  stagg = 52
+  step 251  u = 1.2550e+00  F =    1.4023  d_goc = 1.000  Gamma = 499.605  stagg = 141
+  step 252  u = 1.2600e+00  F =    1.2873  d_goc = 1.000  Gamma = 502.364  stagg = 127
+  step 253  u = 1.2650e+00  F =    1.2802  d_goc = 1.000  Gamma = 502.885  stagg = 72
+  step 254  u = 1.2700e+00  F =    1.2698  d_goc = 1.000  Gamma = 503.768  stagg = 116  SNES=-5  [snes its=40 |F|=7.55e-09]
+  step 255  u = 1.2750e+00  F =    1.2631  d_goc = 1.000  Gamma = 505.420  stagg = 166
+  step 256  u = 1.2800e+00  F =    1.2561  d_goc = 1.000  Gamma = 505.748  stagg = 37
+  step 257  u = 1.2850e+00  F =    1.2489  d_goc = 1.000  Gamma = 506.544  stagg = 59
+  step 258  u = 1.2900e+00  F =    1.2417  d_goc = 1.000  Gamma = 506.994  stagg = 50
+  step 259  u = 1.2950e+00  F =    1.2346  d_goc = 1.000  Gamma = 507.158  stagg = 43
+  step 260  u = 1.3000e+00  F =    1.2274  d_goc = 1.000  Gamma = 507.820  stagg = 73
+  step 261  u = 1.3050e+00  F =    1.2203  d_goc = 1.000  Gamma = 507.976  stagg = 25
+  step 262  u = 1.3100e+00  F =    1.2131  d_goc = 1.000  Gamma = 508.139  stagg = 25
+  step 263  u = 1.3150e+00  F =    1.2059  d_goc = 1.000  Gamma = 508.596  stagg = 120
+  step 264  u = 1.3200e+00  F =    1.1987  d_goc = 1.000  Gamma = 509.594  stagg = 77
+  step 265  u = 1.3250e+00  F =    1.1915  d_goc = 1.000  Gamma = 510.092  stagg = 65
+  step 266  u = 1.3300e+00  F =    1.1843  d_goc = 1.000  Gamma = 510.759  stagg = 44
+  step 267  u = 1.3350e+00  F =    1.1771  d_goc = 1.000  Gamma = 511.416  stagg = 99
+  step 268  u = 1.3400e+00  F =    1.1698  d_goc = 1.000  Gamma = 511.899  stagg = 32
+  step 269  u = 1.3450e+00  F =    1.1626  d_goc = 1.000  Gamma = 512.056  stagg = 30
+  step 270  u = 1.3500e+00  F =    1.1553  d_goc = 1.000  Gamma = 512.220  stagg = 32
+  step 271  u = 1.3550e+00  F =    1.1478  d_goc = 1.000  Gamma = 512.558  stagg = 36
+  step 272  u = 1.3600e+00  F =    1.1402  d_goc = 1.000  Gamma = 512.734  stagg = 41
+  step 273  u = 1.3650e+00  F =    1.1320  d_goc = 1.000  Gamma = 513.552  stagg = 81
+  step 274  u = 1.3700e+00  F =    1.1220  d_goc = 1.000  Gamma = 514.099  stagg = 70
+  step 275  u = 1.3750e+00  F =    1.0226  d_goc = 1.000  Gamma = 516.327  stagg = 162
+  step 276  u = 1.3800e+00  F =    1.0173  d_goc = 1.000  Gamma = 517.282  stagg = 47
+  step 277  u = 1.3850e+00  F =    1.0117  d_goc = 1.000  Gamma = 517.773  stagg = 40
+  step 278  u = 1.3900e+00  F =    1.0037  d_goc = 1.000  Gamma = 518.298  stagg = 105
+  step 279  u = 1.3950e+00  F =    0.9990  d_goc = 1.000  Gamma = 518.780  stagg = 43
+  step 280  u = 1.4000e+00  F =    0.9937  d_goc = 1.000  Gamma = 519.249  stagg = 29
+  step 281  u = 1.4050e+00  F =    0.9882  d_goc = 1.000  Gamma = 519.542  stagg = 32
+  step 282  u = 1.4100e+00  F =    0.9827  d_goc = 1.000  Gamma = 520.209  stagg = 62
+  step 283  u = 1.4150e+00  F =    0.9770  d_goc = 1.000  Gamma = 521.250  stagg = 66  SNES=-5  [snes its=40 |F|=9.11e-09]
+  step 284  u = 1.4200e+00  F =    0.9714  d_goc = 1.000  Gamma = 521.740  stagg = 91
+  step 285  u = 1.4250e+00  F =    0.9659  d_goc = 1.000  Gamma = 521.881  stagg = 35
+  step 286  u = 1.4300e+00  F =    0.9602  d_goc = 1.000  Gamma = 523.563  stagg = 185  SNES=-5  [snes its=40 |F|=5.16e-09]
+  step 287  u = 1.4350e+00  F =    0.9547  d_goc = 1.000  Gamma = 523.709  stagg = 65
+  step 288  u = 1.4400e+00  F =    0.9492  d_goc = 1.000  Gamma = 524.690  stagg = 77
+  step 289  u = 1.4450e+00  F =    0.9437  d_goc = 1.000  Gamma = 525.330  stagg = 42
+  step 290  u = 1.4500e+00  F =    0.9383  d_goc = 1.000  Gamma = 525.801  stagg = 43
+  step 291  u = 1.4550e+00  F =    0.9330  d_goc = 1.000  Gamma = 526.058  stagg = 33
+  step 292  u = 1.4600e+00  F =    0.9275  d_goc = 1.000  Gamma = 527.024  stagg = 162
+  step 293  u = 1.4650e+00  F =    0.9222  d_goc = 1.000  Gamma = 527.816  stagg = 50
+  step 294  u = 1.4700e+00  F =    0.9169  d_goc = 1.000  Gamma = 527.948  stagg = 24
+  step 295  u = 1.4750e+00  F =    0.9115  d_goc = 1.000  Gamma = 528.250  stagg = 43
+  step 296  u = 1.4800e+00  F =    0.9062  d_goc = 1.000  Gamma = 528.389  stagg = 27
+  step 297  u = 1.4850e+00  F =    0.9008  d_goc = 1.000  Gamma = 529.023  stagg = 54
+  step 298  u = 1.4900e+00  F =    0.8954  d_goc = 1.000  Gamma = 529.169  stagg = 48
+  step 299  u = 1.4950e+00  F =    0.8900  d_goc = 1.000  Gamma = 529.797  stagg = 40
+  step 300  u = 1.5000e+00  F =    0.8844  d_goc = 1.000  Gamma = 530.270  stagg = 183
+
+============================================================
+  BENCHMARK O  model AT2  ell = 10.0 mm  hspace = cg1  nhan = 1
+  PEAK LOAD = 132.6834 N/mm   at step 49 of 300   u = 2.4500e-01 mm   (x 100 mm day = 13.268 kN)
+  final load = 0.7 % of peak ; Gamma - Gamma0 = 530.27 mm
+  *** 15 of 300 steps had a failed damage solve
+  wrote loaddisp_O2_cg1_n1.txt dfield_O2_cg1_n1.npz
+============================================================
+=== EXIT=0 2026-11-12T17:53:50Z
