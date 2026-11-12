@@ -84,3 +84,50 @@ BENCHMARK O (tam chu L)  model=AT2  ell=10.0 mm  nx=250  h=2.000 mm  ell/h=5.00 
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-11T21:05:45Z
+=== CHANG 2 2026-11-11T21:07:27Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  INTEL(R) XEON(R) PLATINUM 8573C
+BENCHMARK O (tam chu L)  model=AT2  ell=10.0 mm  nx=250  h=2.000 mm  ell/h=5.00  plane=stress
+  ramp: 100 buoc toi 0.5 mm, roi 200 buoc toi 1.5 mm
+  LUOI chu L: so phan tu = 46875  so dinh = 47376
+  KHONG GIAN H: --hspace cg1   *** NUT Q1 GHI DE (ban truoc khi sua)
+  PHEP TACH NANG LUONG: --split amor
+  TAI: u_y tren 10 canh, y = 250.0, |x - 470.0| <= 10.0 mm; ngam mep y = 0
+  dien tich = 187500.0 mm^2 ; snes_atol = 3.897e-09
+  RESUME: chay tiep tu buoc 70 (diem kiem buoc 69)
+  step  70  u = 3.5000e-01  F =   26.0208  d_goc = 1.000  Gamma = 262.338  stagg = 121
+  step  71  u = 3.5500e-01  F =   25.0826  d_goc = 1.000  Gamma = 266.826  stagg = 116
+  step  72  u = 3.6000e-01  F =   24.2023  d_goc = 1.000  Gamma = 270.868  stagg = 200
+  step  73  u = 3.6500e-01  F =   24.0723  d_goc = 1.000  Gamma = 272.510  stagg = 88
+  step  74  u = 3.7000e-01  F =   23.2371  d_goc = 1.000  Gamma = 276.203  stagg = 98
+  step  75  u = 3.7500e-01  F =   22.3900  d_goc = 1.000  Gamma = 280.087  stagg = 122
+  step  76  u = 3.8000e-01  F =   22.1797  d_goc = 1.000  Gamma = 281.701  stagg = 160
+  step  77  u = 3.8500e-01  F =   21.3529  d_goc = 1.000  Gamma = 285.608  stagg = 130
+  step  78  u = 3.9000e-01  F =   20.7354  d_goc = 1.000  Gamma = 289.319  stagg = 115
+  step  79  u = 3.9500e-01  F =   19.9806  d_goc = 1.000  Gamma = 292.912  stagg = 120
+  step  80  u = 4.0000e-01  F =   19.8552  d_goc = 1.000  Gamma = 294.204  stagg = 88
+  step  81  u = 4.0500e-01  F =   19.1387  d_goc = 1.000  Gamma = 297.711  stagg = 92
+  step  82  u = 4.1000e-01  F =   18.9889  d_goc = 1.000  Gamma = 299.240  stagg = 119
+  step  83  u = 4.1500e-01  F =   18.3126  d_goc = 1.000  Gamma = 302.730  stagg = 102
+  step  84  u = 4.2000e-01  F =   18.1368  d_goc = 1.000  Gamma = 304.389  stagg = 184
+  step  85  u = 4.2500e-01  F =   17.5496  d_goc = 1.000  Gamma = 307.747  stagg = 88
+  step  86  u = 4.3000e-01  F =   17.1376  d_goc = 1.000  Gamma = 310.272  stagg = 200  SNES=-5  [snes its=40 |F|=4.34e-09]
+  step  87  u = 4.3500e-01  F =   16.7390  d_goc = 1.000  Gamma = 312.881  stagg = 88
+  step  88  u = 4.4000e-01  F =   16.2091  d_goc = 1.000  Gamma = 315.722  stagg = 187
+  step  89  u = 4.4500e-01  F =   15.9435  d_goc = 1.000  Gamma = 317.748  stagg = 117
+  step  90  u = 4.5000e-01  F =   15.4937  d_goc = 1.000  Gamma = 320.452  stagg = 106
+  step  91  u = 4.5500e-01  F =   15.2023  d_goc = 1.000  Gamma = 322.609  stagg = 200
+  step  92  u = 4.6000e-01  F =   14.7974  d_goc = 1.000  Gamma = 324.981  stagg = 89
+  step  93  u = 4.6500e-01  F =   14.7037  d_goc = 1.000  Gamma = 326.014  stagg = 74
+  step  94  u = 4.7000e-01  F =   14.1255  d_goc = 1.000  Gamma = 329.545  stagg = 144
+  step  95  u = 4.7500e-01  F =   14.0560  d_goc = 1.000  Gamma = 330.453  stagg = 59
+  step  96  u = 4.8000e-01  F =   13.9131  d_goc = 1.000  Gamma = 331.653  stagg = 138
+  step  97  u = 4.8500e-01  F =   13.4167  d_goc = 1.000  Gamma = 335.001  stagg = 86
+  step  98  u = 4.9000e-01  F =   13.3167  d_goc = 1.000  Gamma = 336.475  stagg = 73
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-12T02:27:27Z
