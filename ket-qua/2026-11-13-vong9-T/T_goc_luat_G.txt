@@ -1,0 +1,6 @@
+# ell=0.01 x0=0.6 dmin=0.2 cat bien=2.0 ell=0.0200 mm
+# nhan | cu 2/4/6 ell (so cua so 6ell) | moi 2/4/6 ell (so cua so 6ell) | doi o 6ell | cham canh (x nho nhat) | so diem tam cu/moi
+  h5py: luoi 'Mesh/mesh/geometry' (80401 nut), truong 'Function/damage/0'
+MA_T_quad_tri_n1 | +0.02 / -0.02 / +0.01 (12) | +0.06 / +0.01 / +0.00 (11) | -0.01 | khong | 161/153
+  h5py: luoi 'Mesh/mesh/geometry' (10201 nut), truong 'Function/damage/0'
+P3_quad_n4_r2 | -- / -- / +0.00 (7) | -- / -- / +0.00 (7) | +0.00 | khong | 27/27
