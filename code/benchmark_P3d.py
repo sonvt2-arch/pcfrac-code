@@ -35,6 +35,9 @@ Luc bao cao: F = phan luc tong / t (N/mm), cung don vi voi 2D.
 --hspace dg0: H hang tung phan tu (tam o).
 --hspace cg1: H tren Q1 hex = V_d, psi+ noi suy vao nut (tam dinh moi o),
     nut dung chung lay gia tri o "ghi sau" -- dung ban 2D truoc khi sua.
+--hspace quad (vong 9-T): H va psi+ tai diem cau phuong bac 2 cua hex (Gauss
+    2x2x2), so hang g(d) H tich phan dung quy tac do -- nhu --hspace quad cua
+    benchmark_A.py.  dg0/cg1 giu nguyen tung lenh.
 
 Dau ra (tuong thich .github/workflows/chay-noi*.yml va measure_kink.py):
   damage_<model>_ell<ell>.xdmf/.h5 : d tren LAT GIUA z = t/2, luoi 2D nx x nx
@@ -77,7 +80,7 @@ p.add_argument("--n1", type=int, default=100)
 p.add_argument("--grip", choices=["clamp", "pin"], default="clamp")
 p.add_argument("--split", choices=["amor", "full"], default="amor")
 p.add_argument("--sharpnotch", action="store_true")
-p.add_argument("--hspace", choices=["dg0", "cg1"], default="dg0")
+p.add_argument("--hspace", choices=["dg0", "cg1", "quad"], default="dg0")
 p.add_argument("--load", choices=["tension"], default="tension")
 p.add_argument("--ckpt", default=None)
 p.add_argument("--resume", action="store_true")
@@ -114,16 +117,39 @@ if comm.rank == 0:
 
 V_u = functionspace(domain, ("Lagrange", 1, (3,)))
 V_d = functionspace(domain, ("Lagrange", 1))
-V_H = functionspace(domain, ("DG", 0)) if args.hspace == "dg0" else V_d
+_QDEG = 2
+if args.hspace == "quad":
+    import basix, basix.ufl
+    V_H = functionspace(domain, basix.ufl.quadrature_element(
+        domain.topology.cell_name(), value_shape=(), degree=_QDEG))
+    _QPTS = basix.make_quadrature(basix.CellType[domain.topology.cell_name()], _QDEG)[0]
+else:
+    V_H = functionspace(domain, ("DG", 0)) if args.hspace == "dg0" else V_d
 if comm.rank == 0:
     print(f"  KHONG GIAN H: --hspace {args.hspace}"
           + ("   *** NOI SUY NUT GHI DE (8 phan tu ke) -- CHI DE DO TAT"
-             if args.hspace == "cg1" else ""), flush=True)
+             if args.hspace == "cg1" else
+             (f"   (H tai diem cau phuong, bac {_QDEG}, {len(_QPTS)} diem/o)"
+              if args.hspace == "quad" else "")), flush=True)
 
 u = Function(V_u, name="u")
 d = Function(V_d, name="damage")
 d_old = Function(V_d)
 H = Function(V_H, name="history")
+
+
+def _H_xyz():
+    """Toa do bac tu do cua V_H; voi quad: toa do vat ly diem cau phuong."""
+    if args.hspace != "quad":
+        return V_H.tabulate_dof_coordinates()
+    _tm = domain.topology.index_map(domain.topology.dim)
+    _nc = _tm.size_local + _tm.num_ghosts
+    _ex = fem.Expression(ufl.SpatialCoordinate(domain), _QPTS)
+    _v = np.asarray(_ex.eval(domain, np.arange(_nc, dtype=np.int32))).reshape(_nc, -1, 3)
+    _dl = np.asarray(V_H.dofmap.list)[:_nc]
+    _out = np.zeros((len(H.x.array), 3))
+    _out[_dl.ravel(), :] = _v.reshape(-1, 3)
+    return _out
 
 mu = E0 / (2 * (1 + nu))
 lam = E0 * nu / ((1 + nu) * (1 - 2 * nu))
@@ -220,7 +246,7 @@ ahead = (_xc[:, 0] > 0.5 + 3.0 * ell) & (np.abs(_xc[:, 1] - 0.5) < 6.0 * ell)
 _fm = np.ones(len(_xc), bool)
 _fm[notch_dofs] = False
 ahead &= _fm
-_xH = V_H.tabulate_dof_coordinates()
+_xH = _H_xyz()
 ahead_H = (_xH[:, 0] > 0.5 + 3.0 * ell) & (np.abs(_xH[:, 1] - 0.5) < 6.0 * ell)
 one = Function(V_d)
 one.x.array[:] = 1.0
@@ -237,8 +263,13 @@ prob_u = LinearProblem(a_u, L_u, bcs=bc_u, u=u, petsc_options_prefix="u_",
 q = ufl.TestFunction(V_d)
 Gc_c = Constant(domain, PETSc.ScalarType(Gc))
 ell_c = Constant(domain, PETSc.ScalarType(ell))
-E_damage = (g(d) * H + Gc_c / c_w * (w(d) / ell_c
-            + ell_c * ufl.inner(ufl.grad(d), ufl.grad(d)))) * ufl.dx
+if args.hspace == "quad":
+    E_damage = (g(d) * H * ufl.dx(metadata={"quadrature_degree": _QDEG})
+                + Gc_c / c_w * (w(d) / ell_c
+                                + ell_c * ufl.inner(ufl.grad(d), ufl.grad(d))) * ufl.dx)
+else:
+    E_damage = (g(d) * H + Gc_c / c_w * (w(d) / ell_c
+                + ell_c * ufl.inner(ufl.grad(d), ufl.grad(d)))) * ufl.dx
 F_d = ufl.derivative(E_damage, d, q)
 J_d = ufl.derivative(F_d, d, ufl.TrialFunction(V_d))
 if _SNES_STYLE:
@@ -311,7 +342,7 @@ _ck_funcs = (("u", u), ("d", d), ("d_old", d_old), ("H", H))
 def _ck_xyz():
     return np.concatenate([V_u.tabulate_dof_coordinates().ravel(),
                            V_d.tabulate_dof_coordinates().ravel(),
-                           V_H.tabulate_dof_coordinates().ravel()])
+                           _H_xyz().ravel()])
 
 
 def _ck_path(slot):
@@ -394,9 +425,12 @@ if args.resume:
     if comm.rank == 0:
         print(f"  RESUME: chay tiep tu buoc {start_step} (diem kiem buoc {_s})", flush=True)
 
-_ip = V_H.element.interpolation_points
-if callable(_ip):
-    _ip = _ip()
+if args.hspace == "quad":
+    _ip = _QPTS
+else:
+    _ip = V_H.element.interpolation_points
+    if callable(_ip):
+        _ip = _ip()
 psi_expr = fem.Expression(psi_pos(u), _ip)
 psi_fn = Function(V_H)
 

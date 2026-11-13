@@ -1,0 +1,29 @@
+[
+ {
+  "tag": "KT_quad_tri_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "phut": 60,
+  "script": "benchmark_A.py",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 5 --umax 0.008 --nx 200 --cell tri --hspace quad"
+ },
+ {
+  "tag": "KP3_quad_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "phut": 60,
+  "script": "benchmark_P3d.py",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 5 --umax 0.008 --nx 100 --nz 2 --zbc faces --hspace quad"
+ },
+ {
+  "tag": "KP3_quad_ck_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "phut": 2,
+  "script": "benchmark_P3d.py",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 40 --umax 0.008 --nx 100 --nz 2 --zbc faces --hspace quad"
+ }
+]
