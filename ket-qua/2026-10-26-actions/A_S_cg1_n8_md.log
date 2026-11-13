@@ -582,3 +582,69 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
 [4]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 4 (rank 4 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 4
 === EXIT=124 2026-11-13T15:45:13Z
+=== CHANG 3 2026-11-13T15:46:39Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 8  o so huu/ghost = [4989, 5111, 4989, 5111, 4900, 5000, 4900, 5000]/[150, 251, 150, 251, 249, 150, 249, 150]  thieu = 0  crc = dc8e0864  cot qua y=0.5 khac nhan = 200/200
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1   *** BAN TRUOC KHI SUA -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 52   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 539 (diem kiem buoc 538)
+  step 539  u = 5.390e-03  F = 674.2492  d_tip = 0.335  a = 0.3607  H/Hc =     0.52  stagg = 117
+  step 540  u = 5.400e-03  F = 674.8242  d_tip = 0.341  a = 0.3618  H/Hc =     0.54  stagg = 161
+  step 541  u = 5.410e-03  F = 675.1082  d_tip = 0.353  a = 0.3633  H/Hc =     0.58  stagg = 200
+  step 542  u = 5.420e-03  F = 675.1656  d_tip = 0.369  a = 0.3653  H/Hc =     0.62  stagg = 200
+  step 543  u = 5.430e-03  F = 675.6167  d_tip = 0.379  a = 0.3666  H/Hc =     0.65  stagg = 129
+  step 544  u = 5.440e-03  F = 676.2674  d_tip = 0.386  a = 0.3675  H/Hc =     0.67  stagg = 87
+  step 545  u = 5.450e-03  F = 677.0056  d_tip = 0.391  a = 0.3684  H/Hc =     0.69  stagg = 67
+  step 546  u = 5.460e-03  F = 677.7851  d_tip = 0.397  a = 0.3692  H/Hc =     0.71  stagg = 62
+  step 547  u = 5.470e-03  F = 678.5884  d_tip = 0.401  a = 0.3699  H/Hc =     0.72  stagg = 62
+  step 548  u = 5.480e-03  F = 679.4192  d_tip = 0.406  a = 0.3706  H/Hc =     0.74  stagg = 63
+  step 549  u = 5.490e-03  F = 680.2645  d_tip = 0.410  a = 0.3713  H/Hc =     0.76  stagg = 64
+  step 550  u = 5.500e-03  F = 681.0908  d_tip = 0.414  a = 0.3720  H/Hc =     0.79  stagg = 67
+  step 551  u = 5.510e-03  F = 681.8913  d_tip = 0.418  a = 0.3728  H/Hc =     0.81  stagg = 72
+  step 552  u = 5.520e-03  F = 682.6148  d_tip = 0.424  a = 0.3737  H/Hc =     0.84  stagg = 132
+  step 553  u = 5.530e-03  F = 672.1912  d_tip = 0.603  a = 0.3952  H/Hc =     2.03  stagg = 200
+  step 554  u = 5.540e-03  F = 672.9512  d_tip = 0.609  a = 0.3960  H/Hc =     2.14  stagg = 137
+  step 555  u = 5.550e-03  F = 673.4643  d_tip = 0.618  a = 0.3972  H/Hc =     2.32  stagg = 200
+  step 556  u = 5.560e-03  F = 671.7466  d_tip = 0.681  a = 0.4023  H/Hc =     3.04  stagg = 190
+  step 557  u = 5.570e-03  F = 672.5228  d_tip = 0.688  a = 0.4030  H/Hc =     3.11  stagg = 72
+  step 558  u = 5.580e-03  F = 673.3357  d_tip = 0.694  a = 0.4038  H/Hc =     3.16  stagg = 62
+  step 559  u = 5.590e-03  F = 674.1549  d_tip = 0.699  a = 0.4045  H/Hc =     3.21  stagg = 63
+  step 560  u = 5.600e-03  F = 674.9832  d_tip = 0.704  a = 0.4051  H/Hc =     3.36  stagg = 65
+  step 561  u = 5.610e-03  F = 675.8160  d_tip = 0.709  a = 0.4058  H/Hc =     3.54  stagg = 69
+  step 562  u = 5.620e-03  F = 676.6199  d_tip = 0.714  a = 0.4065  H/Hc =     3.75  stagg = 77
+  step 563  u = 5.630e-03  F = 677.3720  d_tip = 0.719  a = 0.4073  H/Hc =     4.01  stagg = 95
+  step 564  u = 5.640e-03  F = 678.0282  d_tip = 0.726  a = 0.4082  H/Hc =     4.36  stagg = 134
+  step 565  u = 5.650e-03  F = 678.3138  d_tip = 0.739  a = 0.4098  H/Hc =     5.04  stagg = 200
+  step 566  u = 5.660e-03  F = 676.7101  d_tip = 0.818  a = 0.4146  H/Hc =     7.10  stagg = 200
+  step 567  u = 5.670e-03  F = 677.3647  d_tip = 0.828  a = 0.4156  H/Hc =     7.28  stagg = 92
+  step 568  u = 5.680e-03  F = 678.0761  d_tip = 0.835  a = 0.4165  H/Hc =     7.37  stagg = 104
+  step 569  u = 5.690e-03  F = 667.8374  d_tip = 0.985  a = 0.4414  H/Hc =    68.75  stagg = 200
+  step 570  u = 5.700e-03  F = 668.7245  d_tip = 0.988  a = 0.4419  H/Hc =    71.78  stagg = 49
+  step 571  u = 5.710e-03  F = 669.5990  d_tip = 0.990  a = 0.4425  H/Hc =    74.80  stagg = 52
+  step 572  u = 5.720e-03  F = 670.4672  d_tip = 0.992  a = 0.4431  H/Hc =    77.75  stagg = 57
+  step 573  u = 5.730e-03  F = 671.3182  d_tip = 0.994  a = 0.4437  H/Hc =    80.83  stagg = 64
+  step 574  u = 5.740e-03  F = 672.1357  d_tip = 0.996  a = 0.4444  H/Hc =    84.31  stagg = 76
+  step 575  u = 5.750e-03  F = 672.8970  d_tip = 0.998  a = 0.4451  H/Hc =    88.51  stagg = 101
+  step 576  u = 5.760e-03  F = 673.5166  d_tip = 1.000  a = 0.4461  H/Hc =    94.53  stagg = 151
+  step 577  u = 5.770e-03  F = 670.4442  d_tip = 1.000  a = 0.4535  H/Hc =   141.60  stagg = 200
+  step 578  u = 5.780e-03  F = 671.2200  d_tip = 1.000  a = 0.4543  H/Hc =   144.16  stagg = 71
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 191 RUNNING AT deb404e24fbc
+=   EXIT CODE: 15
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Terminated (signal 15)
+This typically refers to a problem with your application.
+Please see the FAQ page for debugging suggestions
+=== EXIT=124 2026-11-13T21:06:40Z
