@@ -608,3 +608,33 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
   step 540  u = 5.400e-03  F = 287.9595  d_tip = 0.996  a = 0.5864  H/Hc =  1078.29  stagg = 200
 [0]PETSC ERROR: ------------------------------------------------------------------------
 [4]PETSC ERROR: === EXIT=124 2026-11-13T21:06:52Z
+=== CHANG 4 2026-11-13T21:08:07Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 8  o so huu/ghost = [4989, 5111, 4989, 5111, 4900, 5000, 4900, 5000]/[150, 251, 150, 251, 249, 150, 249, 150]  thieu = 0  crc = dc8e0864  cot qua y=0.5 khac nhan = 200/200
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 52   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 541 (diem kiem buoc 540)
+  step 541  u = 5.410e-03  F = 270.7553  d_tip = 0.996  a = 0.6054  H/Hc =  1099.70  stagg = 200
+  step 542  u = 5.420e-03  F = 250.9893  d_tip = 0.996  a = 0.6271  H/Hc =  1121.93  stagg = 200
+  step 543  u = 5.430e-03  F = 225.1869  d_tip = 0.997  a = 0.6553  H/Hc =  1147.06  stagg = 200
+  step 544  u = 5.440e-03  F = 177.8553  d_tip = 0.997  a = 0.7060  H/Hc =  1182.65  stagg = 200
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 752.3537 N/mm   at step 362 of 544
+  nominal peak stress = 752.3537 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 23.6 % of peak ; final d ahead of the tip = 0.997 ; crack extension = 0.7060 mm (70.6 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  wrote loaddisp_S_dg0_n8_md.txt
+============================================================
+=== EXIT=0 2026-11-13T21:55:32Z
