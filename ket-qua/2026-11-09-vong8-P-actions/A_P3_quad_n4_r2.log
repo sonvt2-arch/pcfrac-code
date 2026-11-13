@@ -691,3 +691,83 @@ error code 60
 [1] Nonconforming object sizes
 [1] Cannot change local size of Amat after use old sizes 3812 3812 new sizes 7692 7692
 === EXIT=1 2026-11-13T15:15:43Z
+=== CHANG 3 2026-11-13T15:17:07Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+  BENCHMARK P3D (tam mong 3D, hex Q1)  dolfinx 0.11.0.post0
+model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zbc faces
+  ramp: 100 fine steps to 1.000e-03, then 700 steps to 8.000e-03
+  LUOI: hex Q1  so phan tu = 20000  so dinh = 30603
+  KHONG GIAN H: --hspace quad   (H tai diem cau phuong, bac 2, 8 diem/o)
+  PHEP TACH NANG LUONG: --split amor (Amor 3D, K = lambda + 2mu/3)
+  DIEU KIEN NGAM: --grip clamp;  z: --zbc faces  (u_z = 0 tren hai mat z = 0, z = t: bien dang phang)
+  NOTCH DOFS (toan cuc) = 153   (mong doi 153)
+  damage threshold H_crit = 1.3500e+02
+  RESUME: bo giai d dang o LU (MUMPS)
+  RESUME: chay tiep tu buoc 593 (diem kiem buoc 592)
+  CHAN DOAN d [LU]: SNES=-3 its=0 KSP=cg/hypre KSP_reason=-8 KSP_its=3 khong_huu_han H/u/d=[0, 0, 0] H_min=1.881e+00
+  *** SNES=-3: DOI SNES d SANG vinewtonssls + LU va giai lai
+Traceback (most recent call last):
+  File "/__w/pcfrac-code/pcfrac-code/code/benchmark_P3d.py", line 499, in <module>
+    reason = solve_damage()
+Traceback (most recent call last):
+  File "/__w/pcfrac-code/pcfrac-code/code/benchmark_P3d.py", line 499, in <module>
+    reason = solve_damage()
+             ^^^^^^^^^^^^^^
+  File "/__w/pcfrac-code/pcfrac-code/code/benchmark_P3d.py", line 352, in solve_damage
+Traceback (most recent call last):
+  File "/__w/pcfrac-code/pcfrac-code/code/benchmark_P3d.py", line 499, in <module>
+    reason = solve_damage()
+             ^^^^^^^^^^^^^^
+  File "/__w/pcfrac-code/pcfrac-code/code/benchmark_P3d.py", line 352, in solve_damage
+Traceback (most recent call last):
+  File "/__w/pcfrac-code/pcfrac-code/code/benchmark_P3d.py", line 499, in <module>
+    reason = solve_damage()
+             ^^^^^^^^^^^^^^
+  File "/__w/pcfrac-code/pcfrac-code/code/benchmark_P3d.py", line 352, in solve_damage
+    prob_d.solve()
+        prob_d.solve()
+  File "/usr/local/dolfinx-real/lib/python3.12/dist-packages/dolfinx/fem/petsc.py", line 1347, in solve
+  File "/usr/local/dolfinx-real/lib/python3.12/dist-packages/dolfinx/fem/petsc.py", line 1347, in solve
+prob_d.solve()       
+      File "/usr/local/dolfinx-real/lib/python3.12/dist-packages/dolfinx/fem/petsc.py", line 1347, in solve
+  ^^^^^^^^^^^^^^
+  File "/__w/pcfrac-code/pcfrac-code/code/benchmark_P3d.py", line 352, in solve_damage
+    prob_d.solve()
+  File "/usr/local/dolfinx-real/lib/python3.12/dist-packages/dolfinx/fem/petsc.py", line 1347, in solve
+    self.solver.solve(None, self.x)
+  File "petsc4py/PETSc/SNES.pyx", line 1740, in petsc4py.PETSc.SNES.solve
+petsc4py.PETSc.Error: error code 60
+[0] SNESSolve() at /usr/local/petsc/src/snes/interface/snes.c:4881
+[0] SNESSolve_VINEWTONSSLS() at /usr/local/petsc/src/snes/impls/vi/ss/viss.c:273
+[0] KSPSetOperators() at /usr/local/petsc/src/ksp/ksp/interface/itcreate.c:551
+[0] PCSetOperators() at /usr/local/petsc/src/ksp/pc/interface/precon.c:1286
+[0] Nonconforming object sizes
+[0] Cannot change local size of Amat after use old sizes 5796 5796 new sizes 7564 7564
+    self.solver.solve(None, self.x)
+  File "petsc4py/PETSc/SNES.pyx", line 1740, in petsc4py.PETSc.SNES.solve
+petsc4py.PETSc.Error: error code 60
+[1] SNESSolve() at /usr/local/petsc/src/snes/interface/snes.c:4881
+[1] SNESSolve_VINEWTONSSLS() at /usr/local/petsc/src/snes/impls/vi/ss/viss.c:273
+[1] KSPSetOperators() at /usr/local/petsc/src/ksp/ksp/interface/itcreate.c:551
+[1] PCSetOperators() at /usr/local/petsc/src/ksp/pc/interface/precon.c:1286
+[1] Nonconforming object sizes
+[1] Cannot change local size of Amat after use old sizes 5467 5467 new sizes 7692 7692
+    self.solver.solve(None, self.x)
+  File "petsc4py/PETSc/SNES.pyx", line 1740, in petsc4py.PETSc.SNES.solve
+petsc4py.PETSc.Error: error code 60
+[2] SNESSolve() at /usr/local/petsc/src/snes/interface/snes.c:4881
+[2] SNESSolve_VINEWTONSSLS() at /usr/local/petsc/src/snes/impls/vi/ss/viss.c:273
+[2] KSPSetOperators() at /usr/local/petsc/src/ksp/ksp/interface/itcreate.c:551
+[2] PCSetOperators() at /usr/local/petsc/src/ksp/pc/interface/precon.c:1286
+[2] Nonconforming object sizes
+[2] Cannot change local size of Amat after use old sizes 3410 3410 new sizes 7685 7685
+    self.solver.solve(None, self.x)
+  File "petsc4py/PETSc/SNES.pyx", line 1740, in petsc4py.PETSc.SNES.solve
+petsc4py.PETSc.Error: error code 60
+[3] SNESSolve() at /usr/local/petsc/src/snes/interface/snes.c:4881
+[3] SNESSolve_VINEWTONSSLS() at /usr/local/petsc/src/snes/impls/vi/ss/viss.c:273
+[3] KSPSetOperators() at /usr/local/petsc/src/ksp/ksp/interface/itcreate.c:551
+[3] PCSetOperators() at /usr/local/petsc/src/ksp/pc/interface/precon.c:1286
+[3] Nonconforming object sizes
+[3] Cannot change local size of Amat after use old sizes 3922 3922 new sizes 7662 7662
+=== EXIT=1 2026-11-13T15:17:14Z
