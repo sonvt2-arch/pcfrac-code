@@ -36,3 +36,42 @@ model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zb
 [0]PETSC ERROR: ------------------------------------------------------------------------
 [0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
 [0]PETSC ERROR: === EXIT=124 2026-11-13T01:48:08Z
+=== CHANG 2 2026-11-13T01:49:23Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+  BENCHMARK P3D (tam mong 3D, hex Q1)  dolfinx 0.11.0.post0
+model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zbc faces
+  ramp: 100 fine steps to 1.000e-03, then 1 steps to 8.000e-03
+  LUOI: hex Q1  so phan tu = 20000  so dinh = 30603
+  KHONG GIAN H: --hspace quad   (H tai diem cau phuong, bac 2, 8 diem/o)
+  PHEP TACH NANG LUONG: --split amor (Amor 3D, K = lambda + 2mu/3)
+  DIEU KIEN NGAM: --grip clamp;  z: --zbc faces  (u_z = 0 tren hai mat z = 0, z = t: bien dang phang)
+  NOTCH DOFS (toan cuc) = 153   (mong doi 153)
+  damage threshold H_crit = 1.3500e+02
+  RESUME: chay tiep tu buoc 25 (diem kiem buoc 24)
+  step  25  u = 2.500e-04  F =  57.2686  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 5s
+  step  26  u = 2.600e-04  F =  59.5587  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 10s
+  step  27  u = 2.700e-04  F =  61.8487  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 15s
+  step  28  u = 2.800e-04  F =  64.1386  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 20s
+  step  29  u = 2.900e-04  F =  66.4284  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 25s
+  step  30  u = 3.000e-04  F =  68.7181  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 30s
+  step  31  u = 3.100e-04  F =  71.0078  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 34s
+  step  32  u = 3.200e-04  F =  73.2974  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 39s
+  step  33  u = 3.300e-04  F =  75.5868  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 44s
+  step  34  u = 3.400e-04  F =  77.8762  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 49s
+  step  35  u = 3.500e-04  F =  80.1654  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 54s
+  step  36  u = 3.600e-04  F =  82.4546  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 59s
+  step  37  u = 3.700e-04  F =  84.7436  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 64s
+  step  38  u = 3.800e-04  F =  87.0326  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 69s
+  step  39  u = 3.900e-04  F =  89.3214  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 74s
+  step  40  u = 4.000e-04  F =  91.6101  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 79s
+
+============================================================
+  model AT2   ell = 0.01 mm   3D hex nx=100 nz=2 t=0.02
+  PEAK LOAD = 91.6101 N/mm   at step 40 of 40
+  final load = 100.0 % of peak ; final d ahead = 0.014 ; crack extension = 0.0000 mm
+  wrote loaddisp_KP3_quad_ck_n4.txt
+============================================================
+  LAT z = 0.0100 (giua): 10201 nut -> damage_AT2_ell0.01.xdmf ; so nut d>0.9: 51
+  LAT z = 0.0000 (_z0): 10201 nut -> damage_AT2_ell0.01_z0.xdmf ; so nut d>0.9: 51
+  LAT z = 0.0200 (_zt): 10201 nut -> damage_AT2_ell0.01_zt.xdmf ; so nut d>0.9: 51
+=== EXIT=0 2026-11-13T01:50:46Z
