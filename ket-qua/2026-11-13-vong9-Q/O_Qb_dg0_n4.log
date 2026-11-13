@@ -1,0 +1,87 @@
+=== CHANG 1 2026-11-13T06:51:07Z tu dau (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+BENCHMARK O (tam chu L)  model=WU  ell=5.0 mm  nx=500  h=1.000 mm  ell/h=5.00  plane=stress
+  ramp: 100 buoc toi 0.5 mm, roi 200 buoc toi 1.5 mm
+  LUOI chu L: so phan tu = 187500  so dinh = 188501
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  TAI: u_y tren 20 canh, y = 250.0, |x - 470.0| <= 10.0 mm; ngam mep y = 0
+  dien tich = 187500.0 mm^2 ; snes_atol = 7.794e-09
+  DCAP: d = 0 tai x > 400.0 mm
+  step   1  u = 5.0000e-03  F =    3.1840  d_goc = 0.000  Gamma = 0.000  stagg = 1  [snes its=0 |F|=0.00e+00]
+  step   2  u = 1.0000e-02  F =    6.3680  d_goc = 0.000  Gamma = 0.000  stagg = 1  [snes its=0 |F|=0.00e+00]
+  step   3  u = 1.5000e-02  F =    9.5519  d_goc = 0.000  Gamma = 0.000  stagg = 1  [snes its=0 |F|=0.00e+00]
+  step   4  u = 2.0000e-02  F =   12.7359  d_goc = 0.000  Gamma = 0.000  stagg = 1
+  step   5  u = 2.5000e-02  F =   15.9188  d_goc = 0.000  Gamma = 0.000  stagg = 9
+  step   6  u = 3.0000e-02  F =   19.0930  d_goc = 0.000  Gamma = 0.001  stagg = 16
+  step   7  u = 3.5000e-02  F =   22.2547  d_goc = 0.000  Gamma = 0.005  stagg = 16
+  step   8  u = 4.0000e-02  F =   25.4037  d_goc = 0.000  Gamma = 0.010  stagg = 19
+  step   9  u = 4.5000e-02  F =   28.5346  d_goc = 0.000  Gamma = 0.020  stagg = 21
+  step  10  u = 5.0000e-02  F =   31.6431  d_goc = 0.000  Gamma = 0.035  stagg = 23
+  step  11  u = 5.5000e-02  F =   34.7254  d_goc = 0.000  Gamma = 0.058  stagg = 26
+  step  12  u = 6.0000e-02  F =   37.7759  d_goc = 0.000  Gamma = 0.090  stagg = 27
+  step  13  u = 6.5000e-02  F =   40.7895  d_goc = 0.000  Gamma = 0.135  stagg = 30
+  step  14  u = 7.0000e-02  F =   43.7608  d_goc = 0.002  Gamma = 0.195  stagg = 31
+  step  15  u = 7.5000e-02  F =   46.6850  d_goc = 0.007  Gamma = 0.274  stagg = 33
+  step  16  u = 8.0000e-02  F =   49.5575  d_goc = 0.011  Gamma = 0.374  stagg = 34
+  step  17  u = 8.5000e-02  F =   52.3727  d_goc = 0.016  Gamma = 0.499  stagg = 37
+  step  18  u = 9.0000e-02  F =   55.1246  d_goc = 0.022  Gamma = 0.655  stagg = 39
+  step  19  u = 9.5000e-02  F =   57.8087  d_goc = 0.028  Gamma = 0.844  stagg = 41
+  step  20  u = 1.0000e-01  F =   60.4200  d_goc = 0.035  Gamma = 1.072  stagg = 41
+  step  21  u = 1.0500e-01  F =   62.9537  d_goc = 0.043  Gamma = 1.343  stagg = 43
+  step  22  u = 1.1000e-01  F =   65.4044  d_goc = 0.052  Gamma = 1.663  stagg = 44
+  step  23  u = 1.1500e-01  F =   67.7672  d_goc = 0.062  Gamma = 2.036  stagg = 45
+  step  24  u = 1.2000e-01  F =   70.0364  d_goc = 0.072  Gamma = 2.469  stagg = 47
+  step  25  u = 1.2500e-01  F =   72.2061  d_goc = 0.084  Gamma = 2.969  stagg = 48
+  step  26  u = 1.3000e-01  F =   74.2718  d_goc = 0.098  Gamma = 3.542  stagg = 49
+  step  27  u = 1.3500e-01  F =   76.2280  d_goc = 0.114  Gamma = 4.193  stagg = 49
+  step  28  u = 1.4000e-01  F =   78.0684  d_goc = 0.132  Gamma = 4.932  stagg = 50
+  step  29  u = 1.4500e-01  F =   79.7832  d_goc = 0.151  Gamma = 5.768  stagg = 52
+  step  30  u = 1.5000e-01  F =   81.3675  d_goc = 0.172  Gamma = 6.710  stagg = 53
+  step  31  u = 1.5500e-01  F =   82.8177  d_goc = 0.195  Gamma = 7.765  stagg = 54
+  step  32  u = 1.6000e-01  F =   84.1306  d_goc = 0.219  Gamma = 8.938  stagg = 55
+  step  33  u = 1.6500e-01  F =   85.3009  d_goc = 0.245  Gamma = 10.239  stagg = 56
+  step  34  u = 1.7000e-01  F =   86.3221  d_goc = 0.273  Gamma = 11.677  stagg = 57
+  step  35  u = 1.7500e-01  F =   87.1843  d_goc = 0.302  Gamma = 13.265  stagg = 59
+  step  36  u = 1.8000e-01  F =   87.8752  d_goc = 0.334  Gamma = 15.020  stagg = 60
+  step  37  u = 1.8500e-01  F =   88.3779  d_goc = 0.368  Gamma = 16.965  stagg = 63
+  step  38  u = 1.9000e-01  F =   88.6700  d_goc = 0.404  Gamma = 19.127  stagg = 65
+  step  39  u = 1.9500e-01  F =   88.7246  d_goc = 0.444  Gamma = 21.541  stagg = 66
+  step  40  u = 2.0000e-01  F =   88.5083  d_goc = 0.486  Gamma = 24.250  stagg = 69
+  step  41  u = 2.0500e-01  F =   87.9791  d_goc = 0.531  Gamma = 27.311  stagg = 73
+  step  42  u = 2.1000e-01  F =   87.0831  d_goc = 0.581  Gamma = 30.796  stagg = 76
+  step  43  u = 2.1500e-01  F =   85.7510  d_goc = 0.635  Gamma = 34.800  stagg = 83
+  step  44  u = 2.2000e-01  F =   83.8891  d_goc = 0.694  Gamma = 39.454  stagg = 89
+  step  45  u = 2.2500e-01  F =   81.3826  d_goc = 0.759  Gamma = 44.924  stagg = 98
+  step  46  u = 2.3000e-01  F =   78.1662  d_goc = 0.830  Gamma = 51.329  stagg = 108
+  step  47  u = 2.3500e-01  F =   74.3998  d_goc = 0.896  Gamma = 58.499  stagg = 116
+  step  48  u = 2.4000e-01  F =   70.5236  d_goc = 0.943  Gamma = 65.858  stagg = 117
+  step  49  u = 2.4500e-01  F =   66.8063  d_goc = 0.968  Gamma = 73.024  stagg = 115
+  step  50  u = 2.5000e-01  F =   63.3267  d_goc = 0.980  Gamma = 79.865  stagg = 114
+  step  51  u = 2.5500e-01  F =   60.0654  d_goc = 0.987  Gamma = 86.398  stagg = 113
+  step  52  u = 2.6000e-01  F =   57.0126  d_goc = 0.991  Gamma = 92.628  stagg = 111
+  step  53  u = 2.6500e-01  F =   54.1783  d_goc = 0.995  Gamma = 98.533  stagg = 109
+  step  54  u = 2.7000e-01  F =   51.5243  d_goc = 0.997  Gamma = 104.163  stagg = 108
+  step  55  u = 2.7500e-01  F =   49.0721  d_goc = 0.999  Gamma = 109.480  stagg = 105
+  step  56  u = 2.8000e-01  F =   46.7637  d_goc = 1.000  Gamma = 114.569  stagg = 107
+  step  57  u = 2.8500e-01  F =   44.6471  d_goc = 1.000  Gamma = 119.351  stagg = 98
+  step  58  u = 2.9000e-01  F =   42.6936  d_goc = 1.000  Gamma = 123.859  stagg = 104
+  step  59  u = 2.9500e-01  F =   40.7816  d_goc = 1.000  Gamma = 128.313  stagg = 100
+  step  60  u = 3.0000e-01  F =   39.1422  d_goc = 1.000  Gamma = 132.289  stagg = 93
+  step  61  u = 3.0500e-01  F =   37.6061  d_goc = 1.000  Gamma = 136.081  stagg = 94
+  step  62  u = 3.1000e-01  F =   35.9874  d_goc = 1.000  Gamma = 140.041  stagg = 108
+  step  63  u = 3.1500e-01  F =   34.5601  d_goc = 1.000  Gamma = 143.660  stagg = 93
+  step  64  u = 3.2000e-01  F =   33.3090  d_goc = 1.000  Gamma = 146.946  stagg = 88
+  step  65  u = 3.2500e-01  F =   32.1621  d_goc = 1.000  Gamma = 150.035  stagg = 85
+  step  66  u = 3.3000e-01  F =   31.0938  d_goc = 1.000  Gamma = 152.973  stagg = 83
+  step  67  u = 3.3500e-01  F =   30.0911  d_goc = 1.000  Gamma = 155.785  stagg = 81
+  step  68  u = 3.4000e-01  F =   29.1423  d_goc = 1.000  Gamma = 158.492  stagg = 78
+  step  69  u = 3.4500e-01  F =   28.1862  d_goc = 1.000  Gamma = 161.220  stagg = 91
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-13T12:11:07Z
