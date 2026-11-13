@@ -1,0 +1,25 @@
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 1 steps to 8.000e-03 (step 7.00e-03)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+Traceback (most recent call last):
+  File "/__w/pcfrac-code/pcfrac-code/code/benchmark_A.py", line 267, in _ph_build
+    part = mesh.create_cell_partitioner(mesh.GhostMode.shared_facet)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/functools.py", line 909, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: _() missing 1 required positional argument: 'max_facet_to_cell_links'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/__w/pcfrac-code/pcfrac-code/code/benchmark_A.py", line 282, in <module>
+    domain = _ph_build()
+             ^^^^^^^^^^^
+  File "/__w/pcfrac-code/pcfrac-code/code/benchmark_A.py", line 270, in _ph_build
+    part = mesh.create_cell_partitioner(_graph.partitioner(), mesh.GhostMode.shared_facet)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/functools.py", line 909, in wrapper
+    return dispatch(args[0].__class__)(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: create_cell_partitioner() missing 1 required positional argument: 'max_facet_to_cell_links'

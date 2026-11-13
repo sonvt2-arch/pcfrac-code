@@ -1,0 +1,87 @@
+--- TP_n1_mac-dinh_x0 EXIT=0 THOI GIAN 3 s
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 1  o so huu/ghost = [40000]/[0]  thieu = 0  crc = 27f1082d  cot qua y=0.5 khac nhan = 0/200
+  H-INVARIANT step1: sum=9.999679932082e-01 max=2.752126990300e-03 L2=3.479653825846e-02
+      not at umax.
+  wrote loaddisp_TP_n1_mac-dinh_x0.txt
+============================================================
+--- TP_n1_do-thi_x0 EXIT=1 THOI GIAN 1 s
+TypeError: _() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: create_cell_partitioner() missing 1 required positional argument: 'max_facet_to_cell_links'
+    return dispatch(args[0].__class__)(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: create_cell_partitioner() missing 1 required positional argument: 'max_facet_to_cell_links'
+--- TP_n1_do-thi_x1 EXIT=1 THOI GIAN 0 s
+TypeError: _() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: create_cell_partitioner() missing 1 required positional argument: 'max_facet_to_cell_links'
+    return dispatch(args[0].__class__)(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: create_cell_partitioner() missing 1 required positional argument: 'max_facet_to_cell_links'
+--- TP_n1_dai-x_x0 EXIT=1 THOI GIAN 0 s
+RuntimeError: std::bad_cast
+    msh: _cpp.mesh.Mesh_float32 | _cpp.mesh.Mesh_float64 = _cpp.mesh.create_mesh(
+                                                           ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: std::bad_cast
+--- TP_n4_mac-dinh_x0 EXIT=0 THOI GIAN 3 s
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [9900, 9900, 10119, 10081]/[201, 197, 201, 201]  thieu = 0  crc = d66f3822  cot qua y=0.5 khac nhan = 0/200
+  H-INVARIANT step1: sum=8.765777256619e-01 max=2.752122912953e-03 L2=2.993338204222e-02
+      not at umax.
+  wrote loaddisp_TP_n4_mac-dinh_x0.txt
+============================================================
+--- TP_n4_do-thi_x0 EXIT=1 THOI GIAN 0 s
+TypeError: _() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: create_cell_partitioner() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: _() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: create_cell_partitioner() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: _() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: create_cell_partitioner() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: _() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: create_cell_partitioner() missing 1 required positional argument: 'max_facet_to_cell_links'
+    return dispatch(args[0].__class__)(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: create_cell_partitioner() missing 1 required positional argument: 'max_facet_to_cell_links'
+--- TP_n4_do-thi_x1 EXIT=1 THOI GIAN 1 s
+TypeError: _() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: _() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: create_cell_partitioner() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: create_cell_partitioner() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: _() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: create_cell_partitioner() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: _() missing 1 required positional argument: 'max_facet_to_cell_links'
+TypeError: create_cell_partitioner() missing 1 required positional argument: 'max_facet_to_cell_links'
+    return dispatch(args[0].__class__)(*args, **kw)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: create_cell_partitioner() missing 1 required positional argument: 'max_facet_to_cell_links'
+--- TP_n4_dai-x_x0 EXIT=1 THOI GIAN 1 s
+RuntimeError: std::bad_cast
+RuntimeError: std::bad_cast
+RuntimeError: std::bad_cast
+RuntimeError: std::bad_cast
+    msh: _cpp.mesh.Mesh_float32 | _cpp.mesh.Mesh_float64 = _cpp.mesh.create_mesh(
+                                                           ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: std::bad_cast
+--- TP_n4_dai-y_x0 EXIT=1 THOI GIAN 0 s
+RuntimeError: std::bad_cast
+RuntimeError: std::bad_cast
+RuntimeError: std::bad_cast
+RuntimeError: std::bad_cast
+    msh: _cpp.mesh.Mesh_float32 | _cpp.mesh.Mesh_float64 = _cpp.mesh.create_mesh(
+                                                           ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: std::bad_cast
+--- TP_n2_dai-y_x0 EXIT=1 THOI GIAN 1 s
+RuntimeError: std::bad_cast
+RuntimeError: std::bad_cast
+    msh: _cpp.mesh.Mesh_float32 | _cpp.mesh.Mesh_float64 = _cpp.mesh.create_mesh(
+                                                           ^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: std::bad_cast
+--- TP_n6_mac-dinh_x0 EXIT=0 THOI GIAN 7 s
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 6  o so huu/ghost = [6534, 6732, 6534, 6666, 6767, 6767]/[165, 266, 165, 167, 168, 269]  thieu = 0  crc = db568412  cot qua y=0.5 khac nhan = 0/200
+  H-INVARIANT step1: sum=8.926874015503e-01 max=2.752118813287e-03 L2=3.071716271079e-02
+      not at umax.
+  wrote loaddisp_TP_n6_mac-dinh_x0.txt
+============================================================
+--- TP_n8_mac-dinh_x0 EXIT=0 THOI GIAN 9 s
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 8  o so huu/ghost = [4989, 5111, 4989, 5111, 4900, 5000, 4900, 5000]/[150, 251, 150, 251, 249, 150, 249, 150]  thieu = 0  crc = dc8e0864  cot qua y=0.5 khac nhan = 200/200
+  H-INVARIANT step1: sum=9.999248808920e-01 max=2.752377654224e-03 L2=3.479703440349e-02
+      not at umax.
+  wrote loaddisp_TP_n8_mac-dinh_x0.txt
+============================================================
