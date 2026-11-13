@@ -1,0 +1,38 @@
+=== CHANG 1 2026-11-13T01:46:08Z tu dau (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+  BENCHMARK P3D (tam mong 3D, hex Q1)  dolfinx 0.11.0.post0
+model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zbc faces
+  ramp: 100 fine steps to 1.000e-03, then 1 steps to 8.000e-03
+  LUOI: hex Q1  so phan tu = 20000  so dinh = 30603
+  KHONG GIAN H: --hspace quad   (H tai diem cau phuong, bac 2, 8 diem/o)
+  PHEP TACH NANG LUONG: --split amor (Amor 3D, K = lambda + 2mu/3)
+  DIEU KIEN NGAM: --grip clamp;  z: --zbc faces  (u_z = 0 tren hai mat z = 0, z = t: bien dang phang)
+  NOTCH DOFS (toan cuc) = 153   (mong doi 153)
+  damage threshold H_crit = 1.3500e+02
+  step   1  u = 1.000e-05  F =   2.2911  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 5s
+  step   2  u = 2.000e-05  F =   4.5821  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 10s
+  step   3  u = 3.000e-05  F =   6.8732  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 15s
+  step   4  u = 4.000e-05  F =   9.1642  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 20s
+  step   5  u = 5.000e-05  F =  11.4552  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 24s
+  step   6  u = 6.000e-05  F =  13.7462  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 29s
+  step   7  u = 7.000e-05  F =  16.0372  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 34s
+  step   8  u = 8.000e-05  F =  18.3282  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 39s
+  step   9  u = 9.000e-05  F =  20.6192  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 44s
+  step  10  u = 1.000e-04  F =  22.9101  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 49s
+  step  11  u = 1.100e-04  F =  25.2010  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 53s
+  step  12  u = 1.200e-04  F =  27.4918  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 58s
+  step  13  u = 1.300e-04  F =  29.7826  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 63s
+  step  14  u = 1.400e-04  F =  32.0734  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 68s
+  step  15  u = 1.500e-04  F =  34.3642  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 73s
+  step  16  u = 1.600e-04  F =  36.6549  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 77s
+  step  17  u = 1.700e-04  F =  38.9455  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 82s
+  step  18  u = 1.800e-04  F =  41.2361  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 87s
+  step  19  u = 1.900e-04  F =  43.5266  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 92s
+  step  20  u = 2.000e-04  F =  45.8171  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 97s
+  step  21  u = 2.100e-04  F =  48.1076  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 102s
+  step  22  u = 2.200e-04  F =  50.3979  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 106s
+  step  23  u = 2.300e-04  F =  52.6882  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 111s
+  step  24  u = 2.400e-04  F =  54.9784  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 116s
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: === EXIT=124 2026-11-13T01:48:08Z
