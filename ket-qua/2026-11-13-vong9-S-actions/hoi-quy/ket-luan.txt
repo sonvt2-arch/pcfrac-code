@@ -1,4 +1,4 @@
-=== MAY: 4 nhan;  AMD EPYC 9V45 96-Core Processor
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
 --- HP_cg1_n1_cu1 EXIT=0
 --- HP_cg1_n1_moi EXIT=0
 --- HP_cg1_n1_moimd EXIT=0
@@ -27,43 +27,43 @@ HP_cg1_n2: cu1 vs cu2: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)
 HP_dg0_n2: cu1 vs moi: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)
 HP_dg0_n2: cu1 vs moimd: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)
 HP_dg0_n2: cu1 vs cu2: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_cu1.log:  H-INVARIANT step1: sum=9.999679932082e-01 max=2.752126990300e-03 L2=3.479653825846e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_cu1.log:  H-INVARIANT step40: sum=1.492854506674e+03 max=4.475126624799e+00 L2=5.606490247093e+01
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_cu2.log:  H-INVARIANT step1: sum=9.999679932082e-01 max=2.752126990300e-03 L2=3.479653825846e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_cu2.log:  H-INVARIANT step40: sum=1.492854506674e+03 max=4.475126624799e+00 L2=5.606490247093e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_cu1.log:  H-INVARIANT step1: sum=9.999679932086e-01 max=2.752126990325e-03 L2=3.479653825850e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_cu1.log:  H-INVARIANT step40: sum=1.492854506676e+03 max=4.475126624825e+00 L2=5.606490247102e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_cu2.log:  H-INVARIANT step1: sum=9.999679932086e-01 max=2.752126990325e-03 L2=3.479653825850e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_cu2.log:  H-INVARIANT step40: sum=1.492854506676e+03 max=4.475126624825e+00 L2=5.606490247102e+01
 ../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_moi.log:  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 1  o so huu/ghost = [40000]/[0]  thieu = 0  crc = 27f1082d  cot qua y=0.5 khac nhan = 0/200
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_moi.log:  H-INVARIANT step1: sum=9.999679932082e-01 max=2.752126990300e-03 L2=3.479653825846e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_moi.log:  H-INVARIANT step40: sum=1.492854506674e+03 max=4.475126624799e+00 L2=5.606490247093e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_moi.log:  H-INVARIANT step1: sum=9.999679932086e-01 max=2.752126990325e-03 L2=3.479653825850e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_moi.log:  H-INVARIANT step40: sum=1.492854506676e+03 max=4.475126624825e+00 L2=5.606490247102e+01
 ../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_moimd.log:  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 1  o so huu/ghost = [40000]/[0]  thieu = 0  crc = 27f1082d  cot qua y=0.5 khac nhan = 0/200
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_moimd.log:  H-INVARIANT step1: sum=9.999679932082e-01 max=2.752126990300e-03 L2=3.479653825846e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_moimd.log:  H-INVARIANT step40: sum=1.492854506674e+03 max=4.475126624799e+00 L2=5.606490247093e+01
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_cu1.log:  H-INVARIANT step1: sum=8.713438520247e-01 max=2.752122055161e-03 L2=2.966602398778e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_cu1.log:  H-INVARIANT step40: sum=1.283395423414e+03 max=4.461921020646e+00 L2=4.760189106512e+01
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_cu2.log:  H-INVARIANT step1: sum=8.713438520247e-01 max=2.752122055161e-03 L2=2.966602398778e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_cu2.log:  H-INVARIANT step40: sum=1.283395423414e+03 max=4.461921020646e+00 L2=4.760189106512e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_moimd.log:  H-INVARIANT step1: sum=9.999679932086e-01 max=2.752126990325e-03 L2=3.479653825850e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n1_moimd.log:  H-INVARIANT step40: sum=1.492854506676e+03 max=4.475126624825e+00 L2=5.606490247102e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_cu1.log:  H-INVARIANT step1: sum=8.713438520249e-01 max=2.752122055173e-03 L2=2.966602398779e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_cu1.log:  H-INVARIANT step40: sum=1.283395423413e+03 max=4.461921020587e+00 L2=4.760189106492e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_cu2.log:  H-INVARIANT step1: sum=8.713438520249e-01 max=2.752122055173e-03 L2=2.966602398779e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_cu2.log:  H-INVARIANT step40: sum=1.283395423413e+03 max=4.461921020587e+00 L2=4.760189106492e+01
 ../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_moi.log:  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 2  o so huu/ghost = [19800, 20200]/[200, 200]  thieu = 0  crc = e8cc7ba6  cot qua y=0.5 khac nhan = 0/200
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_moi.log:  H-INVARIANT step1: sum=8.713438520247e-01 max=2.752122055161e-03 L2=2.966602398778e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_moi.log:  H-INVARIANT step40: sum=1.283395423414e+03 max=4.461921020646e+00 L2=4.760189106512e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_moi.log:  H-INVARIANT step1: sum=8.713438520249e-01 max=2.752122055173e-03 L2=2.966602398779e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_moi.log:  H-INVARIANT step40: sum=1.283395423413e+03 max=4.461921020587e+00 L2=4.760189106492e+01
 ../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_moimd.log:  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 2  o so huu/ghost = [19800, 20200]/[200, 200]  thieu = 0  crc = e8cc7ba6  cot qua y=0.5 khac nhan = 0/200
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_moimd.log:  H-INVARIANT step1: sum=8.713438520247e-01 max=2.752122055161e-03 L2=2.966602398778e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_moimd.log:  H-INVARIANT step40: sum=1.283395423414e+03 max=4.461921020646e+00 L2=4.760189106512e+01
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_cu1.log:  H-INVARIANT step1: sum=9.926210877055e-01 max=2.751932624854e-03 L2=3.474721726742e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_cu1.log:  H-INVARIANT step40: sum=1.480918520335e+03 max=4.430135529925e+00 L2=5.587626607254e+01
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_cu2.log:  H-INVARIANT step1: sum=9.926210877055e-01 max=2.751932624854e-03 L2=3.474721726742e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_cu2.log:  H-INVARIANT step40: sum=1.480918520335e+03 max=4.430135529925e+00 L2=5.587626607254e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_moimd.log:  H-INVARIANT step1: sum=8.713438520249e-01 max=2.752122055173e-03 L2=2.966602398779e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_cg1_n2_moimd.log:  H-INVARIANT step40: sum=1.283395423413e+03 max=4.461921020587e+00 L2=4.760189106492e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_cu1.log:  H-INVARIANT step1: sum=9.926210877057e-01 max=2.751932624854e-03 L2=3.474721726744e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_cu1.log:  H-INVARIANT step40: sum=1.480918520336e+03 max=4.430135529925e+00 L2=5.587626607256e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_cu2.log:  H-INVARIANT step1: sum=9.926210877057e-01 max=2.751932624854e-03 L2=3.474721726744e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_cu2.log:  H-INVARIANT step40: sum=1.480918520336e+03 max=4.430135529925e+00 L2=5.587626607256e+01
 ../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_moi.log:  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 1  o so huu/ghost = [40000]/[0]  thieu = 0  crc = 27f1082d  cot qua y=0.5 khac nhan = 0/200
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_moi.log:  H-INVARIANT step1: sum=9.926210877055e-01 max=2.751932624854e-03 L2=3.474721726742e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_moi.log:  H-INVARIANT step40: sum=1.480918520335e+03 max=4.430135529925e+00 L2=5.587626607254e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_moi.log:  H-INVARIANT step1: sum=9.926210877057e-01 max=2.751932624854e-03 L2=3.474721726744e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_moi.log:  H-INVARIANT step40: sum=1.480918520336e+03 max=4.430135529925e+00 L2=5.587626607256e+01
 ../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_moimd.log:  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 1  o so huu/ghost = [40000]/[0]  thieu = 0  crc = 27f1082d  cot qua y=0.5 khac nhan = 0/200
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_moimd.log:  H-INVARIANT step1: sum=9.926210877055e-01 max=2.751932624854e-03 L2=3.474721726742e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_moimd.log:  H-INVARIANT step40: sum=1.480918520335e+03 max=4.430135529925e+00 L2=5.587626607254e+01
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_cu1.log:  H-INVARIANT step1: sum=9.926210878368e-01 max=2.751932627840e-03 L2=3.474721727697e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_cu1.log:  H-INVARIANT step40: sum=1.480918520501e+03 max=4.430135533557e+00 L2=5.587626608567e+01
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_cu2.log:  H-INVARIANT step1: sum=9.926210878368e-01 max=2.751932627840e-03 L2=3.474721727697e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_cu2.log:  H-INVARIANT step40: sum=1.480918520501e+03 max=4.430135533557e+00 L2=5.587626608567e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_moimd.log:  H-INVARIANT step1: sum=9.926210877057e-01 max=2.751932624854e-03 L2=3.474721726744e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n1_moimd.log:  H-INVARIANT step40: sum=1.480918520336e+03 max=4.430135529925e+00 L2=5.587626607256e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_cu1.log:  H-INVARIANT step1: sum=9.926210878370e-01 max=2.751932627840e-03 L2=3.474721727698e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_cu1.log:  H-INVARIANT step40: sum=1.480918520501e+03 max=4.430135533558e+00 L2=5.587626608569e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_cu2.log:  H-INVARIANT step1: sum=9.926210878370e-01 max=2.751932627840e-03 L2=3.474721727698e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_cu2.log:  H-INVARIANT step40: sum=1.480918520501e+03 max=4.430135533558e+00 L2=5.587626608569e+01
 ../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_moi.log:  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 2  o so huu/ghost = [19800, 20200]/[200, 200]  thieu = 0  crc = e8cc7ba6  cot qua y=0.5 khac nhan = 0/200
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_moi.log:  H-INVARIANT step1: sum=9.926210878368e-01 max=2.751932627840e-03 L2=3.474721727697e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_moi.log:  H-INVARIANT step40: sum=1.480918520501e+03 max=4.430135533557e+00 L2=5.587626608567e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_moi.log:  H-INVARIANT step1: sum=9.926210878370e-01 max=2.751932627840e-03 L2=3.474721727698e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_moi.log:  H-INVARIANT step40: sum=1.480918520501e+03 max=4.430135533558e+00 L2=5.587626608569e+01
 ../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_moimd.log:  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 2  o so huu/ghost = [19800, 20200]/[200, 200]  thieu = 0  crc = e8cc7ba6  cot qua y=0.5 khac nhan = 0/200
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_moimd.log:  H-INVARIANT step1: sum=9.926210878368e-01 max=2.751932627840e-03 L2=3.474721727697e-02
-../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_moimd.log:  H-INVARIANT step40: sum=1.480918520501e+03 max=4.430135533557e+00 L2=5.587626608567e+01
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_moimd.log:  H-INVARIANT step1: sum=9.926210878370e-01 max=2.751932627840e-03 L2=3.474721727698e-02
+../ket-qua/2026-11-13-vong9-S-actions/hoi-quy/A_HP_dg0_n2_moimd.log:  H-INVARIANT step40: sum=1.480918520501e+03 max=4.430135533558e+00 L2=5.587626608569e+01

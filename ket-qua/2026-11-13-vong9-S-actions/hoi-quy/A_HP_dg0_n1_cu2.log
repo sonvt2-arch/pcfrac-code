@@ -8,7 +8,7 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
   DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
   NOTCH DOFS (nhan 0, cuc bo) = 101   sharp=True
   damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
-  H-INVARIANT step1: sum=9.926210877055e-01 max=2.751932624854e-03 L2=3.474721726742e-02
+  H-INVARIANT step1: sum=9.926210877057e-01 max=2.751932624854e-03 L2=3.474721726744e-02
   step   1  u = 1.000e-05  F =   2.2296  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
   step   2  u = 2.000e-05  F =   4.4591  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
   step   3  u = 3.000e-05  F =   6.6887  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
@@ -48,7 +48,7 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
   step  37  u = 3.700e-04  F =  82.4590  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
   step  38  u = 3.800e-04  F =  84.6856  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
   step  39  u = 3.900e-04  F =  86.9121  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
-  H-INVARIANT step40: sum=1.480918520335e+03 max=4.430135529925e+00 L2=5.587626607254e+01
+  H-INVARIANT step40: sum=1.480918520336e+03 max=4.430135529925e+00 L2=5.587626607256e+01
   step  40  u = 4.000e-04  F =  89.1385  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
 
 ============================================================
