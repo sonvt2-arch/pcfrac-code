@@ -273,23 +273,38 @@ else:
 F_d = ufl.derivative(E_damage, d, q)
 J_d = ufl.derivative(F_d, d, ufl.TrialFunction(V_d))
 if _SNES_STYLE:
-    prob_d = NonlinearProblem(
-        F_d, d, bcs=bc_d, J=J_d, petsc_options_prefix="d_",
-        petsc_options={"snes_type": "vinewtonrsls", "snes_rtol": 1e-8,
-                       "snes_atol": 1e-10, "snes_max_it": 40,
-                       "ksp_type": "cg", "pc_type": "hypre", "ksp_rtol": 1e-10})
+    _OPT_D = {"snes_type": "vinewtonrsls", "snes_rtol": 1e-8,
+              "snes_atol": 1e-10, "snes_max_it": 40,
+              "ksp_type": "cg", "pc_type": "hypre", "ksp_rtol": 1e-10}
+    # Du phong LU (13/11, vong 9-T): doi loai KSP/PC tren SNES co san KHONG co
+    # hieu luc (P3_quad_n4_r2: sau "doi sang LU" chan doan van in KSP=cg/hypre --
+    # NonlinearProblem dat lai tuy chon cua no moi lan giai), nen du phong tao
+    # MOT NonlinearProblem MOI (tien to rieng "dlu_") voi preonly + LU (MUMPS),
+    # cung F_d, J_d, d, bc.  Ban 10/11 (doi tren SNES cu) vi vay chua tung chay
+    # LU that; P3_dg0_n4_r2 khong bao gio vo nen khong bi anh huong.
+    _OPT_LU = dict(_OPT_D, ksp_type="preonly", pc_type="lu",
+                   pc_factor_mat_solver_type="mumps")
+    _PD = [NonlinearProblem(F_d, d, bcs=bc_d, J=J_d, petsc_options_prefix="d_",
+                            petsc_options=_OPT_D)]
     _lb_d, _ub_d = Function(V_d), Function(V_d)
     _LU = [False]
-    _SS = [False]
     _ndiag = [0]
+
+    def _dung_LU(ly_do):
+        _LU[0] = True
+        _PD[0] = NonlinearProblem(F_d, d, bcs=bc_d, J=J_d, petsc_options_prefix="dlu_",
+                                  petsc_options=_OPT_LU)
+        if comm.rank == 0:
+            print(f"  *** {ly_do}: BO GIAI d = NonlinearProblem MOI, preonly + LU (MUMPS)",
+                  flush=True)
 
     def _chan_doan_d(r, nhan):
         """Chi in khi bo giai d vo (13/11, vong 9-T): loai KSP/PC dang dung,
         ly do KSP, so vong, va so phan tu khong huu han trong H, u, d."""
-        if _ndiag[0] >= 5:
+        if _ndiag[0] >= 8:
             return
         _ndiag[0] += 1
-        sn = prob_d.solver
+        sn = _PD[0].solver
         ksp = sn.getKSP()
         nf = [comm.allreduce(int(np.count_nonzero(~np.isfinite(f.x.array))), op=MPI.SUM)
               for f in (H, u, d)]
@@ -301,58 +316,24 @@ if _SNES_STYLE:
                   flush=True)
     _ub_d.x.array[:] = 1.0
 
+    def _giai_d():
+        _PD[0].solver.setVariableBounds(_lb_d.x.petsc_vec, _ub_d.x.petsc_vec)
+        _PD[0].solve()
+        return _PD[0].solver.getConvergedReason()
+
     def solve_damage():
         _lb_d.x.array[:] = d.x.array
-        prob_d.solver.setVariableBounds(_lb_d.x.petsc_vec, _ub_d.x.petsc_vec)
-        prob_d.solve()
-        try:
-            r = prob_d.solver.getConvergedReason()
-        except Exception:
-            return None
+        r = _giai_d()
         if r <= 0:
-            _chan_doan_d(r, "CG+hypre" if not _LU[0] else "LU")
+            _chan_doan_d(r, "LU" if _LU[0] else "CG+hypre")
         if r <= 0 and not _LU[0]:
-            # Du phong (10/11/2026): CG + hypre cho he Newton cua d co the vo
-            # (SNES -3, DIVERGED_LINEAR_SOLVE) khi d ~ 1 o 3D; P3_dg0 lan 1 dung
-            # o buoc 572 vi vay.  Lan dau gap: chuyen VINH VIEN sang LU (MUMPS),
-            # dat lai d ve diem xuat phat va giai lai buoc nay.  Truoc lan vo dau
-            # tien, ket qua trung tung bit voi ban khong co du phong.
-            _LU[0] = True
-            _ksp = prob_d.solver.getKSP()
-            _ksp.setType("preonly")
-            _pc = _ksp.getPC()
-            _pc.setType("lu")
-            _pc.setFactorSolverType("mumps")
-            # 13/11 (vong 9-T): dat ca vao co so du lieu tuy chon de lan
-            # setFromOptions nao sau nay cung khong tra ve CG + hypre.
-            _o = PETSc.Options()
-            _o["d_ksp_type"] = "preonly"
-            _o["d_pc_type"] = "lu"
-            _o["d_pc_factor_mat_solver_type"] = "mumps"
-            if comm.rank == 0:
-                print(f"  *** SNES={r}: DOI BO GIAI d SANG LU (MUMPS) va giai lai", flush=True)
+            # Lan vo dau: chuyen VINH VIEN sang LU, dat lai d ve diem xuat phat
+            # va giai lai buoc nay.  Truoc lan vo dau: trung tung bit ban cu.
+            _dung_LU(f"SNES={r}")
             d.x.array[:] = _lb_d.x.array
             d.x.scatter_forward()
-            prob_d.solver.setVariableBounds(_lb_d.x.petsc_vec, _ub_d.x.petsc_vec)
-            prob_d.solve()
-            r = prob_d.solver.getConvergedReason()
-            if r <= 0:
-                _chan_doan_d(r, "LU (giai lai)")
-        if r <= 0 and _LU[0] and not _SS[0]:
-            # Bac du phong 2 (13/11, vong 9-T): P3_quad_n4 vo ca voi LU o buoc
-            # 589.  Chuyen VINH VIEN SNES sang vinewtonssls (semismooth, khong
-            # cat he theo tap hoat) + LU, dat lai d va giai lai buoc nay.
-            _SS[0] = True
-            prob_d.solver.setType("vinewtonssls")
-            if comm.rank == 0:
-                print(f"  *** SNES={r}: DOI SNES d SANG vinewtonssls + LU va giai lai", flush=True)
-            d.x.array[:] = _lb_d.x.array
-            d.x.scatter_forward()
-            prob_d.solver.setVariableBounds(_lb_d.x.petsc_vec, _ub_d.x.petsc_vec)
-            prob_d.solve()
-            r = prob_d.solver.getConvergedReason()
-            if r <= 0:
-                _chan_doan_d(r, "vinewtonssls + LU")
+            r = _giai_d()
+            _chan_doan_d(r, "LU (giai lai, kiem loai KSP)")
         return r
 else:
     prob_d = NonlinearProblem(F_d, d, bcs=bc_d, J=J_d)
@@ -400,7 +381,7 @@ def _ck_save(step):
         _os.makedirs(_ck_dir, exist_ok=True)
     comm.barrier()
     f = _ck_path(step % 2)
-    np.savez(f + ".tmp.npz", step=step, n_bad=n_bad, lu=int(_SNES_STYLE and _LU[0]), ss=int(_SNES_STYLE and _SS[0]),
+    np.savez(f + ".tmp.npz", step=step, n_bad=n_bad, lu=int(_SNES_STYLE and _LU[0]),
              gamma0=np.nan if Gamma0 is None else Gamma0,
              hist=np.array(hist, dtype=float).reshape(-1, 5), xyz=_ck_xyz(),
              **{k: fn.x.array for k, fn in _ck_funcs})
@@ -456,18 +437,7 @@ if args.resume:
             fn.x.scatter_forward()
         n_bad = int(z["n_bad"])
         if _SNES_STYLE and "lu" in z.files and int(z["lu"]):
-            _LU[0] = True
-            _ksp = prob_d.solver.getKSP()
-            _ksp.setType("preonly")
-            _ksp.getPC().setType("lu")
-            _ksp.getPC().setFactorSolverType("mumps")
-            if comm.rank == 0:
-                print("  RESUME: bo giai d dang o LU (MUMPS)", flush=True)
-        if _SNES_STYLE and "ss" in z.files and int(z["ss"]):
-            _SS[0] = True
-            prob_d.solver.setType("vinewtonssls")
-            if comm.rank == 0:
-                print("  RESUME: SNES d dang o vinewtonssls", flush=True)
+            _dung_LU("RESUME (diem kiem dang o LU)")
         Gamma0 = None if np.isnan(float(z["gamma0"])) else float(z["gamma0"])
         hist = [tuple(r) for r in z["hist"]]
     start_step = _s + 1
