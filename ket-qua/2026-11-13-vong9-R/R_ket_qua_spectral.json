@@ -1,0 +1,84 @@
+{
+ "Q1": {
+  "so_diem_tam": 192,
+  "h_luoi": 0.004999999999999893,
+  "dau": [
+   0.4864,
+   0.49
+  ],
+  "cuoi": [
+   0.6238,
+   0.0183
+  ],
+  "r_max": 0.49749999999998984,
+  "goc_2ell": -75.53798999015534,
+  "cuaso_2ell": 36,
+  "cuaso_huong_len_2ell": 0,
+  "cuaso_min_max_2ell": [
+   -132.16,
+   -58.82
+  ],
+  "goc_4ell": -71.92128280524489,
+  "cuaso_4ell": 22,
+  "cuaso_huong_len_4ell": 0,
+  "cuaso_min_max_4ell": [
+   -78.25,
+   -58.83
+  ],
+  "goc_6ell": -74.30566316844612,
+  "cuaso_6ell": 14,
+  "cuaso_huong_len_6ell": 0,
+  "cuaso_min_max_6ell": [
+   -88.34,
+   -63.49
+  ],
+  "muc_dung": "6ell",
+  "theta": -74.30566316844612,
+  "tep": "MH_S_cg1_n1.xdmf",
+  "khoa_buoc": "0"
+ },
+ "DG0": {
+  "so_diem_tam": 218,
+  "h_luoi": 0.004999999999999893,
+  "dau": [
+   0.493,
+   0.4878
+  ],
+  "cuoi": [
+   0.8181,
+   0.0361
+  ],
+  "r_max": 0.5624999999999885,
+  "goc_2ell": -54.73304673129641,
+  "cuaso_2ell": 47,
+  "cuaso_huong_len_2ell": 0,
+  "cuaso_min_max_2ell": [
+   -64.21,
+   -42.41
+  ],
+  "goc_4ell": -54.46207720585942,
+  "cuaso_4ell": 27,
+  "cuaso_huong_len_4ell": 0,
+  "cuaso_min_max_4ell": [
+   -62.34,
+   -43.55
+  ],
+  "goc_6ell": -55.05878032775292,
+  "cuaso_6ell": 17,
+  "cuaso_huong_len_6ell": 0,
+  "cuaso_min_max_6ell": [
+   -62.37,
+   -44.05
+  ],
+  "muc_dung": "6ell",
+  "theta": -55.05878032775292,
+  "tep": "MH_S_dg0_n1.xdmf",
+  "khoa_buoc": "0"
+ },
+ "hausdorff_mm": 0.19510046710657547,
+ "hausdorff_ell": 19.510046710657548,
+ "hausdorff_r_chung_mm": 0.15953700878581065,
+ "r_chung": 0.49749999999998984,
+ "delta": 19.24688284069319,
+ "phan_quyet_theo_chu": "co do lech"
+}
