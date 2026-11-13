@@ -85,3 +85,79 @@ BENCHMARK O (tam chu L)  model=WU  ell=5.0 mm  nx=500  h=1.000 mm  ell/h=5.00  p
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-13T12:11:07Z
+=== CHANG 2 2026-11-13T12:15:41Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+BENCHMARK O (tam chu L)  model=WU  ell=5.0 mm  nx=500  h=1.000 mm  ell/h=5.00  plane=stress
+  ramp: 100 buoc toi 0.5 mm, roi 200 buoc toi 1.5 mm
+  LUOI chu L: so phan tu = 187500  so dinh = 188501
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  TAI: u_y tren 20 canh, y = 250.0, |x - 470.0| <= 10.0 mm; ngam mep y = 0
+  dien tich = 187500.0 mm^2 ; snes_atol = 7.794e-09
+  DCAP: d = 0 tai x > 400.0 mm
+  RESUME: chay tiep tu buoc 70 (diem kiem buoc 69)
+  step  70  u = 3.5000e-01  F =   27.1661  d_goc = 1.000  Gamma = 164.100  stagg = 104
+  step  71  u = 3.5500e-01  F =   26.2578  d_goc = 1.000  Gamma = 166.755  stagg = 90
+  step  72  u = 3.6000e-01  F =   25.4458  d_goc = 1.000  Gamma = 169.206  stagg = 85
+  step  73  u = 3.6500e-01  F =   24.6946  d_goc = 1.000  Gamma = 171.527  stagg = 85
+  step  74  u = 3.7000e-01  F =   23.9932  d_goc = 1.000  Gamma = 173.740  stagg = 83
+  step  75  u = 3.7500e-01  F =   23.3349  d_goc = 1.000  Gamma = 175.861  stagg = 81
+  step  76  u = 3.8000e-01  F =   22.7154  d_goc = 1.000  Gamma = 177.897  stagg = 80
+  step  77  u = 3.8500e-01  F =   22.1311  d_goc = 1.000  Gamma = 179.854  stagg = 78
+  step  78  u = 3.9000e-01  F =   21.5791  d_goc = 1.000  Gamma = 181.740  stagg = 77
+  step  79  u = 3.9500e-01  F =   21.0568  d_goc = 1.000  Gamma = 183.559  stagg = 76
+  step  80  u = 4.0000e-01  F =   20.5622  d_goc = 1.000  Gamma = 185.314  stagg = 76
+  step  81  u = 4.0500e-01  F =   20.0936  d_goc = 1.000  Gamma = 187.008  stagg = 75
+  step  82  u = 4.1000e-01  F =   19.6491  d_goc = 1.000  Gamma = 188.646  stagg = 75
+  step  83  u = 4.1500e-01  F =   19.2274  d_goc = 1.000  Gamma = 190.230  stagg = 74
+  step  84  u = 4.2000e-01  F =   18.8274  d_goc = 1.000  Gamma = 191.762  stagg = 74
+  step  85  u = 4.2500e-01  F =   18.4472  d_goc = 1.000  Gamma = 193.245  stagg = 74
+  step  86  u = 4.3000e-01  F =   18.0853  d_goc = 1.000  Gamma = 194.684  stagg = 71
+  step  87  u = 4.3500e-01  F =   17.7418  d_goc = 1.000  Gamma = 196.076  stagg = 71
+  step  88  u = 4.4000e-01  F =   17.4151  d_goc = 1.000  Gamma = 197.427  stagg = 72
+  step  89  u = 4.4500e-01  F =   17.1038  d_goc = 1.000  Gamma = 198.737  stagg = 69
+  step  90  u = 4.5000e-01  F =   16.8077  d_goc = 1.000  Gamma = 200.009  stagg = 69
+  step  91  u = 4.5500e-01  F =   16.5259  d_goc = 1.000  Gamma = 201.242  stagg = 71
+  step  92  u = 4.6000e-01  F =   16.2565  d_goc = 1.000  Gamma = 202.444  stagg = 68
+  step  93  u = 4.6500e-01  F =   16.0009  d_goc = 1.000  Gamma = 203.608  stagg = 69
+  step  94  u = 4.7000e-01  F =   15.7568  d_goc = 1.000  Gamma = 204.741  stagg = 66
+  step  95  u = 4.7500e-01  F =   15.5238  d_goc = 1.000  Gamma = 205.844  stagg = 67
+  step  96  u = 4.8000e-01  F =   15.3022  d_goc = 1.000  Gamma = 206.916  stagg = 65
+  step  97  u = 4.8500e-01  F =   15.0901  d_goc = 1.000  Gamma = 207.961  stagg = 66
+  step  98  u = 4.9000e-01  F =   14.8885  d_goc = 1.000  Gamma = 208.976  stagg = 64
+  step  99  u = 4.9500e-01  F =   14.6960  d_goc = 1.000  Gamma = 209.966  stagg = 66
+  step 100  u = 5.0000e-01  F =   14.5120  d_goc = 1.000  Gamma = 210.931  stagg = 64
+  step 101  u = 5.0500e-01  F =   14.3373  d_goc = 1.000  Gamma = 211.869  stagg = 65
+  step 102  u = 5.1000e-01  F =   14.1693  d_goc = 1.000  Gamma = 212.787  stagg = 64
+  step 103  u = 5.1500e-01  F =   14.0103  d_goc = 1.000  Gamma = 213.678  stagg = 65
+  step 104  u = 5.2000e-01  F =   13.8567  d_goc = 1.000  Gamma = 214.553  stagg = 63
+  step 105  u = 5.2500e-01  F =   13.7108  d_goc = 1.000  Gamma = 215.405  stagg = 61
+  step 106  u = 5.3000e-01  F =   13.5719  d_goc = 1.000  Gamma = 216.236  stagg = 63
+  step 107  u = 5.3500e-01  F =   13.4381  d_goc = 1.000  Gamma = 217.051  stagg = 61
+  step 108  u = 5.4000e-01  F =   13.3107  d_goc = 1.000  Gamma = 217.846  stagg = 60
+  step 109  u = 5.4500e-01  F =   13.1893  d_goc = 1.000  Gamma = 218.622  stagg = 62
+  step 110  u = 5.5000e-01  F =   13.0729  d_goc = 1.000  Gamma = 219.382  stagg = 60
+  step 111  u = 5.5500e-01  F =   12.9613  d_goc = 1.000  Gamma = 220.127  stagg = 59
+  step 112  u = 5.6000e-01  F =   12.8551  d_goc = 1.000  Gamma = 220.854  stagg = 57
+  step 113  u = 5.6500e-01  F =   12.7537  d_goc = 1.000  Gamma = 221.566  stagg = 60
+  step 114  u = 5.7000e-01  F =   12.6552  d_goc = 1.000  Gamma = 222.269  stagg = 59
+  step 115  u = 5.7500e-01  F =   12.5618  d_goc = 1.000  Gamma = 222.954  stagg = 58
+  step 116  u = 5.8000e-01  F =   12.4735  d_goc = 1.000  Gamma = 223.623  stagg = 56
+  step 117  u = 5.8500e-01  F =   12.3882  d_goc = 1.000  Gamma = 224.281  stagg = 58
+  step 118  u = 5.9000e-01  F =   12.3058  d_goc = 1.000  Gamma = 224.930  stagg = 57
+  step 119  u = 5.9500e-01  F =   12.2282  d_goc = 1.000  Gamma = 225.562  stagg = 56
+  step 120  u = 6.0000e-01  F =   12.1543  d_goc = 1.000  Gamma = 226.182  stagg = 54
+  step 121  u = 6.0500e-01  F =   12.0838  d_goc = 1.000  Gamma = 226.789  stagg = 57
+  step 122  u = 6.1000e-01  F =   12.0155  d_goc = 1.000  Gamma = 227.389  stagg = 56
+  step 123  u = 6.1500e-01  F =   11.9507  d_goc = 1.000  Gamma = 227.976  stagg = 54
+  step 124  u = 6.2000e-01  F =   11.8893  d_goc = 1.000  Gamma = 228.551  stagg = 53
+  step 125  u = 6.2500e-01  F =   11.8317  d_goc = 1.000  Gamma = 229.113  stagg = 55
+  step 126  u = 6.3000e-01  F =   11.7755  d_goc = 1.000  Gamma = 229.669  stagg = 54
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-13T17:35:41Z
