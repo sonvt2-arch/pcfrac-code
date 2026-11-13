@@ -161,3 +161,106 @@ BENCHMARK O (tam chu L)  model=WU  ell=5.0 mm  nx=500  h=1.000 mm  ell/h=5.00  p
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-13T17:35:41Z
+=== CHANG 3 2026-11-13T17:37:01Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+BENCHMARK O (tam chu L)  model=WU  ell=5.0 mm  nx=500  h=1.000 mm  ell/h=5.00  plane=stress
+  ramp: 100 buoc toi 0.5 mm, roi 200 buoc toi 1.5 mm
+  LUOI chu L: so phan tu = 187500  so dinh = 188501
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  TAI: u_y tren 20 canh, y = 250.0, |x - 470.0| <= 10.0 mm; ngam mep y = 0
+  dien tich = 187500.0 mm^2 ; snes_atol = 7.794e-09
+  DCAP: d = 0 tai x > 400.0 mm
+  RESUME: chay tiep tu buoc 127 (diem kiem buoc 126)
+  step 127  u = 6.3500e-01  F =   11.7219  d_goc = 1.000  Gamma = 230.216  stagg = 53
+  step 128  u = 6.4000e-01  F =   11.6715  d_goc = 1.000  Gamma = 230.751  stagg = 51
+  step 129  u = 6.4500e-01  F =   11.6238  d_goc = 1.000  Gamma = 231.276  stagg = 51
+  step 130  u = 6.5000e-01  F =   11.5791  d_goc = 1.000  Gamma = 231.790  stagg = 53
+  step 131  u = 6.5500e-01  F =   11.5355  d_goc = 1.000  Gamma = 232.299  stagg = 52
+  step 132  u = 6.6000e-01  F =   11.4942  d_goc = 1.000  Gamma = 232.800  stagg = 52
+  step 133  u = 6.6500e-01  F =   11.4554  d_goc = 1.000  Gamma = 233.292  stagg = 50
+  step 134  u = 6.7000e-01  F =   11.4190  d_goc = 1.000  Gamma = 233.773  stagg = 50
+  step 135  u = 6.7500e-01  F =   11.3853  d_goc = 1.000  Gamma = 234.245  stagg = 49
+  step 136  u = 6.8000e-01  F =   11.3527  d_goc = 1.000  Gamma = 234.711  stagg = 51
+  step 137  u = 6.8500e-01  F =   11.3216  d_goc = 1.000  Gamma = 235.172  stagg = 50
+  step 138  u = 6.9000e-01  F =   11.2924  d_goc = 1.000  Gamma = 235.626  stagg = 49
+  step 139  u = 6.9500e-01  F =   11.2655  d_goc = 1.000  Gamma = 236.070  stagg = 48
+  step 140  u = 7.0000e-01  F =   11.2405  d_goc = 1.000  Gamma = 236.506  stagg = 48
+  step 141  u = 7.0500e-01  F =   11.2175  d_goc = 1.000  Gamma = 236.935  stagg = 50
+  step 142  u = 7.1000e-01  F =   11.1953  d_goc = 1.000  Gamma = 237.359  stagg = 49
+  step 143  u = 7.1500e-01  F =   11.1744  d_goc = 1.000  Gamma = 237.779  stagg = 48
+  step 144  u = 7.2000e-01  F =   11.1551  d_goc = 1.000  Gamma = 238.192  stagg = 48
+  step 145  u = 7.2500e-01  F =   11.1378  d_goc = 1.000  Gamma = 238.596  stagg = 46
+  step 146  u = 7.3000e-01  F =   11.1221  d_goc = 1.000  Gamma = 238.994  stagg = 46
+  step 147  u = 7.3500e-01  F =   11.1080  d_goc = 1.000  Gamma = 239.385  stagg = 46
+  step 148  u = 7.4000e-01  F =   11.0946  d_goc = 1.000  Gamma = 239.772  stagg = 48
+  step 149  u = 7.4500e-01  F =   11.0822  d_goc = 1.000  Gamma = 240.156  stagg = 47
+  step 150  u = 7.5000e-01  F =   11.0710  d_goc = 1.000  Gamma = 240.534  stagg = 47
+  step 151  u = 7.5500e-01  F =   11.0613  d_goc = 1.000  Gamma = 240.906  stagg = 46
+  step 152  u = 7.6000e-01  F =   11.0533  d_goc = 1.000  Gamma = 241.270  stagg = 45
+  step 153  u = 7.6500e-01  F =   11.0464  d_goc = 1.000  Gamma = 241.629  stagg = 45
+  step 154  u = 7.7000e-01  F =   11.0408  d_goc = 1.000  Gamma = 241.982  stagg = 46
+  step 155  u = 7.7500e-01  F =   11.0356  d_goc = 1.000  Gamma = 242.334  stagg = 46
+  step 156  u = 7.8000e-01  F =   11.0312  d_goc = 1.000  Gamma = 242.682  stagg = 45
+  step 157  u = 7.8500e-01  F =   11.0280  d_goc = 1.000  Gamma = 243.024  stagg = 45
+  step 158  u = 7.9000e-01  F =   11.0257  d_goc = 1.000  Gamma = 243.363  stagg = 44
+  step 159  u = 7.9500e-01  F =   11.0250  d_goc = 1.000  Gamma = 243.694  stagg = 43
+  step 160  u = 8.0000e-01  F =   11.0253  d_goc = 1.000  Gamma = 244.020  stagg = 43
+  step 161  u = 8.0500e-01  F =   11.0267  d_goc = 1.000  Gamma = 244.341  stagg = 43
+  step 162  u = 8.1000e-01  F =   11.0285  d_goc = 1.000  Gamma = 244.660  stagg = 44
+  step 163  u = 8.1500e-01  F =   11.0307  d_goc = 1.000  Gamma = 244.977  stagg = 44
+  step 164  u = 8.2000e-01  F =   11.0339  d_goc = 1.000  Gamma = 245.290  stagg = 43
+  step 165  u = 8.2500e-01  F =   11.0379  d_goc = 1.000  Gamma = 245.599  stagg = 43
+  step 166  u = 8.3000e-01  F =   11.0427  d_goc = 1.000  Gamma = 245.904  stagg = 43
+  step 167  u = 8.3500e-01  F =   11.0487  d_goc = 1.000  Gamma = 246.202  stagg = 42
+  step 168  u = 8.4000e-01  F =   11.0557  d_goc = 1.000  Gamma = 246.496  stagg = 42
+  step 169  u = 8.4500e-01  F =   11.0635  d_goc = 1.000  Gamma = 246.786  stagg = 41
+  step 170  u = 8.5000e-01  F =   11.0717  d_goc = 1.000  Gamma = 247.074  stagg = 43
+  step 171  u = 8.5500e-01  F =   11.0802  d_goc = 1.000  Gamma = 247.361  stagg = 43
+  step 172  u = 8.6000e-01  F =   11.0892  d_goc = 1.000  Gamma = 247.645  stagg = 42
+  step 173  u = 8.6500e-01  F =   11.0990  d_goc = 1.000  Gamma = 247.925  stagg = 42
+  step 174  u = 8.7000e-01  F =   11.1094  d_goc = 1.000  Gamma = 248.202  stagg = 42
+  step 175  u = 8.7500e-01  F =   11.1206  d_goc = 1.000  Gamma = 248.475  stagg = 41
+  step 176  u = 8.8000e-01  F =   11.1329  d_goc = 1.000  Gamma = 248.742  stagg = 40
+  step 177  u = 8.8500e-01  F =   11.1458  d_goc = 1.000  Gamma = 249.006  stagg = 40
+  step 178  u = 8.9000e-01  F =   11.1594  d_goc = 1.000  Gamma = 249.266  stagg = 40
+  step 179  u = 8.9500e-01  F =   11.1730  d_goc = 1.000  Gamma = 249.526  stagg = 41
+  step 180  u = 9.0000e-01  F =   11.1871  d_goc = 1.000  Gamma = 249.784  stagg = 42
+  step 181  u = 9.0500e-01  F =   11.2016  d_goc = 1.000  Gamma = 250.040  stagg = 41
+  step 182  u = 9.1000e-01  F =   11.2167  d_goc = 1.000  Gamma = 250.292  stagg = 41
+  step 183  u = 9.1500e-01  F =   11.2322  d_goc = 1.000  Gamma = 250.543  stagg = 40
+  step 184  u = 9.2000e-01  F =   11.2483  d_goc = 1.000  Gamma = 250.790  stagg = 40
+  step 185  u = 9.2500e-01  F =   11.2652  d_goc = 1.000  Gamma = 251.033  stagg = 39
+  step 186  u = 9.3000e-01  F =   11.2828  d_goc = 1.000  Gamma = 251.271  stagg = 39
+  step 187  u = 9.3500e-01  F =   11.3010  d_goc = 1.000  Gamma = 251.507  stagg = 39
+  step 188  u = 9.4000e-01  F =   11.3195  d_goc = 1.000  Gamma = 251.741  stagg = 40
+  step 189  u = 9.4500e-01  F =   11.3380  d_goc = 1.000  Gamma = 251.974  stagg = 40
+  step 190  u = 9.5000e-01  F =   11.3569  d_goc = 1.000  Gamma = 252.206  stagg = 40
+  step 191  u = 9.5500e-01  F =   11.3762  d_goc = 1.000  Gamma = 252.436  stagg = 39
+  step 192  u = 9.6000e-01  F =   11.3959  d_goc = 1.000  Gamma = 252.663  stagg = 40
+  step 193  u = 9.6500e-01  F =   11.4160  d_goc = 1.000  Gamma = 252.888  stagg = 39
+  step 194  u = 9.7000e-01  F =   11.4365  d_goc = 1.000  Gamma = 253.110  stagg = 38
+  step 195  u = 9.7500e-01  F =   11.4576  d_goc = 1.000  Gamma = 253.330  stagg = 38
+  step 196  u = 9.8000e-01  F =   11.4793  d_goc = 1.000  Gamma = 253.545  stagg = 37
+  step 197  u = 9.8500e-01  F =   11.5015  d_goc = 1.000  Gamma = 253.758  stagg = 38
+  step 198  u = 9.9000e-01  F =   11.5241  d_goc = 1.000  Gamma = 253.968  stagg = 37
+  step 199  u = 9.9500e-01  F =   11.5468  d_goc = 1.000  Gamma = 254.179  stagg = 39
+  step 200  u = 1.0000e+00  F =   11.5696  d_goc = 1.000  Gamma = 254.388  stagg = 39
+  step 201  u = 1.0050e+00  F =   11.5926  d_goc = 1.000  Gamma = 254.596  stagg = 39
+  step 202  u = 1.0100e+00  F =   11.6160  d_goc = 1.000  Gamma = 254.802  stagg = 38
+  step 203  u = 1.0150e+00  F =   11.6398  d_goc = 1.000  Gamma = 255.005  stagg = 38
+  step 204  u = 1.0200e+00  F =   11.6638  d_goc = 1.000  Gamma = 255.207  stagg = 38
+  step 205  u = 1.0250e+00  F =   11.6881  d_goc = 1.000  Gamma = 255.408  stagg = 37
+  step 206  u = 1.0300e+00  F =   11.7129  d_goc = 1.000  Gamma = 255.605  stagg = 37
+  step 207  u = 1.0350e+00  F =   11.7382  d_goc = 1.000  Gamma = 255.799  stagg = 36
+  step 208  u = 1.0400e+00  F =   11.7639  d_goc = 1.000  Gamma = 255.991  stagg = 37
+  step 209  u = 1.0450e+00  F =   11.7899  d_goc = 1.000  Gamma = 256.181  stagg = 36
+  step 210  u = 1.0500e+00  F =   11.8162  d_goc = 1.000  Gamma = 256.369  stagg = 37
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-13T22:57:01Z
