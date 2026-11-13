@@ -280,6 +280,25 @@ if _SNES_STYLE:
                        "ksp_type": "cg", "pc_type": "hypre", "ksp_rtol": 1e-10})
     _lb_d, _ub_d = Function(V_d), Function(V_d)
     _LU = [False]
+    _SS = [False]
+    _ndiag = [0]
+
+    def _chan_doan_d(r, nhan):
+        """Chi in khi bo giai d vo (13/11, vong 9-T): loai KSP/PC dang dung,
+        ly do KSP, so vong, va so phan tu khong huu han trong H, u, d."""
+        if _ndiag[0] >= 5:
+            return
+        _ndiag[0] += 1
+        sn = prob_d.solver
+        ksp = sn.getKSP()
+        nf = [comm.allreduce(int(np.count_nonzero(~np.isfinite(f.x.array))), op=MPI.SUM)
+              for f in (H, u, d)]
+        hmin = comm.allreduce(float(H.x.array.min()) if H.x.array.size else 0.0, op=MPI.MIN)
+        if comm.rank == 0:
+            print(f"  CHAN DOAN d [{nhan}]: SNES={r} its={sn.getIterationNumber()} "
+                  f"KSP={ksp.getType()}/{ksp.getPC().getType()} KSP_reason={ksp.getConvergedReason()} "
+                  f"KSP_its={ksp.getIterationNumber()} khong_huu_han H/u/d={nf} H_min={hmin:.3e}",
+                  flush=True)
     _ub_d.x.array[:] = 1.0
 
     def solve_damage():
@@ -290,6 +309,8 @@ if _SNES_STYLE:
             r = prob_d.solver.getConvergedReason()
         except Exception:
             return None
+        if r <= 0:
+            _chan_doan_d(r, "CG+hypre" if not _LU[0] else "LU")
         if r <= 0 and not _LU[0]:
             # Du phong (10/11/2026): CG + hypre cho he Newton cua d co the vo
             # (SNES -3, DIVERGED_LINEAR_SOLVE) khi d ~ 1 o 3D; P3_dg0 lan 1 dung
@@ -302,6 +323,12 @@ if _SNES_STYLE:
             _pc = _ksp.getPC()
             _pc.setType("lu")
             _pc.setFactorSolverType("mumps")
+            # 13/11 (vong 9-T): dat ca vao co so du lieu tuy chon de lan
+            # setFromOptions nao sau nay cung khong tra ve CG + hypre.
+            _o = PETSc.Options()
+            _o["d_ksp_type"] = "preonly"
+            _o["d_pc_type"] = "lu"
+            _o["d_pc_factor_mat_solver_type"] = "mumps"
             if comm.rank == 0:
                 print(f"  *** SNES={r}: DOI BO GIAI d SANG LU (MUMPS) va giai lai", flush=True)
             d.x.array[:] = _lb_d.x.array
@@ -309,6 +336,23 @@ if _SNES_STYLE:
             prob_d.solver.setVariableBounds(_lb_d.x.petsc_vec, _ub_d.x.petsc_vec)
             prob_d.solve()
             r = prob_d.solver.getConvergedReason()
+            if r <= 0:
+                _chan_doan_d(r, "LU (giai lai)")
+        if r <= 0 and _LU[0] and not _SS[0]:
+            # Bac du phong 2 (13/11, vong 9-T): P3_quad_n4 vo ca voi LU o buoc
+            # 589.  Chuyen VINH VIEN SNES sang vinewtonssls (semismooth, khong
+            # cat he theo tap hoat) + LU, dat lai d va giai lai buoc nay.
+            _SS[0] = True
+            prob_d.solver.setType("vinewtonssls")
+            if comm.rank == 0:
+                print(f"  *** SNES={r}: DOI SNES d SANG vinewtonssls + LU va giai lai", flush=True)
+            d.x.array[:] = _lb_d.x.array
+            d.x.scatter_forward()
+            prob_d.solver.setVariableBounds(_lb_d.x.petsc_vec, _ub_d.x.petsc_vec)
+            prob_d.solve()
+            r = prob_d.solver.getConvergedReason()
+            if r <= 0:
+                _chan_doan_d(r, "vinewtonssls + LU")
         return r
 else:
     prob_d = NonlinearProblem(F_d, d, bcs=bc_d, J=J_d)
@@ -356,7 +400,7 @@ def _ck_save(step):
         _os.makedirs(_ck_dir, exist_ok=True)
     comm.barrier()
     f = _ck_path(step % 2)
-    np.savez(f + ".tmp.npz", step=step, n_bad=n_bad, lu=int(_SNES_STYLE and _LU[0]),
+    np.savez(f + ".tmp.npz", step=step, n_bad=n_bad, lu=int(_SNES_STYLE and _LU[0]), ss=int(_SNES_STYLE and _SS[0]),
              gamma0=np.nan if Gamma0 is None else Gamma0,
              hist=np.array(hist, dtype=float).reshape(-1, 5), xyz=_ck_xyz(),
              **{k: fn.x.array for k, fn in _ck_funcs})
@@ -419,6 +463,11 @@ if args.resume:
             _ksp.getPC().setFactorSolverType("mumps")
             if comm.rank == 0:
                 print("  RESUME: bo giai d dang o LU (MUMPS)", flush=True)
+        if _SNES_STYLE and "ss" in z.files and int(z["ss"]):
+            _SS[0] = True
+            prob_d.solver.setType("vinewtonssls")
+            if comm.rank == 0:
+                print("  RESUME: SNES d dang o vinewtonssls", flush=True)
         Gamma0 = None if np.isnan(float(z["gamma0"])) else float(z["gamma0"])
         hist = [tuple(r) for r in z["hist"]]
     start_step = _s + 1
