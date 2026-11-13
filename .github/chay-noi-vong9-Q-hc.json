@@ -1,0 +1,16 @@
+[
+ {
+  "tag": "Q0_khoi_dg0",
+  "nhan": 1,
+  "ell": "10",
+  "model": "WU",
+  "args": "--model WU --ell 10 --nx 250 --split amor --plane stress --E 25850 --nu 0.18 --Gc 0.09 --ft 2.7 --dcap_x 400 --stopfrac 0 --n1 3 --u1 0.15 --umax 0.3 --steps 6 --hspace dg0"
+ },
+ {
+  "tag": "Qa_dg0_n4",
+  "nhan": 4,
+  "ell": "10",
+  "model": "WU",
+  "args": "--model WU --ell 10 --nx 250 --split amor --plane stress --E 25850 --nu 0.18 --Gc 0.09 --ft 2.7 --dcap_x 400 --stopfrac 0 --n1 100 --u1 0.5 --umax 1.0 --steps 200 --hspace dg0"
+ }
+]

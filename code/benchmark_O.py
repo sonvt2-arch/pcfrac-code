@@ -67,6 +67,9 @@ p.add_argument("--E", type=float, default=25850.0)
 p.add_argument("--nu", type=float, default=0.18)
 p.add_argument("--Gc", type=float, default=0.09)
 p.add_argument("--ft", type=float, default=2.7)
+p.add_argument("--dcap_x", type=float, default=None,
+               help="mm; neu dat: ep d = 0 tai x > dcap_x (vung dat tai), nhu Mang et al. "
+                    "arXiv:2003.09459 Remark 1 (x <= 400 mm). Mac dinh: khong ep (hanh vi cu)")
 p.add_argument("--ckpt", default=None)
 p.add_argument("--resume", action="store_true")
 p.add_argument("--out", default=None)
@@ -219,6 +222,10 @@ if _SNES_STYLE:
     _diag = [0, 0.0]
     _lb_d = Function(V_d)
     _ub_d = Function(V_d); _ub_d.x.array[:] = 1.0
+    if args.dcap_x is not None:       # vong 9 Q: ep d = 0 o vung dat tai (x > dcap_x)
+        _ub_d.x.array[V_d.tabulate_dof_coordinates()[:, 0] > args.dcap_x + 1e-9] = 0.0
+        if comm.rank == 0:
+            print(f"  DCAP: d = 0 tai x > {args.dcap_x} mm", flush=True)
 
     def solve_damage():
         _lb_d.x.array[:] = d.x.array
@@ -231,6 +238,8 @@ if _SNES_STYLE:
         except Exception:
             return None
 else:
+    if args.dcap_x is not None:
+        raise SystemExit("--dcap_x can ban dolfinx co SNES (vinewtonrsls)")
     prob_d = NonlinearProblem(F_d, d, bcs=[], J=J_d)
     solver_d = NewtonSolver(comm, prob_d)
     solver_d.rtol, solver_d.atol, solver_d.max_it = 1e-8, 1e-10, 40
@@ -384,7 +393,7 @@ for step in range(start_step, args.steps + 1):
     Fs = np.abs(np.array([r[1] for r in hist]))
     if args.stopfrac > 0 and len(Fs) > 6 and Fs.max() > 0 and Fs[-1] < args.stopfrac * Fs.max():
         if comm.rank == 0:
-            print("  load has fallen below 25 % of peak -- stopping")
+            print(f"  load has fallen below {100*args.stopfrac:g} % of peak -- stopping")
         break
     if n_bad > 20:
         if comm.rank == 0:
