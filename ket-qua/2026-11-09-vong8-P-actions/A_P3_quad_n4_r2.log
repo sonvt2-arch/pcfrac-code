@@ -1171,3 +1171,55 @@ petsc4py.PETSc.Error: error code 60
 [3] Nonconforming object sizes
 [3] Cannot change local size of Amat after use old sizes 3922 3922 new sizes 7662 7662
 === EXIT=1 2026-11-13T15:23:41Z
+=== CHANG 1 2026-11-13T15:43:15Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V45 96-Core Processor
+  BENCHMARK P3D (tam mong 3D, hex Q1)  dolfinx 0.11.0.post0
+model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zbc faces
+  ramp: 100 fine steps to 1.000e-03, then 700 steps to 8.000e-03
+  LUOI: hex Q1  so phan tu = 20000  so dinh = 30603
+  KHONG GIAN H: --hspace quad   (H tai diem cau phuong, bac 2, 8 diem/o)
+  PHEP TACH NANG LUONG: --split amor (Amor 3D, K = lambda + 2mu/3)
+  DIEU KIEN NGAM: --grip clamp;  z: --zbc faces  (u_z = 0 tren hai mat z = 0, z = t: bien dang phang)
+  NOTCH DOFS (toan cuc) = 153   (mong doi 153)
+  damage threshold H_crit = 1.3500e+02
+  *** RESUME (diem kiem dang o LU): BO GIAI d = NonlinearProblem MOI, preonly + LU (MUMPS)
+  RESUME: chay tiep tu buoc 593 (diem kiem buoc 592)
+  step 593  u = 5.930e-03  F = 593.5769  d_tip = 0.985  a = 0.5245  H/Hc =   169.95  stagg = 200  t = 431s
+  step 594  u = 5.940e-03  F = 579.2293  d_tip = 0.986  a = 0.5418  H/Hc =   184.14  stagg = 200  t = 859s
+  step 595  u = 5.950e-03  F = 564.8541  d_tip = 0.987  a = 0.5592  H/Hc =   197.62  stagg = 200  t = 1306s
+  step 596  u = 5.960e-03  F = 550.5777  d_tip = 0.988  a = 0.5765  H/Hc =   210.32  stagg = 200  t = 1736s
+  step 597  u = 5.970e-03  F = 536.4474  d_tip = 0.989  a = 0.5936  H/Hc =   222.26  stagg = 200  t = 2156s
+  step 598  u = 5.980e-03  F = 522.4531  d_tip = 0.989  a = 0.6105  H/Hc =   233.51  stagg = 200  t = 2571s
+  step 599  u = 5.990e-03  F = 508.5315  d_tip = 0.990  a = 0.6274  H/Hc =   244.14  stagg = 200  t = 2992s
+  step 600  u = 6.000e-03  F = 494.6598  d_tip = 0.990  a = 0.6442  H/Hc =   254.21  stagg = 200  t = 3411s
+  step 601  u = 6.010e-03  F = 480.8645  d_tip = 0.990  a = 0.6609  H/Hc =   263.74  stagg = 200  t = 3842s
+  step 602  u = 6.020e-03  F = 467.1830  d_tip = 0.991  a = 0.6776  H/Hc =   272.74  stagg = 200  t = 4269s
+  step 603  u = 6.030e-03  F = 453.6375  d_tip = 0.991  a = 0.6940  H/Hc =   281.23  stagg = 200  t = 4702s
+  step 604  u = 6.040e-03  F = 440.2234  d_tip = 0.991  a = 0.7103  H/Hc =   289.26  stagg = 200  t = 5135s
+  step 605  u = 6.050e-03  F = 426.9094  d_tip = 0.991  a = 0.7265  H/Hc =   296.85  stagg = 200  t = 5573s
+  step 606  u = 6.060e-03  F = 413.6454  d_tip = 0.992  a = 0.7426  H/Hc =   304.07  stagg = 200  t = 6002s
+  step 607  u = 6.070e-03  F = 400.3721  d_tip = 0.992  a = 0.7588  H/Hc =   310.97  stagg = 200  t = 6426s
+  step 608  u = 6.080e-03  F = 387.0213  d_tip = 0.992  a = 0.7750  H/Hc =   317.58  stagg = 200  t = 6857s
+  step 609  u = 6.090e-03  F = 373.5082  d_tip = 0.992  a = 0.7914  H/Hc =   323.94  stagg = 200  t = 7279s
+  step 610  u = 6.100e-03  F = 359.6972  d_tip = 0.992  a = 0.8082  H/Hc =   330.12  stagg = 200  t = 7687s
+  step 611  u = 6.110e-03  F = 345.3059  d_tip = 0.992  a = 0.8256  H/Hc =   336.19  stagg = 200  t = 8093s
+  step 612  u = 6.120e-03  F = 329.6187  d_tip = 0.992  a = 0.8446  H/Hc =   342.37  stagg = 200  t = 8518s
+  step 613  u = 6.130e-03  F = 311.7464  d_tip = 0.993  a = 0.8661  H/Hc =   348.82  stagg = 200  t = 8938s
+  step 614  u = 6.140e-03  F = 293.1612  d_tip = 0.993  a = 0.8884  H/Hc =   355.06  stagg = 200  t = 9362s
+  step 615  u = 6.150e-03  F = 268.3157  d_tip = 0.993  a = 0.9181  H/Hc =   362.36  stagg = 200  t = 9772s
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm   3D hex nx=100 nz=2 t=0.02
+  PEAK LOAD = 1134.5950 N/mm   at step 540 of 615
+  final load = 23.6 % of peak ; final d ahead = 0.993 ; crack extension = 0.9181 mm
+  wrote loaddisp_P3_quad_n4_r2.txt
+============================================================
+  LAT z = 0.0100 (giua): 10201 nut -> damage_AT2_ell0.01.xdmf ; so nut d>0.9: 179
+  LAT z = 0.0000 (_z0): 10201 nut -> damage_AT2_ell0.01_z0.xdmf ; so nut d>0.9: 179
+  LAT z = 0.0200 (_zt): 10201 nut -> damage_AT2_ell0.01_zt.xdmf ; so nut d>0.9: 179
+WARNING! There are options you set that were not used!
+WARNING! could be spelling mistake, etc!
+There is one unused database option. It is:
+Option left: name:-dlu_ksp_rtol value: 1e-10 source: code
+=== EXIT=0 2026-11-13T18:26:11Z
