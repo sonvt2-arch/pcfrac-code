@@ -1,0 +1,84 @@
+name: Hoi quy + thu --phanhoach (vong 9-S)
+
+# Vong 9-S (13/11/2026), doc/CA-VONG9-S-2026-11-13.md (repo du an).  Chay tay.
+# (1) Hoi quy: ma CU (ca87de2, chua co --phanhoach) / MOI (mac dinh) / MOI (--phanhoach mac-dinh) / CU,
+#     o 1 va 2 nhan; so tung byte loaddisp va H-INVARIANT.  Ca: Miehe SENT --split amor 40 buoc (cg1, dg0).
+# (2) Thu: 3 buoc moi kieu phan hoach, in dong "PHAN HOACH" (van tay crc) de chac cac phan hoach khac nhau.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  hoi-quy:
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 300
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Hoi quy cu / moi / moi-md / cu
+        working-directory: code
+        run: |
+          set +e
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git show ca87de2:code/benchmark_A.py > benchmark_A_cu.py
+          D=../ket-qua/2026-11-13-vong9-S-actions/hoi-quy; mkdir -p $D
+          echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" | tee $D/ket-luan.txt
+          M="--model AT2 --ell 0.01 --nx 200 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 40 --umax 0.008"
+          for np_ in 1 2; do
+          for c in cg1 dg0; do
+            A="$M --hspace $c"
+            for t in cu1:benchmark_A_cu.py: moi:benchmark_A.py: moimd:benchmark_A.py:--phanhoach_mac-dinh cu2:benchmark_A_cu.py:; do
+              n=${t%%:*}; r=${t#*:}; s=${r%%:*}; x=${r#*:}; x=${x//_/ }
+              T=HP_${c}_n${np_}_$n
+              mpirun -n $np_ python3 -u $s $A $x --out $T > $D/A_$T.log 2>&1
+              echo "--- $T EXIT=$?" | tee -a $D/ket-luan.txt
+              cp -f loaddisp_$T.txt $D/
+            done
+            cd $D
+            for n in moi moimd cu2; do
+              B=HP_${c}_n${np_}
+              if cmp -s loaddisp_${B}_cu1.txt loaddisp_${B}_$n.txt && \
+                 diff <(grep H-INVARIANT A_${B}_cu1.log) <(grep H-INVARIANT A_${B}_$n.log) >/dev/null && \
+                 [ -n "$(grep H-INVARIANT A_${B}_cu1.log)" ]; then
+                echo "$B: cu1 vs $n: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)" | tee -a ket-luan.txt
+              else
+                echo "$B: cu1 vs $n: KHAC" | tee -a ket-luan.txt
+              fi
+            done
+            cd - >/dev/null
+          done
+          done
+          grep -H "H-INVARIANT\|PHAN HOACH" $D/A_HP_*.log | tee -a $D/ket-luan.txt
+      - name: Thu cac kieu phan hoach (3 buoc)
+        working-directory: code
+        run: |
+          set +e
+          D=../ket-qua/2026-11-13-vong9-S-actions/thu; mkdir -p $D
+          M="--model AT2 --ell 0.01 --nx 200 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 3 --umax 0.008 --hspace cg1"
+          for t in 1:mac-dinh:0 1:do-thi:0 1:do-thi:1 1:dai-x:0 4:mac-dinh:0 4:do-thi:0 4:do-thi:1 4:dai-x:0 4:dai-y:0 2:dai-y:0 6:mac-dinh:0 8:mac-dinh:0; do
+            IFS=: read k ph xa <<< "$t"
+            T=TP_n${k}_${ph}_x$xa
+            t0=$SECONDS; timeout 20m mpirun -n $k python3 -u benchmark_A.py $M --phanhoach $ph --xao $xa --out $T > $D/A_$T.log 2>&1
+            echo "--- $T EXIT=$? THOI GIAN $((SECONDS-t0)) s" | tee -a $D/ket-luan.txt
+            grep -h "PHAN HOACH\|H-INVARIANT\|Error\|error" $D/A_$T.log | tee -a $D/ket-luan.txt
+            tail -3 $D/A_$T.log >> $D/ket-luan.txt
+            cp -f loaddisp_$T.txt $D/ 2>/dev/null
+          done
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-11-13-vong9-S-actions || exit 0
+          git commit -qm "Actions: hoi quy + thu --phanhoach (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done

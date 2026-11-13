@@ -116,6 +116,16 @@ p.add_argument("--E", type=float, default=None,
                help="mo dun Young (MPa); mac dinh 25000 nhu cu (vong 3, nghien cuu H)")
 p.add_argument("--nu", type=float, default=None, help="he so Poisson; mac dinh 0.20")
 p.add_argument("--Gc", type=float, default=None, help="N/mm; mac dinh 0.016")
+p.add_argument("--phanhoach", choices=["mac-dinh", "do-thi", "dai-x", "dai-y"],
+               default="mac-dinh",
+               help="mac-dinh: create_unit_square nhu cu (giu nguyen ket qua cu tung bit); "
+                    "do-thi: tu dung cung luoi Q1 bang create_mesh + bo phan hoach do thi mac "
+                    "dinh cua DOLFINx (ghost lop mat); dai-x / dai-y: chia phan tu thanh dai "
+                    "doc (theo x) / ngang (theo y) bang nhau theo tam phan tu, ghost lop mat "
+                    "(vong 9-S, 13/11/2026)")
+p.add_argument("--xao", type=int, default=0,
+               help="(chi khi --phanhoach khac mac-dinh) hoan vi ngau nhien thu tu phan tu "
+                    "dau vao voi hat giong XAO; 0 = thu tu hang (j, i)")
 p.add_argument("--out", default=None)
 args = p.parse_args()
 
@@ -194,11 +204,118 @@ if comm.rank == 0:
 # y = 0.5) va duong nut thang giu nguyen nhu luoi tu giac.  h van la canh O
 # VUONG, L/nx: nut tam o (i + 1/2, j + 1/2) h nen tieu chi |y - 0.5| < 0.4 h
 # cua vet khia khong bat nut tam nao (51 nut o nx = 100, nhu Q1).
-if args.cell == "tri":
+# --phanhoach (vong 9-S, 13/11/2026): doi PHAN HOACH ma khong doi luoi.  Khac
+# mac-dinh thi dung CUNG luoi Q1 nx x nx tren [0,1]^2 bang create_mesh: nut
+# (i, j) -> chi so j*(nx+1)+i, toa do (i/nx, j/nx); o (i, j) -> [v(i,j), v(i+1,j),
+# v(i,j+1), v(i+1,j+1)].  Nhan 0 giu toan bo luoi dau vao.  do-thi: bo phan
+# hoach do thi mac dinh cua DOLFINx, ghost lop mat (nhu create_unit_square).
+# dai-x / dai-y: o (i, j) ve nhan floor(i*n/nx) / floor(j*n/nx), cong them
+# ghost cho moi nhan so huu mot o chung MAT (ke trai/phai/duoi/tren) = ghost lop
+# mat.  --xao S: hoan vi thu tu o dau vao (thu tu danh so ban dau).
+_PH_PART = None
+def _ph_partitioner(owner, ij):
+    """Ham phan hoach o cho create_mesh: dich = [chu] + cac nhan so huu o ke mat."""
+    from dolfinx import graph as _graph
+    def _part(_comm, n, *rest):
+        cells = rest[-1]
+        if isinstance(cells, (list, tuple)):
+            cells = cells[0]
+        nloc = np.asarray(cells).size // 4
+        if nloc == 0:
+            return _graph.adjacencylist(np.zeros(0, dtype=np.int32),
+                                        np.zeros(1, dtype=np.int32))
+        if nloc != len(owner):
+            raise SystemExit(f"--phanhoach: nhan {comm.rank} co {nloc} o, mong {len(owner)}")
+        own2 = np.full((nx + 2, nx + 2), -1, dtype=np.int64)
+        own2[ij[:, 0] + 1, ij[:, 1] + 1] = owner
+        data, offs = [], [0]
+        for c in range(nloc):
+            i, j = ij[c, 0] + 1, ij[c, 1] + 1
+            r = int(owner[c]); dst = [r]
+            for q in (own2[i - 1, j], own2[i + 1, j], own2[i, j - 1], own2[i, j + 1]):
+                if q >= 0 and q != r and q not in dst:
+                    dst.append(int(q))
+            data.extend(dst); offs.append(len(data))
+        return _graph.adjacencylist(np.asarray(data, dtype=np.int32),
+                                    np.asarray(offs, dtype=np.int32))
+    return _part
+
+
+def _ph_build():
+    import basix.ufl as _bu
+    if args.cell != "quad" or args.pores:
+        raise SystemExit("--phanhoach khac mac-dinh chi ho tro --cell quad, khong --pores")
+    if comm.rank == 0:
+        I, J = np.meshgrid(np.arange(nx + 1), np.arange(nx + 1))
+        X = np.stack([I.ravel() / nx, J.ravel() / nx], axis=1).astype(np.float64)
+        ci, cj = np.meshgrid(np.arange(nx), np.arange(nx))
+        ci, cj = ci.ravel(), cj.ravel()
+        v = lambda i, j: j * (nx + 1) + i
+        cells = np.stack([v(ci, cj), v(ci + 1, cj), v(ci, cj + 1), v(ci + 1, cj + 1)],
+                         axis=1).astype(np.int64)
+        if args.xao:
+            pm = np.random.default_rng(args.xao).permutation(len(cells))
+            cells, ci, cj = cells[pm], ci[pm], cj[pm]
+        ij = np.stack([ci, cj], axis=1)
+    else:
+        X = np.zeros((0, 2), dtype=np.float64)
+        cells = np.zeros((0, 4), dtype=np.int64)
+        ij = np.zeros((0, 2), dtype=np.int64)
+    e = _bu.element("Lagrange", "quadrilateral", 1, shape=(2,))
+    if args.phanhoach == "do-thi":
+        try:
+            part = mesh.create_cell_partitioner(mesh.GhostMode.shared_facet)
+        except TypeError:
+            from dolfinx import graph as _graph
+            part = mesh.create_cell_partitioner(_graph.partitioner(), mesh.GhostMode.shared_facet)
+    else:
+        k = 0 if args.phanhoach == "dai-x" else 1
+        owner = np.minimum((ij[:, k] * comm.size) // nx, comm.size - 1).astype(np.int64)
+        part = _ph_partitioner(owner, ij)
+    prm = list(_inspect.signature(mesh.create_mesh).parameters)
+    kw = {"comm": comm, "cells": cells, "x": X, "partitioner": part}
+    kw[[q for q in prm if q in ("e", "domain", "coordinate_element", "element")][0]] = e
+    return mesh.create_mesh(**kw)
+
+
+if args.phanhoach != "mac-dinh":
+    domain = _ph_build()
+elif args.cell == "tri":
     domain = mesh.create_unit_square(comm, nx, nx, mesh.CellType.triangle,
                                      diagonal=mesh.DiagonalType.crossed)
 else:
     domain = mesh.create_unit_square(comm, nx, nx, mesh.CellType.quadrilateral)
+
+
+def _ph_van_tay():
+    """In van tay phan hoach: so o so huu moi nhan, so o ghost, CRC32 cua mang chu
+    so huu theo o (i, j) (tinh tu tam o).  Chi doc, khong doi gi."""
+    import zlib
+    tdim = domain.topology.dim
+    _im = domain.topology.index_map(tdim)
+    nloc, ngh = _im.size_local, _im.num_ghosts
+    try:
+        mid = mesh.compute_midpoints(domain, tdim, np.arange(nloc, dtype=np.int32))
+    except Exception:                                      # pragma: no cover
+        mid = np.zeros((0, 3))
+    hh = L / nx
+    ii = np.clip(np.floor(mid[:, 0] / hh), 0, nx - 1).astype(np.int64)
+    jj = np.clip(np.floor(mid[:, 1] / hh), 0, nx - 1).astype(np.int64)
+    allk = comm.gather(jj * nx + ii, root=0)
+    cnt = comm.gather((nloc, ngh), root=0)
+    if comm.rank == 0:
+        own = np.full(nx * nx, -1, dtype=np.int32)
+        for r, kk in enumerate(allk):
+            own[kk] = r
+        o2 = own.reshape(nx, nx)                   # [j, i]
+        cat = int(np.sum(o2[nx // 2 - 1, :] != o2[nx // 2, :]))   # cap o ke qua y = 0.5 khac nhan
+        print(f"  PHAN HOACH: --phanhoach {args.phanhoach} --xao {args.xao}  nhan = {comm.size}  "
+              f"o so huu/ghost = {[c[0] for c in cnt]}/{[c[1] for c in cnt]}  "
+              f"thieu = {int((own < 0).sum())}  crc = {zlib.crc32(own.tobytes()):08x}  "
+              f"cot qua y=0.5 khac nhan = {cat}/{nx}", flush=True)
+
+
+_ph_van_tay()
 if comm.rank == 0:
     _nc = domain.topology.index_map(domain.topology.dim).size_global
     _nv = domain.topology.index_map(0).size_global
