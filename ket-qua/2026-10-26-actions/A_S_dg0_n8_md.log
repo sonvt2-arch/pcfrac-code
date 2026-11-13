@@ -570,3 +570,41 @@ Abort(59) on node 4 (rank 4 in comm 0): application called MPI_Abort(MPI_COMM_WO
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-13T15:45:30Z
+=== CHANG 3 2026-11-13T15:46:52Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 8  o so huu/ghost = [4989, 5111, 4989, 5111, 4900, 5000, 4900, 5000]/[150, 251, 150, 251, 249, 150, 249, 150]  thieu = 0  crc = dc8e0864  cot qua y=0.5 khac nhan = 200/200
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 52   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 519 (diem kiem buoc 518)
+  step 519  u = 5.190e-03  F = 585.2442  d_tip = 0.988  a = 0.2561  H/Hc =   311.62  stagg = 200
+  step 520  u = 5.200e-03  F = 574.0592  d_tip = 0.990  a = 0.2687  H/Hc =   362.11  stagg = 200
+  step 521  u = 5.210e-03  F = 561.9347  d_tip = 0.991  a = 0.2824  H/Hc =   413.48  stagg = 200
+  step 522  u = 5.220e-03  F = 548.9931  d_tip = 0.992  a = 0.2968  H/Hc =   465.01  stagg = 200
+  step 523  u = 5.230e-03  F = 535.4751  d_tip = 0.992  a = 0.3119  H/Hc =   515.64  stagg = 200
+  step 524  u = 5.240e-03  F = 521.3320  d_tip = 0.993  a = 0.3276  H/Hc =   565.42  stagg = 200
+  step 525  u = 5.250e-03  F = 506.6917  d_tip = 0.994  a = 0.3438  H/Hc =   613.78  stagg = 200
+  step 526  u = 5.260e-03  F = 491.9856  d_tip = 0.994  a = 0.3601  H/Hc =   659.50  stagg = 200
+  step 527  u = 5.270e-03  F = 476.9676  d_tip = 0.994  a = 0.3767  H/Hc =   703.32  stagg = 200
+  step 528  u = 5.280e-03  F = 462.1265  d_tip = 0.995  a = 0.3932  H/Hc =   744.11  stagg = 200
+  step 529  u = 5.290e-03  F = 447.1836  d_tip = 0.995  a = 0.4097  H/Hc =   782.71  stagg = 200
+  step 530  u = 5.300e-03  F = 432.5347  d_tip = 0.995  a = 0.4259  H/Hc =   818.42  stagg = 200
+  step 531  u = 5.310e-03  F = 417.9481  d_tip = 0.995  a = 0.4421  H/Hc =   851.94  stagg = 200
+  step 532  u = 5.320e-03  F = 403.5160  d_tip = 0.996  a = 0.4581  H/Hc =   883.25  stagg = 200
+  step 533  u = 5.330e-03  F = 389.4262  d_tip = 0.996  a = 0.4738  H/Hc =   912.21  stagg = 200
+  step 534  u = 5.340e-03  F = 375.2012  d_tip = 0.996  a = 0.4896  H/Hc =   939.78  stagg = 200
+  step 535  u = 5.350e-03  F = 361.1428  d_tip = 0.996  a = 0.5052  H/Hc =   965.58  stagg = 200
+  step 536  u = 5.360e-03  F = 347.2335  d_tip = 0.996  a = 0.5207  H/Hc =   989.79  stagg = 200
+  step 537  u = 5.370e-03  F = 332.9583  d_tip = 0.996  a = 0.5365  H/Hc =  1013.17  stagg = 200
+  step 538  u = 5.380e-03  F = 318.5559  d_tip = 0.996  a = 0.5525  H/Hc =  1035.44  stagg = 200
+  step 539  u = 5.390e-03  F = 303.6860  d_tip = 0.996  a = 0.5690  H/Hc =  1057.02  stagg = 200
+  step 540  u = 5.400e-03  F = 287.9595  d_tip = 0.996  a = 0.5864  H/Hc =  1078.29  stagg = 200
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[4]PETSC ERROR: === EXIT=124 2026-11-13T21:06:52Z
