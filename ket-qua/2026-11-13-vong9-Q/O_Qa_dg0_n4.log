@@ -1,0 +1,218 @@
+=== CHANG 1 2026-11-13T01:46:31Z tu dau (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+BENCHMARK O (tam chu L)  model=WU  ell=10.0 mm  nx=250  h=2.000 mm  ell/h=5.00  plane=stress
+  ramp: 100 buoc toi 0.5 mm, roi 100 buoc toi 1.0 mm
+  LUOI chu L: so phan tu = 46875  so dinh = 47376
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  TAI: u_y tren 10 canh, y = 250.0, |x - 470.0| <= 10.0 mm; ngam mep y = 0
+  dien tich = 187500.0 mm^2 ; snes_atol = 3.897e-09
+  DCAP: d = 0 tai x > 400.0 mm
+  step   1  u = 5.0000e-03  F =    3.1922  d_goc = 0.000  Gamma = 0.000  stagg = 1  [snes its=0 |F|=0.00e+00]
+  step   2  u = 1.0000e-02  F =    6.3844  d_goc = 0.000  Gamma = 0.000  stagg = 1  [snes its=0 |F|=0.00e+00]
+  step   3  u = 1.5000e-02  F =    9.5766  d_goc = 0.000  Gamma = 0.000  stagg = 1  [snes its=0 |F|=0.00e+00]
+  step   4  u = 2.0000e-02  F =   12.7688  d_goc = 0.000  Gamma = 0.000  stagg = 1
+  step   5  u = 2.5000e-02  F =   15.9610  d_goc = 0.000  Gamma = 0.000  stagg = 1
+  step   6  u = 3.0000e-02  F =   19.1532  d_goc = 0.000  Gamma = 0.000  stagg = 1
+  step   7  u = 3.5000e-02  F =   22.3421  d_goc = 0.000  Gamma = 0.000  stagg = 8
+  step   8  u = 4.0000e-02  F =   25.5192  d_goc = 0.000  Gamma = 0.003  stagg = 13
+  step   9  u = 4.5000e-02  F =   28.6764  d_goc = 0.000  Gamma = 0.010  stagg = 15
+  step  10  u = 5.0000e-02  F =   31.8185  d_goc = 0.000  Gamma = 0.020  stagg = 16
+  step  11  u = 5.5000e-02  F =   34.9323  d_goc = 0.000  Gamma = 0.038  stagg = 16
+  step  12  u = 6.0000e-02  F =   38.0177  d_goc = 0.000  Gamma = 0.065  stagg = 19
+  step  13  u = 6.5000e-02  F =   41.0696  d_goc = 0.000  Gamma = 0.103  stagg = 20
+  step  14  u = 7.0000e-02  F =   44.0814  d_goc = 0.000  Gamma = 0.156  stagg = 23
+  step  15  u = 7.5000e-02  F =   47.0421  d_goc = 0.000  Gamma = 0.228  stagg = 24
+  step  16  u = 8.0000e-02  F =   49.9522  d_goc = 0.000  Gamma = 0.322  stagg = 25
+  step  17  u = 8.5000e-02  F =   52.8037  d_goc = 0.000  Gamma = 0.441  stagg = 27
+  step  18  u = 9.0000e-02  F =   55.5880  d_goc = 0.000  Gamma = 0.593  stagg = 29
+  step  19  u = 9.5000e-02  F =   58.3010  d_goc = 0.003  Gamma = 0.780  stagg = 30
+  step  20  u = 1.0000e-01  F =   60.9366  d_goc = 0.008  Gamma = 1.008  stagg = 32
+  step  21  u = 1.0500e-01  F =   63.4876  d_goc = 0.015  Gamma = 1.283  stagg = 33
+  step  22  u = 1.1000e-01  F =   65.9497  d_goc = 0.022  Gamma = 1.609  stagg = 35
+  step  23  u = 1.1500e-01  F =   68.3125  d_goc = 0.030  Gamma = 1.997  stagg = 37
+  step  24  u = 1.2000e-01  F =   70.5746  d_goc = 0.039  Gamma = 2.449  stagg = 38
+  step  25  u = 1.2500e-01  F =   72.7280  d_goc = 0.049  Gamma = 2.973  stagg = 38
+  step  26  u = 1.3000e-01  F =   74.7676  d_goc = 0.060  Gamma = 3.577  stagg = 39
+  step  27  u = 1.3500e-01  F =   76.6875  d_goc = 0.072  Gamma = 4.268  stagg = 41
+  step  28  u = 1.4000e-01  F =   78.4784  d_goc = 0.085  Gamma = 5.055  stagg = 42
+  step  29  u = 1.4500e-01  F =   80.1322  d_goc = 0.100  Gamma = 5.949  stagg = 43
+  step  30  u = 1.5000e-01  F =   81.6471  d_goc = 0.117  Gamma = 6.956  stagg = 44
+  step  31  u = 1.5500e-01  F =   83.0187  d_goc = 0.135  Gamma = 8.083  stagg = 44
+  step  32  u = 1.6000e-01  F =   84.2419  d_goc = 0.155  Gamma = 9.338  stagg = 46
+  step  33  u = 1.6500e-01  F =   85.3115  d_goc = 0.177  Gamma = 10.730  stagg = 47
+  step  34  u = 1.7000e-01  F =   86.2164  d_goc = 0.202  Gamma = 12.274  stagg = 49
+  step  35  u = 1.7500e-01  F =   86.9425  d_goc = 0.229  Gamma = 13.987  stagg = 51
+  step  36  u = 1.8000e-01  F =   87.4720  d_goc = 0.259  Gamma = 15.893  stagg = 51
+  step  37  u = 1.8500e-01  F =   87.7852  d_goc = 0.291  Gamma = 18.015  stagg = 53
+  step  38  u = 1.9000e-01  F =   87.8558  d_goc = 0.327  Gamma = 20.388  stagg = 55
+  step  39  u = 1.9500e-01  F =   87.6497  d_goc = 0.366  Gamma = 23.056  stagg = 57
+  step  40  u = 2.0000e-01  F =   87.1243  d_goc = 0.409  Gamma = 26.072  stagg = 60
+  step  41  u = 2.0500e-01  F =   86.2255  d_goc = 0.456  Gamma = 29.510  stagg = 65
+  step  42  u = 2.1000e-01  F =   84.8863  d_goc = 0.508  Gamma = 33.459  stagg = 69
+  step  43  u = 2.1500e-01  F =   83.0151  d_goc = 0.565  Gamma = 38.045  stagg = 74
+  step  44  u = 2.2000e-01  F =   80.4803  d_goc = 0.630  Gamma = 43.452  stagg = 84
+  step  45  u = 2.2500e-01  F =   77.0975  d_goc = 0.704  Gamma = 49.944  stagg = 98
+  step  46  u = 2.3000e-01  F =   72.8040  d_goc = 0.786  Gamma = 57.664  stagg = 109
+  step  47  u = 2.3500e-01  F =   68.6381  d_goc = 0.860  Gamma = 65.271  stagg = 101
+  step  48  u = 2.4000e-01  F =   64.8064  d_goc = 0.918  Gamma = 72.456  stagg = 100
+  step  49  u = 2.4500e-01  F =   61.3144  d_goc = 0.954  Gamma = 79.183  stagg = 96
+  step  50  u = 2.5000e-01  F =   58.0699  d_goc = 0.972  Gamma = 85.569  stagg = 96
+  step  51  u = 2.5500e-01  F =   55.1213  d_goc = 0.982  Gamma = 91.529  stagg = 93
+  step  52  u = 2.6000e-01  F =   52.3323  d_goc = 0.988  Gamma = 97.259  stagg = 95
+  step  53  u = 2.6500e-01  F =   49.8112  d_goc = 0.991  Gamma = 102.586  stagg = 87
+  step  54  u = 2.7000e-01  F =   47.5001  d_goc = 0.994  Gamma = 107.586  stagg = 89
+  step  55  u = 2.7500e-01  F =   45.2147  d_goc = 0.997  Gamma = 112.562  stagg = 91
+  step  56  u = 2.8000e-01  F =   43.2539  d_goc = 0.998  Gamma = 117.012  stagg = 79
+  step  57  u = 2.8500e-01  F =   41.4969  d_goc = 0.999  Gamma = 121.119  stagg = 78
+  step  58  u = 2.9000e-01  F =   39.7819  d_goc = 1.000  Gamma = 125.159  stagg = 84
+  step  59  u = 2.9500e-01  F =   37.9698  d_goc = 1.000  Gamma = 129.389  stagg = 93
+  step  60  u = 3.0000e-01  F =   36.3927  d_goc = 1.000  Gamma = 133.218  stagg = 82
+  step  61  u = 3.0500e-01  F =   35.0226  d_goc = 1.000  Gamma = 136.674  stagg = 77
+  step  62  u = 3.1000e-01  F =   33.7720  d_goc = 1.000  Gamma = 139.912  stagg = 75
+  step  63  u = 3.1500e-01  F =   32.6141  d_goc = 1.000  Gamma = 142.981  stagg = 73
+  step  64  u = 3.2000e-01  F =   31.5321  d_goc = 1.000  Gamma = 145.909  stagg = 70
+  step  65  u = 3.2500e-01  F =   30.5167  d_goc = 1.000  Gamma = 148.713  stagg = 67
+  step  66  u = 3.3000e-01  F =   29.5637  d_goc = 1.000  Gamma = 151.398  stagg = 66
+  step  67  u = 3.3500e-01  F =   28.6668  d_goc = 1.000  Gamma = 153.975  stagg = 65
+  step  68  u = 3.4000e-01  F =   27.8209  d_goc = 1.000  Gamma = 156.454  stagg = 64
+  step  69  u = 3.4500e-01  F =   27.0147  d_goc = 1.000  Gamma = 158.853  stagg = 62
+  step  70  u = 3.5000e-01  F =   26.2007  d_goc = 1.000  Gamma = 161.275  stagg = 73
+  step  71  u = 3.5500e-01  F =   25.3293  d_goc = 1.000  Gamma = 163.834  stagg = 89
+  step  72  u = 3.6000e-01  F =   24.5173  d_goc = 1.000  Gamma = 166.280  stagg = 78
+  step  73  u = 3.6500e-01  F =   23.8056  d_goc = 1.000  Gamma = 168.509  stagg = 70
+  step  74  u = 3.7000e-01  F =   23.1592  d_goc = 1.000  Gamma = 170.595  stagg = 69
+  step  75  u = 3.7500e-01  F =   22.5551  d_goc = 1.000  Gamma = 172.587  stagg = 66
+  step  76  u = 3.8000e-01  F =   21.9892  d_goc = 1.000  Gamma = 174.494  stagg = 67
+  step  77  u = 3.8500e-01  F =   21.4557  d_goc = 1.000  Gamma = 176.329  stagg = 64
+  step  78  u = 3.9000e-01  F =   20.9523  d_goc = 1.000  Gamma = 178.095  stagg = 65
+  step  79  u = 3.9500e-01  F =   20.4753  d_goc = 1.000  Gamma = 179.802  stagg = 62
+  step  80  u = 4.0000e-01  F =   20.0253  d_goc = 1.000  Gamma = 181.446  stagg = 64
+  step  81  u = 4.0500e-01  F =   19.5956  d_goc = 1.000  Gamma = 183.043  stagg = 61
+  step  82  u = 4.1000e-01  F =   19.1936  d_goc = 1.000  Gamma = 184.574  stagg = 62
+  step  83  u = 4.1500e-01  F =   18.8057  d_goc = 1.000  Gamma = 186.071  stagg = 61
+  step  84  u = 4.2000e-01  F =   18.4424  d_goc = 1.000  Gamma = 187.510  stagg = 59
+  step  85  u = 4.2500e-01  F =   18.0972  d_goc = 1.000  Gamma = 188.903  stagg = 61
+  step  86  u = 4.3000e-01  F =   17.7644  d_goc = 1.000  Gamma = 190.266  stagg = 58
+  step  87  u = 4.3500e-01  F =   17.4531  d_goc = 1.000  Gamma = 191.575  stagg = 57
+  step  88  u = 4.4000e-01  F =   17.1558  d_goc = 1.000  Gamma = 192.848  stagg = 59
+  step  89  u = 4.4500e-01  F =   16.8689  d_goc = 1.000  Gamma = 194.094  stagg = 57
+  step  90  u = 4.5000e-01  F =   16.5997  d_goc = 1.000  Gamma = 195.295  stagg = 55
+  step  91  u = 4.5500e-01  F =   16.3445  d_goc = 1.000  Gamma = 196.459  stagg = 58
+  step  92  u = 4.6000e-01  F =   16.0967  d_goc = 1.000  Gamma = 197.603  stagg = 56
+  step  93  u = 4.6500e-01  F =   15.8617  d_goc = 1.000  Gamma = 198.714  stagg = 54
+  step  94  u = 4.7000e-01  F =   15.6421  d_goc = 1.000  Gamma = 199.782  stagg = 53
+  step  95  u = 4.7500e-01  F =   15.4286  d_goc = 1.000  Gamma = 200.833  stagg = 56
+  step  96  u = 4.8000e-01  F =   15.2242  d_goc = 1.000  Gamma = 201.859  stagg = 54
+  step  97  u = 4.8500e-01  F =   15.0304  d_goc = 1.000  Gamma = 202.855  stagg = 52
+  step  98  u = 4.9000e-01  F =   14.8479  d_goc = 1.000  Gamma = 203.820  stagg = 52
+  step  99  u = 4.9500e-01  F =   14.6723  d_goc = 1.000  Gamma = 204.764  stagg = 54
+  step 100  u = 5.0000e-01  F =   14.5032  d_goc = 1.000  Gamma = 205.690  stagg = 53
+  step 101  u = 5.0500e-01  F =   14.3413  d_goc = 1.000  Gamma = 206.595  stagg = 51
+  step 102  u = 5.1000e-01  F =   14.1895  d_goc = 1.000  Gamma = 207.470  stagg = 51
+  step 103  u = 5.1500e-01  F =   14.0430  d_goc = 1.000  Gamma = 208.329  stagg = 51
+  step 104  u = 5.2000e-01  F =   13.9043  d_goc = 1.000  Gamma = 209.165  stagg = 50
+  step 105  u = 5.2500e-01  F =   13.7704  d_goc = 1.000  Gamma = 209.986  stagg = 51
+  step 106  u = 5.3000e-01  F =   13.6433  d_goc = 1.000  Gamma = 210.786  stagg = 50
+  step 107  u = 5.3500e-01  F =   13.5215  d_goc = 1.000  Gamma = 211.570  stagg = 49
+  step 108  u = 5.4000e-01  F =   13.4047  d_goc = 1.000  Gamma = 212.338  stagg = 49
+  step 109  u = 5.4500e-01  F =   13.2934  d_goc = 1.000  Gamma = 213.089  stagg = 48
+  step 110  u = 5.5000e-01  F =   13.1875  d_goc = 1.000  Gamma = 213.823  stagg = 47
+  step 111  u = 5.5500e-01  F =   13.0874  d_goc = 1.000  Gamma = 214.538  stagg = 47
+  step 112  u = 5.6000e-01  F =   12.9910  d_goc = 1.000  Gamma = 215.241  stagg = 49
+  step 113  u = 5.6500e-01  F =   12.8975  d_goc = 1.000  Gamma = 215.935  stagg = 48
+  step 114  u = 5.7000e-01  F =   12.8076  d_goc = 1.000  Gamma = 216.618  stagg = 48
+  step 115  u = 5.7500e-01  F =   12.7221  d_goc = 1.000  Gamma = 217.286  stagg = 47
+  step 116  u = 5.8000e-01  F =   12.6408  d_goc = 1.000  Gamma = 217.940  stagg = 46
+  step 117  u = 5.8500e-01  F =   12.5631  d_goc = 1.000  Gamma = 218.582  stagg = 45
+  step 118  u = 5.9000e-01  F =   12.4899  d_goc = 1.000  Gamma = 219.208  stagg = 45
+  step 119  u = 5.9500e-01  F =   12.4211  d_goc = 1.000  Gamma = 219.819  stagg = 44
+  step 120  u = 6.0000e-01  F =   12.3550  d_goc = 1.000  Gamma = 220.421  stagg = 46
+  step 121  u = 6.0500e-01  F =   12.2910  d_goc = 1.000  Gamma = 221.015  stagg = 46
+  step 122  u = 6.1000e-01  F =   12.2291  d_goc = 1.000  Gamma = 221.603  stagg = 45
+  step 123  u = 6.1500e-01  F =   12.1700  d_goc = 1.000  Gamma = 222.180  stagg = 44
+  step 124  u = 6.2000e-01  F =   12.1138  d_goc = 1.000  Gamma = 222.748  stagg = 44
+  step 125  u = 6.2500e-01  F =   12.0608  d_goc = 1.000  Gamma = 223.303  stagg = 44
+  step 126  u = 6.3000e-01  F =   12.0109  d_goc = 1.000  Gamma = 223.847  stagg = 43
+  step 127  u = 6.3500e-01  F =   11.9643  d_goc = 1.000  Gamma = 224.379  stagg = 43
+  step 128  u = 6.4000e-01  F =   11.9209  d_goc = 1.000  Gamma = 224.899  stagg = 42
+  step 129  u = 6.4500e-01  F =   11.8797  d_goc = 1.000  Gamma = 225.410  stagg = 42
+  step 130  u = 6.5000e-01  F =   11.8394  d_goc = 1.000  Gamma = 225.918  stagg = 43
+  step 131  u = 6.5500e-01  F =   11.8012  d_goc = 1.000  Gamma = 226.419  stagg = 43
+  step 132  u = 6.6000e-01  F =   11.7645  d_goc = 1.000  Gamma = 226.913  stagg = 42
+  step 133  u = 6.6500e-01  F =   11.7297  d_goc = 1.000  Gamma = 227.401  stagg = 42
+  step 134  u = 6.7000e-01  F =   11.6967  d_goc = 1.000  Gamma = 227.882  stagg = 42
+  step 135  u = 6.7500e-01  F =   11.6662  d_goc = 1.000  Gamma = 228.352  stagg = 41
+  step 136  u = 6.8000e-01  F =   11.6378  d_goc = 1.000  Gamma = 228.815  stagg = 41
+  step 137  u = 6.8500e-01  F =   11.6116  d_goc = 1.000  Gamma = 229.268  stagg = 40
+  step 138  u = 6.9000e-01  F =   11.5875  d_goc = 1.000  Gamma = 229.713  stagg = 40
+  step 139  u = 6.9500e-01  F =   11.5656  d_goc = 1.000  Gamma = 230.149  stagg = 40
+  step 140  u = 7.0000e-01  F =   11.5455  d_goc = 1.000  Gamma = 230.578  stagg = 39
+  step 141  u = 7.0500e-01  F =   11.5259  d_goc = 1.000  Gamma = 231.004  stagg = 40
+  step 142  u = 7.1000e-01  F =   11.5077  d_goc = 1.000  Gamma = 231.425  stagg = 40
+  step 143  u = 7.1500e-01  F =   11.4904  d_goc = 1.000  Gamma = 231.842  stagg = 40
+  step 144  u = 7.2000e-01  F =   11.4744  d_goc = 1.000  Gamma = 232.254  stagg = 39
+  step 145  u = 7.2500e-01  F =   11.4596  d_goc = 1.000  Gamma = 232.661  stagg = 40
+  step 146  u = 7.3000e-01  F =   11.4458  d_goc = 1.000  Gamma = 233.064  stagg = 39
+  step 147  u = 7.3500e-01  F =   11.4340  d_goc = 1.000  Gamma = 233.459  stagg = 39
+  step 148  u = 7.4000e-01  F =   11.4237  d_goc = 1.000  Gamma = 233.846  stagg = 38
+  step 149  u = 7.4500e-01  F =   11.4148  d_goc = 1.000  Gamma = 234.228  stagg = 38
+  step 150  u = 7.5000e-01  F =   11.4072  d_goc = 1.000  Gamma = 234.603  stagg = 38
+  step 151  u = 7.5500e-01  F =   11.4011  d_goc = 1.000  Gamma = 234.972  stagg = 38
+  step 152  u = 7.6000e-01  F =   11.3966  d_goc = 1.000  Gamma = 235.334  stagg = 37
+  step 153  u = 7.6500e-01  F =   11.3935  d_goc = 1.000  Gamma = 235.689  stagg = 37
+  step 154  u = 7.7000e-01  F =   11.3906  d_goc = 1.000  Gamma = 236.044  stagg = 38
+  step 155  u = 7.7500e-01  F =   11.3881  d_goc = 1.000  Gamma = 236.397  stagg = 37
+  step 156  u = 7.8000e-01  F =   11.3864  d_goc = 1.000  Gamma = 236.746  stagg = 38
+  step 157  u = 7.8500e-01  F =   11.3857  d_goc = 1.000  Gamma = 237.091  stagg = 37
+  step 158  u = 7.9000e-01  F =   11.3859  d_goc = 1.000  Gamma = 237.432  stagg = 37
+  step 159  u = 7.9500e-01  F =   11.3867  d_goc = 1.000  Gamma = 237.770  stagg = 37
+  step 160  u = 8.0000e-01  F =   11.3881  d_goc = 1.000  Gamma = 238.105  stagg = 37
+  step 161  u = 8.0500e-01  F =   11.3907  d_goc = 1.000  Gamma = 238.435  stagg = 37
+  step 162  u = 8.1000e-01  F =   11.3947  d_goc = 1.000  Gamma = 238.758  stagg = 36
+  step 163  u = 8.1500e-01  F =   11.3998  d_goc = 1.000  Gamma = 239.075  stagg = 36
+  step 164  u = 8.2000e-01  F =   11.4057  d_goc = 1.000  Gamma = 239.389  stagg = 35
+  step 165  u = 8.2500e-01  F =   11.4122  d_goc = 1.000  Gamma = 239.700  stagg = 36
+  step 166  u = 8.3000e-01  F =   11.4197  d_goc = 1.000  Gamma = 240.006  stagg = 36
+  step 167  u = 8.3500e-01  F =   11.4284  d_goc = 1.000  Gamma = 240.306  stagg = 35
+  step 168  u = 8.4000e-01  F =   11.4382  d_goc = 1.000  Gamma = 240.600  stagg = 35
+  step 169  u = 8.4500e-01  F =   11.4485  d_goc = 1.000  Gamma = 240.892  stagg = 35
+  step 170  u = 8.5000e-01  F =   11.4583  d_goc = 1.000  Gamma = 241.186  stagg = 35
+  step 171  u = 8.5500e-01  F =   11.4689  d_goc = 1.000  Gamma = 241.477  stagg = 35
+  step 172  u = 8.6000e-01  F =   11.4796  d_goc = 1.000  Gamma = 241.767  stagg = 35
+  step 173  u = 8.6500e-01  F =   11.4912  d_goc = 1.000  Gamma = 242.052  stagg = 35
+  step 174  u = 8.7000e-01  F =   11.5035  d_goc = 1.000  Gamma = 242.334  stagg = 35
+  step 175  u = 8.7500e-01  F =   11.5164  d_goc = 1.000  Gamma = 242.613  stagg = 35
+  step 176  u = 8.8000e-01  F =   11.5294  d_goc = 1.000  Gamma = 242.892  stagg = 35
+  step 177  u = 8.8500e-01  F =   11.5430  d_goc = 1.000  Gamma = 243.167  stagg = 35
+  step 178  u = 8.9000e-01  F =   11.5575  d_goc = 1.000  Gamma = 243.438  stagg = 34
+  step 179  u = 8.9500e-01  F =   11.5727  d_goc = 1.000  Gamma = 243.705  stagg = 34
+  step 180  u = 9.0000e-01  F =   11.5889  d_goc = 1.000  Gamma = 243.967  stagg = 34
+  step 181  u = 9.0500e-01  F =   11.6057  d_goc = 1.000  Gamma = 244.225  stagg = 33
+  step 182  u = 9.1000e-01  F =   11.6229  d_goc = 1.000  Gamma = 244.481  stagg = 34
+  step 183  u = 9.1500e-01  F =   11.6405  d_goc = 1.000  Gamma = 244.735  stagg = 34
+  step 184  u = 9.2000e-01  F =   11.6588  d_goc = 1.000  Gamma = 244.985  stagg = 34
+  step 185  u = 9.2500e-01  F =   11.6778  d_goc = 1.000  Gamma = 245.231  stagg = 33
+  step 186  u = 9.3000e-01  F =   11.6975  d_goc = 1.000  Gamma = 245.473  stagg = 33
+  step 187  u = 9.3500e-01  F =   11.7175  d_goc = 1.000  Gamma = 245.714  stagg = 33
+  step 188  u = 9.4000e-01  F =   11.7373  d_goc = 1.000  Gamma = 245.956  stagg = 33
+  step 189  u = 9.4500e-01  F =   11.7575  d_goc = 1.000  Gamma = 246.196  stagg = 33
+  step 190  u = 9.5000e-01  F =   11.7776  d_goc = 1.000  Gamma = 246.436  stagg = 33
+  step 191  u = 9.5500e-01  F =   11.7981  d_goc = 1.000  Gamma = 246.675  stagg = 33
+  step 192  u = 9.6000e-01  F =   11.8191  d_goc = 1.000  Gamma = 246.910  stagg = 33
+  step 193  u = 9.6500e-01  F =   11.8407  d_goc = 1.000  Gamma = 247.142  stagg = 33
+  step 194  u = 9.7000e-01  F =   11.8626  d_goc = 1.000  Gamma = 247.372  stagg = 33
+  step 195  u = 9.7500e-01  F =   11.8847  d_goc = 1.000  Gamma = 247.602  stagg = 33
+  step 196  u = 9.8000e-01  F =   11.9072  d_goc = 1.000  Gamma = 247.829  stagg = 33
+  step 197  u = 9.8500e-01  F =   11.9301  d_goc = 1.000  Gamma = 248.053  stagg = 33
+  step 198  u = 9.9000e-01  F =   11.9534  d_goc = 1.000  Gamma = 248.275  stagg = 32
+  step 199  u = 9.9500e-01  F =   11.9773  d_goc = 1.000  Gamma = 248.494  stagg = 32
+  step 200  u = 1.0000e+00  F =   12.0017  d_goc = 1.000  Gamma = 248.709  stagg = 32
+
+============================================================
+  BENCHMARK O  model WU  ell = 10.0 mm  hspace = dg0  nhan = 4
+  PEAK LOAD = 87.8558 N/mm   at step 38 of 200   u = 1.9000e-01 mm   (x 100 mm day = 8.786 kN)
+  final load = 13.7 % of peak ; Gamma - Gamma0 = 248.71 mm
+  wrote loaddisp_Qa_dg0_n4.txt dfield_Qa_dg0_n4.npz
+============================================================
+=== EXIT=0 2026-11-13T05:02:19Z
