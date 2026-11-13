@@ -221,9 +221,13 @@ def _ph_partitioner(owner, ij):
         if isinstance(cells, (list, tuple)):
             cells = cells[0]
         nloc = np.asarray(cells).size // 4
+        def _al(dat, off):
+            # create_mesh (C++) can AdjacencyList_int32 goc, khong phai lop boc Python.
+            a = _graph.adjacencylist(np.asarray(dat, dtype=np.int32),
+                                     np.asarray(off, dtype=np.int32))
+            return getattr(a, "_cpp_object", a)
         if nloc == 0:
-            return _graph.adjacencylist(np.zeros(0, dtype=np.int32),
-                                        np.zeros(1, dtype=np.int32))
+            return _al(np.zeros(0), np.zeros(1))
         if nloc != len(owner):
             raise SystemExit(f"--phanhoach: nhan {comm.rank} co {nloc} o, mong {len(owner)}")
         own2 = np.full((nx + 2, nx + 2), -1, dtype=np.int64)
@@ -236,8 +240,7 @@ def _ph_partitioner(owner, ij):
                 if q >= 0 and q != r and q not in dst:
                     dst.append(int(q))
             data.extend(dst); offs.append(len(data))
-        return _graph.adjacencylist(np.asarray(data, dtype=np.int32),
-                                    np.asarray(offs, dtype=np.int32))
+        return _al(data, offs)
     return _part
 
 
@@ -263,11 +266,9 @@ def _ph_build():
         ij = np.zeros((0, 2), dtype=np.int64)
     e = _bu.element("Lagrange", "quadrilateral", 1, shape=(2,))
     if args.phanhoach == "do-thi":
-        try:
-            part = mesh.create_cell_partitioner(mesh.GhostMode.shared_facet)
-        except TypeError:
-            from dolfinx import graph as _graph
-            part = mesh.create_cell_partitioner(_graph.partitioner(), mesh.GhostMode.shared_facet)
+        # DOLFINx 0.11: create_cell_partitioner(mode, max_facet_to_cell_links); 2 = luoi
+        # da tap khong re nhanh, nhu create_unit_square dung.
+        part = mesh.create_cell_partitioner(mesh.GhostMode.shared_facet, 2)
     else:
         k = 0 if args.phanhoach == "dai-x" else 1
         owner = np.minimum((ij[:, k] * comm.size) // nx, comm.size - 1).astype(np.int64)
