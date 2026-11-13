@@ -1,0 +1,128 @@
+[
+ {
+  "tag": "S_cg1_n6_md",
+  "nhan": 6,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1 --phanhoach mac-dinh --xao 0"
+ },
+ {
+  "tag": "S_cg1_n8_md",
+  "nhan": 8,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1 --phanhoach mac-dinh --xao 0"
+ },
+ {
+  "tag": "S_cg1_n4_md",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1 --phanhoach mac-dinh --xao 0"
+ },
+ {
+  "tag": "S_cg1_n4_dt",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1 --phanhoach do-thi --xao 0"
+ },
+ {
+  "tag": "S_cg1_n4_dtx1",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1 --phanhoach do-thi --xao 1"
+ },
+ {
+  "tag": "S_cg1_n4_dx",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1 --phanhoach dai-x --xao 0"
+ },
+ {
+  "tag": "S_cg1_n4_dy",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1 --phanhoach dai-y --xao 0"
+ },
+ {
+  "tag": "S_cg1_n2_dy",
+  "nhan": 2,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1 --phanhoach dai-y --xao 0"
+ },
+ {
+  "tag": "S_cg1_n1_dtx1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1 --phanhoach do-thi --xao 1"
+ },
+ {
+  "tag": "S_dg0_n6_md",
+  "nhan": 6,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace dg0 --phanhoach mac-dinh --xao 0"
+ },
+ {
+  "tag": "S_dg0_n8_md",
+  "nhan": 8,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace dg0 --phanhoach mac-dinh --xao 0"
+ },
+ {
+  "tag": "S_dg0_n4_md",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace dg0 --phanhoach mac-dinh --xao 0"
+ },
+ {
+  "tag": "S_dg0_n4_dt",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace dg0 --phanhoach do-thi --xao 0"
+ },
+ {
+  "tag": "S_dg0_n4_dtx1",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace dg0 --phanhoach do-thi --xao 1"
+ },
+ {
+  "tag": "S_dg0_n4_dx",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace dg0 --phanhoach dai-x --xao 0"
+ },
+ {
+  "tag": "S_dg0_n4_dy",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace dg0 --phanhoach dai-y --xao 0"
+ },
+ {
+  "tag": "S_dg0_n2_dy",
+  "nhan": 2,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace dg0 --phanhoach dai-y --xao 0"
+ },
+ {
+  "tag": "S_dg0_n1_dtx1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace dg0 --phanhoach do-thi --xao 1"
+ }
+]
