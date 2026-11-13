@@ -1,0 +1,35 @@
+=== CHANG 1 2026-11-13T01:46:08Z tu dau (GitHub Actions)
+=== MAY: 4 nhan;  INTEL(R) XEON(R) PLATINUM 8573C
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 1 steps to 8.000e-03 (step 7.00e-03)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  LUOI: --cell tri  (tam giac P1, crossed)  so phan tu = 160000  so dinh = 80401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace quad   (H tai diem cau phuong, bac 2)
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 101   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  H-INVARIANT step1: sum=2.068311090332e+01 max=1.534442061169e-02 L2=3.821759976770e-01
+  step   1  u = 1.000e-05  F =   2.1718  d_tip = 0.012  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   2  u = 2.000e-05  F =   4.3436  d_tip = 0.012  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   3  u = 3.000e-05  F =   6.5153  d_tip = 0.012  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   4  u = 4.000e-05  F =   8.6871  d_tip = 0.012  a = 0.0000  H/Hc =     0.00  stagg = 2
+  step   5  u = 5.000e-05  F =  10.8588  d_tip = 0.012  a = 0.0000  H/Hc =     0.00  stagg = 2
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 10.8588 N/mm   at step 5 of 5
+  nominal peak stress = 10.8588 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 100.0 % of peak ; final d ahead of the tip = 0.012 ; crack extension = 0.0000 mm (0.0 ell)
+  *** NOT A FRACTURE PEAK: the load never fell below 60 % of
+      its maximum, or no crack ran (d stayed under 0.5 and the
+      crack grew less than 2 ell).  The maximum above is a
+      plateau value, which is noise.
+      NOTE: the run stopped at u = 5.000e-05 mm of 0.0080 mm,
+      so it ended early -- look at the failed damage solves below,
+      not at umax.
+  wrote loaddisp_KT_quad_tri_n1.txt
+============================================================
+=== EXIT=0 2026-11-13T01:46:24Z
