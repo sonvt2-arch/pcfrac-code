@@ -1,0 +1,24 @@
+=== CHANG 1 2026-11-13T01:46:12Z tu dau (GitHub Actions)
+=== MAY: 4 nhan;  Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
+BENCHMARK O (tam chu L)  model=WU  ell=10.0 mm  nx=250  h=2.000 mm  ell/h=5.00  plane=stress
+  ramp: 3 buoc toi 0.15 mm, roi 3 buoc toi 0.3 mm
+  LUOI chu L: so phan tu = 46875  so dinh = 47376
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  TAI: u_y tren 10 canh, y = 250.0, |x - 470.0| <= 10.0 mm; ngam mep y = 0
+  dien tich = 187500.0 mm^2 ; snes_atol = 3.897e-09
+  DCAP: d = 0 tai x > 400.0 mm
+  step   1  u = 5.0000e-02  F =   31.8169  d_goc = 0.000  Gamma = 0.020  stagg = 17  [snes its=1 |F|=6.26e-14]
+  step   2  u = 1.0000e-01  F =   60.8748  d_goc = 0.008  Gamma = 1.059  stagg = 36  [snes its=1 |F|=4.37e-10]
+  step   3  u = 1.5000e-01  F =   81.3832  d_goc = 0.095  Gamma = 7.428  stagg = 52  [snes its=3 |F|=1.18e-09]
+  step   4  u = 2.0000e-01  F =   89.2786  d_goc = 0.301  Gamma = 24.994  stagg = 72
+  step   5  u = 2.5000e-01  F =   65.9631  d_goc = 0.918  Gamma = 81.102  stagg = 152
+  step   6  u = 3.0000e-01  F =   38.8413  d_goc = 1.000  Gamma = 139.858  stagg = 108
+
+============================================================
+  BENCHMARK O  model WU  ell = 10.0 mm  hspace = dg0  nhan = 1
+  PEAK LOAD = 89.2786 N/mm   at step 4 of 6   u = 2.0000e-01 mm   (x 100 mm day = 8.928 kN)
+  final load = 43.5 % of peak ; Gamma - Gamma0 = 139.84 mm
+  wrote loaddisp_Q0_khoi_dg0.txt dfield_Q0_khoi_dg0.npz
+============================================================
+=== EXIT=0 2026-11-13T01:59:56Z
