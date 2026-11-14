@@ -702,3 +702,55 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
 [4]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 4 (rank 4 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 4
 === EXIT=124 2026-11-14T02:28:02Z
+=== CHANG 5 2026-11-14T02:29:12Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  Intel(R) Xeon(R) 6975P-C
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 8  o so huu/ghost = [4989, 5111, 4989, 5111, 4900, 5000, 4900, 5000]/[150, 251, 150, 251, 249, 150, 249, 150]  thieu = 0  crc = dc8e0864  cot qua y=0.5 khac nhan = 200/200
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1   *** BAN TRUOC KHI SUA -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 52   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 611 (diem kiem buoc 610)
+  step 611  u = 6.110e-03  F = 621.9221  d_tip = 1.000  a = 0.6297  H/Hc =   170.37  stagg = 200
+  step 612  u = 6.120e-03  F = 622.1170  d_tip = 1.000  a = 0.6314  H/Hc =   170.37  stagg = 200
+  step 613  u = 6.130e-03  F = 618.3318  d_tip = 1.000  a = 0.6404  H/Hc =   170.37  stagg = 150
+  step 614  u = 6.140e-03  F = 618.9629  d_tip = 1.000  a = 0.6411  H/Hc =   170.37  stagg = 93
+  step 615  u = 6.150e-03  F = 619.4427  d_tip = 1.000  a = 0.6421  H/Hc =   170.37  stagg = 178
+  step 616  u = 6.160e-03  F = 615.2855  d_tip = 1.000  a = 0.6516  H/Hc =   170.37  stagg = 200
+  step 617  u = 6.170e-03  F = 615.8188  d_tip = 1.000  a = 0.6535  H/Hc =   170.37  stagg = 179
+  step 618  u = 6.180e-03  F = 616.1550  d_tip = 1.000  a = 0.6547  H/Hc =   170.37  stagg = 200
+  step 619  u = 6.190e-03  F = 611.9254  d_tip = 1.000  a = 0.6642  H/Hc =   170.37  stagg = 190
+  step 620  u = 6.200e-03  F = 612.4368  d_tip = 1.000  a = 0.6651  H/Hc =   170.37  stagg = 116
+  step 621  u = 6.210e-03  F = 612.4838  d_tip = 1.000  a = 0.6669  H/Hc =   170.37  stagg = 200
+  step 622  u = 6.220e-03  F = 595.4305  d_tip = 1.000  a = 0.7072  H/Hc =   170.37  stagg = 200
+  step 623  u = 6.230e-03  F = 591.3913  d_tip = 1.000  a = 0.7188  H/Hc =   170.37  stagg = 158
+  step 624  u = 6.240e-03  F = 592.0002  d_tip = 1.000  a = 0.7195  H/Hc =   170.37  stagg = 90
+  step 625  u = 6.250e-03  F = 592.4043  d_tip = 1.000  a = 0.7205  H/Hc =   170.37  stagg = 200
+  step 626  u = 6.260e-03  F = 587.9114  d_tip = 1.000  a = 0.7315  H/Hc =   170.37  stagg = 191
+  step 627  u = 6.270e-03  F = 588.2104  d_tip = 1.000  a = 0.7327  H/Hc =   170.37  stagg = 200
+  step 628  u = 6.280e-03  F = 583.7245  d_tip = 1.000  a = 0.7427  H/Hc =   170.37  stagg = 195
+  step 629  u = 6.290e-03  F = 583.9720  d_tip = 1.000  a = 0.7440  H/Hc =   170.37  stagg = 200
+  step 630  u = 6.300e-03  F = 579.3905  d_tip = 1.000  a = 0.7542  H/Hc =   170.37  stagg = 192
+  step 631  u = 6.310e-03  F = 579.6631  d_tip = 1.000  a = 0.7554  H/Hc =   170.37  stagg = 200
+  step 632  u = 6.320e-03  F = 561.8053  d_tip = 1.000  a = 0.7987  H/Hc =   170.37  stagg = 200
+  step 633  u = 6.330e-03  F = 557.2499  d_tip = 1.000  a = 0.8093  H/Hc =   170.37  stagg = 160
+  step 634  u = 6.340e-03  F = 557.8076  d_tip = 1.000  a = 0.8099  H/Hc =   170.37  stagg = 78
+  step 635  u = 6.350e-03  F = 558.2480  d_tip = 1.000  a = 0.8108  H/Hc =   170.37  stagg = 145
+  step 636  u = 6.360e-03  F = 553.2592  d_tip = 1.000  a = 0.8230  H/Hc =   170.37  stagg = 200
+  step 637  u = 6.370e-03  F = 548.2872  d_tip = 1.000  a = 0.8342  H/Hc =   170.37  stagg = 200
+  step 638  u = 6.380e-03  F = 548.7198  d_tip = 1.000  a = 0.8350  H/Hc =   170.37  stagg = 127
+  step 639  u = 6.390e-03  F = 543.4595  d_tip = 1.000  a = 0.8477  H/Hc =   170.37  stagg = 200
+[4]PETSC ERROR: ------------------------------------------------------------------------
+[4]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[4]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[4]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[4]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[4]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 4 (rank 4 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 4
+=== EXIT=124 2026-11-14T07:49:12Z
