@@ -136,6 +136,8 @@ p.add_argument("--do-B", dest="do_B", default=None,
 p.add_argument("--ghi-nguoc", dest="ghi_nguoc", action="store_true",
                help="(vong 11-B, chi --hspace cg1, can --do-B) noi suy nut ghi de theo thu tu "
                     "o NGUOC: nguoi ghi sau thanh nguoi ghi dau")
+p.add_argument("--dung-buoc", dest="dung_buoc", type=int, default=0,
+               help="(vong 11-B, chan doan) dung sau buoc N (giu nguyen buoc tai cua --steps); 0 = tat")
 p.add_argument("--dung-tip", dest="dung_tip", type=float, default=12.0,
                help="(vong 11-B) dung khi a_tip >= DUNG_TIP * ell va da sut >= 10 %%")
 p.add_argument("--maxbad", type=int, default=20,
@@ -1108,7 +1110,7 @@ if args.do_B:
     from vong11B import ChanDoanB
     _B = ChanDoanB(comm, domain, V_d, V_H, H, d, u, psi_fn, psi_pos, args.hspace, ell, L / nx,
                    args.do_B, args.out or "B", _QDEG, ghi_nguoc=args.ghi_nguoc,
-                   dung_tip=args.dung_tip, psi_expr=psi_expr if args.hspace == "cg1" else None)
+                   dung_tip=args.dung_tip, dung_buoc=args.dung_buoc, psi_expr=psi_expr if args.hspace == "cg1" else None)
     _B.khoi_phuc(hist)
     if args.ghi_nguoc:
         def _psi_update():

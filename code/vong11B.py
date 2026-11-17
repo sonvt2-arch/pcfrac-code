@@ -31,13 +31,14 @@ from dinh_nut_B import dinh_nut as _dinh_nut
 
 class ChanDoanB:
     def __init__(self, comm, domain, V_d, V_H, H, d, u, psi_fn, psi_pos, hspace, ell, h,
-                 outdir, tag, qdeg, ghi_nguoc=False, dung_tip=12.0, he_so_F=1.0,
+                 outdir, tag, qdeg, ghi_nguoc=False, dung_tip=12.0, dung_buoc=0, he_so_F=1.0,
                  psi_expr=None):
         self.comm, self.domain, self.V_d, self.H, self.d, self.psi_fn = comm, domain, V_d, H, d, psi_fn
         self.ell, self.h, self.hspace, self.dung_tip = ell, h, hspace, dung_tip
         self.dim = domain.topology.dim
         self.psi_expr = psi_expr
         self.ghi_nguoc = ghi_nguoc
+        self.dung_buoc = dung_buoc
         self.out = outdir
         if comm.rank == 0:
             os.makedirs(outdir, exist_ok=True)
@@ -187,7 +188,7 @@ class ChanDoanB:
             if self.Fs and Fa < 0.9 * max(self.Fs):
                 self.da_sut = True
             self.Fs.append(Fa)
-            stop = self.da_sut and a >= self.dung_tip * self.ell
+            stop = (self.da_sut and a >= self.dung_tip * self.ell) or (0 < self.dung_buoc <= step)
             if stop:
                 print(f"  B DUNG: a_tip >= {self.dung_tip:g} ell va da sut >= 10 % -- dung chay", flush=True)
         return comm.bcast(stop, root=0)
