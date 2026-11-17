@@ -129,8 +129,19 @@ p.add_argument("--xao", type=int, default=0,
 p.add_argument("--notch", choices=["hang-nut", "geom"], default="hang-nut",
                help="hang-nut (mac dinh): vet khia = d = 1 tren nut nhu cu; geom: khe ho "
                     "hinh hoc that (tach nut doc y = 0.5, x < 0.5), khong dat d = 1")
+p.add_argument("--do-B", dest="do_B", default=None,
+               help="(vong 11-B) thu muc ghi chan doan: ban do nguoi ghi sau, bat doi xung "
+                    "A cua H/psi+ quanh y = 0.5, dinh nut moi buoc (code/vong11B.py); "
+                    "tat thi khong doi gi")
+p.add_argument("--ghi-nguoc", dest="ghi_nguoc", action="store_true",
+               help="(vong 11-B, chi --hspace cg1, can --do-B) noi suy nut ghi de theo thu tu "
+                    "o NGUOC: nguoi ghi sau thanh nguoi ghi dau")
+p.add_argument("--dung-tip", dest="dung_tip", type=float, default=12.0,
+               help="(vong 11-B) dung khi a_tip >= DUNG_TIP * ell va da sut >= 10 %%")
 p.add_argument("--out", default=None)
 args = p.parse_args()
+if args.ghi_nguoc and (args.hspace != "cg1" or not args.do_B):
+    raise SystemExit("--ghi-nguoc chi dung voi --hspace cg1 va --do-B")
 
 L = 1.0                 # plate side, mm
 E0, nu = 25000.0, 0.20  # MPa
@@ -1088,6 +1099,20 @@ def _psi_update():
     else:
         psi_fn.interpolate(psi_expr)
 
+_B = None
+if args.do_B:
+    from vong11B import ChanDoanB
+    _B = ChanDoanB(comm, domain, V_d, V_H, H, d, u, psi_fn, psi_pos, args.hspace, ell, L / nx,
+                   args.do_B, args.out or "B", _QDEG, ghi_nguoc=args.ghi_nguoc,
+                   dung_tip=args.dung_tip, psi_expr=psi_expr if args.hspace == "cg1" else None)
+    _B.khoi_phuc(hist)
+    if args.ghi_nguoc:
+        def _psi_update():
+            _v = np.asarray(psi_expr.eval(domain, _B.cells)).reshape(_B.nc, -1)
+            psi_fn.x.array[:] = _B.ghi(_v, True)
+        if comm.rank == 0:
+            print("  B: --ghi-nguoc  (noi suy nut ghi de, thu tu o NGUOC)", flush=True)
+
 for step in range(start_step, args.steps + 1):
     ubar = float(_ramp[step - 1])
     u_top.x.array[:] = ubar
@@ -1153,6 +1178,8 @@ for step in range(start_step, args.steps + 1):
               f"H/Hc = {Hmax/H_crit:8.2f}  stagg = {k+1}"
               + ("" if reason is None or reason > 0 else f"  SNES={reason}"))
     _ck_save(step)
+    if _B is not None and _B.buoc(step, ubar, F):
+        break
     Fs = np.abs(np.array([r[1] for r in hist]))
     if len(Fs) > 6 and Fs.max() > 0 and Fs[-1] < 0.25 * Fs.max():
         if comm.rank == 0:
