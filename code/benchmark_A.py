@@ -126,6 +126,9 @@ p.add_argument("--phanhoach", choices=["mac-dinh", "do-thi", "dai-x", "dai-y"],
 p.add_argument("--xao", type=int, default=0,
                help="(chi khi --phanhoach khac mac-dinh) hoan vi ngau nhien thu tu phan tu "
                     "dau vao voi hat giong XAO; 0 = thu tu hang (j, i)")
+p.add_argument("--notch", choices=["hang-nut", "geom"], default="hang-nut",
+               help="hang-nut (mac dinh): vet khia = d = 1 tren nut nhu cu; geom: khe ho "
+                    "hinh hoc that (tach nut doc y = 0.5, x < 0.5), khong dat d = 1")
 p.add_argument("--out", default=None)
 args = p.parse_args()
 
@@ -279,7 +282,54 @@ def _ph_build():
     return mesh.create_mesh(**kw)
 
 
-if args.phanhoach != "mac-dinh":
+# --notch geom (vong 11-A, 17/11/2026): khe ho HINH HOC that thay cho hang nut d = 1.
+# Cung luoi Q1 nx x nx tren [0,1]^2 (dung create_mesh nhu _ph_build), nhung moi
+# nut (i, nx/2) voi i < nx/2 (y = 0.5, x < 0.5; ca nut canh trai) duoc NHAN DOI:
+# o phia duoi (cj = nx/2 - 1) giu nut goc, o phia tren (cj = nx/2) dung ban sao.
+# Nut mui khia (nx/2, nx/2) dung chung.  Ban sao dat o y = 0.5 + _GEOM_EPS de toa
+# do bac tu do khong trung nhau (diem kiem anh xa lai theo toa do); _GEOM_EPS =
+# 1e-8 mm << h.  Hai mat khe tu do (khong dieu kien bien), khong dat d = 1.
+# Mac dinh (hang-nut) khong cham vao nhanh nay: ket qua cu giu nguyen tung bit.
+_GEOM_EPS = 1.0e-8
+
+
+def _geom_build():
+    import basix.ufl as _bu
+    if args.cell != "quad" or args.pores or args.jitter > 0.0 or args.phanhoach != "mac-dinh":
+        raise SystemExit("--notch geom chi ho tro --cell quad, khong --pores/--jitter/--phanhoach")
+    if nx % 2:
+        raise SystemExit("--notch geom can nx chan")
+    m = nx // 2
+    if comm.rank == 0:
+        I, J = np.meshgrid(np.arange(nx + 1), np.arange(nx + 1))
+        X = np.stack([I.ravel() / nx, J.ravel() / nx], axis=1).astype(np.float64)
+        Xd = np.stack([np.arange(m) / nx, np.full(m, 0.5 + _GEOM_EPS)], axis=1)
+        X = np.concatenate([X, Xd]).astype(np.float64)
+        nv0 = (nx + 1) ** 2
+        ci, cj = np.meshgrid(np.arange(nx), np.arange(nx))
+        ci, cj = ci.ravel(), cj.ravel()
+        v = lambda i, j: j * (nx + 1) + i
+        def vt(i, j):          # nut duoi cua o phia tren khe: dung ban sao
+            return np.where((j == m) & (cj == m) & (i < m), nv0 + np.minimum(i, m - 1), v(i, j))
+        cells = np.stack([vt(ci, cj), vt(ci + 1, cj), v(ci, cj + 1), v(ci + 1, cj + 1)],
+                         axis=1).astype(np.int64)
+    else:
+        X = np.zeros((0, 2), dtype=np.float64)
+        cells = np.zeros((0, 4), dtype=np.int64)
+    e = _bu.element("Lagrange", "quadrilateral", 1, shape=(2,))
+    part = mesh.create_cell_partitioner(mesh.GhostMode.shared_facet, 2)
+    prm = list(_inspect.signature(mesh.create_mesh).parameters)
+    kw = {"comm": comm, "cells": cells, "x": X, "partitioner": part}
+    kw[[q for q in prm if q in ("e", "domain", "coordinate_element", "element")][0]] = e
+    if comm.rank == 0:
+        print(f"  KHIA: --notch geom  khe hinh hoc, {m} nut nhan doi tren y = 0.5, x < 0.5 "
+              f"(ban sao y + {_GEOM_EPS:g}); khong dat d = 1", flush=True)
+    return mesh.create_mesh(**kw)
+
+
+if args.notch == "geom":
+    domain = _geom_build()
+elif args.phanhoach != "mac-dinh":
     domain = _ph_build()
 elif args.cell == "tri":
     domain = mesh.create_unit_square(comm, nx, nx, mesh.CellType.triangle,
@@ -627,6 +677,11 @@ _PORES = None
 
 
 def notch(x):
+    if args.notch == "geom":
+        # khe hinh hoc: khong co nut nao bi dat d = 1
+        if comm.rank == 0:
+            print("  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom", flush=True)
+        return np.zeros(x.shape[1], dtype=bool)
     if getattr(args, "sharpnotch", False):
         # --n1 la SO BUOC TAI o chang min, khong phai so phan chia luoi.
         # Dung sai phai buoc vao luoi thuc: h = L / nx.

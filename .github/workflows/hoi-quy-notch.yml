@@ -1,0 +1,83 @@
+name: Hoi quy + thu --notch geom (vong 11-A)
+
+# Vong 11-A (17/11/2026), doc/CA-VONG11-A-2026-11-17.md (repo du an).  Chay tay.
+# (1) Hoi quy: ma CU (a9b84f4, chua co --notch) / MOI (mac dinh) / MOI (--notch hang-nut), 1 nhan,
+#     Miehe SENT amor nx200 40 buoc, cg1 va dg0; so tung byte loaddisp va H-INVARIANT.
+# (2) Thu --notch geom 5 buoc o 1 va 4 nhan (nx200), dg0 va cg1; so F buoc 1 voi khia hang nut.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  hoi-quy:
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 300
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Hoi quy cu / moi / moi-hn
+        working-directory: code
+        run: |
+          set +e
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git show a9b84f4:code/benchmark_A.py > benchmark_A_cu.py
+          D=../ket-qua/2026-11-17-vong11-A/hoi-quy; mkdir -p $D
+          echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" | tee $D/ket-luan.txt
+          M="--model AT2 --ell 0.01 --nx 200 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 40 --umax 0.008"
+          for c in cg1 dg0; do
+            for t in cu:benchmark_A_cu.py: moi:benchmark_A.py: moihn:benchmark_A.py:--notch_hang-nut; do
+              n=${t%%:*}; r=${t#*:}; s=${r%%:*}; x=${r#*:}; x=${x//_/ }
+              T=HN_${c}_$n
+              mpirun -n 1 python3 -u $s $M --hspace $c $x --out $T > $D/A_$T.log 2>&1
+              echo "--- $T EXIT=$?" | tee -a $D/ket-luan.txt
+              cp -f loaddisp_$T.txt $D/
+            done
+            cd $D
+            for n in moi moihn; do
+              B=HN_${c}
+              if cmp -s loaddisp_${B}_cu.txt loaddisp_${B}_$n.txt && \
+                 diff <(grep H-INVARIANT A_${B}_cu.log) <(grep H-INVARIANT A_${B}_$n.log) >/dev/null && \
+                 [ -n "$(grep H-INVARIANT A_${B}_cu.log)" ]; then
+                echo "$B: cu vs $n: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)" | tee -a ket-luan.txt
+              else
+                echo "$B: cu vs $n: KHAC" | tee -a ket-luan.txt
+              fi
+            done
+            cd - >/dev/null
+          done
+      - name: Thu --notch geom (5 buoc)
+        working-directory: code
+        run: |
+          set +e
+          D=../ket-qua/2026-11-17-vong11-A/thu; mkdir -p $D
+          M="--model AT2 --ell 0.01 --nx 200 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 5 --umax 0.008"
+          for t in 1:dg0:geom 4:dg0:geom 1:cg1:geom 4:cg1:geom 1:dg0:hang-nut; do
+            IFS=: read k c nt <<< "$t"
+            T=TN_n${k}_${c}_$nt
+            t0=$SECONDS; timeout 30m mpirun -n $k python3 -u benchmark_A.py $M --hspace $c --notch $nt --ckpt ck_$T --out $T > $D/A_$T.log 2>&1
+            echo "--- $T EXIT=$? THOI GIAN $((SECONDS-t0)) s" | tee -a $D/ket-luan.txt
+            grep -h "KHIA\|NOTCH DOFS\|LUOI:\|H-INVARIANT\|Error\|error" $D/A_$T.log | tee -a $D/ket-luan.txt
+            cp -f loaddisp_$T.txt $D/ 2>/dev/null; head -3 loaddisp_$T.txt | tee -a $D/ket-luan.txt
+          done
+          # thu chay tiep tu diem kiem (4 nhan geom): them 2 buoc
+          T=TN_n4_dg0_geom
+          timeout 20m mpirun -n 4 python3 -u benchmark_A.py ${M/--steps 5/--steps 7} --hspace dg0 --notch geom --ckpt ck_$T --resume --out ${T}_rs > $D/A_${T}_rs.log 2>&1
+          echo "--- ${T}_rs EXIT=$?" | tee -a $D/ket-luan.txt; grep -h "RESUME\|PHAN HOACH KHAC" $D/A_${T}_rs.log | tee -a $D/ket-luan.txt
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-11-17-vong11-A || exit 0
+          git commit -qm "Actions: hoi quy + thu --notch geom (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
