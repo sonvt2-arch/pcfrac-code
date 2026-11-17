@@ -1304,3 +1304,37 @@ model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zb
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-17T16:16:25Z
+=== CHANG 3 2026-11-17T16:17:37Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V45 96-Core Processor
+  BENCHMARK P3D (tam mong 3D, hex Q1)  dolfinx 0.11.0.post0
+model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zbc faces
+  ramp: 100 fine steps to 1.000e-03, then 700 steps to 8.000e-03
+  LUOI: hex Q1  so phan tu = 20000  so dinh = 30603
+  KHONG GIAN H: --hspace cg1   *** NOI SUY NUT GHI DE (8 phan tu ke) -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split amor (Amor 3D, K = lambda + 2mu/3)
+  DIEU KIEN NGAM: --grip clamp;  z: --zbc faces  (u_z = 0 tren hai mat z = 0, z = t: bien dang phang)
+  NOTCH DOFS (toan cuc) = 153   (mong doi 153)
+  damage threshold H_crit = 1.3500e+02
+  RESUME: chay tiep tu buoc 634 (diem kiem buoc 633)
+  B NGUOI GHI (XUOI <- dung): nut tren n=60 f_gan(T)=0.783; nut duoi n=60 f_gan(B)=0.233; W=f_gan(B)-f_gan(T)=-0.550; nut tren mat n=15 ti le nguoi ghi o tren=0.333; ti le nguoi ghi phia x lon=0.267
+  B NGUOI GHI (NGUOC): nut tren n=60 f_gan(T)=0.183; nut duoi n=60 f_gan(B)=0.967; W=f_gan(B)-f_gan(T)=+0.783; nut tren mat n=15 ti le nguoi ghi o tren=0.867; ti le nguoi ghi phia x lon=0.785
+  step 634  u = 6.340e-03  F = 656.6512  d_tip = 1.000  a = 0.7580  H/Hc =   130.81  stagg = 200  t = 419s
+  B buoc 634: A_H=+9.903e-01 A_psiS=+9.996e-01 A_psiU=+9.995e-01 a_tip=11.31 ell tip=(0.5800,0.5800)
+  step 635  u = 6.350e-03  F = 655.1130  d_tip = 1.000  a = 0.7630  H/Hc =   133.53  stagg = 200  t = 815s
+  B buoc 635: A_H=+9.904e-01 A_psiS=+9.996e-01 A_psiU=+9.995e-01 a_tip=11.31 ell tip=(0.5800,0.5800)
+  step 636  u = 6.360e-03  F = 653.7464  d_tip = 1.000  a = 0.7677  H/Hc =   136.08  stagg = 200  t = 1214s
+  B buoc 636: A_H=+9.906e-01 A_psiS=+9.996e-01 A_psiU=+9.995e-01 a_tip=11.31 ell tip=(0.5800,0.5800)
+  step 637  u = 6.370e-03  F = 652.1532  d_tip = 1.000  a = 0.7729  H/Hc =   138.81  stagg = 200  t = 1618s
+  B buoc 637: A_H=+9.907e-01 A_psiS=+9.996e-01 A_psiU=+9.996e-01 a_tip=12.73 ell tip=(0.5900,0.5900)
+  B DUNG: a_tip >= 12 ell va da sut >= 10 % -- dung chay
+
+============================================================
+  model AT2   ell = 0.01 mm   3D hex nx=100 nz=2 t=0.02
+  PEAK LOAD = 767.5279 N/mm   at step 349 of 637
+  final load = 85.0 % of peak ; final d ahead = 1.000 ; crack extension = 0.7729 mm
+  wrote loaddisp_B_P3_cg1_n4.txt
+============================================================
+  LAT z = 0.0100 (giua): 10201 nut -> damage_AT2_ell0.01.xdmf ; so nut d>0.9: 181
+  LAT z = 0.0000 (_z0): 10201 nut -> damage_AT2_ell0.01_z0.xdmf ; so nut d>0.9: 182
+  LAT z = 0.0200 (_zt): 10201 nut -> damage_AT2_ell0.01_zt.xdmf ; so nut d>0.9: 180
+=== EXIT=0 2026-11-17T16:44:39Z
