@@ -1,0 +1,16 @@
+# nhom | ca | F_tip(l) | e_tip % | doc | F_tip(2l) | e_tip(2l) % | F_init(0.10) | (F_tip-F_init)/F_init % | doc
+2D Q1 nx200 1 nhan | dg0 | 644.31 | +0.00 | khop DG0 | 634.38 | +0.00 | 752.43 | -14.4 | khac
+2D Q1 nx200 1 nhan | cg1 | 663.49 | +2.98 | lan | 665.97 | +4.98 | 470.02 | +41.2 | khac
+2D Q1 nx200 1 nhan | cg1ng | 627.16 | -2.66 | lan | 638.70 | +0.68 | 470.03 | +33.4 | khac
+2D Q1 nx200 1 nhan | cg1nmax | 540.84 | -16.06 | lech | 536.93 | -15.36 | 479.49 | +12.8 | khac
+2D Q1 nx200 1 nhan | cg1nmean | 643.65 | -0.10 | khop DG0 | 635.89 | +0.24 | 639.63 | +0.6 | trung
+2D Q1 nx200 1 nhan | cg1l2 | 670.83 | +4.12 | lan | 659.00 | +3.88 | 613.03 | +9.4 | khac
+2D Q1 nx200 1 nhan | cg1avg | 610.15 | -5.30 | lech | 602.19 | -5.07 | 639.82 | -4.6 | lan
+2D Q1 nx200 1 nhan | quad | 657.00 | +1.97 | khop DG0 | 645.31 | +1.72 | 752.21 | -12.7 | khac
+2D Q1 nx400 4 nhan | dg0 | 619.69 | +0.00 | khop DG0 | 609.24 | +0.00 | 478.87 | +29.4 | khac
+2D Q1 nx400 4 nhan | cg1 | 621.54 | +0.30 | khop DG0 | 627.45 | +2.99 | 281.19 | +121.0 | khac
+3D hex 4 nhan | dg0 | 690.97 | +0.00 | khop DG0 | 684.51 | +0.00 | 1135.00 | -39.1 | khac
+3D hex 4 nhan | cg1 | 662.90 | -4.06 | lan | 660.39 | -3.52 | 767.53 | -13.6 | khac
+3D hex 4 nhan | quad | 711.04 | +2.90 | lan | 698.70 | +2.07 | 1134.03 | -37.3 | khac
+3D hex 4 nhan | cg1ng | khong xac dinh (vet nut khong noi voi nut dinh ranh theo tap S ghi truoc) | bien the khong ghi truoc: 755.99 (+9.4 % so DG0) | F_init 767.04
+# nx400: F_tip tu B_*_buoc.txt (chua xong 12 l sau 3 chang); F_init tinh tu F trong buoc.txt = vong 10 (281.19 / 478.87).

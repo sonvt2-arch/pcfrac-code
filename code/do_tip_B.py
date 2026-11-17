@@ -43,6 +43,43 @@ def a_tip_thua(rows, step, h, dim, thr):
     return a, ((ijS[n, 0] * h, ijS[n, 1] * h) if n >= 0 else (math.nan, math.nan))
 
 
+def a_bien_the(rows, step, h, dim, thr=0.95):
+    """BIEN THE (KHONG GHI TRUOC, them 17/11 sau khi thay 3D ghi nguoc nut tach tu suon khia):
+    thanh phan d >= thr noi voi BAT KY nut khia nao (moi nut khia lam nguon, ke ca suon x < 0.5);
+    a = khoang cach Euclid lon nhat tu dinh ranh (0.5, 0.5) toi cac nut x >= 0.5 - 0.4h cua thanh phan."""
+    R = rows[rows[:, 0] == step]
+    if len(R) == 0:
+        return 0.0, (math.nan, math.nan)
+    ij = R[:, 1:1 + dim]
+    dd = R[:, -1] / 1e4
+    S = dd >= thr
+    ijS = ij[S]
+    x, y = ijS[:, 0] * h, ijS[:, 1] * h
+    ng = (np.abs(y - 0.5) < 0.4 * h) & (x < 0.5 + 0.4 * h)
+    if not ng.any():
+        return 0.0, (math.nan, math.nan)
+    key = {tuple(r): n for n, r in enumerate(ijS)}
+    seen = np.zeros(len(ijS), bool)
+    st = list(np.nonzero(ng)[0])
+    seen[st] = True
+    import itertools
+    offs = [o for o in itertools.product((-1, 0, 1), repeat=dim) if any(o)]
+    while st:
+        n = st.pop()
+        for o in offs:
+            m = key.get(tuple(ijS[n][c] + o[c] for c in range(dim)))
+            if m is not None and not seen[m]:
+                seen[m] = True
+                st.append(m)
+    ok = seen & (x >= 0.5 - 0.4 * h)
+    if not ok.any():
+        return 0.0, (math.nan, math.nan)
+    r = np.hypot(x - 0.5, y - 0.5)
+    r[~ok] = -1
+    n = int(np.argmax(r))
+    return float(r[n]), (x[n], y[n])
+
+
 def main():
     root = sys.argv[1]
     ell = 0.01
@@ -50,14 +87,14 @@ def main():
         ell = float(sys.argv[sys.argv.index("--ell") + 1])
     print("# tag | buoc tip(l) | u_tip | F_tip(l) | F_tip(2l) | F_tip(l) d>=0.90 | F_init(0.10) moi | u_init | "
           "theta_tip(10l) | A_H b1 | A_H b100 | A_H truoc | A_psiS b1 | A_psiU b1 | A_psiU truoc | "
-          "dau A_H truoc (cung dau/tong) | max|a ngoai tuyen - a log|/l | buoc cuoi | a_tip cuoi/l")
-    for dB in sorted(glob.glob(os.path.join(root, "B_*"))):
+          "dau A_H truoc (cung dau/tong) | max|a ngoai tuyen - a log|/l | buoc cuoi | a_tip cuoi/l | BIEN THE (khong ghi truoc): F_tip(l) | theta(10l)")
+    for dB in sorted(glob.glob(os.path.join(root, "B_B_*"))):
         if not os.path.isdir(dB):
             continue
         tag = os.path.basename(dB)
         fb = os.path.join(dB, f"{tag}_buoc.txt")
         fz = os.path.join(dB, f"{tag}_dthua.npz")
-        fl = os.path.join(root, f"loaddisp_{tag}.txt")
+        fl = os.path.join(root, f"loaddisp_{tag[2:]}.txt")     # thu muc B_<tag>
         if not os.path.exists(fb):
             continue
         dim = 3 if "_P3_" in tag else 2
@@ -78,7 +115,7 @@ def main():
         nz = pre[np.abs(AH[pre]) >= 1e-6]
         same = int(np.sum(np.sign(AH[nz]) == sig)) if sig else 0
         # ngoai tuyen
-        dmax, f09 = math.nan, math.nan
+        dmax, f09, fV, thV = math.nan, math.nan, math.nan, math.nan
         if os.path.exists(fz):
             rows = np.load(fz)["rows"]
             errs = []
@@ -87,6 +124,13 @@ def main():
                 errs.append(abs(a_tip_thua(rows, s, h, dim, 0.95)[0] - a[i]) / ell)
                 a09.append(a_tip_thua(rows, s, h, dim, 0.90)[0])
             dmax = max(errs)
+            av = [a_bien_the(rows, s_, h, dim) for s_ in st]
+            aV = np.array([q[0] for q in av])
+            kv1 = first(aV >= ell - 1e-12)
+            kv10 = first(aV >= 10 * ell - 1e-12)
+            fV = F[kv1] if kv1 is not None else math.nan
+            thV = (math.degrees(math.atan2(av[kv10][1][1] - 0.5, av[kv10][1][0] - 0.5))
+                   if kv10 is not None else math.nan)
             k09 = first(np.array(a09) >= ell - 1e-12)
             f09 = F[k09] if k09 is not None else math.nan
         fi, ui = math.nan, math.nan
@@ -99,7 +143,7 @@ def main():
         print(f"{tag} | {st[k1] if k1 is not None else '-'} | {u[k1] if k1 is not None else math.nan:.4e} | "
               f"{fF(k1)} | {fF(k2)} | {f09:.2f} | {fi:.2f} | {ui:.4e} | {th:+.2f} | {g(AH, 0)} | {g(AH, i100)} | "
               f"{g(AH, kp)} | {g(AS, 0)} | {g(AU, 0)} | {g(AU, kp)} | {'+' if sig > 0 else ('-' if sig < 0 else '0')}"
-              f" ({same}/{len(nz)}) | {dmax:.3g} | {st[-1]} | {a[-1] / ell:.2f}")
+              f" ({same}/{len(nz)}) | {dmax:.3g} | {st[-1]} | {a[-1] / ell:.2f} | {fV:.2f} | {thV:+.2f}")
 
 
 if __name__ == "__main__":
