@@ -1453,3 +1453,78 @@ model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zb
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-17T16:16:23Z
+=== CHANG 3 2026-11-17T16:17:44Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+  BENCHMARK P3D (tam mong 3D, hex Q1)  dolfinx 0.11.0.post0
+model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zbc faces
+  ramp: 100 fine steps to 1.000e-03, then 700 steps to 8.000e-03
+  LUOI: hex Q1  so phan tu = 20000  so dinh = 30603
+  KHONG GIAN H: --hspace cg1   *** NOI SUY NUT GHI DE (8 phan tu ke) -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split amor (Amor 3D, K = lambda + 2mu/3)
+  DIEU KIEN NGAM: --grip clamp;  z: --zbc faces  (u_z = 0 tren hai mat z = 0, z = t: bien dang phang)
+  NOTCH DOFS (toan cuc) = 153   (mong doi 153)
+  damage threshold H_crit = 1.3500e+02
+  RESUME: chay tiep tu buoc 705 (diem kiem buoc 704)
+  B NGUOI GHI (XUOI): nut tren n=60 f_gan(T)=0.783; nut duoi n=60 f_gan(B)=0.233; W=f_gan(B)-f_gan(T)=-0.550; nut tren mat n=15 ti le nguoi ghi o tren=0.333; ti le nguoi ghi phia x lon=0.267
+  B NGUOI GHI (NGUOC <- dung): nut tren n=60 f_gan(T)=0.183; nut duoi n=60 f_gan(B)=0.967; W=f_gan(B)-f_gan(T)=+0.783; nut tren mat n=15 ti le nguoi ghi o tren=0.867; ti le nguoi ghi phia x lon=0.785
+  B: --ghi-nguoc  (noi suy nut ghi de, thu tu o NGUOC)
+  step 705  u = 7.050e-03  F = 554.7935  d_tip = 0.882  a = 1.2289  H/Hc =     4.04  stagg = 200  t = 603s
+  B buoc 705: A_H=-9.671e-01 A_psiS=-4.338e-01 A_psiU=-5.151e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 706  u = 7.060e-03  F = 551.5965  d_tip = 0.882  a = 1.2374  H/Hc =     4.04  stagg = 200  t = 1202s
+  B buoc 706: A_H=-9.671e-01 A_psiS=-4.361e-01 A_psiU=-5.192e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 707  u = 7.070e-03  F = 549.9267  d_tip = 0.882  a = 1.2427  H/Hc =     4.04  stagg = 200  t = 1803s
+  B buoc 707: A_H=-9.671e-01 A_psiS=-4.373e-01 A_psiU=-5.215e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 708  u = 7.080e-03  F = 545.2386  d_tip = 0.882  a = 1.2545  H/Hc =     4.04  stagg = 200  t = 2404s
+  B buoc 708: A_H=-9.671e-01 A_psiS=-4.413e-01 A_psiU=-5.283e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 709  u = 7.090e-03  F = 539.1566  d_tip = 0.882  a = 1.2692  H/Hc =     4.04  stagg = 200  t = 3007s
+  B buoc 709: A_H=-9.671e-01 A_psiS=-4.473e-01 A_psiU=-5.376e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 710  u = 7.100e-03  F = 537.5428  d_tip = 0.882  a = 1.2744  H/Hc =     4.04  stagg = 200  t = 3607s
+  B buoc 710: A_H=-9.671e-01 A_psiS=-4.491e-01 A_psiU=-5.405e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 711  u = 7.110e-03  F = 534.1166  d_tip = 0.882  a = 1.2835  H/Hc =     4.04  stagg = 200  t = 4214s
+  B buoc 711: A_H=-9.671e-01 A_psiS=-4.530e-01 A_psiU=-5.465e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 712  u = 7.120e-03  F = 526.4789  d_tip = 0.882  a = 1.3015  H/Hc =     4.04  stagg = 200  t = 4815s
+  B buoc 712: A_H=-9.671e-01 A_psiS=-4.624e-01 A_psiU=-5.599e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 713  u = 7.130e-03  F = 524.7991  d_tip = 0.882  a = 1.3068  H/Hc =     4.04  stagg = 200  t = 5411s
+  B buoc 713: A_H=-9.671e-01 A_psiS=-4.649e-01 A_psiU=-5.635e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 714  u = 7.140e-03  F = 521.8248  d_tip = 0.882  a = 1.3149  H/Hc =     4.04  stagg = 200  t = 6020s
+  B buoc 714: A_H=-9.671e-01 A_psiS=-4.693e-01 A_psiU=-5.696e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 715  u = 7.150e-03  F = 513.2807  d_tip = 0.882  a = 1.3349  H/Hc =     4.04  stagg = 200  t = 6636s
+  B buoc 715: A_H=-9.671e-01 A_psiS=-4.819e-01 A_psiU=-5.863e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 716  u = 7.160e-03  F = 511.4248  d_tip = 0.882  a = 1.3406  H/Hc =     4.04  stagg = 200  t = 7235s
+  B buoc 716: A_H=-9.671e-01 A_psiS=-4.853e-01 A_psiU=-5.908e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 717  u = 7.170e-03  F = 507.9445  d_tip = 0.882  a = 1.3497  H/Hc =     4.04  stagg = 200  t = 7841s
+  B buoc 717: A_H=-9.671e-01 A_psiS=-4.913e-01 A_psiU=-5.986e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 718  u = 7.180e-03  F = 499.1791  d_tip = 0.882  a = 1.3702  H/Hc =     4.04  stagg = 200  t = 8448s
+  B buoc 718: A_H=-9.671e-01 A_psiS=-5.066e-01 A_psiU=-6.173e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 719  u = 7.190e-03  F = 497.1161  d_tip = 0.882  a = 1.3763  H/Hc =     4.04  stagg = 200  t = 9046s
+  B buoc 719: A_H=-9.671e-01 A_psiS=-5.110e-01 A_psiU=-6.228e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 720  u = 7.200e-03  F = 488.6932  d_tip = 0.882  a = 1.3961  H/Hc =     4.04  stagg = 200  t = 9648s
+  B buoc 720: A_H=-9.671e-01 A_psiS=-5.273e-01 A_psiU=-6.417e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 721  u = 7.210e-03  F = 484.0805  d_tip = 0.882  a = 1.4075  H/Hc =     4.04  stagg = 200  t = 10247s
+  B buoc 721: A_H=-9.671e-01 A_psiS=-5.370e-01 A_psiU=-6.528e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 722  u = 7.220e-03  F = 480.3030  d_tip = 0.882  a = 1.4173  H/Hc =     4.04  stagg = 200  t = 10844s
+  B buoc 722: A_H=-9.671e-01 A_psiS=-5.454e-01 A_psiU=-6.622e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 723  u = 7.230e-03  F = 469.6944  d_tip = 0.882  a = 1.4416  H/Hc =     4.04  stagg = 200  t = 11442s
+  B buoc 723: A_H=-9.671e-01 A_psiS=-5.684e-01 A_psiU=-6.869e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 724  u = 7.240e-03  F = 464.0959  d_tip = 0.882  a = 1.4553  H/Hc =     4.04  stagg = 200  t = 12039s
+  B buoc 724: A_H=-9.671e-01 A_psiS=-5.816e-01 A_psiU=-7.007e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 725  u = 7.250e-03  F = 453.2020  d_tip = 0.882  a = 1.4801  H/Hc =     4.04  stagg = 200  t = 12635s
+  B buoc 725: A_H=-9.671e-01 A_psiS=-6.074e-01 A_psiU=-7.265e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 726  u = 7.260e-03  F = 437.9417  d_tip = 0.882  a = 1.5143  H/Hc =     4.04  stagg = 200  t = 13237s
+  B buoc 726: A_H=-9.671e-01 A_psiS=-6.449e-01 A_psiU=-7.616e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 727  u = 7.270e-03  F = 408.3724  d_tip = 0.882  a = 1.5787  H/Hc =     4.04  stagg = 200  t = 13837s
+  B buoc 727: A_H=-9.671e-01 A_psiS=-7.198e-01 A_psiU=-8.254e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 728  u = 7.280e-03  F =   4.3820  d_tip = 0.882  a = 2.0694  H/Hc =     4.04  stagg = 120  t = 14205s
+  B buoc 728: A_H=-9.671e-01 A_psiS=-9.981e-01 A_psiU=-9.986e-01 a_tip=0.00 ell tip=(0.5000,0.5000)
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm   3D hex nx=100 nz=2 t=0.02
+  PEAK LOAD = 773.1935 N/mm   at step 650 of 728
+  final load = 0.6 % of peak ; final d ahead = 0.882 ; crack extension = 2.0694 mm
+  wrote loaddisp_B_P3_cg1ng_n4.txt
+============================================================
+  LAT z = 0.0100 (giua): 10201 nut -> damage_AT2_ell0.01.xdmf ; so nut d>0.9: 357
+  LAT z = 0.0000 (_z0): 10201 nut -> damage_AT2_ell0.01_z0.xdmf ; so nut d>0.9: 357
+  LAT z = 0.0200 (_zt): 10201 nut -> damage_AT2_ell0.01_zt.xdmf ; so nut d>0.9: 357
+=== EXIT=0 2026-11-17T20:14:33Z
