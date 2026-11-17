@@ -1112,3 +1112,73 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-17T09:41:03Z
+=== CHANG 2 2026-11-17T10:56:16Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 1  o so huu/ghost = [40000]/[0]  thieu = 0  crc = 27f1082d  cot qua y=0.5 khac nhan = 0/200
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1   *** BAN TRUOC KHI SUA -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 101   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 544 (diem kiem buoc 543)
+  B NGUOI GHI (XUOI): nut tren n=72 f_gan(T)=0.000; nut duoi n=72 f_gan(B)=1.000; W=f_gan(B)-f_gan(T)=+1.000; nut tren mat n=9 ti le nguoi ghi o tren=1.000; ti le nguoi ghi phia x lon=1.000
+  B NGUOI GHI (NGUOC <- dung): nut tren n=72 f_gan(T)=1.000; nut duoi n=72 f_gan(B)=0.000; W=f_gan(B)-f_gan(T)=-1.000; nut tren mat n=9 ti le nguoi ghi o tren=0.000; ti le nguoi ghi phia x lon=0.000
+  B: --ghi-nguoc  (noi suy nut ghi de, thu tu o NGUOC)
+  step 544  u = 5.440e-03  F = 627.6597  d_tip = 1.000  a = 0.3682  H/Hc =   188.22  stagg = 200
+  B buoc 544: A_H=+9.926e-01 A_psiS=+9.988e-01 A_psiU=+9.984e-01 a_tip=8.07 ell tip=(0.5500,0.5600)
+  step 545  u = 5.450e-03  F = 627.7942  d_tip = 1.000  a = 0.3699  H/Hc =   194.54  stagg = 200
+  B buoc 545: A_H=+9.927e-01 A_psiS=+9.988e-01 A_psiU=+9.984e-01 a_tip=8.07 ell tip=(0.5500,0.5600)
+  step 546  u = 5.460e-03  F = 626.5988  d_tip = 1.000  a = 0.3737  H/Hc =   208.36  stagg = 200
+  B buoc 546: A_H=+9.930e-01 A_psiS=+9.989e-01 A_psiU=+9.985e-01 a_tip=8.07 ell tip=(0.5500,0.5600)
+  step 547  u = 5.470e-03  F = 623.9950  d_tip = 1.000  a = 0.3798  H/Hc =   229.92  stagg = 200
+  B buoc 547: A_H=+9.933e-01 A_psiS=+9.990e-01 A_psiU=+9.987e-01 a_tip=8.78 ell tip=(0.5550,0.5650)
+  step 548  u = 5.480e-03  F = 624.0765  d_tip = 1.000  a = 0.3815  H/Hc =   236.32  stagg = 200
+  B buoc 548: A_H=+9.934e-01 A_psiS=+9.991e-01 A_psiU=+9.988e-01 a_tip=8.78 ell tip=(0.5550,0.5650)
+  step 549  u = 5.490e-03  F = 621.6076  d_tip = 1.000  a = 0.3875  H/Hc =   256.35  stagg = 200
+  B buoc 549: A_H=+9.937e-01 A_psiS=+9.992e-01 A_psiU=+9.989e-01 a_tip=8.78 ell tip=(0.5550,0.5650)
+  step 550  u = 5.500e-03  F = 620.1817  d_tip = 1.000  a = 0.3917  H/Hc =   270.61  stagg = 200
+  B buoc 550: A_H=+9.939e-01 A_psiS=+9.992e-01 A_psiU=+9.990e-01 a_tip=9.49 ell tip=(0.5600,0.5700)
+  step 551  u = 5.510e-03  F = 620.1495  d_tip = 1.000  a = 0.3936  H/Hc =   277.40  stagg = 200
+  B buoc 551: A_H=+9.940e-01 A_psiS=+9.993e-01 A_psiU=+9.990e-01 a_tip=9.49 ell tip=(0.5600,0.5700)
+  step 552  u = 5.520e-03  F = 616.2684  d_tip = 1.000  a = 0.4018  H/Hc =   303.75  stagg = 200
+  B buoc 552: A_H=+9.943e-01 A_psiS=+9.994e-01 A_psiU=+9.992e-01 a_tip=10.19 ell tip=(0.5650,0.5750)
+  step 553  u = 5.530e-03  F = 616.2323  d_tip = 1.000  a = 0.4037  H/Hc =   310.45  stagg = 200
+  B buoc 553: A_H=+9.944e-01 A_psiS=+9.994e-01 A_psiU=+9.992e-01 a_tip=10.19 ell tip=(0.5650,0.5750)
+  step 554  u = 5.540e-03  F = 615.8989  d_tip = 1.000  a = 0.4061  H/Hc =   318.56  stagg = 200
+  B buoc 554: A_H=+9.945e-01 A_psiS=+9.994e-01 A_psiU=+9.992e-01 a_tip=10.19 ell tip=(0.5650,0.5750)
+  step 555  u = 5.550e-03  F = 612.0630  d_tip = 1.000  a = 0.4143  H/Hc =   343.71  stagg = 200
+  B buoc 555: A_H=+9.947e-01 A_psiS=+9.995e-01 A_psiU=+9.993e-01 a_tip=10.90 ell tip=(0.5700,0.5800)
+  step 556  u = 5.560e-03  F = 612.0746  d_tip = 1.000  a = 0.4161  H/Hc =   350.04  stagg = 200
+  B buoc 556: A_H=+9.948e-01 A_psiS=+9.995e-01 A_psiU=+9.993e-01 a_tip=10.90 ell tip=(0.5700,0.5800)
+  step 557  u = 5.570e-03  F = 608.6371  d_tip = 1.000  a = 0.4237  H/Hc =   372.63  stagg = 200
+  B buoc 557: A_H=+9.950e-01 A_psiS=+9.996e-01 A_psiU=+9.994e-01 a_tip=11.61 ell tip=(0.5750,0.5850)
+  step 558  u = 5.580e-03  F = 607.8751  d_tip = 1.000  a = 0.4268  H/Hc =   382.50  stagg = 200
+  B buoc 558: A_H=+9.951e-01 A_psiS=+9.996e-01 A_psiU=+9.994e-01 a_tip=11.61 ell tip=(0.5750,0.5850)
+  step 559  u = 5.590e-03  F = 607.5561  d_tip = 1.000  a = 0.4291  H/Hc =   390.24  stagg = 200
+  B buoc 559: A_H=+9.952e-01 A_psiS=+9.996e-01 A_psiU=+9.995e-01 a_tip=11.61 ell tip=(0.5750,0.5850)
+  step 560  u = 5.600e-03  F = 603.5286  d_tip = 1.000  a = 0.4377  H/Hc =   414.37  stagg = 200
+  B buoc 560: A_H=+9.954e-01 A_psiS=+9.997e-01 A_psiU=+9.995e-01 a_tip=12.31 ell tip=(0.5800,0.5900)
+  B DUNG: a_tip >= 12 ell va da sut >= 10 % -- dung chay
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 642.5425 N/mm   at step 522 of 560
+  nominal peak stress = 642.5425 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 93.9 % of peak ; final d ahead of the tip = 1.000 ; crack extension = 0.4377 mm (43.8 ell)
+  *** NOT A FRACTURE PEAK: the load never fell below 60 % of
+      its maximum, or no crack ran (d stayed under 0.5 and the
+      crack grew less than 2 ell).  The maximum above is a
+      plateau value, which is noise.
+      NOTE: the run stopped at u = 5.600e-03 mm of 0.0080 mm,
+      so it ended early -- look at the failed damage solves below,
+      not at umax.
+  wrote loaddisp_B_cg1ng_n1.txt
+============================================================
+=== EXIT=0 2026-11-17T12:23:11Z
