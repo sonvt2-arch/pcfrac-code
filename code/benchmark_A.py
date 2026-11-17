@@ -138,6 +138,10 @@ p.add_argument("--ghi-nguoc", dest="ghi_nguoc", action="store_true",
                     "o NGUOC: nguoi ghi sau thanh nguoi ghi dau")
 p.add_argument("--dung-tip", dest="dung_tip", type=float, default=12.0,
                help="(vong 11-B) dung khi a_tip >= DUNG_TIP * ell va da sut >= 10 %%")
+p.add_argument("--maxbad", type=int, default=20,
+               help="dung khi so lan giai hu hong that bai vuot so nay (mac dinh 20 nhu cu). "
+                    "Vong 11-A: nx 800 that bai SNES=-5 (het 40 vong, phan du ~1e-9 > atol 1e-10) "
+                    "ngay o giai doan dan hoi; nang nguong de chay tiep, bo giai giu nguyen")
 p.add_argument("--out", default=None)
 args = p.parse_args()
 if args.ghi_nguoc and (args.hspace != "cg1" or not args.do_B):
@@ -1185,7 +1189,7 @@ for step in range(start_step, args.steps + 1):
         if comm.rank == 0:
             print("  load has fallen below 25 % of peak -- stopping")
         break
-    if n_bad > 20:
+    if n_bad > args.maxbad:
         if comm.rank == 0:
             print(f"  {n_bad} failed damage solves -- stopping, the remaining")
             print("  steps would only add noise")
