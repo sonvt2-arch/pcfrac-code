@@ -565,3 +565,53 @@ model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-17T09:25:49Z
+=== CHANG 2 2026-11-17T09:28:05Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
+  KHIA: --notch geom  khe hinh hoc, 200 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [40423, 40005, 39490, 40082]/[408, 208, 393, 208]  thieu = 0  crc = acdbb88e  cot qua y=0.5 khac nhan = 210/400
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 160000  so dinh = 161001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 544 (diem kiem buoc 543)
+  step 544  u = 5.440e-03  F = 716.4878  d_tip = 0.125  a = 0.0280  H/Hc =     0.13  stagg = 26
+  step 545  u = 5.450e-03  F = 717.5363  d_tip = 0.126  a = 0.0282  H/Hc =     0.13  stagg = 27
+  step 546  u = 5.460e-03  F = 718.5798  d_tip = 0.127  a = 0.0285  H/Hc =     0.13  stagg = 27
+  step 547  u = 5.470e-03  F = 719.6177  d_tip = 0.128  a = 0.0288  H/Hc =     0.13  stagg = 28
+  step 548  u = 5.480e-03  F = 720.6497  d_tip = 0.129  a = 0.0291  H/Hc =     0.14  stagg = 29
+  step 549  u = 5.490e-03  F = 721.6751  d_tip = 0.130  a = 0.0294  H/Hc =     0.14  stagg = 30
+  step 550  u = 5.500e-03  F = 722.6933  d_tip = 0.132  a = 0.0297  H/Hc =     0.14  stagg = 32
+  step 551  u = 5.510e-03  F = 723.7035  d_tip = 0.133  a = 0.0300  H/Hc =     0.14  stagg = 33
+  step 552  u = 5.520e-03  F = 724.7049  d_tip = 0.134  a = 0.0303  H/Hc =     0.14  stagg = 35
+  step 553  u = 5.530e-03  F = 725.6962  d_tip = 0.135  a = 0.0306  H/Hc =     0.14  stagg = 37
+  step 554  u = 5.540e-03  F = 726.6760  d_tip = 0.137  a = 0.0309  H/Hc =     0.15  stagg = 39
+  step 555  u = 5.550e-03  F = 727.6422  d_tip = 0.138  a = 0.0313  H/Hc =     0.15  stagg = 41
+  step 556  u = 5.560e-03  F = 728.5923  d_tip = 0.140  a = 0.0316  H/Hc =     0.15  stagg = 44
+  step 557  u = 5.570e-03  F = 729.5226  d_tip = 0.141  a = 0.0320  H/Hc =     0.15  stagg = 48
+  step 558  u = 5.580e-03  F = 730.4280  d_tip = 0.143  a = 0.0324  H/Hc =     0.15  stagg = 53
+  step 559  u = 5.590e-03  F = 731.2996  d_tip = 0.145  a = 0.0329  H/Hc =     0.16  stagg = 61
+  step 560  u = 5.600e-03  F = 732.1220  d_tip = 0.147  a = 0.0334  H/Hc =     0.16  stagg = 71
+  step 561  u = 5.610e-03  F = 732.8619  d_tip = 0.150  a = 0.0339  H/Hc =     0.16  stagg = 90
+  step 562  u = 5.620e-03  F = 733.4145  d_tip = 0.153  a = 0.0347  H/Hc =     0.17  stagg = 144
+  step 563  u = 5.630e-03  F = 608.1958  d_tip = 1.000  a = 0.1539  H/Hc =  1841.89  stagg = 200  SNES=-5
+  step 564  u = 5.640e-03  F = 335.7949  d_tip = 1.000  a = 0.4111  H/Hc =  4546.28  stagg = 200
+  step 565  u = 5.650e-03  F =   0.3982  d_tip = 1.000  a = 0.6808  H/Hc =  5336.79  stagg = 193
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 733.4145 N/mm   at step 562 of 565
+  nominal peak stress = 733.4145 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 0.1 % of peak ; final d ahead of the tip = 1.000 ; crack extension = 0.6808 mm (68.1 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  *** 2 of 565 steps had a failed damage solve
+  wrote loaddisp_K_dg0_geo_nx400_n4.txt
+============================================================
+=== EXIT=0 2026-11-17T12:33:38Z
