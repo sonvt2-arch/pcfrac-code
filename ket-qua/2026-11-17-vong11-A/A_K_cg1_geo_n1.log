@@ -670,3 +670,33 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-17T09:25:42Z
+=== CHANG 2 2026-11-17T09:27:13Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  KHIA: --notch geom  khe hinh hoc, 100 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 1  o so huu/ghost = [40000]/[0]  thieu = 0  crc = 27f1082d  cot qua y=0.5 khac nhan = 0/200
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40501
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1   *** BAN TRUOC KHI SUA -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 649 (diem kiem buoc 648)
+  step 649  u = 6.490e-03  F = 475.9235  d_tip = 1.000  a = 0.7028  H/Hc =   445.36  stagg = 200
+  step 650  u = 6.500e-03  F = 392.1810  d_tip = 1.000  a = 0.8870  H/Hc =   445.36  stagg = 200
+  step 651  u = 6.510e-03  F =   0.2106  d_tip = 1.000  a = 1.3968  H/Hc =   445.36  stagg = 103
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 739.4243 N/mm   at step 570 of 651
+  nominal peak stress = 739.4243 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 0.0 % of peak ; final d ahead of the tip = 1.000 ; crack extension = 1.3968 mm (139.7 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  wrote loaddisp_K_cg1_geo_n1.txt
+============================================================
+=== EXIT=0 2026-11-17T09:38:41Z
