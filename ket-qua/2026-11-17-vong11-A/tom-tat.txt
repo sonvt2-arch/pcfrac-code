@@ -1,0 +1,19 @@
+# Vong 11-A, ket qua TAM (17/11/2026 20h UTC). F_init theo quy tac vong 10 (delta 0.10; kem 0.05/0.20).
+# Ca chua xong: F_init doc tu dong 'step' cua log (fi_tu_log.py, cung quy tac) -- da qua lan sut dau >= 10% nen F_init khong doi nua; F_max, theta cho khi xong.
+
+# tep | F_init (d=0.10) | u_init | sut | F_max | u_max | F_init d=0.05 | d=0.20
+loaddisp_K_dg0_geo_n1.txt | 768.10 | 5.9400e-03 | co | 768.10 | 5.9400e-03 | 768.10 | 768.10
+loaddisp_K_dg0_geo_nx400_n4.txt | 733.41 | 5.6200e-03 | co | 733.41 | 5.6200e-03 | 733.41 | 733.41
+loaddisp_K_cg1_geo_n1.txt | 739.42 | 5.7000e-03 | co | 739.42 | 5.7000e-03 | 739.42 | 739.42
+
+A_K_cg1avg_nx400_n1.log buoc cuoi 249 F_init(.10,.05,.20)= [(392.6432, 0.00199), (392.6432, 0.00199), (392.6432, 0.00199)] Fmax_tam= 392.6432
+A_K_cg1l2_nx400_n1.log buoc cuoi 252 F_init(.10,.05,.20)= [(364.9381, 0.0018), (364.9381, 0.0018), (364.9381, 0.0018)] Fmax_tam= 364.9381
+A_K_cg1l2_nx400_n4.log buoc cuoi 441 F_init(.10,.05,.20)= [(363.5271, 0.00179), (363.5271, 0.00179), (363.5271, 0.00179)] Fmax_tam= 582.266
+A_K_cg1nmax_nx400_n1.log buoc cuoi 245 F_init(.10,.05,.20)= [(292.0294, 0.00147), (292.0294, 0.00147), (292.0294, 0.00147)] Fmax_tam= 336.2673
+A_K_cg1nmean_nx400_n1.log buoc cuoi 237 F_init(.10,.05,.20)= [(392.564, 0.00199), (392.564, 0.00199), (392.564, 0.00199)] Fmax_tam= 392.564
+A_K_dg0_nx800_n4_mb.log buoc cuoi 176 F_init(.10,.05,.20)= [(313.2339, 0.00171), (313.2339, 0.00171), None] Fmax_tam= 313.2339
+
+# goc luat G (goc_bien_chung.py --ell 0.01):
+K_dg0_geo_n1 | 6ell -0.03 (G -0.03)
+K_dg0_geo_nx400_n4 | 6ell +0.02 (G +0.02)
+K_cg1_geo_n1 | 6ell -37.81 (G -37.25), cham canh x=0.965
