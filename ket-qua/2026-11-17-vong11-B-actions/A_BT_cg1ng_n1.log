@@ -1,0 +1,42 @@
+=== CHANG 1 2026-11-17T04:10:10Z tu dau (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 1 steps to 8.000e-03 (step 7.00e-03)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 1  o so huu/ghost = [40000]/[0]  thieu = 0  crc = 27f1082d  cot qua y=0.5 khac nhan = 0/200
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1   *** BAN TRUOC KHI SUA -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 101   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  B NGUOI GHI (XUOI): nut tren n=72 f_gan(T)=0.000; nut duoi n=72 f_gan(B)=1.000; W=f_gan(B)-f_gan(T)=+1.000; nut tren mat n=9 ti le nguoi ghi o tren=1.000; ti le nguoi ghi phia x lon=1.000
+  B NGUOI GHI (NGUOC <- dung): nut tren n=72 f_gan(T)=1.000; nut duoi n=72 f_gan(B)=0.000; W=f_gan(B)-f_gan(T)=-1.000; nut tren mat n=9 ti le nguoi ghi o tren=0.000; ti le nguoi ghi phia x lon=0.000
+  B: --ghi-nguoc  (noi suy nut ghi de, thu tu o NGUOC)
+  H-INVARIANT step1: sum=9.994285929324e-01 max=2.752377653410e-03 L2=3.476981429331e-02
+  step   1  u = 1.000e-05  F =   2.2296  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 3
+  B KIEM NOI SUY buoc 1: |ghi tay XUOI - psi_fn|max / max psi = 9.618e-01
+  B KIEM NOI SUY buoc 1: |ghi tay NGUOC - psi_fn|max / max psi = 0.000e+00
+  B buoc 1: A_H=+1.000e-01 A_psiS=+1.000e-01 A_psiU=+1.249e-07 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step   2  u = 2.000e-05  F =   4.4591  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  B buoc 2: A_H=+1.000e-01 A_psiS=+1.000e-01 A_psiU=+5.003e-07 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step   3  u = 3.000e-05  F =   6.6887  d_tip = 0.009  a = 0.0000  H/Hc =     0.00  stagg = 2
+  B buoc 3: A_H=+1.000e-01 A_psiS=+1.000e-01 A_psiU=+1.126e-06 a_tip=0.00 ell tip=(0.5000,0.5000)
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 6.6887 N/mm   at step 3 of 3
+  nominal peak stress = 6.6887 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 100.0 % of peak ; final d ahead of the tip = 0.009 ; crack extension = 0.0000 mm (0.0 ell)
+  *** NOT A FRACTURE PEAK: the load never fell below 60 % of
+      its maximum, or no crack ran (d stayed under 0.5 and the
+      crack grew less than 2 ell).  The maximum above is a
+      plateau value, which is noise.
+      NOTE: the run stopped at u = 3.000e-05 mm of 0.0080 mm,
+      so it ended early -- look at the failed damage solves below,
+      not at umax.
+  wrote loaddisp_BT_cg1ng_n1.txt
+============================================================
+=== EXIT=0 2026-11-17T04:10:16Z
