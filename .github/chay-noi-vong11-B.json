@@ -1,0 +1,104 @@
+[
+ {
+  "tag": "B_dg0_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace dg0"
+ },
+ {
+  "tag": "B_cg1_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1"
+ },
+ {
+  "tag": "B_cg1ng_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1 --ghi-nguoc"
+ },
+ {
+  "tag": "B_cg1nmax_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1nmax"
+ },
+ {
+  "tag": "B_cg1nmean_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1nmean"
+ },
+ {
+  "tag": "B_cg1l2_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1l2"
+ },
+ {
+  "tag": "B_cg1avg_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1avg"
+ },
+ {
+  "tag": "B_quad_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace quad"
+ },
+ {
+  "tag": "B_dg0_nx400_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 400 --hspace dg0"
+ },
+ {
+  "tag": "B_cg1_nx400_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 400 --hspace cg1"
+ },
+ {
+  "tag": "B_P3_dg0_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "script": "benchmark_P3d.py",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 100 --nz 2 --zbc faces --hspace dg0"
+ },
+ {
+  "tag": "B_P3_cg1_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "script": "benchmark_P3d.py",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 100 --nz 2 --zbc faces --hspace cg1"
+ },
+ {
+  "tag": "B_P3_cg1ng_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "script": "benchmark_P3d.py",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 100 --nz 2 --zbc faces --hspace cg1 --ghi-nguoc"
+ },
+ {
+  "tag": "B_P3_quad_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "script": "benchmark_P3d.py",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 100 --nz 2 --zbc faces --hspace quad"
+ }
+]
