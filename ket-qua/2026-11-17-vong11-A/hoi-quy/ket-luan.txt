@@ -1,0 +1,11 @@
+=== MAY: 4 nhan;  AMD EPYC 9V45 96-Core Processor
+--- HN_cg1_cu EXIT=0
+--- HN_cg1_moi EXIT=0
+--- HN_cg1_moihn EXIT=0
+HN_cg1: cu vs moi: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)
+HN_cg1: cu vs moihn: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)
+--- HN_dg0_cu EXIT=0
+--- HN_dg0_moi EXIT=0
+--- HN_dg0_moihn EXIT=0
+HN_dg0: cu vs moi: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)
+HN_dg0: cu vs moihn: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)

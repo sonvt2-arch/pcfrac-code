@@ -1,0 +1,46 @@
+--- TN_n1_dg0_geom EXIT=0 THOI GIAN 4 s
+  KHIA: --notch geom  khe hinh hoc, 100 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40501
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  H-INVARIANT step1: sum=2.830090320177e-01 max=3.217117561055e-04 L2=2.118844138570e-03
+# u_mm  F_N_per_mm  dmax  crack_extension_mm  staggered_its
+1.000000000000000082e-05 1.417827667985217976e+00 2.703711352055991355e-07 0.000000000000000000e+00 2.000000000000000000e+00
+2.000000000000000164e-05 2.835653470336937598e+00 1.081484337112283087e-06 4.281739023492709036e-12 2.000000000000000000e+00
+--- TN_n4_dg0_geom EXIT=0 THOI GIAN 2 s
+  KHIA: --notch geom  khe hinh hoc, 100 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40501
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  H-INVARIANT step1: sum=2.830090320192e-01 max=3.217117562469e-04 L2=2.118844138760e-03
+# u_mm  F_N_per_mm  dmax  crack_extension_mm  staggered_its
+1.000000000000000082e-05 1.417827669869140550e+00 3.109610664196561496e-07 0.000000000000000000e+00 2.000000000000000000e+00
+2.000000000000000164e-05 2.835653474105080285e+00 1.243844011871780859e-06 4.281739024031354672e-12 2.000000000000000000e+00
+--- TN_n1_cg1_geom EXIT=0 THOI GIAN 4 s
+  KHIA: --notch geom  khe hinh hoc, 100 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40501
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  H-INVARIANT step1: sum=2.868781560363e-01 max=1.048172181771e-03 L2=2.417335327886e-03
+# u_mm  F_N_per_mm  dmax  crack_extension_mm  staggered_its
+1.000000000000000082e-05 1.417827659387865591e+00 2.849168691195881456e-07 0.000000000000000000e+00 2.000000000000000000e+00
+2.000000000000000164e-05 2.835653401556385678e+00 1.139667254062390202e-06 4.529192277331877189e-12 2.000000000000000000e+00
+--- TN_n4_cg1_geom EXIT=0 THOI GIAN 3 s
+  KHIA: --notch geom  khe hinh hoc, 100 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40501
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  H-INVARIANT step1: sum=2.873602904536e-01 max=8.631049928502e-04 L2=2.376837711684e-03
+# u_mm  F_N_per_mm  dmax  crack_extension_mm  staggered_its
+1.000000000000000082e-05 1.417827662185655146e+00 3.066998202527350395e-07 0.000000000000000000e+00 2.000000000000000000e+00
+2.000000000000000164e-05 2.835653412637249460e+00 1.226799145006558387e-06 4.499180522764855516e-12 2.000000000000000000e+00
+--- TN_n1_dg0_hang-nut EXIT=0 THOI GIAN 4 s
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40401
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  NOTCH DOFS (nhan 0, cuc bo) = 101   sharp=True
+  H-INVARIANT step1: sum=9.926210877055e-01 max=2.751932624854e-03 L2=3.474721726742e-02
+# u_mm  F_N_per_mm  dmax  crack_extension_mm  staggered_its
+1.000000000000000082e-05 2.229565159890369852e+00 8.621804489385747478e-03 0.000000000000000000e+00 2.000000000000000000e+00
+2.000000000000000164e-05 4.459125611673599998e+00 8.622267004759034612e-03 6.533218410709196178e-12 2.000000000000000000e+00
+--- TN_n4_dg0_geom_rs EXIT=0
+  RESUME: chay tiep tu buoc 6 (diem kiem buoc 5)
