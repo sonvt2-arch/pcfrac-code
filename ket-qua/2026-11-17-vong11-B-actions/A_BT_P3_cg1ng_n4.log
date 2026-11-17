@@ -1,0 +1,33 @@
+=== CHANG 1 2026-11-17T04:10:24Z tu dau (GitHub Actions)
+=== MAY: 4 nhan;  Intel(R) Xeon(R) 6975P-C
+  BENCHMARK P3D (tam mong 3D, hex Q1)  dolfinx 0.11.0.post0
+model=AT2  ell=0.01 mm  nx=100  h=0.0100 mm  h/ell=1.00  nz=2  t=0.0200 mm  --zbc faces
+  ramp: 100 fine steps to 1.000e-03, then 1 steps to 8.000e-03
+  LUOI: hex Q1  so phan tu = 20000  so dinh = 30603
+  KHONG GIAN H: --hspace cg1   *** NOI SUY NUT GHI DE (8 phan tu ke) -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split amor (Amor 3D, K = lambda + 2mu/3)
+  DIEU KIEN NGAM: --grip clamp;  z: --zbc faces  (u_z = 0 tren hai mat z = 0, z = t: bien dang phang)
+  NOTCH DOFS (toan cuc) = 153   (mong doi 153)
+  damage threshold H_crit = 1.3500e+02
+  B NGUOI GHI (XUOI): nut tren n=60 f_gan(T)=0.783; nut duoi n=60 f_gan(B)=0.233; W=f_gan(B)-f_gan(T)=-0.550; nut tren mat n=15 ti le nguoi ghi o tren=0.333; ti le nguoi ghi phia x lon=0.267
+  B NGUOI GHI (NGUOC <- dung): nut tren n=60 f_gan(T)=0.183; nut duoi n=60 f_gan(B)=0.967; W=f_gan(B)-f_gan(T)=+0.783; nut tren mat n=15 ti le nguoi ghi o tren=0.867; ti le nguoi ghi phia x lon=0.785
+  B: --ghi-nguoc  (noi suy nut ghi de, thu tu o NGUOC)
+  step   1  u = 1.000e-05  F =   2.2911  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 4s
+  B KIEM NOI SUY buoc 1: |ghi tay XUOI - psi_fn|max / max psi = 9.371e-01
+  B KIEM NOI SUY buoc 1: |ghi tay NGUOC - psi_fn|max / max psi = 0.000e+00
+  B buoc 1: A_H=-1.037e-01 A_psiS=-1.037e-01 A_psiU=-1.777e-10 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step   2  u = 2.000e-05  F =   4.5821  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 8s
+  B buoc 2: A_H=-1.037e-01 A_psiS=-1.037e-01 A_psiU=-4.807e-07 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step   3  u = 3.000e-05  F =   6.8732  d_tip = 0.014  a = 0.0000  H/Hc =     0.00  stagg = 2  t = 12s
+  B buoc 3: A_H=-1.037e-01 A_psiS=-1.037e-01 A_psiU=-1.082e-06 a_tip=0.00 ell tip=(0.5000,0.5000)
+
+============================================================
+  model AT2   ell = 0.01 mm   3D hex nx=100 nz=2 t=0.02
+  PEAK LOAD = 6.8732 N/mm   at step 3 of 3
+  final load = 100.0 % of peak ; final d ahead = 0.014 ; crack extension = 0.0000 mm
+  wrote loaddisp_BT_P3_cg1ng_n4.txt
+============================================================
+  LAT z = 0.0100 (giua): 10201 nut -> damage_AT2_ell0.01.xdmf ; so nut d>0.9: 51
+  LAT z = 0.0000 (_z0): 10201 nut -> damage_AT2_ell0.01_z0.xdmf ; so nut d>0.9: 51
+  LAT z = 0.0200 (_zt): 10201 nut -> damage_AT2_ell0.01_zt.xdmf ; so nut d>0.9: 51
+=== EXIT=0 2026-11-17T04:10:40Z
