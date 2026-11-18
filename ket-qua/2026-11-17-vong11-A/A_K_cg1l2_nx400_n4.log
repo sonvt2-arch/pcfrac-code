@@ -645,3 +645,41 @@ model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-18T06:54:07Z
+=== CHANG 2 2026-11-18T06:55:32Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [39800, 40200, 40200, 39800]/[399, 401, 401, 399]  thieu = 0  crc = 6a78c2ce  cot qua y=0.5 khac nhan = 0/400
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 160000  so dinh = 160801
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1l2   (chieu L2 psi+ len V_d, Gauss 2x2, H = max tung nut)
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 1   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 530 (diem kiem buoc 529)
+  B NGUOI GHI (XUOI <- dung): nut tren n=272 f_gan(T)=0.004; nut duoi n=272 f_gan(B)=0.967; W=f_gan(B)-f_gan(T)=+0.963; nut tren mat n=17 ti le nguoi ghi o tren=1.000; ti le nguoi ghi phia x lon=0.966
+  B NGUOI GHI (NGUOC): nut tren n=272 f_gan(T)=1.000; nut duoi n=272 f_gan(B)=0.033; W=f_gan(B)-f_gan(T)=-0.967; nut tren mat n=17 ti le nguoi ghi o tren=0.000; ti le nguoi ghi phia x lon=0.036
+  step 530  u = 5.300e-03  F = 261.5236  d_tip = 1.000  a = 1.0153  H/Hc =  2443.98  stagg = 200
+  B buoc 530: A_H=-4.629e-01 A_psiS=-6.335e-01 A_psiU=-9.989e-01 a_tip=32.85 ell tip=(0.8275,0.4975)
+  step 531  u = 5.310e-03  F = 239.3576  d_tip = 1.000  a = 1.0502  H/Hc =  2489.70  stagg = 200
+  B buoc 531: A_H=-4.629e-01 A_psiS=-6.335e-01 A_psiU=-9.988e-01 a_tip=34.60 ell tip=(0.8450,0.4975)
+  step 532  u = 5.320e-03  F = 209.9628  d_tip = 1.000  a = 1.0961  H/Hc =  2540.91  stagg = 200
+  B buoc 532: A_H=-4.629e-01 A_psiS=-6.335e-01 A_psiU=-9.988e-01 a_tip=37.10 ell tip=(0.8700,0.4975)
+  step 533  u = 5.330e-03  F = 148.7860  d_tip = 1.000  a = 1.1897  H/Hc =  2617.30  stagg = 200
+  B buoc 533: A_H=-4.630e-01 A_psiS=-6.334e-01 A_psiU=-9.986e-01 a_tip=41.85 ell tip=(0.9175,0.4975)
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 637.6584 N/mm   at step 493 of 533
+  nominal peak stress = 637.6584 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 23.3 % of peak ; final d ahead of the tip = 1.000 ; crack extension = 1.1897 mm (119.0 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  *** 1 of 533 steps had a failed damage solve
+  wrote loaddisp_K_cg1l2_nx400_n4.txt
+============================================================
+=== EXIT=0 2026-11-18T08:40:15Z
