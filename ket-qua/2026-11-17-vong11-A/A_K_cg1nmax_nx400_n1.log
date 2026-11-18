@@ -605,3 +605,37 @@ model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-18T17:36:44Z
+=== CHANG 4 2026-11-18T17:38:08Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  Intel(R) Xeon(R) Platinum 8370C CPU @ 2.80GHz
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 1  o so huu/ghost = [160000]/[0]  thieu = 0  crc = 3cc785af  cot qua y=0.5 khac nhan = 0/400
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 160000  so dinh = 160801
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1nmax   (psi+ tai nut cua TUNG phan tu ke, max qua phan tu, H = max tung nut)
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 201   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 424 (diem kiem buoc 423)
+  B NGUOI GHI (XUOI <- dung): nut tren n=272 f_gan(T)=0.000; nut duoi n=272 f_gan(B)=1.000; W=f_gan(B)-f_gan(T)=+1.000; nut tren mat n=17 ti le nguoi ghi o tren=1.000; ti le nguoi ghi phia x lon=1.000
+  B NGUOI GHI (NGUOC): nut tren n=272 f_gan(T)=1.000; nut duoi n=272 f_gan(B)=0.000; W=f_gan(B)-f_gan(T)=-1.000; nut tren mat n=17 ti le nguoi ghi o tren=0.000; ti le nguoi ghi phia x lon=0.000
+  step 424  u = 4.240e-03  F = 511.5116  d_tip = 1.000  a = 0.2411  H/Hc =   480.68  stagg = 200
+  B buoc 424: A_H=-4.881e-01 A_psiS=-4.998e-01 A_psiU=-9.995e-01 a_tip=4.35 ell tip=(0.5425,0.4975)
+  step 425  u = 4.250e-03  F = 505.3017  d_tip = 1.000  a = 0.2509  H/Hc =   593.56  stagg = 200
+  B buoc 425: A_H=-4.897e-01 A_psiS=-4.999e-01 A_psiU=-9.998e-01 a_tip=5.10 ell tip=(0.5500,0.4975)
+  step 426  u = 4.260e-03  F = 498.1041  d_tip = 1.000  a = 0.2619  H/Hc =   715.81  stagg = 200
+  B buoc 426: A_H=-4.910e-01 A_psiS=-5.000e-01 A_psiU=-9.999e-01 a_tip=5.85 ell tip=(0.5575,0.4975)
+  step 427  u = 4.270e-03  F = 490.0597  d_tip = 1.000  a = 0.2740  H/Hc =   844.04  stagg = 200
+  B buoc 427: A_H=-4.920e-01 A_psiS=-5.000e-01 A_psiU=-9.999e-01 a_tip=6.85 ell tip=(0.5675,0.4975)
+  step 428  u = 4.280e-03  F = 480.7868  d_tip = 1.000  a = 0.2876  H/Hc =   982.21  stagg = 200
+  B buoc 428: A_H=-4.929e-01 A_psiS=-5.000e-01 A_psiU=-9.999e-01 a_tip=7.60 ell tip=(0.5750,0.4975)
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-18T22:58:08Z
