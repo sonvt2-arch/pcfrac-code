@@ -564,3 +564,31 @@ model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-17T20:09:18Z
+=== CHANG 4 2026-11-17T20:10:38Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [39800, 40200, 40200, 39800]/[399, 401, 401, 399]  thieu = 0  crc = 6a78c2ce  cot qua y=0.5 khac nhan = 0/400
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 160000  so dinh = 160801
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1l2   (chieu L2 psi+ len V_d, Gauss 2x2, H = max tung nut)
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 1   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 505 (diem kiem buoc 504)
+  step 505  u = 5.050e-03  F = 606.0572  d_tip = 0.999  a = 0.4640  H/Hc =   340.09  stagg = 200
+  step 506  u = 5.060e-03  F = 599.7878  d_tip = 0.999  a = 0.4751  H/Hc =   446.29  stagg = 200
+  step 507  u = 5.070e-03  F = 592.3677  d_tip = 0.999  a = 0.4879  H/Hc =   540.02  stagg = 200
+  step 508  u = 5.080e-03  F = 584.0235  d_tip = 0.999  a = 0.5020  H/Hc =   642.97  stagg = 200
+  step 509  u = 5.090e-03  F = 574.7110  d_tip = 0.999  a = 0.5175  H/Hc =   751.51  stagg = 200
+  step 510  u = 5.100e-03  F = 564.2625  d_tip = 1.000  a = 0.5346  H/Hc =   865.26  stagg = 200
+  step 511  u = 5.110e-03  F = 552.8723  d_tip = 1.000  a = 0.5531  H/Hc =   980.91  stagg = 200
+  step 512  u = 5.120e-03  F = 540.5273  d_tip = 1.000  a = 0.5730  H/Hc =  1097.53  stagg = 200
+  step 513  u = 5.130e-03  F = 527.4595  d_tip = 1.000  a = 0.5939  H/Hc =  1212.33  stagg = 200
+  step 514  u = 5.140e-03  F = 513.5874  d_tip = 1.000  a = 0.6160  H/Hc =  1325.30  stagg = 200
+  step 515  u = 5.150e-03  F = 499.1947  d_tip = 1.000  a = 0.6388  H/Hc =  1433.93  stagg = 200
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: === EXIT=124 2026-11-18T01:30:38Z
