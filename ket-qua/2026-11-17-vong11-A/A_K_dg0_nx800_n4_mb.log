@@ -221,3 +221,33 @@ model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-17T19:19:22Z
+=== CHANG 3 2026-11-17T19:20:26Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [161600, 161600, 158400, 158400]/[804, 808, 799, 795]  thieu = 0  crc = 5b3113d2  cot qua y=0.5 khac nhan = 27/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 641601
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 177 (diem kiem buoc 176)
+  step 177  u = 1.770e-03  F = 266.2106  d_tip = 0.022  a = 0.0215  H/Hc =     0.01  stagg = 54  SNES=-5
+  step 178  u = 1.780e-03  F = 266.9491  d_tip = 0.022  a = 0.0218  H/Hc =     0.01  stagg = 50  SNES=-5
+  step 179  u = 1.790e-03  F = 267.7289  d_tip = 0.022  a = 0.0220  H/Hc =     0.01  stagg = 47  SNES=-5
+  step 180  u = 1.800e-03  F = 268.5470  d_tip = 0.023  a = 0.0222  H/Hc =     0.01  stagg = 44  SNES=-5
+  step 181  u = 1.810e-03  F = 269.3995  d_tip = 0.023  a = 0.0224  H/Hc =     0.01  stagg = 41  SNES=-5
+  step 182  u = 1.820e-03  F = 270.2827  d_tip = 0.023  a = 0.0226  H/Hc =     0.01  stagg = 39  SNES=-5
+  step 183  u = 1.830e-03  F = 271.1932  d_tip = 0.023  a = 0.0228  H/Hc =     0.01  stagg = 37  SNES=-5
+  step 184  u = 1.840e-03  F = 272.1281  d_tip = 0.023  a = 0.0230  H/Hc =     0.01  stagg = 35  SNES=-5
+  step 185  u = 1.850e-03  F = 273.0846  d_tip = 0.023  a = 0.0232  H/Hc =     0.01  stagg = 34  SNES=-5
+  step 186  u = 1.860e-03  F = 274.0607  d_tip = 0.024  a = 0.0234  H/Hc =     0.01  stagg = 33  SNES=-5
+  step 187  u = 1.870e-03  F = 275.0545  d_tip = 0.024  a = 0.0236  H/Hc =     0.01  stagg = 32  SNES=-5
+  step 188  u = 1.880e-03  F = 276.0643  d_tip = 0.024  a = 0.0237  H/Hc =     0.01  stagg = 31  SNES=-5
+  step 189  u = 1.890e-03  F = 277.0886  d_tip = 0.024  a = 0.0239  H/Hc =     0.01  stagg = 30  SNES=-5
+[0]PETSC ERROR: === EXIT=124 2026-11-18T00:40:26Z
