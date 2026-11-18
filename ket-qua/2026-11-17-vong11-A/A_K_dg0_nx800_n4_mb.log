@@ -486,3 +486,106 @@ model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-18T16:46:29Z
+=== CHANG 4 2026-11-18T16:47:43Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [161600, 161600, 158400, 158400]/[804, 808, 799, 795]  thieu = 0  crc = 5b3113d2  cot qua y=0.5 khac nhan = 27/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 641601
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 268 (diem kiem buoc 267)
+  B NGUOI GHI (XUOI <- dung): nut tren n=1056 f_gan(T)=0.017; nut duoi n=1056 f_gan(B)=1.000; W=f_gan(B)-f_gan(T)=+0.983; nut tren mat n=33 ti le nguoi ghi o tren=1.000; ti le nguoi ghi phia x lon=1.000
+  B NGUOI GHI (NGUOC): nut tren n=1056 f_gan(T)=0.983; nut duoi n=1056 f_gan(B)=0.000; W=f_gan(B)-f_gan(T)=-0.983; nut tren mat n=33 ti le nguoi ghi o tren=0.000; ti le nguoi ghi phia x lon=0.000
+  step 268  u = 2.680e-03  F = 372.4432  d_tip = 0.041  a = 0.0307  H/Hc =     0.03  stagg = 15  SNES=-5
+  B buoc 268: A_H=-1.465e-03 A_psiS=-1.465e-03 A_psiU=-1.481e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 269  u = 2.690e-03  F = 373.7086  d_tip = 0.041  a = 0.0308  H/Hc =     0.03  stagg = 15  SNES=-5
+  B buoc 269: A_H=-1.517e-03 A_psiS=-1.517e-03 A_psiU=-1.534e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 270  u = 2.700e-03  F = 374.9743  d_tip = 0.041  a = 0.0309  H/Hc =     0.03  stagg = 15  SNES=-5
+  B buoc 270: A_H=-1.571e-03 A_psiS=-1.571e-03 A_psiU=-1.589e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 271  u = 2.710e-03  F = 376.2403  d_tip = 0.041  a = 0.0309  H/Hc =     0.03  stagg = 15  SNES=-5
+  B buoc 271: A_H=-1.626e-03 A_psiS=-1.626e-03 A_psiU=-1.645e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 272  u = 2.720e-03  F = 377.5065  d_tip = 0.042  a = 0.0310  H/Hc =     0.03  stagg = 15  SNES=-5
+  B buoc 272: A_H=-1.682e-03 A_psiS=-1.682e-03 A_psiU=-1.702e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 273  u = 2.730e-03  F = 378.7729  d_tip = 0.042  a = 0.0311  H/Hc =     0.03  stagg = 15  SNES=-5
+  B buoc 273: A_H=-1.740e-03 A_psiS=-1.740e-03 A_psiU=-1.760e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 274  u = 2.740e-03  F = 380.0395  d_tip = 0.042  a = 0.0311  H/Hc =     0.03  stagg = 15  SNES=-5
+  B buoc 274: A_H=-1.799e-03 A_psiS=-1.799e-03 A_psiU=-1.821e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 275  u = 2.750e-03  F = 381.3063  d_tip = 0.042  a = 0.0312  H/Hc =     0.03  stagg = 15  SNES=-5
+  B buoc 275: A_H=-1.860e-03 A_psiS=-1.860e-03 A_psiU=-1.883e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 276  u = 2.760e-03  F = 382.5732  d_tip = 0.043  a = 0.0312  H/Hc =     0.03  stagg = 15  SNES=-5
+  B buoc 276: A_H=-1.923e-03 A_psiS=-1.923e-03 A_psiU=-1.946e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 277  u = 2.770e-03  F = 383.8403  d_tip = 0.043  a = 0.0313  H/Hc =     0.03  stagg = 15  SNES=-5
+  B buoc 277: A_H=-1.987e-03 A_psiS=-1.987e-03 A_psiU=-2.011e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 278  u = 2.780e-03  F = 385.1076  d_tip = 0.043  a = 0.0314  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 278: A_H=-2.052e-03 A_psiS=-2.052e-03 A_psiU=-2.078e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 279  u = 2.790e-03  F = 386.3750  d_tip = 0.043  a = 0.0314  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 279: A_H=-2.120e-03 A_psiS=-2.120e-03 A_psiU=-2.146e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 280  u = 2.800e-03  F = 387.6424  d_tip = 0.044  a = 0.0315  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 280: A_H=-2.188e-03 A_psiS=-2.188e-03 A_psiU=-2.216e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 281  u = 2.810e-03  F = 388.9100  d_tip = 0.044  a = 0.0315  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 281: A_H=-2.259e-03 A_psiS=-2.259e-03 A_psiU=-2.287e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 282  u = 2.820e-03  F = 390.1776  d_tip = 0.044  a = 0.0316  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 282: A_H=-2.331e-03 A_psiS=-2.331e-03 A_psiU=-2.361e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 283  u = 2.830e-03  F = 391.4452  d_tip = 0.044  a = 0.0317  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 283: A_H=-2.405e-03 A_psiS=-2.405e-03 A_psiU=-2.436e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 284  u = 2.840e-03  F = 392.7129  d_tip = 0.045  a = 0.0317  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 284: A_H=-2.481e-03 A_psiS=-2.481e-03 A_psiU=-2.513e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 285  u = 2.850e-03  F = 393.9806  d_tip = 0.045  a = 0.0318  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 285: A_H=-2.558e-03 A_psiS=-2.558e-03 A_psiU=-2.592e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 286  u = 2.860e-03  F = 395.2484  d_tip = 0.045  a = 0.0319  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 286: A_H=-2.638e-03 A_psiS=-2.638e-03 A_psiU=-2.673e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 287  u = 2.870e-03  F = 396.5161  d_tip = 0.046  a = 0.0319  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 287: A_H=-2.719e-03 A_psiS=-2.719e-03 A_psiU=-2.756e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 288  u = 2.880e-03  F = 397.7838  d_tip = 0.046  a = 0.0320  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 288: A_H=-2.802e-03 A_psiS=-2.802e-03 A_psiU=-2.841e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 289  u = 2.890e-03  F = 399.0515  d_tip = 0.046  a = 0.0320  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 289: A_H=-2.887e-03 A_psiS=-2.887e-03 A_psiU=-2.927e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 290  u = 2.900e-03  F = 400.3191  d_tip = 0.046  a = 0.0321  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 290: A_H=-2.974e-03 A_psiS=-2.974e-03 A_psiU=-3.016e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 291  u = 2.910e-03  F = 401.5866  d_tip = 0.047  a = 0.0322  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 291: A_H=-3.063e-03 A_psiS=-3.063e-03 A_psiU=-3.106e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 292  u = 2.920e-03  F = 402.8541  d_tip = 0.047  a = 0.0322  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 292: A_H=-3.154e-03 A_psiS=-3.154e-03 A_psiU=-3.199e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 293  u = 2.930e-03  F = 404.1215  d_tip = 0.047  a = 0.0323  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 293: A_H=-3.247e-03 A_psiS=-3.247e-03 A_psiU=-3.294e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 294  u = 2.940e-03  F = 405.3889  d_tip = 0.048  a = 0.0323  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 294: A_H=-3.342e-03 A_psiS=-3.342e-03 A_psiU=-3.391e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 295  u = 2.950e-03  F = 406.6560  d_tip = 0.048  a = 0.0324  H/Hc =     0.03  stagg = 14  SNES=-5
+  B buoc 295: A_H=-3.439e-03 A_psiS=-3.439e-03 A_psiU=-3.490e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 296  u = 2.960e-03  F = 407.9232  d_tip = 0.048  a = 0.0325  H/Hc =     0.03  stagg = 13  SNES=-5
+  B buoc 296: A_H=-3.538e-03 A_psiS=-3.538e-03 A_psiU=-3.591e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 297  u = 2.970e-03  F = 409.1901  d_tip = 0.048  a = 0.0325  H/Hc =     0.03  stagg = 13  SNES=-5
+  B buoc 297: A_H=-3.640e-03 A_psiS=-3.640e-03 A_psiU=-3.695e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 298  u = 2.980e-03  F = 410.4569  d_tip = 0.049  a = 0.0326  H/Hc =     0.03  stagg = 13  SNES=-5
+  B buoc 298: A_H=-3.744e-03 A_psiS=-3.744e-03 A_psiU=-3.801e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 299  u = 2.990e-03  F = 411.7235  d_tip = 0.049  a = 0.0326  H/Hc =     0.03  stagg = 13  SNES=-5
+  B buoc 299: A_H=-3.850e-03 A_psiS=-3.850e-03 A_psiU=-3.910e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 300  u = 3.000e-03  F = 412.9900  d_tip = 0.049  a = 0.0327  H/Hc =     0.03  stagg = 13  SNES=-5
+  B buoc 300: A_H=-3.958e-03 A_psiS=-3.958e-03 A_psiU=-4.020e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 301  u = 3.010e-03  F = 414.2563  d_tip = 0.050  a = 0.0328  H/Hc =     0.03  stagg = 13  SNES=-5
+  B buoc 301: A_H=-4.069e-03 A_psiS=-4.069e-03 A_psiU=-4.133e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 302  u = 3.020e-03  F = 415.5224  d_tip = 0.050  a = 0.0328  H/Hc =     0.04  stagg = 13  SNES=-5
+  B buoc 302: A_H=-4.182e-03 A_psiS=-4.182e-03 A_psiU=-4.248e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 303  u = 3.030e-03  F = 416.7883  d_tip = 0.050  a = 0.0329  H/Hc =     0.04  stagg = 13  SNES=-5
+  B buoc 303: A_H=-4.297e-03 A_psiS=-4.297e-03 A_psiU=-4.366e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+  step 304  u = 3.040e-03  F = 418.0540  d_tip = 0.051  a = 0.0330  H/Hc =     0.04  stagg = 13  SNES=-5
+  B buoc 304: A_H=-4.415e-03 A_psiS=-4.415e-03 A_psiU=-4.487e-03 a_tip=0.00 ell tip=(0.5000,0.5000)
+[0]PETSC ERROR: 
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 192 RUNNING AT 3cbf0745afa1
+=   EXIT CODE: 15
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Terminated (signal 15)
+This typically refers to a problem with your application.
+Please see the FAQ page for debugging suggestions
+=== EXIT=124 2026-11-18T22:07:43Z
