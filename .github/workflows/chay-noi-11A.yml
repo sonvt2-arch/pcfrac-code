@@ -2,6 +2,8 @@ name: Chay noi nhieu chang - vong 11-A
 
 # VONG 11-A (17/11/2026): chep tu chay-noi.yml, chi doi thu muc ket qua
 # (ket-qua/2026-11-17-vong11-A), ten artifact (ck11-) va tep danh sach mac dinh; bo trigger push.
+# 18/11: neu args co --do-B B_<tag> (vong 11-B) thi chuyen thu muc B_<tag> qua cac chang (ca tu ket-qua/diem-kiem),
+# nen bang code/nen_B.py va chep vao ket-qua (nhu chay-noi-11B.yml).
 
 # Chay cac ca dai hon tran 6 gio/job cua GitHub bang diem kiem (--ckpt/--resume
 # cua benchmark_A.py).  Danh sach ca o .github/chay-noi-vong11-A.json; sua tep do va day
@@ -67,9 +69,11 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           if [ "$CHANG" = 1 ]; then
             [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
+            [ -d ../ket-qua/diem-kiem/B_$tag ] && cp -r ../ket-qua/diem-kiem/B_$tag . || true
           elif [ -d ../truoc/$ck ]; then
             cp -r ../truoc/$ck .; cp ../truoc/$f .
             cp ../truoc/goc_$tag.txt ../truoc/$tag.h5 ../truoc/$tag.xdmf . 2>/dev/null || true
+            cp -r ../truoc/B_$tag . 2>/dev/null || true
           fi
           touch $f
           chay(){
@@ -100,7 +104,9 @@ jobs:
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf $D/truong/ || true
           ls loaddisp_*$tag*.txt >/dev/null 2>&1 && cp -f loaddisp_*$tag*.txt $D/ || true
+          if [ -d B_$tag ]; then python3 nen_B.py B_$tag || true; mkdir -p $D/B_$tag; cp -f B_$tag/*.txt B_$tag/*.npz $D/B_$tag/ 2>/dev/null || true; fi
           mkdir -p ../ckout && [ -d $ck ] && cp -r $ck $f ../ckout/ || true
+          mkdir -p ../ckout && [ -d B_$tag ] && cp -r B_$tag ../ckout/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf goc_$tag.txt ../ckout/ 2>/dev/null || true
       - name: Day diem kiem sang chang sau
         if: always()
@@ -153,9 +159,11 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           if [ "$CHANG" = 1 ]; then
             [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
+            [ -d ../ket-qua/diem-kiem/B_$tag ] && cp -r ../ket-qua/diem-kiem/B_$tag . || true
           elif [ -d ../truoc/$ck ]; then
             cp -r ../truoc/$ck .; cp ../truoc/$f .
             cp ../truoc/goc_$tag.txt ../truoc/$tag.h5 ../truoc/$tag.xdmf . 2>/dev/null || true
+            cp -r ../truoc/B_$tag . 2>/dev/null || true
           fi
           touch $f
           chay(){
@@ -186,7 +194,9 @@ jobs:
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf $D/truong/ || true
           ls loaddisp_*$tag*.txt >/dev/null 2>&1 && cp -f loaddisp_*$tag*.txt $D/ || true
+          if [ -d B_$tag ]; then python3 nen_B.py B_$tag || true; mkdir -p $D/B_$tag; cp -f B_$tag/*.txt B_$tag/*.npz $D/B_$tag/ 2>/dev/null || true; fi
           mkdir -p ../ckout && [ -d $ck ] && cp -r $ck $f ../ckout/ || true
+          mkdir -p ../ckout && [ -d B_$tag ] && cp -r B_$tag ../ckout/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf goc_$tag.txt ../ckout/ 2>/dev/null || true
       - name: Day diem kiem sang chang sau
         if: always()
@@ -239,9 +249,11 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           if [ "$CHANG" = 1 ]; then
             [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
+            [ -d ../ket-qua/diem-kiem/B_$tag ] && cp -r ../ket-qua/diem-kiem/B_$tag . || true
           elif [ -d ../truoc/$ck ]; then
             cp -r ../truoc/$ck .; cp ../truoc/$f .
             cp ../truoc/goc_$tag.txt ../truoc/$tag.h5 ../truoc/$tag.xdmf . 2>/dev/null || true
+            cp -r ../truoc/B_$tag . 2>/dev/null || true
           fi
           touch $f
           chay(){
@@ -272,7 +284,9 @@ jobs:
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf $D/truong/ || true
           ls loaddisp_*$tag*.txt >/dev/null 2>&1 && cp -f loaddisp_*$tag*.txt $D/ || true
+          if [ -d B_$tag ]; then python3 nen_B.py B_$tag || true; mkdir -p $D/B_$tag; cp -f B_$tag/*.txt B_$tag/*.npz $D/B_$tag/ 2>/dev/null || true; fi
           mkdir -p ../ckout && [ -d $ck ] && cp -r $ck $f ../ckout/ || true
+          mkdir -p ../ckout && [ -d B_$tag ] && cp -r B_$tag ../ckout/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf goc_$tag.txt ../ckout/ 2>/dev/null || true
       - name: Day diem kiem sang chang sau
         if: always()
@@ -325,9 +339,11 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           if [ "$CHANG" = 1 ]; then
             [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
+            [ -d ../ket-qua/diem-kiem/B_$tag ] && cp -r ../ket-qua/diem-kiem/B_$tag . || true
           elif [ -d ../truoc/$ck ]; then
             cp -r ../truoc/$ck .; cp ../truoc/$f .
             cp ../truoc/goc_$tag.txt ../truoc/$tag.h5 ../truoc/$tag.xdmf . 2>/dev/null || true
+            cp -r ../truoc/B_$tag . 2>/dev/null || true
           fi
           touch $f
           chay(){
@@ -358,7 +374,9 @@ jobs:
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf $D/truong/ || true
           ls loaddisp_*$tag*.txt >/dev/null 2>&1 && cp -f loaddisp_*$tag*.txt $D/ || true
+          if [ -d B_$tag ]; then python3 nen_B.py B_$tag || true; mkdir -p $D/B_$tag; cp -f B_$tag/*.txt B_$tag/*.npz $D/B_$tag/ 2>/dev/null || true; fi
           mkdir -p ../ckout && [ -d $ck ] && cp -r $ck $f ../ckout/ || true
+          mkdir -p ../ckout && [ -d B_$tag ] && cp -r B_$tag ../ckout/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf goc_$tag.txt ../ckout/ 2>/dev/null || true
       - name: Day diem kiem sang chang sau
         if: always()
@@ -411,9 +429,11 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           if [ "$CHANG" = 1 ]; then
             [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
+            [ -d ../ket-qua/diem-kiem/B_$tag ] && cp -r ../ket-qua/diem-kiem/B_$tag . || true
           elif [ -d ../truoc/$ck ]; then
             cp -r ../truoc/$ck .; cp ../truoc/$f .
             cp ../truoc/goc_$tag.txt ../truoc/$tag.h5 ../truoc/$tag.xdmf . 2>/dev/null || true
+            cp -r ../truoc/B_$tag . 2>/dev/null || true
           fi
           touch $f
           chay(){
@@ -444,7 +464,9 @@ jobs:
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf $D/truong/ || true
           ls loaddisp_*$tag*.txt >/dev/null 2>&1 && cp -f loaddisp_*$tag*.txt $D/ || true
+          if [ -d B_$tag ]; then python3 nen_B.py B_$tag || true; mkdir -p $D/B_$tag; cp -f B_$tag/*.txt B_$tag/*.npz $D/B_$tag/ 2>/dev/null || true; fi
           mkdir -p ../ckout && [ -d $ck ] && cp -r $ck $f ../ckout/ || true
+          mkdir -p ../ckout && [ -d B_$tag ] && cp -r B_$tag ../ckout/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf goc_$tag.txt ../ckout/ 2>/dev/null || true
       - name: Day diem kiem sang chang sau
         if: always()
@@ -496,9 +518,11 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           if [ "$CHANG" = 1 ]; then
             [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
+            [ -d ../ket-qua/diem-kiem/B_$tag ] && cp -r ../ket-qua/diem-kiem/B_$tag . || true
           elif [ -d ../truoc/$ck ]; then
             cp -r ../truoc/$ck .; cp ../truoc/$f .
             cp ../truoc/goc_$tag.txt ../truoc/$tag.h5 ../truoc/$tag.xdmf . 2>/dev/null || true
+            cp -r ../truoc/B_$tag . 2>/dev/null || true
           fi
           touch $f
           chay(){
@@ -529,7 +553,9 @@ jobs:
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf $D/truong/ || true
           ls loaddisp_*$tag*.txt >/dev/null 2>&1 && cp -f loaddisp_*$tag*.txt $D/ || true
+          if [ -d B_$tag ]; then python3 nen_B.py B_$tag || true; mkdir -p $D/B_$tag; cp -f B_$tag/*.txt B_$tag/*.npz $D/B_$tag/ 2>/dev/null || true; fi
           mkdir -p ../ckout && [ -d $ck ] && cp -r $ck $f ../ckout/ || true
+          mkdir -p ../ckout && [ -d B_$tag ] && cp -r B_$tag ../ckout/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf goc_$tag.txt ../ckout/ 2>/dev/null || true
       - name: Day diem kiem sang chang sau
         if: always()
@@ -581,9 +607,11 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           if [ "$CHANG" = 1 ]; then
             [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
+            [ -d ../ket-qua/diem-kiem/B_$tag ] && cp -r ../ket-qua/diem-kiem/B_$tag . || true
           elif [ -d ../truoc/$ck ]; then
             cp -r ../truoc/$ck .; cp ../truoc/$f .
             cp ../truoc/goc_$tag.txt ../truoc/$tag.h5 ../truoc/$tag.xdmf . 2>/dev/null || true
+            cp -r ../truoc/B_$tag . 2>/dev/null || true
           fi
           touch $f
           chay(){
@@ -614,7 +642,9 @@ jobs:
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf $D/truong/ || true
           ls loaddisp_*$tag*.txt >/dev/null 2>&1 && cp -f loaddisp_*$tag*.txt $D/ || true
+          if [ -d B_$tag ]; then python3 nen_B.py B_$tag || true; mkdir -p $D/B_$tag; cp -f B_$tag/*.txt B_$tag/*.npz $D/B_$tag/ 2>/dev/null || true; fi
           mkdir -p ../ckout && [ -d $ck ] && cp -r $ck $f ../ckout/ || true
+          mkdir -p ../ckout && [ -d B_$tag ] && cp -r B_$tag ../ckout/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf goc_$tag.txt ../ckout/ 2>/dev/null || true
       - name: Day diem kiem sang chang sau
         if: always()
@@ -666,9 +696,11 @@ jobs:
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
           if [ "$CHANG" = 1 ]; then
             [ -d ../ket-qua/diem-kiem/$ck ] && cp -r ../ket-qua/diem-kiem/$ck . && cp ../ket-qua/diem-kiem/$f . || true
+            [ -d ../ket-qua/diem-kiem/B_$tag ] && cp -r ../ket-qua/diem-kiem/B_$tag . || true
           elif [ -d ../truoc/$ck ]; then
             cp -r ../truoc/$ck .; cp ../truoc/$f .
             cp ../truoc/goc_$tag.txt ../truoc/$tag.h5 ../truoc/$tag.xdmf . 2>/dev/null || true
+            cp -r ../truoc/B_$tag . 2>/dev/null || true
           fi
           touch $f
           chay(){
@@ -699,7 +731,9 @@ jobs:
           cp -f $f $D/; [ -s goc_$tag.txt ] && cp -f goc_$tag.txt $D/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf $D/truong/ || true
           ls loaddisp_*$tag*.txt >/dev/null 2>&1 && cp -f loaddisp_*$tag*.txt $D/ || true
+          if [ -d B_$tag ]; then python3 nen_B.py B_$tag || true; mkdir -p $D/B_$tag; cp -f B_$tag/*.txt B_$tag/*.npz $D/B_$tag/ 2>/dev/null || true; fi
           mkdir -p ../ckout && [ -d $ck ] && cp -r $ck $f ../ckout/ || true
+          mkdir -p ../ckout && [ -d B_$tag ] && cp -r B_$tag ../ckout/ || true
           [ -s $tag.h5 ] && cp -f $tag.h5 $tag.xdmf goc_$tag.txt ../ckout/ 2>/dev/null || true
       - name: Day diem kiem sang chang sau
         if: always()

@@ -98,7 +98,8 @@ def main():
         if not os.path.exists(fb):
             continue
         dim = 3 if "_P3_" in tag else 2
-        h = 1 / 100 if dim == 3 else (1 / 400 if "nx400" in tag else 1 / 200)
+        _mnx = __import__("re").search(r"nx(\d+)", tag)
+        h = 1 / 100 if dim == 3 else (1 / int(_mnx.group(1)) if _mnx else 1 / 200)   # 11-A: nx800, nx400
         st, B = doc_buoc(fb)
         u, F, AH, AS, AU = B[:, 0], np.abs(B[:, 1]), B[:, 2], B[:, 3], B[:, 4]
         a = B[:, 7] * ell
