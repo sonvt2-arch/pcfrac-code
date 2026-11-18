@@ -1052,3 +1052,59 @@ model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-17T21:37:38Z
+=== CHANG 4 2026-11-17T21:38:45Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [39800, 40200, 40200, 39800]/[399, 401, 401, 399]  thieu = 0  crc = 6a78c2ce  cot qua y=0.5 khac nhan = 0/400
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 160000  so dinh = 160801
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 1   sharp=True
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 491 (diem kiem buoc 490)
+  B NGUOI GHI (XUOI <- dung): nut tren n=272 f_gan(T)=0.004; nut duoi n=272 f_gan(B)=0.967; W=f_gan(B)-f_gan(T)=+0.963; nut tren mat n=17 ti le nguoi ghi o tren=1.000; ti le nguoi ghi phia x lon=0.966
+  B NGUOI GHI (NGUOC): nut tren n=272 f_gan(T)=1.000; nut duoi n=272 f_gan(B)=0.033; W=f_gan(B)-f_gan(T)=-0.967; nut tren mat n=17 ti le nguoi ghi o tren=0.000; ti le nguoi ghi phia x lon=0.036
+  step 491  u = 4.910e-03  F = 595.5453  d_tip = 0.987  a = 0.1312  H/Hc =   431.03  stagg = 200
+  B buoc 491: A_H=-9.603e-01 A_psiS=-9.947e-01 A_psiU=-9.946e-01 a_tip=3.60 ell tip=(0.5350,0.4975)
+  step 492  u = 4.920e-03  F = 589.4029  d_tip = 0.990  a = 0.1384  H/Hc =   591.03  stagg = 200
+  B buoc 492: A_H=-9.676e-01 A_psiS=-9.991e-01 A_psiU=-9.991e-01 a_tip=4.25 ell tip=(0.5425,0.5000)
+  step 493  u = 4.930e-03  F = 582.2500  d_tip = 0.992  a = 0.1465  H/Hc =   751.37  stagg = 200
+  B buoc 493: A_H=-9.723e-01 A_psiS=-9.997e-01 A_psiU=-9.997e-01 a_tip=4.85 ell tip=(0.5475,0.4975)
+  step 494  u = 4.940e-03  F = 574.0233  d_tip = 0.993  a = 0.1556  H/Hc =   918.78  stagg = 200
+  B buoc 494: A_H=-9.760e-01 A_psiS=-9.998e-01 A_psiU=-9.998e-01 a_tip=5.60 ell tip=(0.5550,0.4975)
+  step 495  u = 4.950e-03  F = 564.7560  d_tip = 0.994  a = 0.1658  H/Hc =  1093.45  stagg = 200
+  B buoc 495: A_H=-9.790e-01 A_psiS=-9.999e-01 A_psiU=-9.999e-01 a_tip=6.35 ell tip=(0.5625,0.4975)
+  step 496  u = 4.960e-03  F = 554.4283  d_tip = 0.995  a = 0.1770  H/Hc =  1275.21  stagg = 200
+  B buoc 496: A_H=-9.814e-01 A_psiS=-9.999e-01 A_psiU=-9.999e-01 a_tip=7.35 ell tip=(0.5725,0.4975)
+  step 497  u = 4.970e-03  F = 543.0712  d_tip = 0.996  a = 0.1892  H/Hc =  1462.50  stagg = 200
+  B buoc 497: A_H=-9.833e-01 A_psiS=-9.999e-01 A_psiU=-9.999e-01 a_tip=8.35 ell tip=(0.5825,0.4975)
+  step 498  u = 4.980e-03  F = 530.8211  d_tip = 0.996  a = 0.2022  H/Hc =  1652.16  stagg = 200
+  B buoc 498: A_H=-9.849e-01 A_psiS=-9.999e-01 A_psiU=-9.999e-01 a_tip=9.35 ell tip=(0.5925,0.4975)
+  step 499  u = 4.990e-03  F = 517.8127  d_tip = 0.997  a = 0.2160  H/Hc =  1841.32  stagg = 200
+  B buoc 499: A_H=-9.863e-01 A_psiS=-9.999e-01 A_psiU=-9.999e-01 a_tip=10.60 ell tip=(0.6050,0.4975)
+  step 500  u = 5.000e-03  F = 504.1208  d_tip = 0.997  a = 0.2305  H/Hc =  2028.14  stagg = 200
+  B buoc 500: A_H=-9.874e-01 A_psiS=-9.999e-01 A_psiU=-9.999e-01 a_tip=11.85 ell tip=(0.6175,0.4975)
+  step 501  u = 5.010e-03  F = 489.9157  d_tip = 0.997  a = 0.2455  H/Hc =  2209.95  stagg = 200
+  B buoc 501: A_H=-9.883e-01 A_psiS=-1.000e+00 A_psiU=-1.000e+00 a_tip=13.10 ell tip=(0.6300,0.4975)
+  B DUNG: a_tip >= 12 ell va da sut >= 10 % -- dung chay
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 626.3367 N/mm   at step 480 of 501
+  nominal peak stress = 626.3367 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 78.2 % of peak ; final d ahead of the tip = 0.997 ; crack extension = 0.2455 mm (24.5 ell)
+  *** NOT A FRACTURE PEAK: the load never fell below 60 % of
+      its maximum, or no crack ran (d stayed under 0.5 and the
+      crack grew less than 2 ell).  The maximum above is a
+      plateau value, which is noise.
+      NOTE: the run stopped at u = 5.010e-03 mm of 0.0080 mm,
+      so it ended early -- look at the failed damage solves below,
+      not at umax.
+  wrote loaddisp_B_dg0_nx400_n4.txt
+============================================================
+=== EXIT=0 2026-11-18T01:48:37Z
