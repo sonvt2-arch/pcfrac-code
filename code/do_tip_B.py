@@ -88,7 +88,7 @@ def main():
     print("# tag | buoc tip(l) | u_tip | F_tip(l) | F_tip(2l) | F_tip(l) d>=0.90 | F_init(0.10) moi | u_init | "
           "theta_tip(10l) | A_H b1 | A_H b100 | A_H truoc | A_psiS b1 | A_psiU b1 | A_psiU truoc | "
           "dau A_H truoc (cung dau/tong) | max|a ngoai tuyen - a log|/l | buoc cuoi | a_tip cuoi/l | BIEN THE (khong ghi truoc): F_tip(l) | theta(10l)")
-    for dB in sorted(glob.glob(os.path.join(root, "B_B_*"))):
+    for dB in sorted(glob.glob(os.path.join(root, "B_*"))):
         if not os.path.isdir(dB):
             continue
         tag = os.path.basename(dB)
