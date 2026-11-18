@@ -1,2 +1,4 @@
   B NGUOI GHI (XUOI <- dung): nut tren n=272 f_gan(T)=0.471; nut duoi n=272 f_gan(B)=0.401; W=f_gan(B)-f_gan(T)=-0.070; nut tren mat n=17 ti le nguoi ghi o tren=0.294; ti le nguoi ghi phia x lon=0.713
   B NGUOI GHI (NGUOC): nut tren n=272 f_gan(T)=0.507; nut duoi n=272 f_gan(B)=0.614; W=f_gan(B)-f_gan(T)=+0.107; nut tren mat n=17 ti le nguoi ghi o tren=0.765; ti le nguoi ghi phia x lon=0.291
+  B NGUOI GHI (XUOI <- dung): nut tren n=272 f_gan(T)=0.471; nut duoi n=272 f_gan(B)=0.401; W=f_gan(B)-f_gan(T)=-0.070; nut tren mat n=17 ti le nguoi ghi o tren=0.294; ti le nguoi ghi phia x lon=0.713
+  B NGUOI GHI (NGUOC): nut tren n=272 f_gan(T)=0.507; nut duoi n=272 f_gan(B)=0.614; W=f_gan(B)-f_gan(T)=+0.107; nut tren mat n=17 ti le nguoi ghi o tren=0.765; ti le nguoi ghi phia x lon=0.291
