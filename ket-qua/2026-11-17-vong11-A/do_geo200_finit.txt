@@ -1,0 +1,7 @@
+# tep | F_init (d=0.10) | u_init | sut | F_max | u_max | F_init d=0.05 | d=0.20
+loaddisp_KB_dg0_geo_n1.txt | 768.10 | 5.9400e-03 | co | 768.10 | 5.9400e-03 | 768.10 | 768.10
+loaddisp_KB_cg1_geo_n1.txt | 739.42 | 5.7000e-03 | co | 739.42 | 5.7000e-03 | 739.42 | 739.42
+loaddisp_KB_cg1l2_geo_n1.txt | 738.03 | 5.6700e-03 | co | 738.03 | 5.6700e-03 | 738.03 | 738.03
+loaddisp_KB_cg1nmean_geo_n1.txt | 714.08 | 5.4700e-03 | co | 714.08 | 5.4700e-03 | 714.08 | 714.08
+loaddisp_KB_cg1nmax_geo_n1.txt | 638.44 | 4.8300e-03 | co | 638.44 | 4.8300e-03 | 638.44 | 638.44
+loaddisp_KB_cg1avg_geo_n1.txt | 782.44 | 6.0700e-03 | co | 782.44 | 6.0700e-03 | 782.44 | 782.44
