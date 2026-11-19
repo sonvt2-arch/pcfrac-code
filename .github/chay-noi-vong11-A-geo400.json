@@ -1,0 +1,37 @@
+[
+ {
+  "tag": "KB_dg0_geo_nx400_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 400 --hspace dg0 --notch geom --do-B B_KB_dg0_geo_nx400_n1 --dung-tip 100"
+ },
+ {
+  "tag": "KB_cg1l2_geo_nx400_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 400 --hspace cg1l2 --notch geom --do-B B_KB_cg1l2_geo_nx400_n1 --dung-tip 100"
+ },
+ {
+  "tag": "KB_cg1nmean_geo_nx400_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 400 --hspace cg1nmean --notch geom --do-B B_KB_cg1nmean_geo_nx400_n1 --dung-tip 100"
+ },
+ {
+  "tag": "KB_cg1nmax_geo_nx400_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 400 --hspace cg1nmax --notch geom --do-B B_KB_cg1nmax_geo_nx400_n1 --dung-tip 100"
+ },
+ {
+  "tag": "KB_cg1avg_geo_nx400_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 400 --hspace cg1avg --notch geom --do-B B_KB_cg1avg_geo_nx400_n1 --dung-tip 100"
+ }
+]
