@@ -1,0 +1,9 @@
+# tep | F_init (d=0.10) | u_init | sut | F_max | u_max | F_init d=0.05 | d=0.20
+loaddisp_KB_dg0_geo_nx400_n1.txt | 733.41 | 5.6200e-03 | co | 733.41 | 5.6200e-03 | 733.41 | 733.41
+loaddisp_KB_cg1l2_geo_nx400_n1.txt | 715.21 | 5.4600e-03 | co | 715.21 | 5.4600e-03 | 715.21 | 715.21
+loaddisp_KB_cg1nmax_geo_nx400_n1.txt | 632.49 | 4.7600e-03 | co | 632.49 | 4.7600e-03 | 632.49 | 632.49
+loaddisp_KB_cg1avg_geo_nx400_n1.txt | 739.04 | 5.6700e-03 | co | 739.04 | 5.6700e-03 | 739.04 | 739.04
+loaddisp_K_cg1l2_nx400_n1.txt | 364.94 | 1.8000e-03 | co | 637.66 | 4.9300e-03 | 364.94 | 364.94
+loaddisp_K_cg1l2_nx400_n4.txt | 363.53 | 1.7900e-03 | co | 637.66 | 4.9300e-03 | 363.53 | 363.53
+loaddisp_K_cg1nmax_nx400_n1.txt | 292.03 | 1.4700e-03 | co | 536.51 | 4.1100e-03 | 292.03 | 292.03
+loaddisp_K_cg1avg_nx400_n1.txt | 392.64 | 1.9900e-03 | co | 600.28 | 4.6100e-03 | 392.64 | 392.64
