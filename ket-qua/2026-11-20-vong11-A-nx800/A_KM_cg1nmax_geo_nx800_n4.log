@@ -1,0 +1,7 @@
+=== 2026-11-20T08:00:51Z tu dau (may tram) 8 nhan;  Intel(R) Core(TM) i5-10210U CPU @ 1.60GHz; 25 GB
+[mpiexec@278a6a10b8fb] match_arg (lib/utils/args.c:166): unrecognized argument allow-run-as-root
+[mpiexec@278a6a10b8fb] HYDU_parse_array (lib/utils/args.c:181): argument matching returned error
+[mpiexec@278a6a10b8fb] parse_args (mpiexec/get_parameters.c:318): error parsing input array
+[mpiexec@278a6a10b8fb] HYD_uii_mpx_get_parameters (mpiexec/get_parameters.c:48): unable to parse user arguments
+[mpiexec@278a6a10b8fb] main (mpiexec/mpiexec.c:49): error parsing parameters
+=== EXIT=255 2026-11-20T08:01:24Z
