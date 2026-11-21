@@ -586,3 +586,52 @@ model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
 [0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
 [0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
 === EXIT=124 2026-11-21T05:27:06Z
+=== CHANG 5 2026-11-21T05:28:25Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V45 96-Core Processor
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  KHIA: --notch geom  khe hinh hoc, 400 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [160554, 160022, 159537, 159887]/[854, 419, 512, 817]  thieu = 0  crc = 3e4ef347  cot qua y=0.5 khac nhan = 402/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 642001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1nmean   (psi+ tai nut cua TUNG phan tu ke, trung binh qua phan tu, H = max tung nut)
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 498 (diem kiem buoc 497)
+  step 498  u = 4.980e-03  F = 663.3072  d_tip = 0.105  a = 0.0200  H/Hc =     0.10  stagg = 20  SNES=-5
+  step 499  u = 4.990e-03  F = 664.4313  d_tip = 0.106  a = 0.0202  H/Hc =     0.10  stagg = 21  SNES=-5
+  step 500  u = 5.000e-03  F = 665.5525  d_tip = 0.106  a = 0.0204  H/Hc =     0.10  stagg = 21  SNES=-5
+  step 501  u = 5.010e-03  F = 666.6708  d_tip = 0.107  a = 0.0206  H/Hc =     0.10  stagg = 22  SNES=-5
+  step 502  u = 5.020e-03  F = 667.7861  d_tip = 0.108  a = 0.0208  H/Hc =     0.10  stagg = 22  SNES=-5
+  step 503  u = 5.030e-03  F = 668.8981  d_tip = 0.109  a = 0.0210  H/Hc =     0.10  stagg = 23  SNES=-5
+  step 504  u = 5.040e-03  F = 670.0069  d_tip = 0.110  a = 0.0212  H/Hc =     0.10  stagg = 23  SNES=-5
+  step 505  u = 5.050e-03  F = 671.1120  d_tip = 0.110  a = 0.0215  H/Hc =     0.11  stagg = 24  SNES=-5
+  step 506  u = 5.060e-03  F = 672.2135  d_tip = 0.111  a = 0.0217  H/Hc =     0.11  stagg = 25  SNES=-5
+  step 507  u = 5.070e-03  F = 673.3109  d_tip = 0.112  a = 0.0219  H/Hc =     0.11  stagg = 25  SNES=-5
+  step 508  u = 5.080e-03  F = 674.4042  d_tip = 0.113  a = 0.0221  H/Hc =     0.11  stagg = 26  SNES=-5
+  step 509  u = 5.090e-03  F = 675.4930  d_tip = 0.114  a = 0.0223  H/Hc =     0.11  stagg = 27  SNES=-5
+  step 510  u = 5.100e-03  F = 676.5769  d_tip = 0.115  a = 0.0226  H/Hc =     0.11  stagg = 28  SNES=-5
+  step 511  u = 5.110e-03  F = 677.6556  d_tip = 0.116  a = 0.0228  H/Hc =     0.11  stagg = 29  SNES=-5
+  step 512  u = 5.120e-03  F = 678.7286  d_tip = 0.117  a = 0.0231  H/Hc =     0.11  stagg = 30  SNES=-5
+  step 513  u = 5.130e-03  F = 679.7954  d_tip = 0.118  a = 0.0233  H/Hc =     0.11  stagg = 31  SNES=-5
+  step 514  u = 5.140e-03  F = 680.8553  d_tip = 0.119  a = 0.0236  H/Hc =     0.11  stagg = 32  SNES=-5
+  step 515  u = 5.150e-03  F = 681.9075  d_tip = 0.120  a = 0.0238  H/Hc =     0.12  stagg = 34  SNES=-5
+  step 516  u = 5.160e-03  F = 682.9510  d_tip = 0.121  a = 0.0241  H/Hc =     0.12  stagg = 36  SNES=-5
+  step 517  u = 5.170e-03  F = 683.9845  d_tip = 0.122  a = 0.0244  H/Hc =     0.12  stagg = 38  SNES=-5
+  step 518  u = 5.180e-03  F = 685.0065  d_tip = 0.123  a = 0.0247  H/Hc =     0.12  stagg = 40  SNES=-5
+  step 519  u = 5.190e-03  F = 686.0146  d_tip = 0.125  a = 0.0250  H/Hc =     0.12  stagg = 43  SNES=-5
+  step 520  u = 5.200e-03  F = 687.0058  d_tip = 0.126  a = 0.0253  H/Hc =     0.12  stagg = 47  SNES=-5
+  step 521  u = 5.210e-03  F = 687.9755  d_tip = 0.128  a = 0.0257  H/Hc =     0.12  stagg = 52  SNES=-5
+  step 522  u = 5.220e-03  F = 688.9165  d_tip = 0.129  a = 0.0261  H/Hc =     0.13  stagg = 59  SNES=-5
+  step 523  u = 5.230e-03  F = 689.8159  d_tip = 0.131  a = 0.0265  H/Hc =     0.13  stagg = 70  SNES=-5
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+=== EXIT=124 2026-11-21T10:48:25Z
