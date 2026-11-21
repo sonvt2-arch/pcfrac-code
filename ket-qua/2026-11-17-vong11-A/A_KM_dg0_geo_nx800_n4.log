@@ -691,3 +691,35 @@ model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
 [0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
 [0]PETSC ERROR: to get more information on the crash.
 === EXIT=124 2026-11-21T16:09:52Z
+=== CHANG 7 2026-11-21T16:11:26Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V45 96-Core Processor
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  KHIA: --notch geom  khe hinh hoc, 400 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [160554, 160022, 159537, 159887]/[854, 419, 512, 817]  thieu = 0  crc = 3e4ef347  cot qua y=0.5 khac nhan = 402/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 642001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 549 (diem kiem buoc 548)
+  step 549  u = 5.490e-03  F = 481.3106  d_tip = 1.000  a = 0.2482  H/Hc = 12800.61  stagg = 200  SNES=-5
+  step 550  u = 5.500e-03  F = 285.3229  d_tip = 1.000  a = 0.4321  H/Hc = 18042.24  stagg = 200  SNES=-5
+  step 551  u = 5.510e-03  F =   0.1799  d_tip = 1.000  a = 0.6499  H/Hc = 20308.92  stagg = 181  SNES=-5
+  load has fallen below 25 % of peak -- stopping
+
+============================================================
+  model AT2   ell = 0.01 mm
+  PEAK LOAD = 716.7355 N/mm   at step 547 of 551
+  nominal peak stress = 716.7355 MPa   (f_t = 3.5 MPa)
+  expected for a half-ligament notch: 1.750 MPa
+  final load = 0.0 % of peak ; final d ahead of the tip = 1.000 ; crack extension = 0.6499 mm (65.0 ell)
+  fracture peak confirmed: load fell past 60 % and a crack ran
+  *** 251 of 551 steps had a failed damage solve
+  wrote loaddisp_KM_dg0_geo_nx800_n4.txt
+============================================================
+=== EXIT=0 2026-11-21T19:45:13Z
