@@ -660,3 +660,34 @@ YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Terminated (signal 15)
 This typically refers to a problem with your application.
 Please see the FAQ page for debugging suggestions
 === EXIT=124 2026-11-21T10:48:27Z
+=== CHANG 6 2026-11-21T10:49:52Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V45 96-Core Processor
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  KHIA: --notch geom  khe hinh hoc, 400 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [160554, 160022, 159537, 159887]/[854, 419, 512, 817]  thieu = 0  crc = 3e4ef347  cot qua y=0.5 khac nhan = 402/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 642001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 542 (diem kiem buoc 541)
+  step 542  u = 5.420e-03  F = 712.4648  d_tip = 0.138  a = 0.0288  H/Hc =     0.14  stagg = 46  SNES=-5
+  step 543  u = 5.430e-03  F = 713.4136  d_tip = 0.140  a = 0.0292  H/Hc =     0.14  stagg = 51  SNES=-5
+  step 544  u = 5.440e-03  F = 714.3351  d_tip = 0.142  a = 0.0296  H/Hc =     0.15  stagg = 57  SNES=-5
+  step 545  u = 5.450e-03  F = 715.2176  d_tip = 0.144  a = 0.0300  H/Hc =     0.15  stagg = 66  SNES=-5
+  step 546  u = 5.460e-03  F = 716.0388  d_tip = 0.146  a = 0.0305  H/Hc =     0.15  stagg = 81  SNES=-5
+  step 547  u = 5.470e-03  F = 716.7355  d_tip = 0.149  a = 0.0311  H/Hc =     0.16  stagg = 117  SNES=-5
+  step 548  u = 5.480e-03  F = 716.2354  d_tip = 0.159  a = 0.0329  H/Hc =     0.17  stagg = 200  SNES=-5
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+=== EXIT=124 2026-11-21T16:09:52Z
