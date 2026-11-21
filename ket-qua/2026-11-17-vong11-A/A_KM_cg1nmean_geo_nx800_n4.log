@@ -414,3 +414,117 @@ model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-20T18:44:12Z
+=== CHANG 3 2026-11-20T18:45:38Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V45 96-Core Processor
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  KHIA: --notch geom  khe hinh hoc, 400 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [160554, 160022, 159537, 159887]/[854, 419, 512, 817]  thieu = 0  crc = 3e4ef347  cot qua y=0.5 khac nhan = 402/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 642001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1nmean   (psi+ tai nut cua TUNG phan tu ke, trung binh qua phan tu, H = max tung nut)
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 371 (diem kiem buoc 370)
+  step 371  u = 3.710e-03  F = 508.7143  d_tip = 0.048  a = 0.0057  H/Hc =     0.05  stagg = 7  SNES=-5
+  step 372  u = 3.720e-03  F = 509.9942  d_tip = 0.048  a = 0.0058  H/Hc =     0.05  stagg = 7  SNES=-5
+  step 373  u = 3.730e-03  F = 511.2733  d_tip = 0.049  a = 0.0058  H/Hc =     0.05  stagg = 7  SNES=-5
+  step 374  u = 3.740e-03  F = 512.5517  d_tip = 0.049  a = 0.0059  H/Hc =     0.05  stagg = 7  SNES=-5
+  step 375  u = 3.750e-03  F = 513.8293  d_tip = 0.049  a = 0.0060  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 376  u = 3.760e-03  F = 515.1060  d_tip = 0.050  a = 0.0060  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 377  u = 3.770e-03  F = 516.3820  d_tip = 0.050  a = 0.0061  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 378  u = 3.780e-03  F = 517.6572  d_tip = 0.050  a = 0.0062  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 379  u = 3.790e-03  F = 518.9316  d_tip = 0.051  a = 0.0062  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 380  u = 3.800e-03  F = 520.2052  d_tip = 0.051  a = 0.0063  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 381  u = 3.810e-03  F = 521.4779  d_tip = 0.051  a = 0.0064  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 382  u = 3.820e-03  F = 522.7499  d_tip = 0.052  a = 0.0064  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 383  u = 3.830e-03  F = 524.0210  d_tip = 0.052  a = 0.0065  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 384  u = 3.840e-03  F = 525.2914  d_tip = 0.052  a = 0.0066  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 385  u = 3.850e-03  F = 526.5609  d_tip = 0.053  a = 0.0066  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 386  u = 3.860e-03  F = 527.8295  d_tip = 0.053  a = 0.0067  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 387  u = 3.870e-03  F = 529.0974  d_tip = 0.053  a = 0.0068  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 388  u = 3.880e-03  F = 530.3644  d_tip = 0.053  a = 0.0069  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 389  u = 3.890e-03  F = 531.6306  d_tip = 0.054  a = 0.0069  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 390  u = 3.900e-03  F = 532.8959  d_tip = 0.054  a = 0.0070  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 391  u = 3.910e-03  F = 534.1604  d_tip = 0.054  a = 0.0071  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 392  u = 3.920e-03  F = 535.4241  d_tip = 0.055  a = 0.0072  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 393  u = 3.930e-03  F = 536.6869  d_tip = 0.055  a = 0.0072  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 394  u = 3.940e-03  F = 537.9488  d_tip = 0.055  a = 0.0073  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 395  u = 3.950e-03  F = 539.2099  d_tip = 0.056  a = 0.0074  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 396  u = 3.960e-03  F = 540.4701  d_tip = 0.056  a = 0.0075  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 397  u = 3.970e-03  F = 541.7295  d_tip = 0.056  a = 0.0075  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 398  u = 3.980e-03  F = 542.9879  d_tip = 0.057  a = 0.0076  H/Hc =     0.05  stagg = 8  SNES=-5
+  step 399  u = 3.990e-03  F = 544.2456  d_tip = 0.057  a = 0.0077  H/Hc =     0.06  stagg = 8  SNES=-5
+  step 400  u = 4.000e-03  F = 545.5023  d_tip = 0.057  a = 0.0078  H/Hc =     0.06  stagg = 8  SNES=-5
+  step 401  u = 4.010e-03  F = 546.7581  d_tip = 0.058  a = 0.0079  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 402  u = 4.020e-03  F = 548.0131  d_tip = 0.058  a = 0.0079  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 403  u = 4.030e-03  F = 549.2672  d_tip = 0.059  a = 0.0080  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 404  u = 4.040e-03  F = 550.5203  d_tip = 0.059  a = 0.0081  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 405  u = 4.050e-03  F = 551.7726  d_tip = 0.059  a = 0.0082  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 406  u = 4.060e-03  F = 553.0240  d_tip = 0.060  a = 0.0083  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 407  u = 4.070e-03  F = 554.2744  d_tip = 0.060  a = 0.0084  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 408  u = 4.080e-03  F = 555.5240  d_tip = 0.060  a = 0.0084  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 409  u = 4.090e-03  F = 556.7726  d_tip = 0.061  a = 0.0085  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 410  u = 4.100e-03  F = 558.0203  d_tip = 0.061  a = 0.0086  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 411  u = 4.110e-03  F = 559.2671  d_tip = 0.061  a = 0.0087  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 412  u = 4.120e-03  F = 560.5130  d_tip = 0.062  a = 0.0088  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 413  u = 4.130e-03  F = 561.7579  d_tip = 0.062  a = 0.0089  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 414  u = 4.140e-03  F = 563.0019  d_tip = 0.063  a = 0.0090  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 415  u = 4.150e-03  F = 564.2449  d_tip = 0.063  a = 0.0091  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 416  u = 4.160e-03  F = 565.4870  d_tip = 0.063  a = 0.0092  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 417  u = 4.170e-03  F = 566.7281  d_tip = 0.064  a = 0.0092  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 418  u = 4.180e-03  F = 567.9683  d_tip = 0.064  a = 0.0093  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 419  u = 4.190e-03  F = 569.2075  d_tip = 0.064  a = 0.0094  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 420  u = 4.200e-03  F = 570.4457  d_tip = 0.065  a = 0.0095  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 421  u = 4.210e-03  F = 571.6830  d_tip = 0.065  a = 0.0096  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 422  u = 4.220e-03  F = 572.9192  d_tip = 0.066  a = 0.0097  H/Hc =     0.06  stagg = 10  SNES=-5
+  step 423  u = 4.230e-03  F = 574.1545  d_tip = 0.066  a = 0.0098  H/Hc =     0.06  stagg = 10  SNES=-5
+  step 424  u = 4.240e-03  F = 575.3888  d_tip = 0.066  a = 0.0099  H/Hc =     0.06  stagg = 10  SNES=-5
+  step 425  u = 4.250e-03  F = 576.6221  d_tip = 0.067  a = 0.0100  H/Hc =     0.06  stagg = 10  SNES=-5
+  step 426  u = 4.260e-03  F = 577.8544  d_tip = 0.067  a = 0.0101  H/Hc =     0.07  stagg = 10  SNES=-5
+  step 427  u = 4.270e-03  F = 579.0857  d_tip = 0.068  a = 0.0102  H/Hc =     0.07  stagg = 10  SNES=-5
+  step 428  u = 4.280e-03  F = 580.3159  d_tip = 0.068  a = 0.0103  H/Hc =     0.07  stagg = 10  SNES=-5
+  step 429  u = 4.290e-03  F = 581.5452  d_tip = 0.068  a = 0.0104  H/Hc =     0.07  stagg = 10  SNES=-5
+  step 430  u = 4.300e-03  F = 582.7734  d_tip = 0.069  a = 0.0105  H/Hc =     0.07  stagg = 10  SNES=-5
+  step 431  u = 4.310e-03  F = 584.0006  d_tip = 0.069  a = 0.0106  H/Hc =     0.07  stagg = 10  SNES=-5
+  step 432  u = 4.320e-03  F = 585.2267  d_tip = 0.070  a = 0.0107  H/Hc =     0.07  stagg = 10  SNES=-5
+  step 433  u = 4.330e-03  F = 586.4518  d_tip = 0.070  a = 0.0108  H/Hc =     0.07  stagg = 10  SNES=-5
+  step 434  u = 4.340e-03  F = 587.6758  d_tip = 0.070  a = 0.0109  H/Hc =     0.07  stagg = 10  SNES=-5
+  step 435  u = 4.350e-03  F = 588.8988  d_tip = 0.071  a = 0.0110  H/Hc =     0.07  stagg = 10  SNES=-5
+  step 436  u = 4.360e-03  F = 590.1207  d_tip = 0.071  a = 0.0111  H/Hc =     0.07  stagg = 10  SNES=-5
+  step 437  u = 4.370e-03  F = 591.3415  d_tip = 0.072  a = 0.0112  H/Hc =     0.07  stagg = 11  SNES=-5
+  step 438  u = 4.380e-03  F = 592.5613  d_tip = 0.072  a = 0.0114  H/Hc =     0.07  stagg = 11  SNES=-5
+  step 439  u = 4.390e-03  F = 593.7800  d_tip = 0.072  a = 0.0115  H/Hc =     0.07  stagg = 11  SNES=-5
+  step 440  u = 4.400e-03  F = 594.9975  d_tip = 0.073  a = 0.0116  H/Hc =     0.07  stagg = 11  SNES=-5
+  step 441  u = 4.410e-03  F = 596.2140  d_tip = 0.073  a = 0.0117  H/Hc =     0.07  stagg = 11  SNES=-5
+  step 442  u = 4.420e-03  F = 597.4293  d_tip = 0.074  a = 0.0118  H/Hc =     0.07  stagg = 11  SNES=-5
+  step 443  u = 4.430e-03  F = 598.6435  d_tip = 0.074  a = 0.0119  H/Hc =     0.07  stagg = 11  SNES=-5
+  step 444  u = 4.440e-03  F = 599.8566  d_tip = 0.075  a = 0.0120  H/Hc =     0.07  stagg = 11  SNES=-5
+  step 445  u = 4.450e-03  F = 601.0686  d_tip = 0.075  a = 0.0121  H/Hc =     0.07  stagg = 11  SNES=-5
+  step 446  u = 4.460e-03  F = 602.2794  d_tip = 0.076  a = 0.0123  H/Hc =     0.07  stagg = 11  SNES=-5
+  step 447  u = 4.470e-03  F = 603.4890  d_tip = 0.076  a = 0.0124  H/Hc =     0.07  stagg = 11  SNES=-5
+  step 448  u = 4.480e-03  F = 604.6975  d_tip = 0.076  a = 0.0125  H/Hc =     0.07  stagg = 11  SNES=-5
+  step 449  u = 4.490e-03  F = 605.9048  d_tip = 0.077  a = 0.0126  H/Hc =     0.07  stagg = 11  SNES=-5
+  step 450  u = 4.500e-03  F = 607.1109  d_tip = 0.077  a = 0.0127  H/Hc =     0.08  stagg = 12  SNES=-5
+  step 451  u = 4.510e-03  F = 608.3159  d_tip = 0.078  a = 0.0129  H/Hc =     0.08  stagg = 12  SNES=-5
+  step 452  u = 4.520e-03  F = 609.5196  d_tip = 0.078  a = 0.0130  H/Hc =     0.08  stagg = 12  SNES=-5
+  step 453  u = 4.530e-03  F = 610.7221  d_tip = 0.079  a = 0.0131  H/Hc =     0.08  stagg = 12  SNES=-5
+  step 454  u = 4.540e-03  F = 611.9234  d_tip = 0.079  a = 0.0132  H/Hc =     0.08  stagg = 12  SNES=-5
+  step 455  u = 4.550e-03  F = 613.1234  d_tip = 0.080  a = 0.0134  H/Hc =     0.08  stagg = 12  SNES=-5
+  step 456  u = 4.560e-03  F = 614.3222  d_tip = 0.080  a = 0.0135  H/Hc =     0.08  stagg = 12  SNES=-5
+  step 457  u = 4.570e-03  F = 615.5198  d_tip = 0.081  a = 0.0136  H/Hc =     0.08  stagg = 12  SNES=-5
+  step 458  u = 4.580e-03  F = 616.7161  d_tip = 0.081  a = 0.0137  H/Hc =     0.08  stagg = 12  SNES=-5
+  step 459  u = 4.590e-03  F = 617.9111  d_tip = 0.082  a = 0.0139  H/Hc =     0.08  stagg = 12  SNES=-5
+  step 460  u = 4.600e-03  F = 619.1047  d_tip = 0.082  a = 0.0140  H/Hc =     0.08  stagg = 13  SNES=-5
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-21T00:05:38Z
