@@ -1,0 +1,4 @@
+# tep | F_init (d=0.10) | u_init | sut | F_max | u_max | F_init d=0.05 | d=0.20
+loaddisp_KM_cg1nmax_geo_nx800_n4.txt | 644.04 | 4.8500e-03 | co | 644.04 | 4.8500e-03 | 644.04 | 644.04
+loaddisp_KM_cg1nmean_geo_nx800_n4.txt | 691.33 | 5.2500e-03 | co | 691.33 | 5.2500e-03 | 691.33 | 691.33
+loaddisp_KM_dg0_geo_nx800_n4.txt | 716.74 | 5.4700e-03 | co | 716.74 | 5.4700e-03 | 716.74 | 716.74

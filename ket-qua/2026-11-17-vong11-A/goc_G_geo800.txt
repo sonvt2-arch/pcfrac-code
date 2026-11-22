@@ -1,0 +1,4 @@
+# nhan | cu 2/4/6 ell (so cua so 6ell) | moi 2/4/6 ell (so cua so 6ell) | doi o 6ell | cham canh (x nho nhat) | so diem tam cu/moi
+dg0 | +0.04 / +0.02 / +0.06 (12) | +0.04 / +0.02 / +0.06 (12) | -0.00 | khong | 200/190
+cg1nmax | +0.00 / -0.01 / +0.01 (11) | +0.00 / -0.01 / +0.01 (11) | +0.00 | khong | 189/189
+cg1nmean | +0.03 / +0.04 / +0.03 (10) | +0.03 / +0.04 / +0.03 (10) | +0.00 | khong | 163/163
