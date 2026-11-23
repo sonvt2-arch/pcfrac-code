@@ -302,5 +302,46 @@ def main():
         print(f"  {ten:38s} B0 (r*=l) {tB0:+8.2f}   B1 (r*={rstar_B1:.3f} l) {tB1:+8.2f}")
 
 
+# ---------------------------------------------------------------- 6. so voi do (SAU khi ghi truoc; doc muc "So sanh")
+DO = {  # ten ca -> theta do (do): theta 6l bang 4 ban v9; ghi nguoc 2D: theta_tip 10l (khong co 6l, ca dung som)
+    "2D Q1 nx200 1 nhan, ghi de": -37.90,
+    "2D Q1 nx200 1 nhan, ghi nguoc": +49.1,
+    "2D Q1 nx400 4 nhan, ghi de": -27.60,
+    "3D hex nx100 nz2 4 nhan, ghi de": +44.62,
+}
+
+
+def khop(p, m, tuyet_doi=5.0):
+    """cung dau VA (|p - m| <= tuyet_doi HOAC |p - m|/|m| <= 20 %); voi A_H chi dung 20 % (tuyet_doi = 0)."""
+    if p * m <= 0:
+        return "SAI DAU"
+    return "khop" if (abs(p - m) <= tuyet_doi or abs(p - m) / abs(m) <= 0.2) else "lech"
+
+
+def so_sanh():
+    al = alpha()
+    rB1 = 0.25 / math.tan(math.radians(37.90))
+    print("== 6. So sanh (sau ghi truoc)")
+    for ten, A, hl, W in CA:
+        if ten not in DO:
+            continue
+        m = DO[ten]
+        b = A / al
+        pr = {"A-MTS": deg(theta_mts_cong_thuc(b)), "A-Gmax": deg(theta_gmax(b)), "A-PLS": deg(theta_pls_lech(b)),
+              "B0": -math.degrees(math.atan(W * hl / 2)), "B1": -math.degrees(math.atan(W * hl / 2 / rB1))}
+        print(f"  {ten:34s} do {m:+7.2f} | " + " | ".join(f"{k} {v:+7.2f} {khop(v, m)}" for k, v in pr.items()))
+    print("  ti le theta/A_H:")
+    r = []
+    for ten, A, hl, W in CA:
+        if ten in DO and "nguoc" not in ten:
+            r.append(DO[ten] / A)
+            print(f"    {ten:34s} theta/A_H = {DO[ten]/A:8.1f} do ; tan(theta)/(W h/l) = "
+                  f"{math.tan(math.radians(DO[ten]))/(-W*hl):6.3f} ; r* hieu dung = {abs(W*hl/2/math.tan(math.radians(DO[ten]))):.3f} l")
+    print(f"    max/min theta/A_H = {max(r)/min(r):.2f}")
+    print("  A_H buoc 1 mo hinh B so do: nx200 xuoi -0.0397/-0.0996, nguoc +0.0312/+0.1000, nx400 "
+          f"{-0.0208*0.963:+.4f}/-0.0291 ->", khop(-0.0397, -0.0996, 0), khop(0.0312, 0.1, 0), khop(-0.0208 * 0.963, -0.0291, 0))
+
+
 if __name__ == "__main__":
-    sys.exit(main())
+    main()
+    so_sanh()
