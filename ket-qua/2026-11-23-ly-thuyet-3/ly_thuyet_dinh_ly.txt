@@ -137,10 +137,10 @@ T4 (P1*) troi tai diem Gauss: min (H_h(x_q) - psi_e(x_q)) tren 2000 truong ngau 
 ==============================================================================
 T5 (P1, menh de 4) lich su: dinh di chuyen; luu nut 'max roi noi suy' vs 'noi suy roi max'
 ==============================================================================
-  nmax   min(H_nut(x_q) - max_t noi suy) = +0.00e+00 (>= 0)   lech TB so H dung: +3.582e-06  
-  nmean  min(H_nut(x_q) - max_t noi suy) = +0.00e+00 (>= 0)   lech TB so H dung: +3.582e-06  
-  avg    min(H_nut(x_q) - max_t noi suy) = +0.00e+00 (>= 0)   lech TB so H dung: -8.746e-03  
-  l2     min(H_nut(x_q) - max_t noi suy) = +0.00e+00 (>= 0)   lech TB so H dung: +6.308e-03  
+  nmax   H_nut(x_q) - max_t noi suy: min +0.00e+00 (>= 0), max +7.30e-02   lech TB so H dung: +3.582e-06  
+  nmean  H_nut(x_q) - max_t noi suy: min +0.00e+00 (>= 0), max +7.30e-02   lech TB so H dung: +3.582e-06  
+  avg    H_nut(x_q) - max_t noi suy: min +0.00e+00 (>= 0), max +4.44e-02   lech TB so H dung: -8.746e-03  
+  l2     H_nut(x_q) - max_t noi suy: min +0.00e+00 (>= 0), max +9.59e-02   lech TB so H dung: +6.308e-03  
 
   bien the 'max tai Gauss roi chieu L2': H^{n+1} = Pi_L2( max(H^n(x_q), psi(x_q)) )
   min_n min_i (H_i^(n+1) - H_i^n) = -2.219e-02  -> VI PHAM P1

@@ -426,7 +426,7 @@ def T5_history():
             Hq_int[s] = np.maximum(Hq_int[s], p[m.cells] @ N.T)
     for s in Hn:
         Hq = Hn[s][m.cells] @ N.T
-        print(f"  {s:6s} min(H_nut(x_q) - max_t noi suy) = {(Hq - Hq_int[s]).min():+.2e} (>= 0)   "
+        print(f"  {s:6s} H_nut(x_q) - max_t noi suy: min {(Hq - Hq_int[s]).min():+.2e} (>= 0), max {(Hq - Hq_int[s]).max():+.2e}   "
               f"lech TB so H dung: {(Hq - Hq_true).mean():+.3e}  ")
     # bien the: lay max TAI GAUSS roi chieu L2 lai ve nut  -> vi pham P1
     print("\n  bien the 'max tai Gauss roi chieu L2': H^{n+1} = Pi_L2( max(H^n(x_q), psi(x_q)) )")
