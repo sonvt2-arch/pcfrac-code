@@ -1,0 +1,12 @@
+   lambda = 0.50 (psi ~ r^-1.0): -dJ/2 h/l=0.5: nmax=-40.1% nmean=-15.8% l2=-7.6% avg=+2.7% ghide=-19.8%
+      p 0.5->0.25: nmax=0.50  nmean=0.67  l2=0.89  avg=1.35  ghide=0.70
+      p 0.25->0.125: nmax=0.63  nmean=0.79  l2=0.93  avg=1.54  ghide=0.81
+   lambda = 0.45 (psi ~ r^-1.1): -dJ/2 h/l=0.5: nmax=-44.8% nmean=-18.3% l2=-8.7% avg=+3.0% ghide=-22.3%
+      p 0.5->0.25: nmax=0.44  nmean=0.59  l2=0.80  avg=1.29  ghide=0.63
+      p 0.25->0.125: nmax=0.57  nmean=0.70  l2=0.83  avg=1.47  ghide=0.73
+   lambda = 0.40 (psi ~ r^-1.2): -dJ/2 h/l=0.5: nmax=-49.6% nmean=-20.8% l2=-9.8% avg=+3.2% ghide=-24.8%
+      p 0.5->0.25: nmax=0.40  nmean=0.52  l2=0.73  avg=1.23  ghide=0.56
+      p 0.25->0.125: nmax=0.51  nmean=0.62  l2=0.74  avg=1.41  ghide=0.65
+   lambda = 0.35 (psi ~ r^-1.3): -dJ/2 h/l=0.5: nmax=-54.3% nmean=-23.4% l2=-10.9% avg=+3.4% ghide=-27.3%
+      p 0.5->0.25: nmax=0.35  nmean=0.46  l2=0.66  avg=1.19  ghide=0.51
+      p 0.25->0.125: nmax=0.45  nmean=0.54  l2=0.67  avg=1.35  ghide=0.58

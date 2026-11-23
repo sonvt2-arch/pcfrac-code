@@ -1,0 +1,24 @@
+== DG0 khe hinh hoc (tuyet doi): F = 768.10, 733.41, 716.74
+   Richardson 3 luoi: p = log2(34.68/16.68) = 1.056; F_inf = 701.28
+
+== e = (F_P - F_DG0)/F_DG0 cung luoi; khoang [e_min, e_max] do luong tu hoa buoc tai (dinh that trong [F, F+dF1])
+   nmax   e = -16.88% / -13.76% / -10.14%   | p = 0.295 [0.29, 0.30] / 0.440 [0.42, 0.46]   | 3 luoi (e = e_inf + C h^p): p = -0.21
+   nmean  e = -7.03% / -5.33% / -3.55%   | p = 0.400 [0.37, 0.41] / 0.588 [0.55, 0.65]   | 3 luoi (e = e_inf + C h^p): p = -0.06
+   l2     e = -3.91% / -2.48%   | p = 0.657 [0.60, 0.70]
+   avg    e = +1.87% / +0.77%   | p = 1.284 [1.12, 1.48]
+   ghide  e = -3.73% / -3.21%   | p = 0.217 [0.17, 0.26]
+
+== So du doan (khop neu |p_do - p_du| <= 0.2; dau)
+   nmax   0.5->0.25: p_do 0.295, p_du 0.50, chenh -0.205 -> lech
+   nmax   0.25->0.125 (nx800 4 nhan, cho 11-C): p_do 0.440, p_du 0.63, chenh -0.190 -> khop
+   nmax   dau: du doan -, do dung
+   nmean  0.5->0.25: p_do 0.400, p_du 0.67, chenh -0.270 -> lech
+   nmean  0.25->0.125 (nx800 4 nhan, cho 11-C): p_do 0.588, p_du 0.79, chenh -0.202 -> lech
+   nmean  dau: du doan -, do dung
+   l2     0.5->0.25: p_do 0.657, p_du 0.89, chenh -0.233 -> lech
+   l2     dau: du doan -, do dung
+   avg    0.5->0.25: p_do 1.284, p_du 1.35, chenh -0.066 -> khop
+   avg    dau: du doan +, do dung
+   ghide  0.5->0.25: p_do 0.217, p_du 0.70, chenh -0.483 -> lech
+   ghide  dau: du doan -, do dung
+   goc ghi de: p_do 0.425, p_du 0.93, chenh -0.505 -> lech; du doan theta_400 = -19.8 deg, do -28.16

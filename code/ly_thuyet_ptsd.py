@@ -24,6 +24,7 @@ MU = E / (2 * (1 + NU))
 LAM = E * NU / ((1 + NU) * (1 - 2 * NU))     # bien dang phang
 K2 = LAM + MU
 ELL = 0.01
+LAMBDA_W = 0.5        # so mu cua u ~ r^lambda gan dinh (0,5: dan hoi tuyen tinh)
 
 
 def psi_amor(ux_x, ux_y, uy_x, uy_y):
@@ -90,7 +91,7 @@ def williams(X, Y, cy):
     on = (np.abs(Y) < 1e-14) & (X < 0)
     th = np.where(on, np.where(cy[:, None] > 0, np.pi, -np.pi), th)
     kap = 3 - 4 * NU
-    c = 1.0 / (2 * MU) * np.sqrt(r / (2 * np.pi))
+    c = 1.0 / (2 * MU) * (r / (2 * np.pi)) ** LAMBDA_W   # 0,5 = Williams; < 0,5: kỳ dị mạnh hơn (giải thích sau)
     ux = c * np.cos(th / 2) * (kap - 1 + 2 * np.sin(th / 2) ** 2)
     uy = c * np.sin(th / 2) * (kap + 1 - 2 * np.cos(th / 2) ** 2)
     return ux, uy
@@ -233,16 +234,115 @@ def mo_hinh():
             print(s)
 
 
+KQ = "../ket-qua/2026-11-17-vong11-A/"
+CA = {  # tag theo luoi nx200 (1 nhan), nx400 (1 nhan), nx800 (4 nhan); None = khong chay
+    "dg0": ["KB_dg0_geo_n1", "KB_dg0_geo_nx400_n1", "KM_dg0_geo_nx800_n4"],
+    "nmax": ["KB_cg1nmax_geo_n1", "KB_cg1nmax_geo_nx400_n1", "KM_cg1nmax_geo_nx800_n4"],
+    "nmean": ["KB_cg1nmean_geo_n1", "KB_cg1nmean_geo_nx400_n1", "KM_cg1nmean_geo_nx800_n4"],
+    "l2": ["KB_cg1l2_geo_n1", "KB_cg1l2_geo_nx400_n1", None],
+    "avg": ["KB_cg1avg_geo_n1", "KB_cg1avg_geo_nx400_n1", None],
+    "ghide": ["KB_cg1_geo_n1", "KB_cg1_geo_nx400_n1", None],
+}
+# du doan ghi truoc (doc/LY-THUYET-2-PT-SUA-DOI.md, commit 84bdbcc): w = exp(-r/l), cap (0.5->0.25, 0.25->0.125)
+DU_DOAN = {"nmax": (0.50, 0.63), "nmean": (0.67, 0.79), "l2": (0.89, None), "avg": (1.35, None),
+           "ghide": (0.70, None)}
+DAU = {"nmax": -1, "nmean": -1, "l2": -1, "avg": +1, "ghide": -1}
+THETA = (-37.81, -28.16)      # goc 6l ghi de nx200 / nx400 (doc/CA-VONG11-A, luat measure_kink)
+P_THETA = 0.93
+
+
+def _dinh(tag):
+    a = np.loadtxt(KQ + f"loaddisp_{tag}.txt", comments="#", ndmin=2)
+    u, F = a[:, 0], np.abs(a[:, 1])
+    i = int(F.argmax())
+    du = u[i] - u[i - 1]
+    cham = (F[i] - F[i - 1]) / du * du      # tang tai mot buoc ngay truoc dinh: dinh that nam trong [F, F + cham]
+    return F[i], cham
+
+
+def mu_hau_kiem(lams=(0.5, 0.45, 0.4, 0.35)):
+    """GIAI THICH SAU (khong phai du doan): doi so mu u ~ r^lambda (psi ~ r^(2 lambda - 2)),
+    w = exp(-r/l), xem p cua cap luoi nao khop p do.  Truong khong con la nghiem dan hoi chinh xac;
+    chi de thu gia thuyet 'ky di manh hon 1/r o dinh khe khi do cung suy giam'."""
+    global LAMBDA_W
+    TEN = ["nmax", "nmean", "l2", "avg", "ghide"]
+    w_fun = lambda x, y: np.exp(-np.hypot(x, y) / ELL)
+    for lam in lams:
+        LAMBDA_W = lam
+        rows = []
+        for m in (2, 4, 8):
+            L = Luoi(6 * ELL, ELL / m, khe=True)
+            Ux, Uy = williams(L.X, L.Y, L.cy)
+            out = cac_cach_luu(L, Ux, Uy)
+            J0 = phiem_ham(L, out["dg0"], w_fun)
+            rows.append([phiem_ham(L, out[t], w_fun) / J0 - 1 for t in TEN])
+        ps = [[np.log2(abs(a / b)) for a, b in zip(rows[i], rows[i + 1])] for i in range(2)]
+        print(f"   lambda = {lam:.2f} (psi ~ r^{2*lam-2:+.1f}): -dJ/2 h/l=0.5: "
+              + " ".join(f"{t}={-50*v:+.1f}%" for t, v in zip(TEN, rows[0])))
+        for i, cap in enumerate(("0.5->0.25", "0.25->0.125")):
+            print(f"      p {cap}: " + "  ".join(f"{t}={v:.2f}" for t, v in zip(TEN, ps[i])))
+    LAMBDA_W = 0.5
+
+
 def do():
-    raise SystemExit("Phan B them sau khi commit du doan.")
+    HL = (0.5, 0.25, 0.125)
+    dinh = {k: [(_dinh(t) if t else None) for t in v] for k, v in CA.items()}
+    F0 = [x[0] for x in dinh["dg0"]]
+    print("== DG0 khe hinh hoc (tuyet doi): F =", ", ".join(f"{f:.2f}" for f in F0))
+    r = (F0[0] - F0[1]) / (F0[1] - F0[2])
+    pD = np.log2(r)
+    Finf = F0[2] - (F0[1] - F0[2]) / (2 ** pD - 1)
+    print(f"   Richardson 3 luoi: p = log2({F0[0]-F0[1]:.2f}/{F0[1]-F0[2]:.2f}) = {pD:.3f}; F_inf = {Finf:.2f}")
+    print("\n== e = (F_P - F_DG0)/F_DG0 cung luoi; khoang [e_min, e_max] do luong tu hoa buoc tai (dinh that trong [F, F+dF1])")
+    ket = {}
+    for k in ("nmax", "nmean", "l2", "avg", "ghide"):
+        es, lo, hi = [], [], []
+        for j in range(3):
+            if dinh[k][j] is None:
+                continue
+            (F, c), (Fd, cd) = dinh[k][j], dinh["dg0"][j]
+            es.append((F - Fd) / Fd)
+            lo.append((F - (Fd + cd)) / (Fd + cd))
+            hi.append((F + c - Fd) / Fd)
+        ps = [np.log2(es[j] / es[j + 1]) for j in range(len(es) - 1)]
+        # khoang p: ty so cuc tri cua |e| trong khoang
+        pr = []
+        for j in range(len(es) - 1):
+            a = sorted([abs(lo[j]), abs(hi[j])]); b = sorted([abs(lo[j + 1]), abs(hi[j + 1])])
+            pr.append((np.log2(a[0] / b[1]) if b[1] > 0 else np.nan, np.log2(a[1] / b[0]) if b[0] > 0 else np.inf))
+        ket[k] = (es, ps, pr)
+        s = f"   {k:6s} e = " + " / ".join(f"{100*e:+.2f}%" for e in es)
+        s += "   | p = " + " / ".join(f"{p:.3f} [{a:.2f}, {b:.2f}]" for p, (a, b) in zip(ps, pr))
+        if len(es) == 3:
+            p3 = np.log2((es[0] - es[1]) / (es[1] - es[2]))
+            s += f"   | 3 luoi (e = e_inf + C h^p): p = {p3:.2f}"
+        print(s)
+    print("\n== So du doan (khop neu |p_do - p_du| <= 0.2; dau)")
+    for k, (es, ps, pr) in ket.items():
+        for j, p in enumerate(ps):
+            pdu = DU_DOAN[k][j]
+            if pdu is None:
+                continue
+            v = "khop" if abs(p - pdu) <= 0.2 else "lech"
+            cap = "0.5->0.25" if j == 0 else "0.25->0.125 (nx800 4 nhan, cho 11-C)"
+            print(f"   {k:6s} {cap}: p_do {p:.3f}, p_du {pdu:.2f}, chenh {p-pdu:+.3f} -> {v}")
+        dau = all(np.sign(e) == DAU[k] for e in es)
+        print(f"   {k:6s} dau: du doan {'+' if DAU[k] > 0 else '-'}, do {'dung' if dau else 'SAI'}")
+    pt = np.log2(THETA[0] / THETA[1])
+    print(f"   goc ghi de: p_do {pt:.3f}, p_du {P_THETA:.2f}, chenh {pt-P_THETA:+.3f} -> "
+          f"{'khop' if abs(pt-P_THETA) <= 0.2 else 'lech'}; du doan theta_400 = {THETA[0]/2**P_THETA:.1f} deg, do {THETA[1]}")
+    # bac 'mu' tu ty le e do / du doan mo hinh (chi bao)
 
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
     ap.add_argument("--mo-hinh", action="store_true")
     ap.add_argument("--do", action="store_true")
+    ap.add_argument("--hau-kiem", action="store_true", help="giai thich sau: doi so mu ky di")
     a = ap.parse_args()
     if a.mo_hinh:
         mo_hinh()
     if a.do:
         do()
+    if a.hau_kiem:
+        mu_hau_kiem()
