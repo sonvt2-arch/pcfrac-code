@@ -144,6 +144,9 @@ p.add_argument("--maxbad", type=int, default=20,
                help="dung khi so lan giai hu hong that bai vuot so nay (mac dinh 20 nhu cu). "
                     "Vong 11-A: nx 800 that bai SNES=-5 (het 40 vong, phan du ~1e-9 > atol 1e-10) "
                     "ngay o giai doan dan hoi; nang nguong de chay tiep, bo giai giu nguyen")
+p.add_argument("--dmaxit", type=int, default=40,
+               help="(vong 11-C) tran so vong SNES/Newton cua bai toan hu hong (mac dinh 40 nhu cu). "
+                    "Vong 11-A nx800: nhieu buoc SNES=-5 (het 40 vong); co nay de kiem anh huong toi dinh tai")
 p.add_argument("--out", default=None)
 args = p.parse_args()
 if args.ghi_nguoc and (args.hspace != "cg1" or not args.do_B):
@@ -798,7 +801,7 @@ if _SNES_STYLE:
         # symmetric positive definite; it made things worse, not better, so
         # it is reverted.  Failures are still counted and reported below.
         petsc_options={"snes_type": "vinewtonrsls", "snes_rtol": 1e-8,
-                       "snes_atol": 1e-10, "snes_max_it": 40,
+                       "snes_atol": 1e-10, "snes_max_it": args.dmaxit,
                        "ksp_type": "cg", "pc_type": "hypre",
                        "ksp_rtol": 1e-10})
 
@@ -823,12 +826,15 @@ if _SNES_STYLE:
 else:
     prob_d = NonlinearProblem(F_d, d, bcs=bc_d, J=J_d)
     solver_d = NewtonSolver(comm, prob_d)
-    solver_d.rtol, solver_d.atol, solver_d.max_it = 1e-8, 1e-10, 40
+    solver_d.rtol, solver_d.atol, solver_d.max_it = 1e-8, 1e-10, args.dmaxit
     solver_d.convergence_criterion = "incremental"
 
     def solve_damage():
         its, ok = solver_d.solve(d)
         return 1 if ok else -1
+
+if args.dmaxit != 40 and comm.rank == 0:
+    print(f"  DMAXIT: tran vong bo giai hu hong = {args.dmaxit} (mac dinh 40)", flush=True)
 
 # ------------------------------------------------------------- reaction force
 # Total vertical reaction on the driven edge, as internal virtual work against

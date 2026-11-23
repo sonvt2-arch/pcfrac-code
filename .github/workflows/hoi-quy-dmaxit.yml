@@ -1,0 +1,68 @@
+name: Hoi quy --dmaxit (vong 11-C)
+
+# Vong 11-C (23/11/2026), doc/CA-VONG11-C-2026-11-23.md (repo du an).  Chay tay.
+# Hoi quy: ma CU (f408b2a, chua co --dmaxit) / MOI (mac dinh) / MOI (--dmaxit 40), 1 nhan,
+# Miehe SENT amor nx200 khe hinh hoc 40 buoc, dg0 va cg1nmax; so tung byte loaddisp va H-INVARIANT.
+# Kem thu --dmaxit 200 (5 buoc) de thay dong DMAXIT trong log.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  hoi-quy:
+    runs-on: ubuntu-latest
+    container: dolfinx/dolfinx:stable
+    timeout-minutes: 300
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Cai git
+        run: (command -v git || (apt-get update -qq && apt-get install -y -qq git)) >/dev/null
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Hoi quy cu / moi / moi-40
+        working-directory: code
+        run: |
+          set +e
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          git show f408b2a:code/benchmark_A.py > benchmark_A_cu.py
+          D=../ket-qua/2026-11-23-vong11-C/hoi-quy; mkdir -p $D
+          echo "=== MAY: $(nproc) nhan; $(grep -m1 "model name" /proc/cpuinfo | cut -d: -f2)" | tee $D/ket-luan.txt
+          M="--model AT2 --ell 0.01 --nx 200 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 40 --umax 0.008 --notch geom"
+          for c in dg0 cg1nmax; do
+            for t in cu:benchmark_A_cu.py: moi:benchmark_A.py: moi40:benchmark_A.py:--dmaxit_40; do
+              n=${t%%:*}; r=${t#*:}; s=${r%%:*}; x=${r#*:}; x=${x//_/ }
+              T=HC_${c}_$n
+              mpirun -n 1 python3 -u $s $M --hspace $c $x --out $T > $D/A_$T.log 2>&1
+              echo "--- $T EXIT=$?" | tee -a $D/ket-luan.txt
+              cp -f loaddisp_$T.txt $D/
+            done
+            cd $D
+            echo "$c: so buoc SNES= trong log cu: $(grep -c 'SNES=' A_HC_${c}_cu.log)" | tee -a ket-luan.txt
+            for n in moi moi40; do
+              B=HC_${c}
+              if cmp -s loaddisp_${B}_cu.txt loaddisp_${B}_$n.txt && \
+                 diff <(grep H-INVARIANT A_${B}_cu.log) <(grep H-INVARIANT A_${B}_$n.log) >/dev/null && \
+                 [ -n "$(grep H-INVARIANT A_${B}_cu.log)" ]; then
+                echo "$B: cu vs $n: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)" | tee -a ket-luan.txt
+              else
+                echo "$B: cu vs $n: KHAC" | tee -a ket-luan.txt
+              fi
+            done
+            cd - >/dev/null
+          done
+          T=HC_dg0_200; mpirun -n 1 python3 -u benchmark_A.py ${M/--steps 40/--steps 5} --hspace dg0 --dmaxit 200 --out $T > $D/A_$T.log 2>&1
+          echo "--- $T EXIT=$?" | tee -a $D/ket-luan.txt; grep -h "DMAXIT" $D/A_$T.log | tee -a $D/ket-luan.txt
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add ket-qua/2026-11-23-vong11-C || exit 0
+          git commit -qm "Actions: hoi quy --dmaxit (run ${{ github.run_id }})" || exit 0
+          for i in 1 2 3 4 5; do (git pull -q --rebase -X theirs || git rebase --abort) && git push -q && break; sleep $((3*i)); done
