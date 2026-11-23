@@ -1,0 +1,15 @@
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+--- HC_dg0_cu EXIT=0
+--- HC_dg0_moi EXIT=0
+--- HC_dg0_moi40 EXIT=0
+dg0: so buoc SNES= trong log cu: 0
+HC_dg0: cu vs moi: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)
+HC_dg0: cu vs moi40: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)
+--- HC_cg1nmax_cu EXIT=0
+--- HC_cg1nmax_moi EXIT=0
+--- HC_cg1nmax_moi40 EXIT=0
+cg1nmax: so buoc SNES= trong log cu: 0
+HC_cg1nmax: cu vs moi: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)
+HC_cg1nmax: cu vs moi40: TRUNG TUNG BYTE (loaddisp va H-INVARIANT)
+--- HC_dg0_200 EXIT=0
+  DMAXIT: tran vong bo giai hu hong = 200 (mac dinh 40)
