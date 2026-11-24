@@ -2260,3 +2260,169 @@ model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-24T14:59:23Z
+=== CHANG 3 2026-11-24T15:00:55Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 1900 steps to 2.000e-02 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=200  h=0.0050 mm  h/ell=0.50
+  KHIA: --notch geom  khe hinh hoc, 100 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 1  o so huu/ghost = [40000]/[0]  thieu = 0  crc = 27f1082d  cot qua y=0.5 khac nhan = 0/200
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 40000  so dinh = 40501
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  TAI: --load shear (SENS)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 1106 (diem kiem buoc 1105)
+  B NGUOI GHI (XUOI <- dung): nut tren n=72 f_gan(T)=0.000; nut duoi n=72 f_gan(B)=1.000; W=f_gan(B)-f_gan(T)=+1.000; nut tren mat n=9 ti le nguoi ghi o tren=1.000; ti le nguoi ghi phia x lon=0.941
+  B NGUOI GHI (NGUOC): nut tren n=72 f_gan(T)=1.000; nut duoi n=72 f_gan(B)=0.000; W=f_gan(B)-f_gan(T)=-1.000; nut tren mat n=9 ti le nguoi ghi o tren=0.000; ti le nguoi ghi phia x lon=0.052
+  step 1106  u = 1.106e-02  F = 353.6854  d_tip = 0.955  a = 0.2515  H/Hc =   300.61  stagg = 156
+  B buoc 1106: A_H=-9.961e-01 A_psiS=-9.973e-01 A_psiU=-9.976e-01 a_tip=13.99 ell tip=(0.5600,0.3850)
+  step 1107  u = 1.107e-02  F = 353.7232  d_tip = 0.955  a = 0.2522  H/Hc =   302.42  stagg = 200
+  B buoc 1107: A_H=-9.961e-01 A_psiS=-9.973e-01 A_psiU=-9.976e-01 a_tip=13.99 ell tip=(0.5600,0.3850)
+  step 1108  u = 1.108e-02  F = 353.5308  d_tip = 0.955  a = 0.2533  H/Hc =   305.33  stagg = 200
+  B buoc 1108: A_H=-9.962e-01 A_psiS=-9.973e-01 A_psiU=-9.976e-01 a_tip=14.49 ell tip=(0.5600,0.3800)
+  step 1109  u = 1.109e-02  F = 348.6897  d_tip = 0.958  a = 0.2650  H/Hc =   330.56  stagg = 200
+  B buoc 1109: A_H=-9.964e-01 A_psiS=-9.975e-01 A_psiU=-9.978e-01 a_tip=15.19 ell tip=(0.5650,0.3750)
+  step 1110  u = 1.110e-02  F = 348.1942  d_tip = 0.958  a = 0.2668  H/Hc =   334.95  stagg = 170
+  B buoc 1110: A_H=-9.964e-01 A_psiS=-9.975e-01 A_psiU=-9.978e-01 a_tip=15.19 ell tip=(0.5650,0.3750)
+  step 1111  u = 1.111e-02  F = 348.2900  d_tip = 0.958  a = 0.2673  H/Hc =   336.52  stagg = 140
+  B buoc 1111: A_H=-9.964e-01 A_psiS=-9.975e-01 A_psiU=-9.978e-01 a_tip=15.19 ell tip=(0.5650,0.3750)
+  step 1112  u = 1.112e-02  F = 348.3770  d_tip = 0.958  a = 0.2678  H/Hc =   338.13  stagg = 148
+  B buoc 1112: A_H=-9.964e-01 A_psiS=-9.975e-01 A_psiU=-9.978e-01 a_tip=15.19 ell tip=(0.5650,0.3750)
+  step 1113  u = 1.113e-02  F = 348.4402  d_tip = 0.958  a = 0.2684  H/Hc =   339.86  stagg = 173
+  B buoc 1113: A_H=-9.964e-01 A_psiS=-9.975e-01 A_psiU=-9.978e-01 a_tip=15.19 ell tip=(0.5650,0.3750)
+  step 1114  u = 1.114e-02  F = 348.4280  d_tip = 0.959  a = 0.2691  H/Hc =   341.95  stagg = 200
+  B buoc 1114: A_H=-9.965e-01 A_psiS=-9.975e-01 A_psiU=-9.978e-01 a_tip=15.19 ell tip=(0.5650,0.3750)
+  step 1115  u = 1.115e-02  F = 347.8424  d_tip = 0.959  a = 0.2711  H/Hc =   346.79  stagg = 200
+  B buoc 1115: A_H=-9.965e-01 A_psiS=-9.975e-01 A_psiU=-9.978e-01 a_tip=15.69 ell tip=(0.5650,0.3700)
+  step 1116  u = 1.116e-02  F = 343.1853  d_tip = 0.961  a = 0.2825  H/Hc =   371.18  stagg = 200
+  B buoc 1116: A_H=-9.967e-01 A_psiS=-9.977e-01 A_psiU=-9.980e-01 a_tip=16.40 ell tip=(0.5700,0.3650)
+  step 1117  u = 1.117e-02  F = 343.1578  d_tip = 0.961  a = 0.2832  H/Hc =   373.38  stagg = 169
+  B buoc 1117: A_H=-9.967e-01 A_psiS=-9.977e-01 A_psiU=-9.980e-01 a_tip=16.40 ell tip=(0.5700,0.3650)
+  step 1118  u = 1.118e-02  F = 343.2251  d_tip = 0.961  a = 0.2838  H/Hc =   375.13  stagg = 158
+  B buoc 1118: A_H=-9.967e-01 A_psiS=-9.977e-01 A_psiU=-9.980e-01 a_tip=16.40 ell tip=(0.5700,0.3650)
+  step 1119  u = 1.119e-02  F = 343.2872  d_tip = 0.962  a = 0.2843  H/Hc =   376.90  stagg = 163
+  B buoc 1119: A_H=-9.967e-01 A_psiS=-9.977e-01 A_psiU=-9.980e-01 a_tip=16.40 ell tip=(0.5700,0.3650)
+  step 1120  u = 1.120e-02  F = 343.3304  d_tip = 0.962  a = 0.2849  H/Hc =   378.77  stagg = 184
+  B buoc 1120: A_H=-9.967e-01 A_psiS=-9.977e-01 A_psiU=-9.980e-01 a_tip=16.40 ell tip=(0.5700,0.3650)
+  step 1121  u = 1.121e-02  F = 343.2998  d_tip = 0.962  a = 0.2857  H/Hc =   380.99  stagg = 200
+  B buoc 1121: A_H=-9.967e-01 A_psiS=-9.977e-01 A_psiU=-9.980e-01 a_tip=16.40 ell tip=(0.5700,0.3650)
+  step 1122  u = 1.122e-02  F = 342.6747  d_tip = 0.962  a = 0.2878  H/Hc =   386.05  stagg = 200
+  B buoc 1122: A_H=-9.968e-01 A_psiS=-9.977e-01 A_psiU=-9.980e-01 a_tip=16.90 ell tip=(0.5700,0.3600)
+  step 1123  u = 1.123e-02  F = 338.5698  d_tip = 0.964  a = 0.2979  H/Hc =   407.84  stagg = 200
+  B buoc 1123: A_H=-9.969e-01 A_psiS=-9.979e-01 A_psiU=-9.981e-01 a_tip=17.61 ell tip=(0.5750,0.3550)
+  step 1124  u = 1.124e-02  F = 338.3917  d_tip = 0.964  a = 0.2990  H/Hc =   410.81  stagg = 200
+  B buoc 1124: A_H=-9.969e-01 A_psiS=-9.979e-01 A_psiU=-9.981e-01 a_tip=17.61 ell tip=(0.5750,0.3550)
+  step 1125  u = 1.125e-02  F = 338.4033  d_tip = 0.964  a = 0.2997  H/Hc =   412.86  stagg = 196
+  B buoc 1125: A_H=-9.969e-01 A_psiS=-9.979e-01 A_psiU=-9.981e-01 a_tip=17.61 ell tip=(0.5750,0.3550)
+  step 1126  u = 1.126e-02  F = 338.4265  d_tip = 0.964  a = 0.3004  H/Hc =   414.87  stagg = 189
+  B buoc 1126: A_H=-9.969e-01 A_psiS=-9.979e-01 A_psiU=-9.981e-01 a_tip=17.61 ell tip=(0.5750,0.3550)
+  step 1127  u = 1.127e-02  F = 338.4459  d_tip = 0.964  a = 0.3010  H/Hc =   416.88  stagg = 194
+  B buoc 1127: A_H=-9.970e-01 A_psiS=-9.979e-01 A_psiU=-9.981e-01 a_tip=17.61 ell tip=(0.5750,0.3550)
+  step 1128  u = 1.128e-02  F = 338.4428  d_tip = 0.965  a = 0.3017  H/Hc =   419.01  stagg = 200
+  B buoc 1128: A_H=-9.970e-01 A_psiS=-9.979e-01 A_psiU=-9.982e-01 a_tip=17.61 ell tip=(0.5750,0.3550)
+  step 1129  u = 1.129e-02  F = 338.3107  d_tip = 0.965  a = 0.3027  H/Hc =   421.76  stagg = 200
+  B buoc 1129: A_H=-9.970e-01 A_psiS=-9.979e-01 A_psiU=-9.982e-01 a_tip=17.61 ell tip=(0.5750,0.3550)
+  step 1130  u = 1.130e-02  F = 335.5528  d_tip = 0.966  a = 0.3098  H/Hc =   437.11  stagg = 200
+  B buoc 1130: A_H=-9.971e-01 A_psiS=-9.980e-01 A_psiU=-9.982e-01 a_tip=18.11 ell tip=(0.5750,0.3500)
+  step 1131  u = 1.131e-02  F = 334.0823  d_tip = 0.966  a = 0.3138  H/Hc =   446.31  stagg = 200
+  B buoc 1131: A_H=-9.971e-01 A_psiS=-9.980e-01 A_psiU=-9.983e-01 a_tip=18.81 ell tip=(0.5800,0.3450)
+  step 1132  u = 1.132e-02  F = 334.0174  d_tip = 0.966  a = 0.3147  H/Hc =   448.78  stagg = 200
+  B buoc 1132: A_H=-9.971e-01 A_psiS=-9.980e-01 A_psiU=-9.983e-01 a_tip=18.81 ell tip=(0.5800,0.3450)
+  step 1133  u = 1.133e-02  F = 333.9647  d_tip = 0.967  a = 0.3155  H/Hc =   451.18  stagg = 200
+  B buoc 1133: A_H=-9.971e-01 A_psiS=-9.980e-01 A_psiU=-9.983e-01 a_tip=18.81 ell tip=(0.5800,0.3450)
+  step 1134  u = 1.134e-02  F = 333.9199  d_tip = 0.967  a = 0.3163  H/Hc =   453.55  stagg = 200
+  B buoc 1134: A_H=-9.971e-01 A_psiS=-9.980e-01 A_psiU=-9.983e-01 a_tip=18.81 ell tip=(0.5800,0.3450)
+  step 1135  u = 1.135e-02  F = 333.8793  d_tip = 0.967  a = 0.3171  H/Hc =   455.90  stagg = 200
+  B buoc 1135: A_H=-9.972e-01 A_psiS=-9.980e-01 A_psiU=-9.983e-01 a_tip=18.81 ell tip=(0.5800,0.3450)
+  step 1136  u = 1.136e-02  F = 333.8338  d_tip = 0.967  a = 0.3179  H/Hc =   458.27  stagg = 200
+  B buoc 1136: A_H=-9.972e-01 A_psiS=-9.980e-01 A_psiU=-9.983e-01 a_tip=18.81 ell tip=(0.5800,0.3450)
+  step 1137  u = 1.137e-02  F = 333.7423  d_tip = 0.967  a = 0.3188  H/Hc =   460.87  stagg = 200
+  B buoc 1137: A_H=-9.972e-01 A_psiS=-9.980e-01 A_psiU=-9.983e-01 a_tip=18.81 ell tip=(0.5800,0.3450)
+  step 1138  u = 1.138e-02  F = 333.0415  d_tip = 0.967  a = 0.3211  H/Hc =   466.38  stagg = 200
+  B buoc 1138: A_H=-9.972e-01 A_psiS=-9.981e-01 A_psiU=-9.983e-01 a_tip=19.31 ell tip=(0.5800,0.3400)
+  step 1139  u = 1.139e-02  F = 329.7716  d_tip = 0.968  a = 0.3294  H/Hc =   484.27  stagg = 200
+  B buoc 1139: A_H=-9.973e-01 A_psiS=-9.981e-01 A_psiU=-9.984e-01 a_tip=19.31 ell tip=(0.5800,0.3400)
+  step 1140  u = 1.140e-02  F = 329.7900  d_tip = 0.969  a = 0.3300  H/Hc =   486.37  stagg = 193
+  B buoc 1140: A_H=-9.973e-01 A_psiS=-9.981e-01 A_psiU=-9.984e-01 a_tip=19.52 ell tip=(0.5850,0.3400)
+  step 1141  u = 1.141e-02  F = 329.8086  d_tip = 0.969  a = 0.3306  H/Hc =   488.47  stagg = 200
+  B buoc 1141: A_H=-9.973e-01 A_psiS=-9.981e-01 A_psiU=-9.984e-01 a_tip=20.02 ell tip=(0.5850,0.3350)
+  step 1142  u = 1.142e-02  F = 329.8025  d_tip = 0.969  a = 0.3313  H/Hc =   490.69  stagg = 200
+  B buoc 1142: A_H=-9.973e-01 A_psiS=-9.982e-01 A_psiU=-9.984e-01 a_tip=20.02 ell tip=(0.5850,0.3350)
+  step 1143  u = 1.143e-02  F = 329.7692  d_tip = 0.969  a = 0.3321  H/Hc =   493.05  stagg = 200
+  B buoc 1143: A_H=-9.973e-01 A_psiS=-9.982e-01 A_psiU=-9.984e-01 a_tip=20.02 ell tip=(0.5850,0.3350)
+  step 1144  u = 1.144e-02  F = 329.7033  d_tip = 0.969  a = 0.3329  H/Hc =   495.56  stagg = 200
+  B buoc 1144: A_H=-9.973e-01 A_psiS=-9.982e-01 A_psiU=-9.984e-01 a_tip=20.02 ell tip=(0.5850,0.3350)
+  step 1145  u = 1.145e-02  F = 329.6086  d_tip = 0.969  a = 0.3338  H/Hc =   498.22  stagg = 200
+  B buoc 1145: A_H=-9.974e-01 A_psiS=-9.982e-01 A_psiU=-9.984e-01 a_tip=20.02 ell tip=(0.5850,0.3350)
+  step 1146  u = 1.146e-02  F = 329.4656  d_tip = 0.969  a = 0.3348  H/Hc =   501.10  stagg = 200
+  B buoc 1146: A_H=-9.974e-01 A_psiS=-9.982e-01 A_psiU=-9.984e-01 a_tip=20.02 ell tip=(0.5850,0.3350)
+  step 1147  u = 1.147e-02  F = 329.1625  d_tip = 0.969  a = 0.3362  H/Hc =   504.76  stagg = 200
+  B buoc 1147: A_H=-9.974e-01 A_psiS=-9.982e-01 A_psiU=-9.984e-01 a_tip=20.02 ell tip=(0.5850,0.3350)
+  step 1148  u = 1.148e-02  F = 325.4601  d_tip = 0.970  a = 0.3456  H/Hc =   524.78  stagg = 200
+  B buoc 1148: A_H=-9.975e-01 A_psiS=-9.983e-01 A_psiU=-9.985e-01 a_tip=20.52 ell tip=(0.5850,0.3300)
+  step 1149  u = 1.149e-02  F = 325.4447  d_tip = 0.971  a = 0.3463  H/Hc =   527.08  stagg = 145
+  B buoc 1149: A_H=-9.975e-01 A_psiS=-9.983e-01 A_psiU=-9.985e-01 a_tip=20.73 ell tip=(0.5900,0.3300)
+  step 1150  u = 1.150e-02  F = 325.5394  d_tip = 0.971  a = 0.3467  H/Hc =   528.85  stagg = 141
+  B buoc 1150: A_H=-9.975e-01 A_psiS=-9.983e-01 A_psiU=-9.985e-01 a_tip=20.73 ell tip=(0.5900,0.3300)
+  step 1151  u = 1.151e-02  F = 325.6214  d_tip = 0.971  a = 0.3472  H/Hc =   530.69  stagg = 151
+  B buoc 1151: A_H=-9.975e-01 A_psiS=-9.983e-01 A_psiU=-9.985e-01 a_tip=20.73 ell tip=(0.5900,0.3300)
+  step 1152  u = 1.152e-02  F = 325.6870  d_tip = 0.971  a = 0.3477  H/Hc =   532.61  stagg = 165
+  B buoc 1152: A_H=-9.975e-01 A_psiS=-9.983e-01 A_psiU=-9.985e-01 a_tip=20.73 ell tip=(0.5900,0.3300)
+  step 1153  u = 1.153e-02  F = 325.7303  d_tip = 0.971  a = 0.3483  H/Hc =   534.63  stagg = 183
+  B buoc 1153: A_H=-9.975e-01 A_psiS=-9.983e-01 A_psiU=-9.985e-01 a_tip=21.23 ell tip=(0.5900,0.3250)
+  step 1154  u = 1.154e-02  F = 325.7435  d_tip = 0.971  a = 0.3489  H/Hc =   536.80  stagg = 200
+  B buoc 1154: A_H=-9.975e-01 A_psiS=-9.983e-01 A_psiU=-9.985e-01 a_tip=21.23 ell tip=(0.5900,0.3250)
+  step 1155  u = 1.155e-02  F = 325.7143  d_tip = 0.971  a = 0.3497  H/Hc =   539.18  stagg = 200
+  B buoc 1155: A_H=-9.975e-01 A_psiS=-9.983e-01 A_psiU=-9.985e-01 a_tip=21.23 ell tip=(0.5900,0.3250)
+  step 1156  u = 1.156e-02  F = 325.6212  d_tip = 0.971  a = 0.3506  H/Hc =   541.87  stagg = 200
+  B buoc 1156: A_H=-9.975e-01 A_psiS=-9.983e-01 A_psiU=-9.985e-01 a_tip=21.23 ell tip=(0.5900,0.3250)
+  step 1157  u = 1.157e-02  F = 325.4086  d_tip = 0.971  a = 0.3517  H/Hc =   545.14  stagg = 200
+  B buoc 1157: A_H=-9.975e-01 A_psiS=-9.983e-01 A_psiU=-9.985e-01 a_tip=21.23 ell tip=(0.5900,0.3250)
+  step 1158  u = 1.158e-02  F = 324.4870  d_tip = 0.972  a = 0.3546  H/Hc =   551.84  stagg = 200
+  B buoc 1158: A_H=-9.976e-01 A_psiS=-9.983e-01 A_psiU=-9.985e-01 a_tip=21.23 ell tip=(0.5900,0.3250)
+  step 1159  u = 1.159e-02  F = 321.1522  d_tip = 0.972  a = 0.3631  H/Hc =   570.19  stagg = 200
+  B buoc 1159: A_H=-9.976e-01 A_psiS=-9.984e-01 A_psiU=-9.986e-01 a_tip=21.94 ell tip=(0.5950,0.3200)
+  step 1160  u = 1.160e-02  F = 321.2704  d_tip = 0.972  a = 0.3635  H/Hc =   571.89  stagg = 108
+  B buoc 1160: A_H=-9.976e-01 A_psiS=-9.984e-01 A_psiU=-9.986e-01 a_tip=21.94 ell tip=(0.5950,0.3200)
+  step 1161  u = 1.161e-02  F = 321.3882  d_tip = 0.973  a = 0.3639  H/Hc =   573.59  stagg = 109
+  B buoc 1161: A_H=-9.976e-01 A_psiS=-9.984e-01 A_psiU=-9.986e-01 a_tip=21.94 ell tip=(0.5950,0.3200)
+  step 1162  u = 1.162e-02  F = 321.5023  d_tip = 0.973  a = 0.3643  H/Hc =   575.31  stagg = 114
+  B buoc 1162: A_H=-9.976e-01 A_psiS=-9.984e-01 A_psiU=-9.986e-01 a_tip=21.94 ell tip=(0.5950,0.3200)
+  step 1163  u = 1.163e-02  F = 321.6110  d_tip = 0.973  a = 0.3647  H/Hc =   577.06  stagg = 120
+  B buoc 1163: A_H=-9.977e-01 A_psiS=-9.984e-01 A_psiU=-9.986e-01 a_tip=21.94 ell tip=(0.5950,0.3200)
+  step 1164  u = 1.164e-02  F = 321.7115  d_tip = 0.973  a = 0.3651  H/Hc =   578.85  stagg = 130
+  B buoc 1164: A_H=-9.977e-01 A_psiS=-9.984e-01 A_psiU=-9.986e-01 a_tip=22.44 ell tip=(0.5950,0.3150)
+  step 1165  u = 1.165e-02  F = 321.7969  d_tip = 0.973  a = 0.3656  H/Hc =   580.71  stagg = 143
+  B buoc 1165: A_H=-9.977e-01 A_psiS=-9.984e-01 A_psiU=-9.986e-01 a_tip=22.44 ell tip=(0.5950,0.3150)
+  step 1166  u = 1.166e-02  F = 321.8612  d_tip = 0.973  a = 0.3661  H/Hc =   582.68  stagg = 161
+  B buoc 1166: A_H=-9.977e-01 A_psiS=-9.984e-01 A_psiU=-9.986e-01 a_tip=22.44 ell tip=(0.5950,0.3150)
+  step 1167  u = 1.167e-02  F = 321.8948  d_tip = 0.973  a = 0.3667  H/Hc =   584.80  stagg = 188
+  B buoc 1167: A_H=-9.977e-01 A_psiS=-9.984e-01 A_psiU=-9.986e-01 a_tip=22.44 ell tip=(0.5950,0.3150)
+  step 1168  u = 1.168e-02  F = 321.8777  d_tip = 0.973  a = 0.3674  H/Hc =   587.16  stagg = 200
+  B buoc 1168: A_H=-9.977e-01 A_psiS=-9.984e-01 A_psiU=-9.986e-01 a_tip=22.44 ell tip=(0.5950,0.3150)
+  step 1169  u = 1.169e-02  F = 321.7582  d_tip = 0.973  a = 0.3683  H/Hc =   590.03  stagg = 200
+  B buoc 1169: A_H=-9.977e-01 A_psiS=-9.984e-01 A_psiU=-9.986e-01 a_tip=22.44 ell tip=(0.5950,0.3150)
+  step 1170  u = 1.170e-02  F = 321.1625  d_tip = 0.973  a = 0.3704  H/Hc =   595.21  stagg = 200
+  B buoc 1170: A_H=-9.977e-01 A_psiS=-9.984e-01 A_psiU=-9.986e-01 a_tip=22.44 ell tip=(0.5950,0.3150)
+  step 1171  u = 1.171e-02  F = 317.1497  d_tip = 0.974  a = 0.3807  H/Hc =   616.95  stagg = 200
+  B buoc 1171: A_H=-9.978e-01 A_psiS=-9.985e-01 A_psiU=-9.987e-01 a_tip=23.14 ell tip=(0.6000,0.3100)
+  step 1172  u = 1.172e-02  F = 317.2724  d_tip = 0.974  a = 0.3810  H/Hc =   618.67  stagg = 98
+  B buoc 1172: A_H=-9.978e-01 A_psiS=-9.985e-01 A_psiU=-9.987e-01 a_tip=23.14 ell tip=(0.6000,0.3100)
+  step 1173  u = 1.173e-02  F = 317.3961  d_tip = 0.974  a = 0.3814  H/Hc =   620.38  stagg = 98
+  B buoc 1173: A_H=-9.978e-01 A_psiS=-9.985e-01 A_psiU=-9.987e-01 a_tip=23.14 ell tip=(0.6000,0.3100)
+  step 1174  u = 1.174e-02  F = 317.5184  d_tip = 0.974  a = 0.3817  H/Hc =   622.10  stagg = 99
+  B buoc 1174: A_H=-9.978e-01 A_psiS=-9.985e-01 A_psiU=-9.987e-01 a_tip=23.14 ell tip=(0.6000,0.3100)
+  step 1175  u = 1.175e-02  F = 317.6388  d_tip = 0.974  a = 0.3821  H/Hc =   623.83  stagg = 101
+  B buoc 1175: A_H=-9.978e-01 A_psiS=-9.985e-01 A_psiU=-9.987e-01 a_tip=23.14 ell tip=(0.6000,0.3100)
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-24T20:20:55Z
