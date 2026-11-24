@@ -1,0 +1,58 @@
+[
+ {
+  "tag": "KD_cg1ng_geo_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace cg1 --notch geom --ghi-nguoc --do-B B_KD_cg1ng_geo_n1 --dung-tip 100"
+ },
+ {
+  "tag": "KD_cg1ng_geo_nx400_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 400 --hspace cg1 --notch geom --ghi-nguoc --do-B B_KD_cg1ng_geo_nx400_n1 --dung-tip 100"
+ },
+ {
+  "tag": "KD_quad_geo_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 200 --hspace quad --notch geom --do-B B_KD_quad_geo_n1 --dung-tip 100"
+ },
+ {
+  "tag": "KD_quad_geo_nx400_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 400 --hspace quad --notch geom --do-B B_KD_quad_geo_nx400_n1 --dung-tip 100"
+ },
+ {
+  "tag": "KD_S_dg0_geo_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load shear --steps 2000 --umax 0.02 --hspace dg0 --notch geom --do-B B_KD_S_dg0_geo_n1 --dung-tip 100"
+ },
+ {
+  "tag": "KD_S_cg1_geo_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load shear --steps 2000 --umax 0.02 --hspace cg1 --notch geom --do-B B_KD_S_cg1_geo_n1 --dung-tip 100"
+ },
+ {
+  "tag": "KD_S_cg1nmax_geo_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load shear --steps 2000 --umax 0.02 --hspace cg1nmax --notch geom --do-B B_KD_S_cg1nmax_geo_n1 --dung-tip 100"
+ },
+ {
+  "tag": "KD_S_quad_geo_n1",
+  "nhan": 1,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --nx 200 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load shear --steps 2000 --umax 0.02 --hspace quad --notch geom --do-B B_KD_S_quad_geo_n1 --dung-tip 100"
+ }
+]

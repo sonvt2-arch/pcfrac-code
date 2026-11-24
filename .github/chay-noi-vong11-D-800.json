@@ -1,0 +1,23 @@
+[
+ {
+  "tag": "KD_quad_geo_nx800_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 800 --notch geom --maxbad 100000 --hspace quad --dmaxit 200 --do-B B_KD_quad_geo_nx800_n4 --dung-tip 100"
+ },
+ {
+  "tag": "KD_cg1l2_geo_nx800_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 800 --notch geom --maxbad 100000 --hspace cg1l2 --dmaxit 200 --do-B B_KD_cg1l2_geo_nx800_n4 --dung-tip 100"
+ },
+ {
+  "tag": "KD_cg1avg_geo_nx800_n4",
+  "nhan": 4,
+  "ell": "0.01",
+  "model": "AT2",
+  "args": "--model AT2 --ell 0.01 --grip clamp --split amor --sharpnotch --E 210000 --nu 0.3 --Gc 2.7 --n1 100 --u1 0.001 --load tension --steps 800 --umax 0.008 --nx 800 --notch geom --maxbad 100000 --hspace cg1avg --dmaxit 200 --do-B B_KD_cg1avg_geo_nx800_n4 --dung-tip 100"
+ }
+]
