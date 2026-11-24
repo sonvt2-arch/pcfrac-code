@@ -1,0 +1,11 @@
+# tep | F_init (d=0.10) | u_init | sut | F_max | u_max | F_init d=0.05 | d=0.20
+loaddisp_KC_cg1nmax_geo_nx400_n1.txt | 632.49 | 4.7600e-03 | co | 632.49 | 4.7600e-03 | 632.49 | 632.49
+loaddisp_KC_dg0_geo_nx400_n1.txt | 733.41 | 5.6200e-03 | co | 733.41 | 5.6200e-03 | 733.41 | 733.41
+loaddisp_KB_dg0_geo_nx400_n1.txt | 733.41 | 5.6200e-03 | co | 733.41 | 5.6200e-03 | 733.41 | 733.41
+loaddisp_KB_cg1nmax_geo_nx400_n1.txt | 632.49 | 4.7600e-03 | co | 632.49 | 4.7600e-03 | 632.49 | 632.49
+# Vong 11-C nx400 1 nhan (24/11): tran 200 (KC) vs tran 40 (KB)
+# F_max KC dg0 733.4145317667 vs KB 733.4145317657 (dF = +1.4e-12 rel); cg1nmax 632.4854588896 vs 632.4854588905 (-1.4e-12)
+# So buoc SNES=-5: KC dg0 1/565 (buoc 168, ca tran 200 van het vong), KB dg0 2/565 (168, 563); KC cg1nmax 0/481, KB 1/481 (477)
+# loaddisp KC vs KB khong trung tung byte: dg0 khac tu buoc 463, cg1nmax tu buoc 1 (co le do CPU runner khac: cg1nmax chang 1 KC EPYC 9V74, KB 7763);
+#   |dF|/F <= 1.4e-11 toi dinh, <= 8.6e-8 toan bo; staggered_its trung moi buoc.
+# e_init cg1nmax so KC dg0 = (632.49-733.41)/733.41 = -13.76 % (tran 40: -13.76 %)
