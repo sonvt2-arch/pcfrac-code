@@ -1109,3 +1109,65 @@ model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-24T14:59:16Z
+=== CHANG 3 2026-11-24T15:00:41Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V45 96-Core Processor
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=400  h=0.0025 mm  h/ell=0.25
+  KHIA: --notch geom  khe hinh hoc, 200 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 1  o so huu/ghost = [160000]/[0]  thieu = 0  crc = 3cc785af  cot qua y=0.5 khac nhan = 0/400
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 160000  so dinh = 161001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1   *** BAN TRUOC KHI SUA -- CHI DE DO TAT
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 529 (diem kiem buoc 528)
+  B NGUOI GHI (XUOI): nut tren n=272 f_gan(T)=0.000; nut duoi n=272 f_gan(B)=1.000; W=f_gan(B)-f_gan(T)=+1.000; nut tren mat n=17 ti le nguoi ghi o tren=1.000; ti le nguoi ghi phia x lon=0.970
+  B NGUOI GHI (NGUOC <- dung): nut tren n=272 f_gan(T)=1.000; nut duoi n=272 f_gan(B)=0.000; W=f_gan(B)-f_gan(T)=-1.000; nut tren mat n=17 ti le nguoi ghi o tren=0.000; ti le nguoi ghi phia x lon=0.029
+  B: --ghi-nguoc  (noi suy nut ghi de, thu tu o NGUOC)
+  step 529  u = 5.290e-03  F = 697.3392  d_tip = 0.126  a = 0.0275  H/Hc =     0.12  stagg = 32
+  B buoc 529: A_H=+1.637e-01 A_psiS=+1.642e-01 A_psiU=+1.182e-01 a_tip=0.00 ell tip=(nan,nan)
+  step 530  u = 5.300e-03  F = 698.3646  d_tip = 0.127  a = 0.0278  H/Hc =     0.12  stagg = 33
+  B buoc 530: A_H=+1.689e-01 A_psiS=+1.695e-01 A_psiU=+1.232e-01 a_tip=0.00 ell tip=(nan,nan)
+  step 531  u = 5.310e-03  F = 699.3819  d_tip = 0.128  a = 0.0281  H/Hc =     0.13  stagg = 35
+  B buoc 531: A_H=+1.745e-01 A_psiS=+1.752e-01 A_psiU=+1.285e-01 a_tip=0.00 ell tip=(nan,nan)
+  step 532  u = 5.320e-03  F = 700.3897  d_tip = 0.129  a = 0.0284  H/Hc =     0.13  stagg = 37
+  B buoc 532: A_H=+1.804e-01 A_psiS=+1.813e-01 A_psiU=+1.343e-01 a_tip=0.00 ell tip=(nan,nan)
+  step 533  u = 5.330e-03  F = 701.3869  d_tip = 0.130  a = 0.0287  H/Hc =     0.13  stagg = 40
+  B buoc 533: A_H=+1.868e-01 A_psiS=+1.878e-01 A_psiU=+1.406e-01 a_tip=0.00 ell tip=(nan,nan)
+  step 534  u = 5.340e-03  F = 702.3720  d_tip = 0.132  a = 0.0291  H/Hc =     0.13  stagg = 43
+  B buoc 534: A_H=+1.937e-01 A_psiS=+1.949e-01 A_psiU=+1.474e-01 a_tip=0.00 ell tip=(nan,nan)
+  step 535  u = 5.350e-03  F = 703.3428  d_tip = 0.133  a = 0.0294  H/Hc =     0.13  stagg = 47
+  B buoc 535: A_H=+2.012e-01 A_psiS=+2.026e-01 A_psiU=+1.549e-01 a_tip=0.00 ell tip=(nan,nan)
+  step 536  u = 5.360e-03  F = 704.2964  d_tip = 0.135  a = 0.0298  H/Hc =     0.13  stagg = 52
+  B buoc 536: A_H=+2.094e-01 A_psiS=+2.111e-01 A_psiU=+1.632e-01 a_tip=0.00 ell tip=(nan,nan)
+  step 537  u = 5.370e-03  F = 705.2286  d_tip = 0.136  a = 0.0302  H/Hc =     0.14  stagg = 58
+  B buoc 537: A_H=+2.184e-01 A_psiS=+2.206e-01 A_psiU=+1.725e-01 a_tip=0.00 ell tip=(nan,nan)
+  step 538  u = 5.380e-03  F = 706.1259  d_tip = 0.138  a = 0.0306  H/Hc =     0.14  stagg = 68
+  B buoc 538: A_H=+2.289e-01 A_psiS=+2.317e-01 A_psiU=+1.834e-01 a_tip=0.00 ell tip=(nan,nan)
+  step 539  u = 5.390e-03  F = 706.9595  d_tip = 0.140  a = 0.0311  H/Hc =     0.14  stagg = 84
+  B buoc 539: A_H=+2.418e-01 A_psiS=+2.455e-01 A_psiU=+1.971e-01 a_tip=0.00 ell tip=(nan,nan)
+  step 540  u = 5.400e-03  F = 707.6620  d_tip = 0.143  a = 0.0318  H/Hc =     0.14  stagg = 123
+  B buoc 540: A_H=+2.598e-01 A_psiS=+2.650e-01 A_psiU=+2.167e-01 a_tip=0.00 ell tip=(nan,nan)
+  step 541  u = 5.410e-03  F = 707.2402  d_tip = 0.151  a = 0.0337  H/Hc =     0.15  stagg = 200
+  B buoc 541: A_H=+3.214e-01 A_psiS=+3.341e-01 A_psiU=+2.870e-01 a_tip=0.00 ell tip=(nan,nan)
+  step 542  u = 5.420e-03  F = 579.9017  d_tip = 1.000  a = 0.2029  H/Hc =  1905.29  stagg = 200
+  B buoc 542: A_H=+9.972e-01 A_psiS=+9.999e-01 A_psiU=+9.999e-01 a_tip=0.00 ell tip=(nan,nan)
+  step 543  u = 5.430e-03  F = 531.3521  d_tip = 1.000  a = 0.2778  H/Hc =  2659.78  stagg = 200
+  B buoc 543: A_H=+9.977e-01 A_psiS=+1.000e+00 A_psiU=+1.000e+00 a_tip=0.00 ell tip=(nan,nan)
+  step 544  u = 5.440e-03  F = 512.4439  d_tip = 1.000  a = 0.3092  H/Hc =  2838.26  stagg = 200
+  B buoc 544: A_H=+9.981e-01 A_psiS=+1.000e+00 A_psiU=+1.000e+00 a_tip=0.00 ell tip=(nan,nan)
+  step 545  u = 5.450e-03  F = 506.0349  d_tip = 1.000  a = 0.3209  H/Hc =  2838.26  stagg = 200
+  B buoc 545: A_H=+9.981e-01 A_psiS=+1.000e+00 A_psiU=+1.000e+00 a_tip=0.00 ell tip=(nan,nan)
+  step 546  u = 5.460e-03  F = 501.3309  d_tip = 1.000  a = 0.3300  H/Hc =  2865.78  stagg = 200
+  B buoc 546: A_H=+9.981e-01 A_psiS=+1.000e+00 A_psiU=+1.000e+00 a_tip=0.00 ell tip=(nan,nan)
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-24T20:20:41Z
