@@ -335,3 +335,84 @@ model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
 [0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
 [0]PETSC ERROR: to get more information on the crash.
 === EXIT=124 2026-11-24T04:52:08Z
+=== CHANG 3 2026-11-24T04:53:42Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  Intel(R) Xeon(R) 6975P-C
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  KHIA: --notch geom  khe hinh hoc, 400 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [160554, 160022, 159537, 159887]/[854, 419, 512, 817]  thieu = 0  crc = 3e4ef347  cot qua y=0.5 khac nhan = 402/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 642001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  DMAXIT: tran vong bo giai hu hong = 200 (mac dinh 40)
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 289 (diem kiem buoc 288)
+  step 289  u = 2.890e-03  F = 401.4378  d_tip = 0.027  a = 0.0020  H/Hc =     0.03  stagg = 5
+  step 290  u = 2.900e-03  F = 402.7735  d_tip = 0.028  a = 0.0021  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 291  u = 2.910e-03  F = 404.1086  d_tip = 0.028  a = 0.0021  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 292  u = 2.920e-03  F = 405.4432  d_tip = 0.028  a = 0.0021  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 293  u = 2.930e-03  F = 406.7771  d_tip = 0.028  a = 0.0022  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 294  u = 2.940e-03  F = 408.1106  d_tip = 0.028  a = 0.0022  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 295  u = 2.950e-03  F = 409.4434  d_tip = 0.029  a = 0.0022  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 296  u = 2.960e-03  F = 410.7757  d_tip = 0.029  a = 0.0022  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 297  u = 2.970e-03  F = 412.1074  d_tip = 0.029  a = 0.0023  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 298  u = 2.980e-03  F = 413.4385  d_tip = 0.029  a = 0.0023  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 299  u = 2.990e-03  F = 414.7690  d_tip = 0.029  a = 0.0023  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 300  u = 3.000e-03  F = 416.0990  d_tip = 0.030  a = 0.0024  H/Hc =     0.03  stagg = 5
+  step 301  u = 3.010e-03  F = 417.4284  d_tip = 0.030  a = 0.0024  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 302  u = 3.020e-03  F = 418.7571  d_tip = 0.030  a = 0.0024  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 303  u = 3.030e-03  F = 420.0853  d_tip = 0.030  a = 0.0025  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 304  u = 3.040e-03  F = 421.4130  d_tip = 0.031  a = 0.0025  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 305  u = 3.050e-03  F = 422.7400  d_tip = 0.031  a = 0.0025  H/Hc =     0.03  stagg = 5
+  step 306  u = 3.060e-03  F = 424.0664  d_tip = 0.031  a = 0.0026  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 307  u = 3.070e-03  F = 425.3922  d_tip = 0.031  a = 0.0026  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 308  u = 3.080e-03  F = 426.7175  d_tip = 0.031  a = 0.0026  H/Hc =     0.03  stagg = 5  SNES=-5
+  step 309  u = 3.090e-03  F = 428.0421  d_tip = 0.032  a = 0.0027  H/Hc =     0.03  stagg = 6
+  step 310  u = 3.100e-03  F = 429.3661  d_tip = 0.032  a = 0.0027  H/Hc =     0.03  stagg = 6
+  step 311  u = 3.110e-03  F = 430.6896  d_tip = 0.032  a = 0.0027  H/Hc =     0.03  stagg = 6
+  step 312  u = 3.120e-03  F = 432.0124  d_tip = 0.032  a = 0.0028  H/Hc =     0.03  stagg = 6  SNES=-5
+  step 313  u = 3.130e-03  F = 433.3346  d_tip = 0.033  a = 0.0028  H/Hc =     0.03  stagg = 6
+  step 314  u = 3.140e-03  F = 434.6562  d_tip = 0.033  a = 0.0028  H/Hc =     0.03  stagg = 6
+  step 315  u = 3.150e-03  F = 435.9772  d_tip = 0.033  a = 0.0029  H/Hc =     0.03  stagg = 6  SNES=-5
+  step 316  u = 3.160e-03  F = 437.2976  d_tip = 0.033  a = 0.0029  H/Hc =     0.03  stagg = 6  SNES=-5
+  step 317  u = 3.170e-03  F = 438.6173  d_tip = 0.033  a = 0.0030  H/Hc =     0.03  stagg = 6  SNES=-5
+  step 318  u = 3.180e-03  F = 439.9364  d_tip = 0.034  a = 0.0030  H/Hc =     0.03  stagg = 6
+  step 319  u = 3.190e-03  F = 441.2550  d_tip = 0.034  a = 0.0030  H/Hc =     0.03  stagg = 6
+  step 320  u = 3.200e-03  F = 442.5728  d_tip = 0.034  a = 0.0031  H/Hc =     0.03  stagg = 6  SNES=-5
+  step 321  u = 3.210e-03  F = 443.8901  d_tip = 0.034  a = 0.0031  H/Hc =     0.03  stagg = 6  SNES=-5
+  step 322  u = 3.220e-03  F = 445.2067  d_tip = 0.035  a = 0.0031  H/Hc =     0.03  stagg = 6  SNES=-5
+  step 323  u = 3.230e-03  F = 446.5227  d_tip = 0.035  a = 0.0032  H/Hc =     0.03  stagg = 6
+  step 324  u = 3.240e-03  F = 447.8381  d_tip = 0.035  a = 0.0032  H/Hc =     0.03  stagg = 6  SNES=-5
+  step 325  u = 3.250e-03  F = 449.1528  d_tip = 0.035  a = 0.0033  H/Hc =     0.03  stagg = 6
+  step 326  u = 3.260e-03  F = 450.4669  d_tip = 0.036  a = 0.0033  H/Hc =     0.03  stagg = 6
+  step 327  u = 3.270e-03  F = 451.7803  d_tip = 0.036  a = 0.0033  H/Hc =     0.03  stagg = 6  SNES=-5
+  step 328  u = 3.280e-03  F = 453.0931  d_tip = 0.036  a = 0.0034  H/Hc =     0.03  stagg = 6  SNES=-5
+  step 329  u = 3.290e-03  F = 454.4053  d_tip = 0.036  a = 0.0034  H/Hc =     0.03  stagg = 6
+  step 330  u = 3.300e-03  F = 455.7168  d_tip = 0.037  a = 0.0035  H/Hc =     0.03  stagg = 6  SNES=-5
+  step 331  u = 3.310e-03  F = 457.0277  d_tip = 0.037  a = 0.0035  H/Hc =     0.04  stagg = 6  SNES=-5
+  step 332  u = 3.320e-03  F = 458.3379  d_tip = 0.037  a = 0.0036  H/Hc =     0.04  stagg = 6
+  step 333  u = 3.330e-03  F = 459.6474  d_tip = 0.037  a = 0.0036  H/Hc =     0.04  stagg = 6  SNES=-5
+  step 334  u = 3.340e-03  F = 460.9563  d_tip = 0.037  a = 0.0036  H/Hc =     0.04  stagg = 6  SNES=-5
+  step 335  u = 3.350e-03  F = 462.2646  d_tip = 0.038  a = 0.0037  H/Hc =     0.04  stagg = 6  SNES=-5
+  step 336  u = 3.360e-03  F = 463.5721  d_tip = 0.038  a = 0.0037  H/Hc =     0.04  stagg = 6
+  step 337  u = 3.370e-03  F = 464.8790  d_tip = 0.038  a = 0.0038  H/Hc =     0.04  stagg = 6  SNES=-5
+  step 338  u = 3.380e-03  F = 466.1853  d_tip = 0.038  a = 0.0038  H/Hc =     0.04  stagg = 6  SNES=-5
+  step 339  u = 3.390e-03  F = 467.4909  d_tip = 0.039  a = 0.0039  H/Hc =     0.04  stagg = 6  SNES=-5
+  step 340  u = 3.400e-03  F = 468.7958  d_tip = 0.039  a = 0.0039  H/Hc =     0.04  stagg = 6  SNES=-5
+  step 341  u = 3.410e-03  F = 470.1000  d_tip = 0.039  a = 0.0040  H/Hc =     0.04  stagg = 6  SNES=-5
+  step 342  u = 3.420e-03  F = 471.4035  d_tip = 0.040  a = 0.0040  H/Hc =     0.04  stagg = 6  SNES=-5
+  step 343  u = 3.430e-03  F = 472.7064  d_tip = 0.040  a = 0.0041  H/Hc =     0.04  stagg = 6  SNES=-5
+  step 344  u = 3.440e-03  F = 474.0086  d_tip = 0.040  a = 0.0041  H/Hc =     0.04  stagg = 6
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-24T10:13:42Z
