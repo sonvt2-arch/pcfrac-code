@@ -14,6 +14,8 @@ Code, workflows and numerical logs accompanying a manuscript in preparation.
 - `.github/workflows/chay-noi.yml` + `.github/chay-noi.json` — long runs chained across
   6-hour jobs through checkpoints; logs are committed to `ket-qua/`.
 - `ket-qua/` — logs, load–displacement curves and angle measurements.
+- `docs/code-survey-links-L1-L35.md` — links L1 to L35 of the survey of public codes
+  (Table S11, Section S12 of the Supplementary Material).
 
 Comments and log messages are in Vietnamese. Container: `dolfinx/dolfinx:stable`.
 
