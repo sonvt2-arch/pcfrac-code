@@ -30,8 +30,8 @@ This file belongs to Section S12 ("Survey of public codes") of the Supplementary
 | 22 | CEMS-Lab/​PhAST, PyTorch | L22 | per element; a nodal average for output only | (c) |
 | 23 | FEniCS forum posts #16800/​#17454 (2025), FEniCSx | L23 | DG0 | (c) |
 | 24 | MOOSE, solid_​mechanics, ComputeLinearElasticPFFractureStress | L24 | material property at quadrature points | (c) |
-| 25 | Molnár and Gravouil, Abaqus UEL (copy in a thesis repository); Finite Elem. Anal. Des. 2017, doi:10.1016/j.finel.2017.03.002 | L25 | state variables at integration points | (c) |
-| 26 | Navidtehrani, Betegón and Martínez-Pañeda, Abaqus UMAT; Materials 2021, doi:10.3390/ma14081913 | L26 | state variables at integration points | (c) |
+| 25 | Molnár and Gravouil, Abaqus user element subroutine (UEL) (copy in a thesis repository); Finite Elem. Anal. Des. 2017, doi:10.1016/j.finel.2017.03.002 | L25 | state variables at integration points | (c) |
+| 26 | Navidtehrani, Betegón and Martínez-Pañeda, Abaqus user material subroutine (UMAT); Materials 2021, doi:10.3390/ma14081913 | L26 | state variables at integration points | (c) |
 | 27 | Martínez-Pañeda, Golahmar and Niordson, Abaqus UEL; Comput. Methods Appl. Mech. Eng. 2018, doi:10.1016/j.cma.2018.07.021 | L27 | state variables at integration points | (c) |
 | 28 | Martínez-Pañeda, Julia/​Ferrite | L28 | state at quadrature points | (c) |
 | 29 | MdMasiurRahaman/​PhaseFieldModelForMechanicalFracture, Julia/​Gridap | L29 | cell state at quadrature points | (c) |
