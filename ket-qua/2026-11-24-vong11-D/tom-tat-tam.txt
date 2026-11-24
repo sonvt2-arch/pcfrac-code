@@ -1,7 +1,9 @@
-Vong 11-D -- ket qua TAM (24/11 10h UTC, sau chang 1; run 45325119697, 45325123998)
+Vong 11-D -- ket qua TAM (cap nhat 24/11 15h UTC, sau chang 2; run 45325119697, 45325123998)
 KD_quad_geo_n1 (xong, chang 1): F_init = F_max 743.26 (d 0.05/0.10/0.20 trung; u 5.72e-3)
   so KB_dg0_geo_n1 768.10: e_init = e_max = -3.23 % -> lan.  theta 6ell +0.01 (luat G +0.01), khong cham canh.
-KD_cg1ng_geo_n1 (chua xong, buoc 613, a = 0.51): F_max 734.18 (buoc 565) -> -4.42 % so DG0 (chi bao; da qua dinh)
+KD_cg1ng_geo_n1 (xong chang 2, buoc 636): F_init = F_max 734.18 (d 0.05/0.10/0.20 trung; u 5.65e-3) -> -4.42 % so DG0 768.10 (chi bao)
+  theta 6ell +33.69 (luat G +33.69; 4ell +33.78), CHAM CANH (x = 0.980), nhu xuoi -37.81 (cham canh)
+  -> DOI DAU (nguoc duong, xuoi am, |theta| >= 10).
   W nguoc = -1.000 (xuoi +1.000). A_H buoc 1: nguoc -1.78e-3 / xuoi (KB_cg1_geo_n1) +3.89e-3;
-  A_H o buoc F_max: nguoc +0.405 / xuoi -0.438.  theta 6ell: cho truong cuoi.
-Ca khac: dang chay chang 2 (SENS buoc 804-1073/2000; nx400 buoc 408-449; nx800 buoc 171-174).
+  A_H o buoc F_max: nguoc +0.405 / xuoi -0.438.
+Ca khac: chang 3 (sau chang 2: SENS buoc 944-1185/2000; nx400 buoc 528-535, chua dinh; nx800 buoc 247-258, ~80 buoc/chang -> se can noi chuoi).
