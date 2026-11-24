@@ -287,3 +287,66 @@ model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-24T04:52:08Z
+=== CHANG 3 2026-11-24T04:53:38Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  KHIA: --notch geom  khe hinh hoc, 400 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [160554, 160022, 159537, 159887]/[854, 419, 512, 817]  thieu = 0  crc = 3e4ef347  cot qua y=0.5 khac nhan = 402/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 642001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1nmax   (psi+ tai nut cua TUNG phan tu ke, max qua phan tu, H = max tung nut)
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  DMAXIT: tran vong bo giai hu hong = 200 (mac dinh 40)
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 239 (diem kiem buoc 238)
+  step 239  u = 2.390e-03  F = 333.8336  d_tip = 0.019  a = 0.0010  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 240  u = 2.400e-03  F = 335.1925  d_tip = 0.020  a = 0.0010  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 241  u = 2.410e-03  F = 336.5510  d_tip = 0.020  a = 0.0011  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 242  u = 2.420e-03  F = 337.9090  d_tip = 0.020  a = 0.0011  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 243  u = 2.430e-03  F = 339.2665  d_tip = 0.020  a = 0.0011  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 244  u = 2.440e-03  F = 340.6236  d_tip = 0.020  a = 0.0011  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 245  u = 2.450e-03  F = 341.9801  d_tip = 0.020  a = 0.0011  H/Hc =     0.02  stagg = 5
+  step 246  u = 2.460e-03  F = 343.3362  d_tip = 0.021  a = 0.0011  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 247  u = 2.470e-03  F = 344.6917  d_tip = 0.021  a = 0.0012  H/Hc =     0.02  stagg = 5
+  step 248  u = 2.480e-03  F = 346.0468  d_tip = 0.021  a = 0.0012  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 249  u = 2.490e-03  F = 347.4013  d_tip = 0.021  a = 0.0012  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 250  u = 2.500e-03  F = 348.7554  d_tip = 0.021  a = 0.0012  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 251  u = 2.510e-03  F = 350.1089  d_tip = 0.021  a = 0.0012  H/Hc =     0.02  stagg = 5
+  step 252  u = 2.520e-03  F = 351.4620  d_tip = 0.022  a = 0.0013  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 253  u = 2.530e-03  F = 352.8145  d_tip = 0.022  a = 0.0013  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 254  u = 2.540e-03  F = 354.1665  d_tip = 0.022  a = 0.0013  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 255  u = 2.550e-03  F = 355.5181  d_tip = 0.022  a = 0.0013  H/Hc =     0.02  stagg = 5
+  step 256  u = 2.560e-03  F = 356.8691  d_tip = 0.022  a = 0.0014  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 257  u = 2.570e-03  F = 358.2195  d_tip = 0.023  a = 0.0014  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 258  u = 2.580e-03  F = 359.5695  d_tip = 0.023  a = 0.0014  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 259  u = 2.590e-03  F = 360.9189  d_tip = 0.023  a = 0.0014  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 260  u = 2.600e-03  F = 362.2679  d_tip = 0.023  a = 0.0014  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 261  u = 2.610e-03  F = 363.6163  d_tip = 0.023  a = 0.0015  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 262  u = 2.620e-03  F = 364.9641  d_tip = 0.023  a = 0.0015  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 263  u = 2.630e-03  F = 366.3114  d_tip = 0.024  a = 0.0015  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 264  u = 2.640e-03  F = 367.6582  d_tip = 0.024  a = 0.0015  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 265  u = 2.650e-03  F = 369.0045  d_tip = 0.024  a = 0.0016  H/Hc =     0.02  stagg = 5  SNES=-5
+  step 266  u = 2.660e-03  F = 370.3502  d_tip = 0.024  a = 0.0016  H/Hc =     0.02  stagg = 6  SNES=-5
+  step 267  u = 2.670e-03  F = 371.6954  d_tip = 0.024  a = 0.0016  H/Hc =     0.02  stagg = 6  SNES=-5
+  step 268  u = 2.680e-03  F = 373.0401  d_tip = 0.025  a = 0.0016  H/Hc =     0.02  stagg = 6  SNES=-5
+  step 269  u = 2.690e-03  F = 374.3841  d_tip = 0.025  a = 0.0017  H/Hc =     0.02  stagg = 6  SNES=-5
+  step 270  u = 2.700e-03  F = 375.7277  d_tip = 0.025  a = 0.0017  H/Hc =     0.02  stagg = 6  SNES=-5
+  step 271  u = 2.710e-03  F = 377.0707  d_tip = 0.025  a = 0.0017  H/Hc =     0.02  stagg = 6  SNES=-5
+  step 272  u = 2.720e-03  F = 378.4131  d_tip = 0.025  a = 0.0017  H/Hc =     0.02  stagg = 6  SNES=-5
+  step 273  u = 2.730e-03  F = 379.7550  d_tip = 0.026  a = 0.0018  H/Hc =     0.02  stagg = 6  SNES=-5
+  step 274  u = 2.740e-03  F = 381.0964  d_tip = 0.026  a = 0.0018  H/Hc =     0.02  stagg = 6  SNES=-5
+  step 275  u = 2.750e-03  F = 382.4371  d_tip = 0.026  a = 0.0018  H/Hc =     0.02  stagg = 6  SNES=-5
+  step 276  u = 2.760e-03  F = 383.7774  d_tip = 0.026  a = 0.0018  H/Hc =     0.02  stagg = 6  SNES=-5
+  step 277  u = 2.770e-03  F = 385.1170  d_tip = 0.026  a = 0.0019  H/Hc =     0.02  stagg = 6  SNES=-5
+  step 278  u = 2.780e-03  F = 386.4561  d_tip = 0.027  a = 0.0019  H/Hc =     0.02  stagg = 6  SNES=-5
+  step 279  u = 2.790e-03  F = 387.7946  d_tip = 0.027  a = 0.0019  H/Hc =     0.02  stagg = 6  SNES=-5
+  step 280  u = 2.800e-03  F = 389.1325  d_tip = 0.027  a = 0.0019  H/Hc =     0.02  stagg = 6  SNES=-5
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: === EXIT=124 2026-11-24T10:13:38Z
