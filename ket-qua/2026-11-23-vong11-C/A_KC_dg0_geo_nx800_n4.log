@@ -541,3 +541,54 @@ model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-24T20:56:43Z
+=== CHANG 6 2026-11-24T20:58:26Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  KHIA: --notch geom  khe hinh hoc, 400 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [160554, 160022, 159537, 159887]/[854, 419, 512, 817]  thieu = 0  crc = 3e4ef347  cot qua y=0.5 khac nhan = 402/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 642001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  DMAXIT: tran vong bo giai hu hong = 200 (mac dinh 40)
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 418 (diem kiem buoc 417)
+  step 418  u = 4.180e-03  F = 568.2927  d_tip = 0.063  a = 0.0091  H/Hc =     0.06  stagg = 8  SNES=-5
+  step 419  u = 4.190e-03  F = 569.5359  d_tip = 0.063  a = 0.0092  H/Hc =     0.06  stagg = 8  SNES=-5
+  step 420  u = 4.200e-03  F = 570.7782  d_tip = 0.063  a = 0.0093  H/Hc =     0.06  stagg = 8  SNES=-5
+  step 421  u = 4.210e-03  F = 572.0195  d_tip = 0.064  a = 0.0094  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 422  u = 4.220e-03  F = 573.2600  d_tip = 0.064  a = 0.0094  H/Hc =     0.06  stagg = 9
+  step 423  u = 4.230e-03  F = 574.4995  d_tip = 0.065  a = 0.0095  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 424  u = 4.240e-03  F = 575.7381  d_tip = 0.065  a = 0.0096  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 425  u = 4.250e-03  F = 576.9757  d_tip = 0.065  a = 0.0097  H/Hc =     0.06  stagg = 9
+  step 426  u = 4.260e-03  F = 578.2124  d_tip = 0.066  a = 0.0098  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 427  u = 4.270e-03  F = 579.4482  d_tip = 0.066  a = 0.0099  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 428  u = 4.280e-03  F = 580.6831  d_tip = 0.066  a = 0.0100  H/Hc =     0.06  stagg = 9
+  step 429  u = 4.290e-03  F = 581.9170  d_tip = 0.067  a = 0.0101  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 430  u = 4.300e-03  F = 583.1499  d_tip = 0.067  a = 0.0102  H/Hc =     0.06  stagg = 9  SNES=-5
+  step 431  u = 4.310e-03  F = 584.3819  d_tip = 0.068  a = 0.0103  H/Hc =     0.07  stagg = 9
+  step 432  u = 4.320e-03  F = 585.6129  d_tip = 0.068  a = 0.0104  H/Hc =     0.07  stagg = 9  SNES=-5
+  step 433  u = 4.330e-03  F = 586.8429  d_tip = 0.068  a = 0.0105  H/Hc =     0.07  stagg = 9
+  step 434  u = 4.340e-03  F = 588.0720  d_tip = 0.069  a = 0.0106  H/Hc =     0.07  stagg = 9  SNES=-5
+  step 435  u = 4.350e-03  F = 589.3001  d_tip = 0.069  a = 0.0107  H/Hc =     0.07  stagg = 9
+  step 436  u = 4.360e-03  F = 590.5272  d_tip = 0.070  a = 0.0108  H/Hc =     0.07  stagg = 9
+  step 437  u = 4.370e-03  F = 591.7533  d_tip = 0.070  a = 0.0109  H/Hc =     0.07  stagg = 9
+  step 438  u = 4.380e-03  F = 592.9784  d_tip = 0.070  a = 0.0110  H/Hc =     0.07  stagg = 9  SNES=-5
+  step 439  u = 4.390e-03  F = 594.2026  d_tip = 0.071  a = 0.0111  H/Hc =     0.07  stagg = 9  SNES=-5
+  step 440  u = 4.400e-03  F = 595.4257  d_tip = 0.071  a = 0.0112  H/Hc =     0.07  stagg = 9
+  step 441  u = 4.410e-03  F = 596.6478  d_tip = 0.072  a = 0.0113  H/Hc =     0.07  stagg = 9
+  step 442  u = 4.420e-03  F = 597.8689  d_tip = 0.072  a = 0.0114  H/Hc =     0.07  stagg = 10  SNES=-5
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-25T02:18:26Z
