@@ -633,3 +633,44 @@ model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
 [0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
 [0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
 [0]PETSC ERROR: === EXIT=124 2026-11-25T13:01:09Z
+=== CHANG 1 2026-11-25T14:06:18Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  Intel(R) Xeon(R) 6973P-C
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  KHIA: --notch geom  khe hinh hoc, 400 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [160554, 160022, 159537, 159887]/[854, 419, 512, 817]  thieu = 0  crc = 3e4ef347  cot qua y=0.5 khac nhan = 402/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 642001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1nmax   (psi+ tai nut cua TUNG phan tu ke, max qua phan tu, H = max tung nut)
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  DMAXIT: tran vong bo giai hu hong = 200 (mac dinh 40)
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 441 (diem kiem buoc 440)
+  step 441  u = 4.410e-03  F = 594.8290  d_tip = 0.080  a = 0.0130  H/Hc =     0.07  stagg = 15  SNES=-5
+  step 442  u = 4.420e-03  F = 596.0232  d_tip = 0.080  a = 0.0131  H/Hc =     0.08  stagg = 15  SNES=-5
+  step 443  u = 4.430e-03  F = 597.2159  d_tip = 0.081  a = 0.0133  H/Hc =     0.08  stagg = 15
+  step 444  u = 4.440e-03  F = 598.4069  d_tip = 0.081  a = 0.0134  H/Hc =     0.08  stagg = 16  SNES=-5
+  step 445  u = 4.450e-03  F = 599.5962  d_tip = 0.082  a = 0.0135  H/Hc =     0.08  stagg = 16  SNES=-5
+  step 446  u = 4.460e-03  F = 600.7839  d_tip = 0.083  a = 0.0137  H/Hc =     0.08  stagg = 16  SNES=-5
+  step 447  u = 4.470e-03  F = 601.9697  d_tip = 0.083  a = 0.0138  H/Hc =     0.08  stagg = 16
+  step 448  u = 4.480e-03  F = 603.1538  d_tip = 0.084  a = 0.0140  H/Hc =     0.08  stagg = 17  SNES=-5
+  step 449  u = 4.490e-03  F = 604.3361  d_tip = 0.084  a = 0.0141  H/Hc =     0.08  stagg = 17  SNES=-5
+  step 450  u = 4.500e-03  F = 605.5165  d_tip = 0.085  a = 0.0143  H/Hc =     0.08  stagg = 17  SNES=-5
+  step 451  u = 4.510e-03  F = 606.6950  d_tip = 0.085  a = 0.0144  H/Hc =     0.08  stagg = 17  SNES=-5
+  step 452  u = 4.520e-03  F = 607.8715  d_tip = 0.086  a = 0.0146  H/Hc =     0.08  stagg = 18  SNES=-5
+  step 453  u = 4.530e-03  F = 609.0460  d_tip = 0.087  a = 0.0147  H/Hc =     0.08  stagg = 18  SNES=-5
+  step 454  u = 4.540e-03  F = 610.2185  d_tip = 0.087  a = 0.0149  H/Hc =     0.08  stagg = 18  SNES=-5
+  step 455  u = 4.550e-03  F = 611.3885  d_tip = 0.088  a = 0.0150  H/Hc =     0.08  stagg = 19  SNES=-5
+  step 456  u = 4.560e-03  F = 612.5558  d_tip = 0.088  a = 0.0152  H/Hc =     0.08  stagg = 19  SNES=-5
+  step 457  u = 4.570e-03  F = 613.7209  d_tip = 0.089  a = 0.0154  H/Hc =     0.08  stagg = 19
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: === EXIT=124 2026-11-25T19:26:18Z
