@@ -1089,3 +1089,67 @@ model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-25T17:46:55Z
+=== CHANG 8 2026-11-25T17:48:33Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  KHIA: --notch geom  khe hinh hoc, 400 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [160554, 160022, 159537, 159887]/[854, 419, 512, 817]  thieu = 0  crc = 3e4ef347  cot qua y=0.5 khac nhan = 402/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 642001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1l2   (chieu L2 psi+ len V_d, Gauss 2x2, H = max tung nut)
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  DMAXIT: tran vong bo giai hu hong = 200 (mac dinh 40)
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 454 (diem kiem buoc 453)
+  B NGUOI GHI (XUOI <- dung): nut tren n=1056 f_gan(T)=0.014; nut duoi n=1056 f_gan(B)=1.000; W=f_gan(B)-f_gan(T)=+0.986; nut tren mat n=33 ti le nguoi ghi o tren=1.000; ti le nguoi ghi phia x lon=0.765
+  B NGUOI GHI (NGUOC): nut tren n=1056 f_gan(T)=0.988; nut duoi n=1056 f_gan(B)=0.000; W=f_gan(B)-f_gan(T)=-0.988; nut tren mat n=33 ti le nguoi ghi o tren=0.030; ti le nguoi ghi phia x lon=0.239
+  step 454  u = 4.540e-03  F = 612.2477  d_tip = 0.078  a = 0.0129  H/Hc =     0.07  stagg = 11  SNES=-5
+  B buoc 454: A_H=+1.142e-07 A_psiS=+1.142e-07 A_psiU=+1.121e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 455  u = 4.550e-03  F = 613.4525  d_tip = 0.078  a = 0.0131  H/Hc =     0.07  stagg = 11
+  B buoc 455: A_H=+1.147e-07 A_psiS=+1.147e-07 A_psiU=+1.126e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 456  u = 4.560e-03  F = 614.6561  d_tip = 0.079  a = 0.0132  H/Hc =     0.07  stagg = 11  SNES=-5
+  B buoc 456: A_H=+1.153e-07 A_psiS=+1.153e-07 A_psiU=+1.132e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 457  u = 4.570e-03  F = 615.8586  d_tip = 0.079  a = 0.0133  H/Hc =     0.07  stagg = 11
+  B buoc 457: A_H=+1.158e-07 A_psiS=+1.158e-07 A_psiU=+1.138e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 458  u = 4.580e-03  F = 617.0600  d_tip = 0.080  a = 0.0134  H/Hc =     0.08  stagg = 11
+  B buoc 458: A_H=+1.164e-07 A_psiS=+1.164e-07 A_psiU=+1.143e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 459  u = 4.590e-03  F = 618.2601  d_tip = 0.080  a = 0.0136  H/Hc =     0.08  stagg = 11  SNES=-5
+  B buoc 459: A_H=+1.170e-07 A_psiS=+1.170e-07 A_psiU=+1.149e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 460  u = 4.600e-03  F = 619.4591  d_tip = 0.081  a = 0.0137  H/Hc =     0.08  stagg = 11  SNES=-5
+  B buoc 460: A_H=+1.176e-07 A_psiS=+1.176e-07 A_psiU=+1.155e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 461  u = 4.610e-03  F = 620.6569  d_tip = 0.081  a = 0.0138  H/Hc =     0.08  stagg = 11
+  B buoc 461: A_H=+1.181e-07 A_psiS=+1.181e-07 A_psiU=+1.161e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 462  u = 4.620e-03  F = 621.8534  d_tip = 0.082  a = 0.0139  H/Hc =     0.08  stagg = 12  SNES=-5
+  B buoc 462: A_H=+1.186e-07 A_psiS=+1.186e-07 A_psiU=+1.165e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 463  u = 4.630e-03  F = 623.0488  d_tip = 0.082  a = 0.0141  H/Hc =     0.08  stagg = 12  SNES=-5
+  B buoc 463: A_H=+1.192e-07 A_psiS=+1.192e-07 A_psiU=+1.172e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 464  u = 4.640e-03  F = 624.2430  d_tip = 0.083  a = 0.0142  H/Hc =     0.08  stagg = 12  SNES=-5
+  B buoc 464: A_H=+1.198e-07 A_psiS=+1.198e-07 A_psiU=+1.178e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 465  u = 4.650e-03  F = 625.4359  d_tip = 0.083  a = 0.0143  H/Hc =     0.08  stagg = 12
+  B buoc 465: A_H=+1.205e-07 A_psiS=+1.205e-07 A_psiU=+1.185e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 466  u = 4.660e-03  F = 626.6276  d_tip = 0.084  a = 0.0145  H/Hc =     0.08  stagg = 12  SNES=-5
+  B buoc 466: A_H=+1.212e-07 A_psiS=+1.212e-07 A_psiU=+1.192e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 467  u = 4.670e-03  F = 627.8180  d_tip = 0.084  a = 0.0146  H/Hc =     0.08  stagg = 12  SNES=-5
+  B buoc 467: A_H=+1.219e-07 A_psiS=+1.220e-07 A_psiU=+1.200e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 468  u = 4.680e-03  F = 629.0072  d_tip = 0.085  a = 0.0147  H/Hc =     0.08  stagg = 12  SNES=-5
+  B buoc 468: A_H=+1.227e-07 A_psiS=+1.226e-07 A_psiU=+1.207e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 469  u = 4.690e-03  F = 630.1951  d_tip = 0.085  a = 0.0149  H/Hc =     0.08  stagg = 12  SNES=-5
+  B buoc 469: A_H=+1.235e-07 A_psiS=+1.235e-07 A_psiU=+1.216e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 470  u = 4.700e-03  F = 631.3817  d_tip = 0.086  a = 0.0150  H/Hc =     0.08  stagg = 12  SNES=-5
+  B buoc 470: A_H=+1.242e-07 A_psiS=+1.243e-07 A_psiU=+1.224e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 471  u = 4.710e-03  F = 632.5670  d_tip = 0.086  a = 0.0151  H/Hc =     0.08  stagg = 12
+  B buoc 471: A_H=+1.251e-07 A_psiS=+1.251e-07 A_psiU=+1.233e-07 a_tip=0.00 ell tip=(nan,nan)
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: to get more information on the crash.
+Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
+=== EXIT=124 2026-11-25T23:08:33Z
