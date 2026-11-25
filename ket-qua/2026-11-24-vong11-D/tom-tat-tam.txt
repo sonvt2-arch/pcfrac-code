@@ -24,3 +24,9 @@ KD_cg1ng_geo_nx400_n1 (buoc 553, stagg 200 moi buoc, ~7 buoc/chang; crack_ext 0.
   -> doc ~+37 do (di LEN; xuoi -28.16 di xuong). a_tip = 0 (vet khong noi nut dinh trong S), nhu xuoi.
 SENS (F tam, chua xong, buoc 1256-1567): DG0 405.09, cg1 431.24, quad 400.07 khong doi.
 nx800: buoc 350-379 sau 4 chang.
+
+Cap nhat 25/11 07h15 UTC (sau chang 5).
+KD_cg1ng_geo_nx400_n1 XONG (buoc 557): F_init = F_max 707.66 (u 5.40e-3; -3.51 % so DG0, chi bao).
+  theta 6ell +25.06 (luat G +25.69; 2/4ell +25.99/+25.21), khong cham canh; xuoi KB_cg1_geo_nx400_n1 -28.16 -> DOI DAU.
+  (Chi bao truoc do tu tep thua ~+37 la uoc thuan tay, khong dung.)
+SENS chua xong (buoc 1384-1793/2000); nx800 buoc 399-406 sau 5 chang.
