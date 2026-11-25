@@ -15,3 +15,12 @@ KD_cg1ng_geo_nx400_n1 (buoc 546, da qua dinh): F_max 707.66 (-3.51 %, chi bao); 
 SENS (F tam): DG0 405.09 (buoc 1026; chua xong); cg1 431.24 (+6.46 %); quad 400.07 (-1.24 %);
   cg1nmax (XONG, buoc 949) 318.08 (u 7.71e-3) -> -21.5 % so DG0 tam. theta SENS (do_sens_pca) cho DG0 xong.
 nx800: buoc 301-322 sau 3 chang (~70-80 buoc/chang) -> chuoi 8 chang can noi.
+
+Cap nhat 25/11 01h50 UTC (sau chang 4).
+KD_quad_geo_nx400_n1 XONG (buoc 552): F_init = F_max 717.49 (d 0.05/0.10/0.20 trung; u 5.48e-3) -> -2.17 % LAN so 733.41;
+  theta 6ell +0.01 (luat G +0.01), khong cham canh.
+KD_cg1ng_geo_nx400_n1 (buoc 553, stagg 200 moi buoc, ~7 buoc/chang; crack_ext 0.44 mm): theta chinh thuc cho truong cuoi.
+  CHI BAO (khong ghi truoc): tu tep thua B buoc 553, y trung binh nut d >= 0.95: x 0.55/0.60/0.65/0.70 -> y 0.543/0.578/0.618/0.651
+  -> doc ~+37 do (di LEN; xuoi -28.16 di xuong). a_tip = 0 (vet khong noi nut dinh trong S), nhu xuoi.
+SENS (F tam, chua xong, buoc 1256-1567): DG0 405.09, cg1 431.24, quad 400.07 khong doi.
+nx800: buoc 350-379 sau 4 chang.
