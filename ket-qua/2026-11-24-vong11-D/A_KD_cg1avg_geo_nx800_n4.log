@@ -1100,3 +1100,72 @@ YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Terminated (signal 15)
 This typically refers to a problem with your application.
 Please see the FAQ page for debugging suggestions
 === EXIT=124 2026-11-25T17:47:04Z
+=== CHANG 8 2026-11-25T17:48:28Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  KHIA: --notch geom  khe hinh hoc, 400 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [160554, 160022, 159537, 159887]/[854, 419, 512, 817]  thieu = 0  crc = 3e4ef347  cot qua y=0.5 khac nhan = 402/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 642001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1avg   (psi+ tam phan tu, trung binh ve nut theo dien tich)
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  DMAXIT: tran vong bo giai hu hong = 200 (mac dinh 40)
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 455 (diem kiem buoc 454)
+  B NGUOI GHI (XUOI <- dung): nut tren n=1056 f_gan(T)=0.014; nut duoi n=1056 f_gan(B)=1.000; W=f_gan(B)-f_gan(T)=+0.986; nut tren mat n=33 ti le nguoi ghi o tren=1.000; ti le nguoi ghi phia x lon=0.765
+  B NGUOI GHI (NGUOC): nut tren n=1056 f_gan(T)=0.988; nut duoi n=1056 f_gan(B)=0.000; W=f_gan(B)-f_gan(T)=-0.988; nut tren mat n=33 ti le nguoi ghi o tren=0.030; ti le nguoi ghi phia x lon=0.239
+  step 455  u = 4.550e-03  F = 613.6749  d_tip = 0.078  a = 0.0129  H/Hc =     0.07  stagg = 10  SNES=-5
+  B buoc 455: A_H=+1.063e-07 A_psiS=+1.063e-07 A_psiU=+1.106e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 456  u = 4.560e-03  F = 614.8815  d_tip = 0.078  a = 0.0130  H/Hc =     0.07  stagg = 10  SNES=-5
+  B buoc 456: A_H=+1.068e-07 A_psiS=+1.068e-07 A_psiU=+1.112e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 457  u = 4.570e-03  F = 616.0871  d_tip = 0.078  a = 0.0131  H/Hc =     0.07  stagg = 10  SNES=-5
+  B buoc 457: A_H=+1.073e-07 A_psiS=+1.073e-07 A_psiU=+1.117e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 458  u = 4.580e-03  F = 617.2915  d_tip = 0.079  a = 0.0132  H/Hc =     0.07  stagg = 10  SNES=-5
+  B buoc 458: A_H=+1.078e-07 A_psiS=+1.078e-07 A_psiU=+1.123e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 459  u = 4.590e-03  F = 618.4948  d_tip = 0.079  a = 0.0134  H/Hc =     0.08  stagg = 10  SNES=-5
+  B buoc 459: A_H=+1.082e-07 A_psiS=+1.082e-07 A_psiU=+1.127e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 460  u = 4.600e-03  F = 619.6970  d_tip = 0.080  a = 0.0135  H/Hc =     0.08  stagg = 11  SNES=-5
+  B buoc 460: A_H=+1.087e-07 A_psiS=+1.088e-07 A_psiU=+1.133e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 461  u = 4.610e-03  F = 620.8981  d_tip = 0.080  a = 0.0136  H/Hc =     0.08  stagg = 11  SNES=-5
+  B buoc 461: A_H=+1.093e-07 A_psiS=+1.093e-07 A_psiU=+1.138e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 462  u = 4.620e-03  F = 622.0981  d_tip = 0.081  a = 0.0137  H/Hc =     0.08  stagg = 11  SNES=-5
+  B buoc 462: A_H=+1.103e-07 A_psiS=+1.103e-07 A_psiU=+1.149e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 463  u = 4.630e-03  F = 623.2969  d_tip = 0.081  a = 0.0139  H/Hc =     0.08  stagg = 11  SNES=-5
+  B buoc 463: A_H=+1.105e-07 A_psiS=+1.104e-07 A_psiU=+1.151e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 464  u = 4.640e-03  F = 624.4945  d_tip = 0.082  a = 0.0140  H/Hc =     0.08  stagg = 11  SNES=-5
+  B buoc 464: A_H=+1.110e-07 A_psiS=+1.110e-07 A_psiU=+1.157e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 465  u = 4.650e-03  F = 625.6910  d_tip = 0.082  a = 0.0141  H/Hc =     0.08  stagg = 11  SNES=-5
+  B buoc 465: A_H=+1.115e-07 A_psiS=+1.115e-07 A_psiU=+1.163e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 466  u = 4.660e-03  F = 626.8864  d_tip = 0.083  a = 0.0143  H/Hc =     0.08  stagg = 11  SNES=-5
+  B buoc 466: A_H=+1.121e-07 A_psiS=+1.121e-07 A_psiU=+1.169e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 467  u = 4.670e-03  F = 628.0805  d_tip = 0.083  a = 0.0144  H/Hc =     0.08  stagg = 11  SNES=-5
+  B buoc 467: A_H=+1.127e-07 A_psiS=+1.127e-07 A_psiU=+1.175e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 468  u = 4.680e-03  F = 629.2735  d_tip = 0.084  a = 0.0145  H/Hc =     0.08  stagg = 11
+  B buoc 468: A_H=+1.133e-07 A_psiS=+1.133e-07 A_psiU=+1.181e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 469  u = 4.690e-03  F = 630.4652  d_tip = 0.084  a = 0.0146  H/Hc =     0.08  stagg = 11  SNES=-5
+  B buoc 469: A_H=+1.136e-07 A_psiS=+1.136e-07 A_psiU=+1.185e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 470  u = 4.700e-03  F = 631.6558  d_tip = 0.085  a = 0.0148  H/Hc =     0.08  stagg = 11  SNES=-5
+  B buoc 470: A_H=+1.143e-07 A_psiS=+1.143e-07 A_psiU=+1.192e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 471  u = 4.710e-03  F = 632.8452  d_tip = 0.085  a = 0.0149  H/Hc =     0.08  stagg = 11  SNES=-5
+  B buoc 471: A_H=+1.149e-07 A_psiS=+1.149e-07 A_psiU=+1.199e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 472  u = 4.720e-03  F = 634.0333  d_tip = 0.086  a = 0.0150  H/Hc =     0.08  stagg = 11  SNES=-5
+  B buoc 472: A_H=+1.156e-07 A_psiS=+1.156e-07 A_psiU=+1.206e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 473  u = 4.730e-03  F = 635.2202  d_tip = 0.086  a = 0.0152  H/Hc =     0.08  stagg = 12  SNES=-5
+  B buoc 473: A_H=+1.163e-07 A_psiS=+1.163e-07 A_psiU=+1.213e-07 a_tip=0.00 ell tip=(nan,nan)
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 192 RUNNING AT b68436f2744e
+=   EXIT CODE: 15
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Terminated (signal 15)
+This typically refers to a problem with your application.
+Please see the FAQ page for debugging suggestions
+=== EXIT=124 2026-11-25T23:08:29Z
