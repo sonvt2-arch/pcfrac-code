@@ -1,0 +1,58 @@
+  h5py: luoi 'Mesh/mesh/geometry' (161001 nut), truong 'Function/damage/0'
+
+  BAN DO TRUONG HU HONG  (khoang trang = d nho, @ = d ~ 1, o = diem duong tam)
+  truc x tu 0.00 den 1.00 mm ; truc y tu 0.00 den 1.00 mm ; y TANG len tren
+  +--------------------------------------------------------------------------------------------------------+
+  |                                                                                                        |
+  |                                                                                                     .. |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                    ... |
+  |                                                                                               .....:-= |
+  |                                                                                     .....::--=+*#%@ooo |
+  |                                                                              ..::-+*%@@@oooooooooooo@% |
+  |                                                                        ..:-+#@@@ooooooooo%#**+==--:::: |
+  |                                                                   ...-+%@@ooooooo#*+=--:::.......      |
+  |                                                                .:-*@@ooooo%#+=--::.....                |
+  |                                                           ..:-+@@ooooo#*=-::....                       |
+  |                                                       ..:-*@@ooooo#+=-:....                            |
+  |                                                   ..:=*@@@@@oo#+=-:....                                |
+  |                                                 :=#@@@@@@@#+=-:....                                    |
+  |                                                .-@@@@%*=-::....                                        |
+  |                                                  ..::.....                                             |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                        |
+  |                                                                                                     .. |
+  +--------------------------------------------------------------------------------------------------------+
+  thong ke d: min 0.0000  trung binh 0.0388  max 1.0000  ; so nut d>0.9: 1216 / 161001
+  ell = 0.01 mm ; h chia cot = 0.00200 mm ; san trong so d >= 0.2
+  so diem duong tam: 161 ; x tu 0.601 den 0.999 mm
+
+  ====================================================================
+  DO PHAN GIAI GOC  (goc that = 0.0 do)
+  ====================================================================
+     Lambda  /ell  cua so  roi nhau    goc TB    sai so    nguon       delta
+     0.0200     2      39        19    25.99o     8.87o  do lech   0.155 ell
+     0.0400     4      19         9    25.21o     8.80o  do lech   0.307 ell
+     0.0600     6      12         6    25.06o     8.91o  do lech   0.466 ell
+     0.1000    10       7         3    24.71o     8.82o  do lech   0.770 ell
+     0.2000    20       3         1    24.45o     8.64o  do lech   1.509 ell
+     0.4000    40       1         0    24.77o    24.77o 1 cua so   8.646 ell
+  ====================================================================
+  Cot cuoi la sai so dinh vi duong tam suy nguoc tu  sigma ~ 2 delta / Lambda.
+  Neu cot do gan nhu khong doi theo Lambda thi mo hinh sai so la dung,
+  va doan do toi thieu cho mot nguong goc  T  la  Lambda >= 2 delta / tan(T).
