@@ -1,0 +1,6 @@
+quad: KD_S_quad_geo_n1.xdmf (buoc 0, h=0.005), 252 diem tam, dau (0.512;0.487) cuoi (0.933;0.019), r_max 0.647
+   goc 2/4/6ell = -48.29 (56 cua so, 0 huong len, min/max [-62.06, -15.13]) / -48.16 (31 cua so, 0 huong len, min/max [-59.5, -17.08]) / -48.33 (20 cua so, 0 huong len, min/max [-59.64, -19.32])
+DG0: KD_S_dg0_geo_n1.xdmf (buoc 0, h=0.005), 242 diem tam, dau (0.511;0.485) cuoi (0.896;0.020), r_max 0.622
+   goc 2/4/6ell = -51.29 (53 cua so, 0 huong len, min/max [-69.63, -14.42]) / -50.58 (30 cua so, 0 huong len, min/max [-67.91, -14.67]) / -51.24 (19 cua so, 0 huong len, min/max [-65.9, -15.89])
+Hausdorff = 0.0376 mm = 3.76 ell; tren r <= 0.622 chung: 0.0309 mm = 3.09 ell
+|theta_quad - theta_DG0| (6ell/6ell) = 2.91 do -> khong

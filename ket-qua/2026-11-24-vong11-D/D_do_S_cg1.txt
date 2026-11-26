@@ -1,0 +1,6 @@
+cg1: KD_S_cg1_geo_n1.xdmf (buoc 0, h=0.005), 189 diem tam, dau (0.492;0.485) cuoi (0.588;0.018), r_max 0.490
+   goc 2/4/6ell = -77.92 (36 cua so, 0 huong len, min/max [-132.95, -58.42]) / -78.81 (23 cua so, 0 huong len, min/max [-104.13, -61.03]) / -78.61 (15 cua so, 0 huong len, min/max [-98.72, -61.93])
+DG0: KD_S_dg0_geo_n1.xdmf (buoc 0, h=0.005), 242 diem tam, dau (0.511;0.485) cuoi (0.896;0.020), r_max 0.622
+   goc 2/4/6ell = -51.29 (53 cua so, 0 huong len, min/max [-69.63, -14.42]) / -50.58 (30 cua so, 0 huong len, min/max [-67.91, -14.67]) / -51.24 (19 cua so, 0 huong len, min/max [-65.9, -15.89])
+Hausdorff = 0.3082 mm = 30.82 ell; tren r <= 0.490 chung: 0.1939 mm = 19.39 ell
+|theta_cg1 - theta_DG0| (6ell/6ell) = 27.37 do -> co do lech

@@ -1,0 +1,6 @@
+cg1nmax: KD_S_cg1nmax_geo_n1.xdmf (buoc 0, h=0.005), 248 diem tam, dau (0.511;0.486) cuoi (0.951;0.050), r_max 0.637
+   goc 2/4/6ell = -44.77 (59 cua so, 0 huong len, min/max [-46.05, -38.29]) / -44.81 (30 cua so, 0 huong len, min/max [-45.24, -41.49]) / -44.95 (19 cua so, 0 huong len, min/max [-45.12, -44.38])
+DG0: KD_S_dg0_geo_n1.xdmf (buoc 0, h=0.005), 242 diem tam, dau (0.511;0.485) cuoi (0.896;0.020), r_max 0.622
+   goc 2/4/6ell = -51.29 (53 cua so, 0 huong len, min/max [-69.63, -14.42]) / -50.58 (30 cua so, 0 huong len, min/max [-67.91, -14.67]) / -51.24 (19 cua so, 0 huong len, min/max [-65.9, -15.89])
+Hausdorff = 0.0993 mm = 9.93 ell; tren r <= 0.622 chung: 0.0993 mm = 9.93 ell
+|theta_cg1nmax - theta_DG0| (6ell/6ell) = 6.29 do -> lan

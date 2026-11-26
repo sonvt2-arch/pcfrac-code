@@ -1,0 +1,84 @@
+{
+ "cg1": {
+  "so_diem_tam": 189,
+  "h_luoi": 0.004999999999999893,
+  "dau": [
+   0.4919,
+   0.4853
+  ],
+  "cuoi": [
+   0.5878,
+   0.0181
+  ],
+  "r_max": 0.48999999999999,
+  "goc_2ell": -77.91884851683827,
+  "cuaso_2ell": 36,
+  "cuaso_huong_len_2ell": 0,
+  "cuaso_min_max_2ell": [
+   -132.95,
+   -58.42
+  ],
+  "goc_4ell": -78.81478196312175,
+  "cuaso_4ell": 23,
+  "cuaso_huong_len_4ell": 0,
+  "cuaso_min_max_4ell": [
+   -104.13,
+   -61.03
+  ],
+  "goc_6ell": -78.60604926298626,
+  "cuaso_6ell": 15,
+  "cuaso_huong_len_6ell": 0,
+  "cuaso_min_max_6ell": [
+   -98.72,
+   -61.93
+  ],
+  "muc_dung": "6ell",
+  "theta": -78.60604926298626,
+  "tep": "KD_S_cg1_geo_n1.xdmf",
+  "khoa_buoc": "0"
+ },
+ "DG0": {
+  "so_diem_tam": 242,
+  "h_luoi": 0.004999999999999893,
+  "dau": [
+   0.5108,
+   0.4854
+  ],
+  "cuoi": [
+   0.896,
+   0.0198
+  ],
+  "r_max": 0.6224999999999872,
+  "goc_2ell": -51.28822219007801,
+  "cuaso_2ell": 53,
+  "cuaso_huong_len_2ell": 0,
+  "cuaso_min_max_2ell": [
+   -69.63,
+   -14.42
+  ],
+  "goc_4ell": -50.57687746289828,
+  "cuaso_4ell": 30,
+  "cuaso_huong_len_4ell": 0,
+  "cuaso_min_max_4ell": [
+   -67.91,
+   -14.67
+  ],
+  "goc_6ell": -51.2402127905071,
+  "cuaso_6ell": 19,
+  "cuaso_huong_len_6ell": 0,
+  "cuaso_min_max_6ell": [
+   -65.9,
+   -15.89
+  ],
+  "muc_dung": "6ell",
+  "theta": -51.2402127905071,
+  "tep": "KD_S_dg0_geo_n1.xdmf",
+  "khoa_buoc": "0"
+ },
+ "hausdorff_mm": 0.3082080721625959,
+ "hausdorff_ell": 30.82080721625959,
+ "hausdorff_r_chung_mm": 0.19391436866482178,
+ "r_chung": 0.48999999999999,
+ "delta": 27.365836472479145,
+ "phan_quyet_theo_chu": "co do lech"
+}

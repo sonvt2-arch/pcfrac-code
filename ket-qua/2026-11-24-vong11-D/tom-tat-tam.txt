@@ -37,3 +37,12 @@ KD_S_cg1_geo_n1 XONG (buoc 1843): F_init = F_max 431.24 (u 1.107e-2) -> +6.46 % 
   (2/4ell -44.77/-44.81). Phan quyet so DG0 cho DG0 SENS xong (buoc 1476/2000; can noi chuoi).
   Bao kem: khia hang nut 9-R: Q1 -77.09, DG0 -51.36.
 SENS quad buoc 1542; nx800 buoc 429-431 sau 6 chang.
+
+Cap nhat 26/11 00h15 UTC (chuoi 1 can 8 chang).
+SENS (khe hinh hoc, nx200 1 nhan) XONG ca 4 ca; F_init = F_max moi ca (d 0.05/0.10/0.20 trung).
+  DG0 405.09 (u 1.026e-2), theta 6ell -51.24 -> < -5: khop nguon.
+  cg1 (ghi de) 431.24: e +6.46 % lech; theta -78.61, |dtheta| 27.37 -> CO DO LECH; Hausdorff 30.8 ell.
+  cg1nmax 318.08: e -21.48 % lech; theta -44.95, |dtheta| 6.29 -> LAN; Hausdorff 9.9 ell.
+  quad 400.07: e -1.24 % khop; theta -48.33, |dtheta| 2.91 -> KHONG; Hausdorff 3.8 ell.
+  (D_do_S_*.txt, D_S_*.json, D_S_*.png.) Bao kem 9-R hang nut: Q1 -77.09, DG0 -51.36.
+nx800: chuoi 1 can o buoc 471-474; diem kiem -> ket-qua/diem-kiem (c4fe7e0); noi chuoi run 45727353386.
