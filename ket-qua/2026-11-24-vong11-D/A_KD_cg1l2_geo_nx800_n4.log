@@ -1212,3 +1212,60 @@ model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-26T05:38:18Z
+=== CHANG 2 2026-11-26T05:40:27Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  KHIA: --notch geom  khe hinh hoc, 400 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [160554, 160022, 159537, 159887]/[854, 419, 512, 817]  thieu = 0  crc = 3e4ef347  cot qua y=0.5 khac nhan = 402/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 642001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1l2   (chieu L2 psi+ len V_d, Gauss 2x2, H = max tung nut)
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  DMAXIT: tran vong bo giai hu hong = 200 (mac dinh 40)
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 488 (diem kiem buoc 487)
+  B NGUOI GHI (XUOI <- dung): nut tren n=1056 f_gan(T)=0.014; nut duoi n=1056 f_gan(B)=1.000; W=f_gan(B)-f_gan(T)=+0.986; nut tren mat n=33 ti le nguoi ghi o tren=1.000; ti le nguoi ghi phia x lon=0.765
+  B NGUOI GHI (NGUOC): nut tren n=1056 f_gan(T)=0.988; nut duoi n=1056 f_gan(B)=0.000; W=f_gan(B)-f_gan(T)=-0.988; nut tren mat n=33 ti le nguoi ghi o tren=0.030; ti le nguoi ghi phia x lon=0.239
+  step 488  u = 4.880e-03  F = 652.5049  d_tip = 0.095  a = 0.0177  H/Hc =     0.09  stagg = 15  SNES=-5
+  B buoc 488: A_H=+1.398e-07 A_psiS=+1.399e-07 A_psiU=+1.383e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 489  u = 4.890e-03  F = 653.6643  d_tip = 0.096  a = 0.0178  H/Hc =     0.09  stagg = 15  SNES=-5
+  B buoc 489: A_H=+1.409e-07 A_psiS=+1.410e-07 A_psiU=+1.395e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 490  u = 4.900e-03  F = 654.8220  d_tip = 0.097  a = 0.0180  H/Hc =     0.09  stagg = 15  SNES=-5
+  B buoc 490: A_H=+1.420e-07 A_psiS=+1.420e-07 A_psiU=+1.406e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 491  u = 4.910e-03  F = 655.9781  d_tip = 0.097  a = 0.0182  H/Hc =     0.09  stagg = 15
+  B buoc 491: A_H=+1.431e-07 A_psiS=+1.432e-07 A_psiU=+1.417e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 492  u = 4.920e-03  F = 657.1325  d_tip = 0.098  a = 0.0183  H/Hc =     0.09  stagg = 15  SNES=-5
+  B buoc 492: A_H=+1.443e-07 A_psiS=+1.443e-07 A_psiU=+1.428e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 493  u = 4.930e-03  F = 658.2852  d_tip = 0.098  a = 0.0185  H/Hc =     0.09  stagg = 15  SNES=-5
+  B buoc 493: A_H=+1.455e-07 A_psiS=+1.454e-07 A_psiU=+1.441e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 494  u = 4.940e-03  F = 659.4361  d_tip = 0.099  a = 0.0187  H/Hc =     0.09  stagg = 16  SNES=-5
+  B buoc 494: A_H=+1.466e-07 A_psiS=+1.466e-07 A_psiU=+1.452e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 495  u = 4.950e-03  F = 660.5853  d_tip = 0.100  a = 0.0188  H/Hc =     0.09  stagg = 16  SNES=-5
+  B buoc 495: A_H=+1.478e-07 A_psiS=+1.478e-07 A_psiU=+1.465e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 496  u = 4.960e-03  F = 661.7327  d_tip = 0.100  a = 0.0190  H/Hc =     0.10  stagg = 16  SNES=-5
+  B buoc 496: A_H=+1.490e-07 A_psiS=+1.491e-07 A_psiU=+1.478e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 497  u = 4.970e-03  F = 662.8782  d_tip = 0.101  a = 0.0192  H/Hc =     0.10  stagg = 16  SNES=-5
+  B buoc 497: A_H=+1.501e-07 A_psiS=+1.501e-07 A_psiU=+1.489e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 498  u = 4.980e-03  F = 664.0219  d_tip = 0.102  a = 0.0193  H/Hc =     0.10  stagg = 16
+  B buoc 498: A_H=+1.515e-07 A_psiS=+1.515e-07 A_psiU=+1.503e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 499  u = 4.990e-03  F = 665.1636  d_tip = 0.102  a = 0.0195  H/Hc =     0.10  stagg = 17  SNES=-5
+  B buoc 499: A_H=+1.530e-07 A_psiS=+1.531e-07 A_psiU=+1.520e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 500  u = 5.000e-03  F = 666.3035  d_tip = 0.103  a = 0.0197  H/Hc =     0.10  stagg = 17
+  B buoc 500: A_H=+1.545e-07 A_psiS=+1.546e-07 A_psiU=+1.535e-07 a_tip=0.00 ell tip=(nan,nan)
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 194 RUNNING AT 06923fa46b7e
+=   EXIT CODE: 15
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Terminated (signal 15)
+This typically refers to a problem with your application.
+Please see the FAQ page for debugging suggestions
+=== EXIT=124 2026-11-26T11:00:27Z
