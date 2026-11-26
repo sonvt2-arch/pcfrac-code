@@ -801,3 +801,32 @@ model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-26T06:09:54Z
+=== CHANG 4 2026-11-26T06:12:19Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 9V74 80-Core Processor
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  KHIA: --notch geom  khe hinh hoc, 400 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [160554, 160022, 159537, 159887]/[854, 419, 512, 817]  thieu = 0  crc = 3e4ef347  cot qua y=0.5 khac nhan = 402/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 642001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace dg0
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  DMAXIT: tran vong bo giai hu hong = 200 (mac dinh 40)
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 528 (diem kiem buoc 527)
+  step 528  u = 5.280e-03  F = 697.9819  d_tip = 0.122  a = 0.0249  H/Hc =     0.12  stagg = 24
+  step 529  u = 5.290e-03  F = 699.0575  d_tip = 0.123  a = 0.0252  H/Hc =     0.12  stagg = 25
+  step 530  u = 5.300e-03  F = 700.1289  d_tip = 0.124  a = 0.0254  H/Hc =     0.12  stagg = 26
+  step 531  u = 5.310e-03  F = 701.1957  d_tip = 0.125  a = 0.0256  H/Hc =     0.13  stagg = 27
+  step 532  u = 5.320e-03  F = 702.2576  d_tip = 0.126  a = 0.0259  H/Hc =     0.13  stagg = 27  SNES=-5
+  step 533  u = 5.330e-03  F = 703.3142  d_tip = 0.127  a = 0.0262  H/Hc =     0.13  stagg = 28  SNES=-5
+  step 534  u = 5.340e-03  F = 704.3650  d_tip = 0.128  a = 0.0264  H/Hc =     0.13  stagg = 29
+  step 535  u = 5.350e-03  F = 705.4095  d_tip = 0.129  a = 0.0267  H/Hc =     0.13  stagg = 31
+  step 536  u = 5.360e-03  F = 706.4472  d_tip = 0.130  a = 0.0270  H/Hc =     0.13  stagg = 32  SNES=-5
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: === EXIT=124 2026-11-26T11:32:19Z
