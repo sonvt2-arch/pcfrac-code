@@ -1246,3 +1246,53 @@ model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
 [0]PETSC ERROR: to get more information on the crash.
 Abort(59) on node 0 (rank 0 in comm 0): application called MPI_Abort(MPI_COMM_WORLD, 59) - process 0
 === EXIT=124 2026-11-26T05:38:37Z
+=== CHANG 2 2026-11-26T05:40:29Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  AMD EPYC 7763 64-Core Processor
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  KHIA: --notch geom  khe hinh hoc, 400 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [160554, 160022, 159537, 159887]/[854, 419, 512, 817]  thieu = 0  crc = 3e4ef347  cot qua y=0.5 khac nhan = 402/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 642001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace quad   (H tai diem cau phuong, bac 2)
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  DMAXIT: tran vong bo giai hu hong = 200 (mac dinh 40)
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: thu tu bac tu do khac, anh xa lai theo toa do
+  RESUME: chay tiep tu buoc 493 (diem kiem buoc 492)
+  B NGUOI GHI (XUOI <- dung): nut tren n=1056 f_gan(T)=0.014; nut duoi n=1056 f_gan(B)=1.000; W=f_gan(B)-f_gan(T)=+0.986; nut tren mat n=33 ti le nguoi ghi o tren=1.000; ti le nguoi ghi phia x lon=0.765
+  B NGUOI GHI (NGUOC): nut tren n=1056 f_gan(T)=0.988; nut duoi n=1056 f_gan(B)=0.000; W=f_gan(B)-f_gan(T)=-0.988; nut tren mat n=33 ti le nguoi ghi o tren=0.030; ti le nguoi ghi phia x lon=0.239
+  step 493  u = 4.930e-03  F = 658.3121  d_tip = 0.098  a = 0.0185  H/Hc =     0.10  stagg = 15
+  B buoc 493: A_H=+1.394e-07 A_psiS=+1.394e-07 A_psiU=+1.394e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 494  u = 4.940e-03  F = 659.4635  d_tip = 0.099  a = 0.0186  H/Hc =     0.10  stagg = 16  SNES=-5
+  B buoc 494: A_H=+1.405e-07 A_psiS=+1.405e-07 A_psiU=+1.405e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 495  u = 4.950e-03  F = 660.6132  d_tip = 0.100  a = 0.0188  H/Hc =     0.10  stagg = 16  SNES=-5
+  B buoc 495: A_H=+1.416e-07 A_psiS=+1.416e-07 A_psiU=+1.416e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 496  u = 4.960e-03  F = 661.7611  d_tip = 0.100  a = 0.0190  H/Hc =     0.10  stagg = 16  SNES=-5
+  B buoc 496: A_H=+1.428e-07 A_psiS=+1.428e-07 A_psiU=+1.428e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 497  u = 4.970e-03  F = 662.9072  d_tip = 0.101  a = 0.0191  H/Hc =     0.10  stagg = 16
+  B buoc 497: A_H=+1.438e-07 A_psiS=+1.438e-07 A_psiU=+1.438e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 498  u = 4.980e-03  F = 664.0515  d_tip = 0.101  a = 0.0193  H/Hc =     0.10  stagg = 16  SNES=-5
+  B buoc 498: A_H=+1.450e-07 A_psiS=+1.450e-07 A_psiU=+1.450e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 499  u = 4.990e-03  F = 665.1938  d_tip = 0.102  a = 0.0195  H/Hc =     0.10  stagg = 17  SNES=-5
+  B buoc 499: A_H=+1.464e-07 A_psiS=+1.466e-07 A_psiU=+1.466e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 500  u = 5.000e-03  F = 666.3342  d_tip = 0.103  a = 0.0197  H/Hc =     0.10  stagg = 17
+  B buoc 500: A_H=+1.480e-07 A_psiS=+1.480e-07 A_psiU=+1.480e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 501  u = 5.010e-03  F = 667.4727  d_tip = 0.103  a = 0.0199  H/Hc =     0.10  stagg = 17
+  B buoc 501: A_H=+1.491e-07 A_psiS=+1.490e-07 A_psiU=+1.490e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 502  u = 5.020e-03  F = 668.6092  d_tip = 0.104  a = 0.0200  H/Hc =     0.10  stagg = 17  SNES=-5
+  B buoc 502: A_H=+1.502e-07 A_psiS=+1.503e-07 A_psiU=+1.503e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 503  u = 5.030e-03  F = 669.7436  d_tip = 0.105  a = 0.0202  H/Hc =     0.10  stagg = 18  SNES=-5
+  B buoc 503: A_H=+1.517e-07 A_psiS=+1.517e-07 A_psiU=+1.517e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 504  u = 5.040e-03  F = 670.8758  d_tip = 0.105  a = 0.0204  H/Hc =     0.11  stagg = 18  SNES=-5
+  B buoc 504: A_H=+1.531e-07 A_psiS=+1.531e-07 A_psiU=+1.531e-07 a_tip=0.00 ell tip=(nan,nan)
+[0]PETSC ERROR: ------------------------------------------------------------------------
+[0]PETSC ERROR: Caught signal number 15 Terminate: Some process (or the batch system) has told this process to end
+[0]PETSC ERROR: Try option -start_in_debugger or -on_error_attach_debugger
+[0]PETSC ERROR: or see https://petsc.org/release/faq/#valgrind and https://petsc.org/release/faq/
+[0]PETSC ERROR: configure using --with-debugging=yes, recompile, link, and run 
+[0]PETSC ERROR: === EXIT=124 2026-11-26T11:00:29Z
