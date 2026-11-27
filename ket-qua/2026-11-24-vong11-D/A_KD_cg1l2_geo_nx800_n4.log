@@ -1412,3 +1412,42 @@ model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
   step 532  u = 5.320e-03  F = 701.1620  d_tip = 0.131  a = 0.0270  H/Hc =     0.13  stagg = 43  SNES=-5
   B buoc 532: A_H=+2.533e-07 A_psiS=+2.536e-07 A_psiU=+2.573e-07 a_tip=0.00 ell tip=(nan,nan)
 === EXIT=124 2026-11-27T03:10:55Z
+=== CHANG 6 2026-11-27T03:13:28Z --resume (GitHub Actions)
+=== MAY: 4 nhan;  Intel(R) Xeon(R) 6975P-C
+[warn] nx = 800 (nguoi dung dat, vuot tran cu 400); so nut = 641601 -- theo doi RAM
+  w_c = 2Gc/ft = 1.54286 mm ; elastic limit = 1.667e-05 mm (92571x smaller)
+  ramp: 100 fine steps to 1.000e-03 (step 1.00e-05), then 700 steps to 8.000e-03 (step 1.00e-05)
+model=AT2  ell=0.01 mm  nx=800  h=0.0013 mm  h/ell=0.12
+  KHIA: --notch geom  khe hinh hoc, 400 nut nhan doi tren y = 0.5, x < 0.5 (ban sao y + 1e-08); khong dat d = 1
+  PHAN HOACH: --phanhoach mac-dinh --xao 0  nhan = 4  o so huu/ghost = [160554, 160022, 159537, 159887]/[854, 419, 512, 817]  thieu = 0  crc = 3e4ef347  cot qua y=0.5 khac nhan = 402/800
+  LUOI: --cell quad  (tu giac Q1)  so phan tu = 640000  so dinh = 642001
+  NHIEU LUOI: --jitter 0 --seed 0   (tat)
+  KHONG GIAN H: --hspace cg1l2   (chieu L2 psi+ len V_d, Gauss 2x2, H = max tung nut)
+  PHEP TACH NANG LUONG: --split amor
+  DIEU KIEN NGAM: --grip clamp  (u_x = 0 tren ca hai canh)
+  NOTCH DOFS (nhan 0, cuc bo) = 0   --notch geom
+  DMAXIT: tran vong bo giai hu hong = 200 (mac dinh 40)
+  damage threshold H_crit = 1.3500e+02 ; ft^2/(2E) = 2.9167e-05
+  RESUME: chay tiep tu buoc 533 (diem kiem buoc 532)
+  B NGUOI GHI (XUOI <- dung): nut tren n=1056 f_gan(T)=0.014; nut duoi n=1056 f_gan(B)=1.000; W=f_gan(B)-f_gan(T)=+0.986; nut tren mat n=33 ti le nguoi ghi o tren=1.000; ti le nguoi ghi phia x lon=0.765
+  B NGUOI GHI (NGUOC): nut tren n=1056 f_gan(T)=0.988; nut duoi n=1056 f_gan(B)=0.000; W=f_gan(B)-f_gan(T)=-0.988; nut tren mat n=33 ti le nguoi ghi o tren=0.030; ti le nguoi ghi phia x lon=0.239
+  step 533  u = 5.330e-03  F = 702.1440  d_tip = 0.133  a = 0.0273  H/Hc =     0.13  stagg = 46  SNES=-5
+  B buoc 533: A_H=+2.615e-07 A_psiS=+2.619e-07 A_psiU=+2.662e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 534  u = 5.340e-03  F = 703.1051  d_tip = 0.134  a = 0.0276  H/Hc =     0.13  stagg = 51
+  B buoc 534: A_H=+2.712e-07 A_psiS=+2.718e-07 A_psiU=+2.767e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 535  u = 5.350e-03  F = 704.0383  d_tip = 0.136  a = 0.0280  H/Hc =     0.14  stagg = 58
+  B buoc 535: A_H=+2.828e-07 A_psiS=+2.835e-07 A_psiU=+2.892e-07 a_tip=0.00 ell tip=(nan,nan)
+  step 536  u = 5.360e-03  F = 704.9313  d_tip = 0.138  a = 0.0284  H/Hc =     0.14  stagg = 68  SNES=-5
+  B buoc 536: A_H=+2.969e-07 A_psiS=+2.978e-07 A_psiU=+3.046e-07 a_tip=0.00 ell tip=(nan,nan)
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 194 RUNNING AT cf0fe8d73093
+=   EXIT CODE: 15
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+YOUR APPLICATION TERMINATED WITH THE EXIT STRING: Terminated (signal 15)
+This typically refers to a problem with your application.
+Please see the FAQ page for debugging suggestions
+=== EXIT=124 2026-11-27T08:33:28Z
