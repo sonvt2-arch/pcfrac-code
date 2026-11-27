@@ -551,3 +551,4 @@
 # buoc u F A_H A_psiS A_psiU intH_T intH_B a_tip/ell x_tip y_tip n_S
 537 5.370000e-03 705.758027 +3.156275e-07 +3.170993e-07 +3.254276e-07 6.017121e-02 6.017117e-02 0.0000 nan nan 0
 538 5.380000e-03 706.438117 +3.449137e-07 +3.473308e-07 +3.583193e-07 6.243675e-02 6.243671e-02 0.0000 nan nan 0
+# buoc u F A_H A_psiS A_psiU intH_T intH_B a_tip/ell x_tip y_tip n_S
